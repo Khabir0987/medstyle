@@ -62,6 +62,28 @@
         .item-selector { background:#f9fafb; border-radius:14px; padding:14px; margin-top:10px; }
         .item-selector .c-swatch { width:26px; height:26px; }
 
+
+        /* ── Compact item chip ── */
+        .item-chip {
+            display:flex; align-items:center; justify-content:space-between;
+            background:#f9fafb; border:1.5px solid #e5e7eb; border-radius:12px;
+            padding:10px 12px; cursor:pointer; transition:all 0.18s;
+        }
+        .item-chip:hover { border-color:#0d9488; background:#f0fdfa; }
+        .item-chip .chip-dot { width:18px; height:18px; border-radius:50%; border:2px solid rgba(0,0,0,0.12); flex-shrink:0; }
+        .item-chip .chip-info { flex:1; margin:0 10px; }
+        .item-chip .chip-info p { font-size:12px; font-weight:700; color:#374151; }
+        .item-chip .chip-info span { font-size:11px; color:#9ca3af; }
+        .chip-edit { font-size:11px; color:#0d9488; font-weight:700; white-space:nowrap; }
+
+        /* ── Accordion panel ── */
+        .chip-panel {
+            overflow:hidden; max-height:0; transition:max-height 0.35s ease, padding 0.2s;
+            background:#f9fafb; border-radius:0 0 12px 12px;
+            padding:0 12px;
+        }
+        .chip-panel.open { max-height:300px; padding:12px; }
+        .chip-panel .c-swatch { width:26px; height:26px; }
         @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
         .pulse { animation:pulseCta 2s infinite; }
     </style>
@@ -241,57 +263,8 @@
                 <p class="text-xs text-gray-400 line-through">450 د</p>
             </div>
         </div>
-
-        <!-- Item 1 -->
-        <div class="item-selector mt-3">
-            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
-                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">1</span>
-                القطعة الأولى
-            </p>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3" data-bundle="duo" data-item="1" data-type="color">
-                <button onclick="itemColor('duo',1,this,'scrub_mint')"  class="c-swatch active" style="background:#5FB3A1;" title="Vert d'eau"></button>
-                <button onclick="itemColor('duo',1,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;" title="Rose"></button>
-                <button onclick="itemColor('duo',1,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
-                <button onclick="itemColor('duo',1,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
-                <button onclick="itemColor('duo',1,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap" data-bundle="duo" data-item="1" data-type="size">
-                <button onclick="itemSize('duo',1,this)" data-size="XS"  class="size-btn">XS</button>
-                <button onclick="itemSize('duo',1,this)" data-size="S"   class="size-btn">S</button>
-                <button onclick="itemSize('duo',1,this)" data-size="M"   class="size-btn active">M</button>
-                <button onclick="itemSize('duo',1,this)" data-size="L"   class="size-btn">L</button>
-                <button onclick="itemSize('duo',1,this)" data-size="XL"  class="size-btn">XL</button>
-                <button onclick="itemSize('duo',1,this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="item-selector mt-2">
-            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
-                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">2</span>
-                القطعة الثانية
-            </p>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3" data-bundle="duo" data-item="2" data-type="color">
-                <button onclick="itemColor('duo',2,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;" title="Vert d'eau"></button>
-                <button onclick="itemColor('duo',2,this,'scrub_pink')"  class="c-swatch active" style="background:#E8879C;" title="Rose"></button>
-                <button onclick="itemColor('duo',2,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
-                <button onclick="itemColor('duo',2,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
-                <button onclick="itemColor('duo',2,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap" data-bundle="duo" data-item="2" data-type="size">
-                <button onclick="itemSize('duo',2,this)" data-size="XS"  class="size-btn">XS</button>
-                <button onclick="itemSize('duo',2,this)" data-size="S"   class="size-btn">S</button>
-                <button onclick="itemSize('duo',2,this)" data-size="M"   class="size-btn active">M</button>
-                <button onclick="itemSize('duo',2,this)" data-size="L"   class="size-btn">L</button>
-                <button onclick="itemSize('duo',2,this)" data-size="XL"  class="size-btn">XL</button>
-                <button onclick="itemSize('duo',2,this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-        </div>
-
+        <!-- Compact item chips -->
+        <div class="mt-3 space-y-2" id="duo-chips"></div>
         <button onclick="openModal('duo')" class="cta-btn mt-4 pulse" style="background:#0d9488;">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 349 Dh
         </button>
@@ -310,83 +283,8 @@
                 <p class="text-xs text-gray-400 line-through">699 د</p>
             </div>
         </div>
-
-        <!-- Items 1,2,3 for trio -->
-        <div id="trio-items">
-        <!-- Item 1 -->
-        <div class="item-selector mt-3">
-            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
-                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">1</span>
-                القطعة الأولى
-            </p>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3">
-                <button onclick="itemColor('trio',1,this,'scrub_mint')"  class="c-swatch active" style="background:#5FB3A1;"></button>
-                <button onclick="itemColor('trio',1,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;"></button>
-                <button onclick="itemColor('trio',1,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;"></button>
-                <button onclick="itemColor('trio',1,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
-                <button onclick="itemColor('trio',1,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap">
-                <button onclick="itemSize('trio',1,this)" data-size="XS"  class="size-btn">XS</button>
-                <button onclick="itemSize('trio',1,this)" data-size="S"   class="size-btn">S</button>
-                <button onclick="itemSize('trio',1,this)" data-size="M"   class="size-btn active">M</button>
-                <button onclick="itemSize('trio',1,this)" data-size="L"   class="size-btn">L</button>
-                <button onclick="itemSize('trio',1,this)" data-size="XL"  class="size-btn">XL</button>
-                <button onclick="itemSize('trio',1,this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-        </div>
-        <!-- Item 2 -->
-        <div class="item-selector mt-2">
-            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
-                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">2</span>
-                القطعة الثانية
-            </p>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3">
-                <button onclick="itemColor('trio',2,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;"></button>
-                <button onclick="itemColor('trio',2,this,'scrub_pink')"  class="c-swatch active" style="background:#E8879C;"></button>
-                <button onclick="itemColor('trio',2,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;"></button>
-                <button onclick="itemColor('trio',2,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
-                <button onclick="itemColor('trio',2,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap">
-                <button onclick="itemSize('trio',2,this)" data-size="XS"  class="size-btn">XS</button>
-                <button onclick="itemSize('trio',2,this)" data-size="S"   class="size-btn">S</button>
-                <button onclick="itemSize('trio',2,this)" data-size="M"   class="size-btn active">M</button>
-                <button onclick="itemSize('trio',2,this)" data-size="L"   class="size-btn">L</button>
-                <button onclick="itemSize('trio',2,this)" data-size="XL"  class="size-btn">XL</button>
-                <button onclick="itemSize('trio',2,this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-        </div>
-        <!-- Item 3 -->
-        <div class="item-selector mt-2">
-            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
-                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">3</span>
-                القطعة الثالثة
-            </p>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3">
-                <button onclick="itemColor('trio',3,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;"></button>
-                <button onclick="itemColor('trio',3,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;"></button>
-                <button onclick="itemColor('trio',3,this,'fleece_pink')" class="c-swatch active" style="background:#E8A0B4;"></button>
-                <button onclick="itemColor('trio',3,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
-                <button onclick="itemColor('trio',3,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap">
-                <button onclick="itemSize('trio',3,this)" data-size="XS"  class="size-btn">XS</button>
-                <button onclick="itemSize('trio',3,this)" data-size="S"   class="size-btn">S</button>
-                <button onclick="itemSize('trio',3,this)" data-size="M"   class="size-btn active">M</button>
-                <button onclick="itemSize('trio',3,this)" data-size="L"   class="size-btn">L</button>
-                <button onclick="itemSize('trio',3,this)" data-size="XL"  class="size-btn">XL</button>
-                <button onclick="itemSize('trio',3,this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-        </div>
-        </div>
-
+        <!-- Compact item chips -->
+        <div class="mt-3 space-y-2" id="trio-chips"></div>
         <button onclick="openModal('trio')" class="cta-btn mt-4" style="background:#7c3aed;">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 479 Dh
         </button>
@@ -625,6 +523,93 @@ function toggleBroderie(){
     document.getElementById('broderie-input-wrap').classList.toggle('hidden',!broderie);
 }
 
+
+// ── Compact chips renderer ─────────────────────────────────
+const colorMap = {
+    scrub_mint:  { hex:'#5FB3A1', label:"Vert d'eau" },
+    scrub_pink:  { hex:'#E8879C', label:'Rose' },
+    fleece_pink: { hex:'#E8A0B4', label:'Rose Clair' },
+    fleece_grey: { hex:'#9E9E9E', label:'Gris' },
+    scrub_black: { hex:'#2C2C2C', label:'Noir' },
+};
+const colorKeys  = Object.keys(colorMap);
+const sizeKeys   = ['XS','S','M','L','XL','XXL'];
+
+function renderChips(bundle) {
+    const count  = offers[bundle].count;
+    const cont   = document.getElementById(bundle+'-chips');
+    if(!cont) return;
+    cont.innerHTML = '';
+
+    for(let i=1;i<=count;i++){
+        const sel  = selections[bundle][i];
+        const col  = colorMap[sel.color];
+        const wrap = document.createElement('div');
+        wrap.id = `chip-wrap-${bundle}-${i}`;
+
+        // Chip row
+        wrap.innerHTML = `
+        <div class="item-chip" onclick="toggleChipPanel('${bundle}',${i})">
+            <span class="chip-dot" style="background:${col.hex};"></span>
+            <div class="chip-info">
+                <p>القطعة ${i}</p>
+                <span id="chip-label-${bundle}-${i}">${col.label} · ${sel.size}</span>
+            </div>
+            <span class="chip-edit">تعديل <i class="fa-solid fa-chevron-down text-xs" id="chip-icon-${bundle}-${i}"></i></span>
+        </div>
+        <div class="chip-panel" id="chip-panel-${bundle}-${i}">
+            <p class="text-xs font-bold text-gray-500 mb-1.5 mt-1">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3" id="chip-colors-${bundle}-${i}">
+                ${colorKeys.map(k=>`<button onclick="chipColor('${bundle}',${i},this,'${k}')" class="c-swatch${sel.color===k?' active':''}" style="background:${colorMap[k].hex};" title="${colorMap[k].label}"></button>`).join('')}
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap mb-2" id="chip-sizes-${bundle}-${i}">
+                ${sizeKeys.map(s=>`<button onclick="chipSize('${bundle}',${i},this,'${s}')" class="size-btn${sel.size===s?' active':''}">${s}</button>`).join('')}
+            </div>
+        </div>`;
+        cont.appendChild(wrap);
+    }
+}
+
+function toggleChipPanel(bundle, item) {
+    const panel = document.getElementById(`chip-panel-${bundle}-${item}`);
+    const icon  = document.getElementById(`chip-icon-${bundle}-${item}`);
+    const isOpen = panel.classList.contains('open');
+    // Close all panels for this bundle
+    for(let i=1;i<=offers[bundle].count;i++){
+        document.getElementById(`chip-panel-${bundle}-${i}`)?.classList.remove('open');
+        const ic = document.getElementById(`chip-icon-${bundle}-${i}`);
+        if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); }
+    }
+    if(!isOpen){
+        panel.classList.add('open');
+        icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up');
+    }
+}
+
+function chipColor(bundle, item, el, key) {
+    selections[bundle][item].color = key;
+    document.querySelectorAll(`#chip-colors-${bundle}-${item} .c-swatch`).forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    updateChipLabel(bundle, item);
+    // Update main gallery
+    showImg(colorKeys.indexOf(key));
+}
+
+function chipSize(bundle, item, btn, size) {
+    selections[bundle][item].size = size;
+    document.querySelectorAll(`#chip-sizes-${bundle}-${item} .size-btn`).forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    updateChipLabel(bundle, item);
+}
+
+function updateChipLabel(bundle, item) {
+    const sel = selections[bundle][item];
+    const el  = document.getElementById(`chip-label-${bundle}-${item}`);
+    const dot = document.querySelector(`#chip-wrap-${bundle}-${item} .chip-dot`);
+    if(el) el.innerText = `${colorMap[sel.color].label} · ${sel.size}`;
+    if(dot) dot.style.background = colorMap[sel.color].hex;
+}
 // ── Bundle item selectors ─────────────────────────────────
 function itemColor(bundle,item,el,key){
     selections[bundle][item].color=key;
@@ -749,7 +734,7 @@ function showToast(){
     t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
     setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
 }
-window.onload=function(){ setTimeout(showToast,3000); setInterval(showToast,18000); };
+window.onload=function(){ renderChips('duo'); renderChips('trio'); setTimeout(showToast,3000); setInterval(showToast,18000); };
 </script>
 </body>
 </html>
