@@ -84,6 +84,95 @@
         }
         .chip-panel.open { max-height:300px; padding:12px; }
         .chip-panel .c-swatch { width:26px; height:26px; }
+
+        /* ══ Bundle & Save Rows ══ */
+        .bundle-row {
+            background: white; border: 2px solid #e5e7eb;
+            border-radius: 16px; padding: 14px 14px 14px;
+            cursor: pointer; transition: all 0.2s; position: relative;
+            overflow: hidden;
+        }
+        .bundle-row.active { border-color: #0d9488; background: #fafffe; }
+        .bundle-row-featured { border-color: #0d9488; background: #fafffe; }
+
+        .bundle-badge-top {
+            position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            background: #ef4444; color: white; font-size: 10px; font-weight: 800;
+            padding: 3px 12px; border-radius: 0 0 10px 10px; white-space: nowrap;
+        }
+
+        .bundle-row-header {
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .bundle-radio {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 2px solid #d1d5db; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0; transition: all 0.2s;
+        }
+        .bundle-row.active .bundle-radio,
+        .bundle-row-featured .bundle-radio { border-color: #0d9488; }
+        .bundle-radio-dot {
+            width: 10px; height: 10px; border-radius: 50%; background: #0d9488;
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .bundle-row.active .bundle-radio-dot,
+        .bundle-row-featured .bundle-radio-dot { opacity: 1; }
+
+        .bundle-thumb {
+            width: 44px; height: 44px; border-radius: 8px;
+            object-fit: cover; flex-shrink: 0; border: 1px solid #f3f4f6;
+        }
+        .bundle-title-wrap { flex: 1; }
+        .bundle-title { font-size: 14px; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .bundle-subtitle { font-size: 11px; color: #6b7280; margin-top: 1px; }
+
+        .bundle-badge-green  { background:#dcfce7; color:#166534; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+        .bundle-badge-grey   { background:#f3f4f6; color:#6b7280;  font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+        .bundle-badge-yellow { background:#fef9c3; color:#854d0e; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+
+        .bundle-price-wrap { text-align: left; flex-shrink: 0; }
+        .bundle-price { font-size: 15px; font-weight: 800; color: #111827; }
+        .bundle-price-old { font-size: 11px; color: #9ca3af; text-decoration: line-through; }
+
+        /* Item rows inside bundle */
+        .bundle-items-wrap { margin-top: 12px; border-top: 1px solid #f3f4f6; padding-top: 12px; space-y: 8px; }
+        .bundle-item-row {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 8px;
+        }
+        .bundle-item-row:last-child { margin-bottom: 0; }
+        .bundle-item-num {
+            width: 20px; height: 20px; border-radius: 50%;
+            background: #0d9488; color: white; font-size: 11px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .bundle-item-thumb {
+            width: 36px; height: 36px; border-radius: 7px;
+            object-fit: cover; flex-shrink: 0; border: 1px solid #e5e7eb;
+            transition: opacity 0.2s;
+        }
+        .bundle-select {
+            flex: 1; padding: 6px 8px; border: 1.5px solid #e5e7eb;
+            border-radius: 8px; font-family: 'Cairo', sans-serif;
+            font-size: 12px; font-weight: 600; color: #374151;
+            background: white; outline: none; cursor: pointer;
+            -webkit-appearance: none; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239ca3af'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: left 8px center;
+        }
+        .bundle-select:focus { border-color: #0d9488; }
+
+        .bundle-cta {
+            width: 100%; margin-top: 12px; padding: 13px;
+            background: #111827; color: white; font-weight: 800;
+            font-size: 14px; border-radius: 12px; border: none;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            cursor: pointer; font-family: 'Cairo', sans-serif;
+            transition: opacity 0.2s;
+        }
+        .bundle-cta:active { opacity: 0.85; }
+
         @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
         .pulse { animation:pulseCta 2s infinite; }
     </style>
@@ -220,72 +309,155 @@
 </div>
 
 <!-- ══════════════════════════════════
-     OFFERS SECTION
+     OFFERS SECTION — bundle & save style
 ══════════════════════════════════ -->
-<div class="px-4 mt-3 space-y-4">
+<div class="px-4 mt-4 space-y-3">
 
-    <div>
-        <h2 class="text-base font-extrabold text-gray-900 mb-1 flex items-center gap-2">
-            <i class="fa-solid fa-tags text-rose-500"></i> العروض المتاحة
-        </h2>
-        <p class="text-xs text-gray-500">كلما اشتريت أكثر، وفرت أكثر!</p>
-    </div>
+    <h2 class="text-center text-sm font-extrabold text-gray-500 tracking-widest uppercase">Bundle and Save More!</h2>
 
     <!-- ───────────── SOLO ───────────── -->
-    <div class="offer-card p-5">
-        <div class="flex items-center justify-between">
-            <div>
-                <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-0.5 rounded-full">اقتصادي</span>
-                <h3 class="text-base font-extrabold text-gray-900 mt-1">قطعة واحدة (Solo)</h3>
-                <p class="text-xs text-gray-400">اختيار لون + مقاس واحد</p>
+    <div class="bundle-row" id="row-solo" onclick="selectBundle('solo')">
+        <div class="bundle-row-header">
+            <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">Buy 1 <span class="bundle-badge-grey">Prix normal</span></p>
             </div>
-            <div class="text-left">
-                <p class="text-xl font-extrabold text-gray-900">199 د</p>
-                <p class="text-xs text-gray-400 line-through">299 د</p>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">199 Dh</p>
+                <p class="bundle-price-old">299 Dh</p>
             </div>
         </div>
-        <!-- Solo uses the hero color/size — direct CTA -->
-        <button onclick="openModal('solo')" class="cta-btn mt-4 bg-gray-900 pulse">
+        <!-- Solo dropdowns (shown when selected) -->
+        <div class="bundle-items-wrap hidden" id="items-solo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-solo-1" alt="">
+                <select class="bundle-select" onchange="updateThumb('solo',1,this)">
+                    <option value="scrub_mint">Vert d'eau</option>
+                    <option value="scrub_pink">Rose</option>
+                    <option value="fleece_pink">Rose Clair</option>
+                    <option value="fleece_grey">Gris</option>
+                    <option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('solo')" class="bundle-cta hidden" id="cta-solo">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
         </button>
     </div>
 
     <!-- ───────────── DUO ───────────── -->
-    <div class="offer-card p-5 relative">
-        <span class="absolute -top-3 right-4 bg-rose-500 text-white text-xs font-bold px-3 py-0.5 rounded-full shadow">🔥 الأكثر طلباً</span>
-        <div class="flex items-center justify-between mt-1">
-            <div>
-                <h3 class="text-base font-extrabold text-gray-900">باك دبل (2 قطع)</h3>
-                <p class="text-xs text-rose-500 font-semibold">وفرت 101 درهم + توصيل مجاني</p>
+    <div class="bundle-row bundle-row-featured" id="row-duo" onclick="selectBundle('duo')">
+        <span class="bundle-badge-top">Most Popular 🔥</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
+            <div class="bundle-thumbs-stack">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
             </div>
-            <div class="text-left">
-                <p class="text-xl font-extrabold text-gray-900">349 د</p>
-                <p class="text-xs text-gray-400 line-through">450 د</p>
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">Buy 2 <span class="bundle-badge-green">وفر 22%</span></p>
+                <p class="bundle-subtitle">349 Dh بدل 450 Dh</p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">349 Dh</p>
+                <p class="bundle-price-old">450 Dh</p>
             </div>
         </div>
-        <!-- Compact item chips -->
-        <div class="mt-3 space-y-2" id="duo-chips"></div>
-        <button onclick="openModal('duo')" class="cta-btn mt-4 pulse" style="background:#0d9488;">
+        <div class="bundle-items-wrap hidden" id="items-duo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-duo-1" alt="">
+                <select class="bundle-select" onchange="updateThumb('duo',1,this)">
+                    <option value="scrub_mint">Vert d'eau</option>
+                    <option value="scrub_pink">Rose</option>
+                    <option value="fleece_pink">Rose Clair</option>
+                    <option value="fleece_grey">Gris</option>
+                    <option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select" id="size-duo-1">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-duo-2" alt="">
+                <select class="bundle-select" onchange="updateThumb('duo',2,this)">
+                    <option value="scrub_mint">Vert d'eau</option>
+                    <option value="scrub_pink" selected>Rose</option>
+                    <option value="fleece_pink">Rose Clair</option>
+                    <option value="fleece_grey">Gris</option>
+                    <option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select" id="size-duo-2">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta hidden" id="cta-duo" style="background:#0d9488;">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 349 Dh
         </button>
     </div>
 
     <!-- ───────────── TRIO ───────────── -->
-    <div class="offer-card p-5 relative">
-        <span class="absolute top-3 left-3 bg-amber-100 text-amber-700 text-xs font-bold px-2 py-0.5 rounded-full">أفضل قيمة</span>
-        <div class="flex items-center justify-between mt-4">
-            <div>
-                <h3 class="text-base font-extrabold text-gray-900">باك سوبر (3 قطع)</h3>
-                <p class="text-xs text-rose-500 font-semibold">وفرت 220 درهم + توصيل مجاني</p>
+    <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
+        <span class="bundle-badge-top" style="background:#f59e0b;">Best Value ⭐</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-trio"><div class="bundle-radio-dot"></div></div>
+            <div class="bundle-thumbs-stack">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
             </div>
-            <div class="text-left">
-                <p class="text-xl font-extrabold text-gray-900">479 د</p>
-                <p class="text-xs text-gray-400 line-through">699 د</p>
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">Buy 3 <span class="bundle-badge-yellow">وفر 31%</span></p>
+                <p class="bundle-subtitle">479 Dh بدل 699 Dh</p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">479 Dh</p>
+                <p class="bundle-price-old">699 Dh</p>
             </div>
         </div>
-        <!-- Compact item chips -->
-        <div class="mt-3 space-y-2" id="trio-chips"></div>
-        <button onclick="openModal('trio')" class="cta-btn mt-4" style="background:#7c3aed;">
+        <div class="bundle-items-wrap hidden" id="items-trio">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-trio-1" alt="">
+                <select class="bundle-select" onchange="updateThumb('trio',1,this)">
+                    <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink">Rose</option>
+                    <option value="fleece_pink">Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-trio-2" alt="">
+                <select class="bundle-select" onchange="updateThumb('trio',2,this)">
+                    <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink" selected>Rose</option>
+                    <option value="fleece_pink">Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">3</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" class="bundle-item-thumb" id="thumb-trio-3" alt="">
+                <select class="bundle-select" onchange="updateThumb('trio',3,this)">
+                    <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink">Rose</option>
+                    <option value="fleece_pink" selected>Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
+                </select>
+                <select class="bundle-select">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('trio')" class="bundle-cta hidden" id="cta-trio" style="background:#7c3aed;">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 479 Dh
         </button>
     </div>
@@ -524,92 +696,47 @@ function toggleBroderie(){
 }
 
 
-// ── Compact chips renderer ─────────────────────────────────
-const colorMap = {
-    scrub_mint:  { hex:'#5FB3A1', label:"Vert d'eau" },
-    scrub_pink:  { hex:'#E8879C', label:'Rose' },
-    fleece_pink: { hex:'#E8A0B4', label:'Rose Clair' },
-    fleece_grey: { hex:'#9E9E9E', label:'Gris' },
-    scrub_black: { hex:'#2C2C2C', label:'Noir' },
+// ── Bundle & Save row logic ──────────────────────────────
+const imgMap = {
+    scrub_mint:  'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg',
+    scrub_pink:  'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg',
+    fleece_pink: 'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg',
+    fleece_grey: 'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg',
+    scrub_black: 'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg',
 };
-const colorKeys  = Object.keys(colorMap);
-const sizeKeys   = ['XS','S','M','L','XL','XXL'];
+let activeBundleRow = null;
 
-function renderChips(bundle) {
-    const count  = offers[bundle].count;
-    const cont   = document.getElementById(bundle+'-chips');
-    if(!cont) return;
-    cont.innerHTML = '';
-
-    for(let i=1;i<=count;i++){
-        const sel  = selections[bundle][i];
-        const col  = colorMap[sel.color];
-        const wrap = document.createElement('div');
-        wrap.id = `chip-wrap-${bundle}-${i}`;
-
-        // Chip row
-        wrap.innerHTML = `
-        <div class="item-chip" onclick="toggleChipPanel('${bundle}',${i})">
-            <span class="chip-dot" style="background:${col.hex};"></span>
-            <div class="chip-info">
-                <p>القطعة ${i}</p>
-                <span id="chip-label-${bundle}-${i}">${col.label} · ${sel.size}</span>
-            </div>
-            <span class="chip-edit">تعديل <i class="fa-solid fa-chevron-down text-xs" id="chip-icon-${bundle}-${i}"></i></span>
-        </div>
-        <div class="chip-panel" id="chip-panel-${bundle}-${i}">
-            <p class="text-xs font-bold text-gray-500 mb-1.5 mt-1">Couleur:</p>
-            <div class="flex gap-2 flex-wrap mb-3" id="chip-colors-${bundle}-${i}">
-                ${colorKeys.map(k=>`<button onclick="chipColor('${bundle}',${i},this,'${k}')" class="c-swatch${sel.color===k?' active':''}" style="background:${colorMap[k].hex};" title="${colorMap[k].label}"></button>`).join('')}
-            </div>
-            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
-            <div class="flex gap-1.5 flex-wrap mb-2" id="chip-sizes-${bundle}-${i}">
-                ${sizeKeys.map(s=>`<button onclick="chipSize('${bundle}',${i},this,'${s}')" class="size-btn${sel.size===s?' active':''}">${s}</button>`).join('')}
-            </div>
-        </div>`;
-        cont.appendChild(wrap);
-    }
+function selectBundle(key) {
+    // Deselect all
+    ['solo','duo','trio'].forEach(k => {
+        const row = document.getElementById('row-'+k);
+        const items = document.getElementById('items-'+k);
+        const cta   = document.getElementById('cta-'+k);
+        if(k !== 'duo') row.classList.remove('active','bundle-row-featured');
+        items?.classList.add('hidden');
+        cta?.classList.add('hidden');
+    });
+    // Select clicked
+    const row   = document.getElementById('row-'+key);
+    const items = document.getElementById('items-'+key);
+    const cta   = document.getElementById('cta-'+key);
+    row.classList.add('active');
+    items?.classList.remove('hidden');
+    cta?.classList.remove('hidden');
+    activeBundleRow = key;
+    currentOffer_ = key;
 }
 
-function toggleChipPanel(bundle, item) {
-    const panel = document.getElementById(`chip-panel-${bundle}-${item}`);
-    const icon  = document.getElementById(`chip-icon-${bundle}-${item}`);
-    const isOpen = panel.classList.contains('open');
-    // Close all panels for this bundle
-    for(let i=1;i<=offers[bundle].count;i++){
-        document.getElementById(`chip-panel-${bundle}-${i}`)?.classList.remove('open');
-        const ic = document.getElementById(`chip-icon-${bundle}-${i}`);
-        if(ic) { ic.classList.remove('fa-chevron-up'); ic.classList.add('fa-chevron-down'); }
-    }
-    if(!isOpen){
-        panel.classList.add('open');
-        icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-up');
-    }
+function updateThumb(bundle, item, select) {
+    const key   = select.value;
+    const thumb = document.getElementById(`thumb-${bundle}-${item}`);
+    if(thumb) { thumb.style.opacity='0'; setTimeout(()=>{ thumb.src=imgMap[key]; thumb.style.opacity='1'; },180); }
+    // Also update main gallery
+    const idx = Object.keys(imgMap).indexOf(key);
+    showImg(idx >= 0 ? idx : 0);
 }
 
-function chipColor(bundle, item, el, key) {
-    selections[bundle][item].color = key;
-    document.querySelectorAll(`#chip-colors-${bundle}-${item} .c-swatch`).forEach(s=>s.classList.remove('active'));
-    el.classList.add('active');
-    updateChipLabel(bundle, item);
-    // Update main gallery
-    showImg(colorKeys.indexOf(key));
-}
-
-function chipSize(bundle, item, btn, size) {
-    selections[bundle][item].size = size;
-    document.querySelectorAll(`#chip-sizes-${bundle}-${item} .size-btn`).forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    updateChipLabel(bundle, item);
-}
-
-function updateChipLabel(bundle, item) {
-    const sel = selections[bundle][item];
-    const el  = document.getElementById(`chip-label-${bundle}-${item}`);
-    const dot = document.querySelector(`#chip-wrap-${bundle}-${item} .chip-dot`);
-    if(el) el.innerText = `${colorMap[sel.color].label} · ${sel.size}`;
-    if(dot) dot.style.background = colorMap[sel.color].hex;
-}
+function renderChips(){} // no-op, kept for compat
 // ── Bundle item selectors ─────────────────────────────────
 function itemColor(bundle,item,el,key){
     selections[bundle][item].color=key;
@@ -636,17 +763,20 @@ function openModal(offerKey){
     document.getElementById('modal-total').innerText=total+' Dh';
     document.getElementById('modal-broderie-row').classList.toggle('hidden',!broderie);
 
-    // Build items detail
+    // Build items detail from dropdowns
     const det=document.getElementById('modal-items-detail');
     det.innerHTML='';
-    if(offerKey==='solo'){
-        det.innerHTML=`<p>• اللون: ${products[heroColor_].name} — المقاس: ${heroSize_}</p>`;
+    const itemsWrap = document.getElementById('items-'+offerKey);
+    if(itemsWrap) {
+        const rows = itemsWrap.querySelectorAll('.bundle-item-row');
+        rows.forEach((row,idx) => {
+            const selects = row.querySelectorAll('.bundle-select');
+            const color = selects[0]?.options[selects[0].selectedIndex]?.text || '';
+            const size  = selects[1]?.options[selects[1].selectedIndex]?.text || '';
+            det.innerHTML += `<p>• ق${idx+1}: ${color} — ${size}</p>`;
+        });
     } else {
-        const count=offer.count;
-        for(let i=1;i<=count;i++){
-            const s=selections[offerKey][i];
-            det.innerHTML+=`<p>• ق${i}: ${products[s.color].name} — ${s.size}</p>`;
-        }
+        det.innerHTML=`<p>• اللون: ${products[heroColor_].name} — المقاس: ${heroSize_}</p>`;
     }
 
     // Reset form
@@ -680,15 +810,19 @@ async function handleSubmit(e){
     const total     = offer.price+broExtra;
     const orderId   = 'MED-'+Math.floor(10000+Math.random()*90000);
 
-    // Build items string
+    // Build items string from dropdowns
     let itemsArr=[];
-    if(currentOffer_==='solo'){
-        itemsArr.push(`اللون: ${products[heroColor_].name} | المقاس: ${heroSize_}`);
+    const itemsWrap2 = document.getElementById('items-'+currentOffer_);
+    if(itemsWrap2) {
+        const rows2 = itemsWrap2.querySelectorAll('.bundle-item-row');
+        rows2.forEach((row,idx) => {
+            const selects = row.querySelectorAll('.bundle-select');
+            const color = selects[0]?.options[selects[0].selectedIndex]?.text || '';
+            const size  = selects[1]?.options[selects[1].selectedIndex]?.text || '';
+            itemsArr.push(`ق${idx+1}: ${color} / ${size}`);
+        });
     } else {
-        for(let i=1;i<=offer.count;i++){
-            const s=selections[currentOffer_][i];
-            itemsArr.push(`ق${i}: ${products[s.color].name} / ${s.size}`);
-        }
+        itemsArr.push(`اللون: ${products[heroColor_].name} | المقاس: ${heroSize_}`);
     }
     if(broderie && broText) itemsArr.push(`Broderie: ${broText}`);
     const itemsStr=itemsArr.join(' | ');
@@ -734,7 +868,7 @@ function showToast(){
     t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
     setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
 }
-window.onload=function(){ renderChips('duo'); renderChips('trio'); setTimeout(showToast,3000); setInterval(showToast,18000); };
+window.onload=function(){ selectBundle('duo'); setTimeout(showToast,3000); setInterval(showToast,18000); };
 </script>
 </body>
 </html>
