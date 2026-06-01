@@ -33,10 +33,21 @@ function toggleFaq(idx) {
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', 'Inter', sans-serif; background: #f8f8f8; }
-        #main-gallery-view { transition: opacity 0.22s ease; }
-        #main-gallery-view.fading { opacity: 0; }
-        .dot { width:8px; height:8px; border-radius:50%; background:#ddd; transition:background 0.2s; cursor:pointer; }
-        .dot.active { background:#0d9488; }
+        /* gallery uses slider now */
+
+        /* ── Full-width gallery ── */
+        .gallery-container { touch-action: pan-y; user-select: none; }
+        .gallery-track { will-change: transform; }
+        .gallery-slide img { display: block; }
+        .dot { width:7px; height:7px; border-radius:50%; background:#d1d5db; transition:all 0.2s; cursor:pointer; }
+        .dot.active { background:#111827; width:20px; border-radius:4px; }
+
+        /* ── Zoom modal ── */
+        #zoom-modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); flex-direction:column; align-items:center; justify-content:center; }
+        #zoom-modal.open { display:flex; }
+        #zoom-modal img { max-width:100%; max-height:90vh; object-fit:contain; border-radius:8px; }
+        #zoom-close { position:absolute; top:16px; right:16px; w:36px; h:36px; background:rgba(255,255,255,0.15); border:none; color:white; font-size:20px; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+
         .c-swatch { width:30px; height:30px; border-radius:50%; border:3px solid transparent; outline:2px solid transparent; cursor:pointer; transition:all 0.18s; flex-shrink:0; }
         .c-swatch.active { border-color:white; outline-color:#0d9488; box-shadow:0 0 0 2px #0d9488; }
         .c-swatch:hover { transform:scale(1.12); }
@@ -232,14 +243,55 @@ function toggleFaq(idx) {
      PRODUCT HERO
 ══════════════════════════════════ -->
 <div class="bg-white">
-    <!-- Gallery -->
-    <div class="relative overflow-hidden bg-gray-100">
-        <img id="main-gallery-view"
-            src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
-            alt="Blouse Medicale" class="w-full object-cover" style="height:340px;object-position:top;">
+
+    <!-- Stars bar -->
+    <div class="flex items-center justify-center gap-2 py-2 bg-gray-50 border-b border-gray-100">
+        <div class="flex gap-0.5">
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            <i class="fa-solid fa-star-half-stroke text-amber-400 text-xs"></i>
+        </div>
+        <span class="text-xs font-extrabold text-gray-800">4.8/5</span>
+        <span class="text-gray-300 text-xs">|</span>
+        <span class="text-xs font-bold text-gray-500">+2,500 زبون راضي</span>
     </div>
+
+    <!-- Full-width swipeable gallery -->
+    <div class="relative overflow-hidden bg-white gallery-container" id="gallery-container">
+        <div class="gallery-track flex transition-transform duration-300 ease-in-out" id="gallery-track">
+            <div class="gallery-slide flex-shrink-0 w-full">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
+                    alt="Vert d'eau" class="w-full object-cover object-top" style="height:420px;">
+            </div>
+            <div class="gallery-slide flex-shrink-0 w-full">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg"
+                    alt="Rose" class="w-full object-cover object-top" style="height:420px;">
+            </div>
+            <div class="gallery-slide flex-shrink-0 w-full">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg"
+                    alt="Rose Clair" class="w-full object-cover object-top" style="height:420px;">
+            </div>
+            <div class="gallery-slide flex-shrink-0 w-full">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg"
+                    alt="Gris" class="w-full object-cover object-top" style="height:420px;">
+            </div>
+            <div class="gallery-slide flex-shrink-0 w-full">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg"
+                    alt="Noir" class="w-full object-cover object-top" style="height:420px;">
+            </div>
+        </div>
+
+        <!-- Zoom button -->
+        <button onclick="openZoom(currentImgIdx)"
+            class="absolute top-3 left-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow text-gray-600 text-xs z-10">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </button>
+    </div>
+
     <!-- Dots -->
-    <div class="flex justify-center gap-1.5 py-2.5" id="gallery-dots">
+    <div class="flex justify-center gap-2 py-3" id="gallery-dots">
         <div class="dot active" data-idx="0"></div>
         <div class="dot" data-idx="1"></div>
         <div class="dot" data-idx="2"></div>
@@ -753,6 +805,13 @@ function toggleFaq(idx) {
     </div>
 </div>
 
+
+<!-- Zoom Modal -->
+<div id="zoom-modal">
+    <button id="zoom-close" onclick="closeZoom()"><i class="fa-solid fa-xmark"></i></button>
+    <img id="zoom-img" src="" alt="zoom">
+</div>
+
 </main>
 
 <!-- Sticky bottom -->
@@ -904,21 +963,41 @@ const selections = {
     trio: { 1:{color:'scrub_mint',size:'M'}, 2:{color:'scrub_pink',size:'M'}, 3:{color:'fleece_pink',size:'M'} }
 };
 
-// ── Gallery ───────────────────────────────────────────────
+// ── Gallery (slider) ─────────────────────────────────────
 function showImg(idx) {
-    if(idx<0) idx=allImgs.length-1;
-    if(idx>=allImgs.length) idx=0;
-    currentImgIdx=idx;
-    const el=document.getElementById('main-gallery-view');
-    el.classList.add('fading');
-    setTimeout(()=>{el.src=allImgs[idx];el.classList.remove('fading');},200);
-    document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+    if(idx < 0) idx = allImgs.length - 1;
+    if(idx >= allImgs.length) idx = 0;
+    currentImgIdx = idx;
+    const track = document.getElementById('gallery-track');
+    if(track) track.style.transform = `translateX(-${idx * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===idx));
 }
-document.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>showImg(+d.dataset.idx)));
-let tx=0;
-const gv=document.getElementById('main-gallery-view');
-gv.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
-gv.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>40) showImg(currentImgIdx+(dx<0?1:-1));});
+// Dot clicks
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => showImg(+d.dataset.idx)));
+});
+// Touch swipe on gallery
+let tx = 0, ty = 0;
+const gc = document.getElementById('gallery-container');
+if(gc) {
+    gc.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
+    gc.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - tx;
+        const dy = e.changedTouches[0].clientY - ty;
+        if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) showImg(currentImgIdx + (dx < 0 ? 1 : -1));
+    });
+}
+
+// Zoom
+function openZoom(idx) {
+    document.getElementById('zoom-img').src = allImgs[idx];
+    document.getElementById('zoom-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeZoom() {
+    document.getElementById('zoom-modal').classList.remove('open');
+    document.body.style.overflow = '';
+}
 
 // ── Hero color/size ───────────────────────────────────────
 function heroColor(key,el){
