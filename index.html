@@ -313,66 +313,66 @@
 ══════════════════════════════════ -->
 <div class="px-4 mt-4 space-y-3">
 
-    <h2 class="text-center text-sm font-extrabold text-gray-500 tracking-widest uppercase">Bundle and Save More!</h2>
+    <div class="text-center">
+        <h2 class="text-xl font-extrabold text-gray-900">🎁 وفّر أكثر مع عروض التوفير</h2>
+        <p class="text-xs text-gray-500 mt-1">كلما زادت القطع، زاد التوفير — التوصيل مجاني دائماً</p>
+    </div>
 
     <!-- ───────────── SOLO ───────────── -->
     <div class="bundle-row" id="row-solo" onclick="selectBundle('solo')">
         <div class="bundle-row-header">
             <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
-            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-solo" alt="">
             <div class="bundle-title-wrap">
-                <p class="bundle-title">Buy 1 <span class="bundle-badge-grey">Prix normal</span></p>
+                <p class="bundle-title">قطعة واحدة <span class="bundle-badge-grey">السعر العادي</span></p>
             </div>
             <div class="bundle-price-wrap">
                 <p class="bundle-price">199 Dh</p>
                 <p class="bundle-price-old">299 Dh</p>
             </div>
         </div>
-        <!-- Solo dropdowns (shown when selected) -->
         <div class="bundle-items-wrap hidden" id="items-solo">
             <div class="bundle-item-row">
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-solo-1" alt="">
-                <select class="bundle-select" onchange="updateThumb('solo',1,this)">
+                <select class="bundle-select" id="color-solo-1" onchange="syncFromBundle('solo',1,this)">
                     <option value="scrub_mint">Vert d'eau</option>
                     <option value="scrub_pink">Rose</option>
                     <option value="fleece_pink">Rose Clair</option>
                     <option value="fleece_grey">Gris</option>
                     <option value="scrub_black">Noir</option>
                 </select>
-                <select class="bundle-select">
+                <select class="bundle-select" id="size-solo-1">
                     <option>XS</option><option>S</option><option selected>M</option>
                     <option>L</option><option>XL</option><option>XXL</option>
                 </select>
             </div>
         </div>
         <button onclick="event.stopPropagation();openModal('solo')" class="bundle-cta hidden" id="cta-solo">
-            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 199 Dh
         </button>
     </div>
 
     <!-- ───────────── DUO ───────────── -->
     <div class="bundle-row bundle-row-featured" id="row-duo" onclick="selectBundle('duo')">
-        <span class="bundle-badge-top">Most Popular 🔥</span>
+        <span class="bundle-badge-top">الأكثر طلباً 🔥</span>
         <div class="bundle-row-header mt-1">
             <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
-            <div class="bundle-thumbs-stack">
-                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
-            </div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-duo" alt="">
             <div class="bundle-title-wrap">
-                <p class="bundle-title">Buy 2 <span class="bundle-badge-green">وفر 22%</span></p>
-                <p class="bundle-subtitle">349 Dh بدل 450 Dh</p>
+                <p class="bundle-title">قطعتين معاً <span class="bundle-badge-green">وفر 22%</span></p>
+                <p class="bundle-subtitle">349 بدل 450 درهم</p>
             </div>
             <div class="bundle-price-wrap">
                 <p class="bundle-price">349 Dh</p>
                 <p class="bundle-price-old">450 Dh</p>
             </div>
         </div>
-        <div class="bundle-items-wrap hidden" id="items-duo">
+        <div class="bundle-items-wrap" id="items-duo">
             <div class="bundle-item-row">
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-duo-1" alt="">
-                <select class="bundle-select" onchange="updateThumb('duo',1,this)">
+                <select class="bundle-select" id="color-duo-1" onchange="syncFromBundle('duo',1,this)">
                     <option value="scrub_mint">Vert d'eau</option>
                     <option value="scrub_pink">Rose</option>
                     <option value="fleece_pink">Rose Clair</option>
@@ -387,7 +387,7 @@
             <div class="bundle-item-row">
                 <div class="bundle-item-num">2</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-duo-2" alt="">
-                <select class="bundle-select" onchange="updateThumb('duo',2,this)">
+                <select class="bundle-select" id="color-duo-2" onchange="syncFromBundle('duo',2,this)">
                     <option value="scrub_mint">Vert d'eau</option>
                     <option value="scrub_pink" selected>Rose</option>
                     <option value="fleece_pink">Rose Clair</option>
@@ -400,22 +400,20 @@
                 </select>
             </div>
         </div>
-        <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta hidden" id="cta-duo" style="background:#0d9488;">
+        <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta" id="cta-duo" style="background:#0d9488;">
             <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 349 Dh
         </button>
     </div>
 
     <!-- ───────────── TRIO ───────────── -->
     <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
-        <span class="bundle-badge-top" style="background:#f59e0b;">Best Value ⭐</span>
+        <span class="bundle-badge-top" style="background:#f59e0b;">أفضل قيمة ⭐</span>
         <div class="bundle-row-header mt-1">
             <div class="bundle-radio" id="radio-trio"><div class="bundle-radio-dot"></div></div>
-            <div class="bundle-thumbs-stack">
-                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" alt="">
-            </div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-trio" alt="">
             <div class="bundle-title-wrap">
-                <p class="bundle-title">Buy 3 <span class="bundle-badge-yellow">وفر 31%</span></p>
-                <p class="bundle-subtitle">479 Dh بدل 699 Dh</p>
+                <p class="bundle-title">ثلاث قطع <span class="bundle-badge-yellow">وفر 31%</span></p>
+                <p class="bundle-subtitle">479 بدل 699 درهم</p>
             </div>
             <div class="bundle-price-wrap">
                 <p class="bundle-price">479 Dh</p>
@@ -426,33 +424,33 @@
             <div class="bundle-item-row">
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-trio-1" alt="">
-                <select class="bundle-select" onchange="updateThumb('trio',1,this)">
+                <select class="bundle-select" id="color-trio-1" onchange="syncFromBundle('trio',1,this)">
                     <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink">Rose</option>
                     <option value="fleece_pink">Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
                 </select>
-                <select class="bundle-select">
+                <select class="bundle-select" id="size-trio-1">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
             </div>
             <div class="bundle-item-row">
                 <div class="bundle-item-num">2</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-trio-2" alt="">
-                <select class="bundle-select" onchange="updateThumb('trio',2,this)">
+                <select class="bundle-select" id="color-trio-2" onchange="syncFromBundle('trio',2,this)">
                     <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink" selected>Rose</option>
                     <option value="fleece_pink">Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
                 </select>
-                <select class="bundle-select">
+                <select class="bundle-select" id="size-trio-2">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
             </div>
             <div class="bundle-item-row">
                 <div class="bundle-item-num">3</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" class="bundle-item-thumb" id="thumb-trio-3" alt="">
-                <select class="bundle-select" onchange="updateThumb('trio',3,this)">
+                <select class="bundle-select" id="color-trio-3" onchange="syncFromBundle('trio',3,this)">
                     <option value="scrub_mint">Vert d'eau</option><option value="scrub_pink">Rose</option>
                     <option value="fleece_pink" selected>Rose Clair</option><option value="fleece_grey">Gris</option><option value="scrub_black">Noir</option>
                 </select>
-                <select class="bundle-select">
+                <select class="bundle-select" id="size-trio-3">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
             </div>
@@ -817,12 +815,14 @@ function heroColor(key,el){
     document.querySelectorAll('#hero-swatches .c-swatch').forEach(s=>s.classList.remove('active'));
     el.classList.add('active');
     showImg(Object.keys(products).indexOf(key));
+    heroColorChanged(key); // sync bundle item-1
 }
 function heroSize(btn){
     heroSize_=btn.dataset.size;
     document.getElementById('hero-size-name').innerText=heroSize_;
     document.querySelectorAll('#hero-sizes .size-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
+    heroSizeChanged(heroSize_); // sync bundle item-1
 }
 function toggleGuide(){ document.getElementById('size-guide').classList.toggle('hidden'); }
 
@@ -846,36 +846,84 @@ const imgMap = {
     fleece_grey: 'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg',
     scrub_black: 'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg',
 };
-let activeBundleRow = null;
+let activeBundleRow = 'duo';
+
+// Sync item-1 color+size in a bundle FROM the hero selectors (top of page)
+function syncItem1FromHero(bundle) {
+    const colorSel = document.getElementById('color-'+bundle+'-1');
+    const sizeSel  = document.getElementById('size-'+bundle+'-1');
+    if(colorSel) colorSel.value = heroColor_;
+    if(sizeSel) {
+        for(let o of sizeSel.options) o.selected = (o.text === heroSize_);
+    }
+    // update thumb too
+    const thumb = document.getElementById('thumb-'+bundle+'-1');
+    if(thumb) thumb.src = imgMap[heroColor_] || thumb.src;
+}
+
+// Called when user changes a bundle dropdown — update thumb + hero gallery
+function syncFromBundle(bundle, item, select) {
+    const key   = select.value;
+    const thumb = document.getElementById('thumb-'+bundle+'-'+item);
+    if(thumb) {
+        thumb.style.opacity='0';
+        setTimeout(()=>{ thumb.src=imgMap[key]; thumb.style.opacity='1'; },180);
+    }
+    // item-1 change also syncs hero color selector
+    if(item===1) {
+        heroColor_ = key;
+        document.getElementById('hero-color-name').innerText = products[key]?.name || key;
+        document.querySelectorAll('#hero-swatches .c-swatch').forEach((s,i)=>{
+            s.classList.toggle('active', Object.keys(imgMap)[i]===key);
+        });
+        showImg(Object.keys(imgMap).indexOf(key));
+    }
+}
 
 function selectBundle(key) {
-    // Deselect all
-    ['solo','duo','trio'].forEach(k => {
-        const row = document.getElementById('row-'+k);
+    const allKeys = ['solo','duo','trio'];
+
+    allKeys.forEach(k => {
+        const row   = document.getElementById('row-'+k);
         const items = document.getElementById('items-'+k);
         const cta   = document.getElementById('cta-'+k);
-        if(k !== 'duo') row.classList.remove('active','bundle-row-featured');
-        items?.classList.add('hidden');
-        cta?.classList.add('hidden');
+        // Reset styles — remove active, remove featured highlight for non-duo
+        row.classList.remove('active');
+        if(k !== 'duo') row.classList.remove('bundle-row-featured');
+        // Collapse items and hide CTA for all except the selected
+        if(k !== key) {
+            items?.classList.add('hidden');
+            cta?.classList.add('hidden');
+        }
     });
-    // Select clicked
+
+    // Activate selected row
     const row   = document.getElementById('row-'+key);
     const items = document.getElementById('items-'+key);
     const cta   = document.getElementById('cta-'+key);
     row.classList.add('active');
     items?.classList.remove('hidden');
     cta?.classList.remove('hidden');
+
     activeBundleRow = key;
-    currentOffer_ = key;
+    currentOffer_   = key;
+
+    // Always sync item-1 with hero color+size
+    syncItem1FromHero(key);
 }
 
-function updateThumb(bundle, item, select) {
-    const key   = select.value;
-    const thumb = document.getElementById(`thumb-${bundle}-${item}`);
+// Hero color/size changes → also update item-1 in the active bundle
+function heroColorChanged(key) {
+    heroColor_ = key;
+    const colorSel = document.getElementById('color-'+activeBundleRow+'-1');
+    if(colorSel) colorSel.value = key;
+    const thumb = document.getElementById('thumb-'+activeBundleRow+'-1');
     if(thumb) { thumb.style.opacity='0'; setTimeout(()=>{ thumb.src=imgMap[key]; thumb.style.opacity='1'; },180); }
-    // Also update main gallery
-    const idx = Object.keys(imgMap).indexOf(key);
-    showImg(idx >= 0 ? idx : 0);
+}
+function heroSizeChanged(size) {
+    heroSize_ = size;
+    const sizeSel = document.getElementById('size-'+activeBundleRow+'-1');
+    if(sizeSel) for(let o of sizeSel.options) o.selected = (o.text === size);
 }
 
 function renderChips(){} // no-op, kept for compat
@@ -1010,7 +1058,12 @@ function showToast(){
     t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
     setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
 }
-window.onload=function(){ selectBundle('duo'); setTimeout(showToast,3000); setInterval(showToast,18000); };
+window.onload=function(){
+    // duo is default — show its items+cta, others collapsed
+    selectBundle('duo');
+    setTimeout(showToast,3000);
+    setInterval(showToast,18000);
+};
 </script>
 </body>
 </html>
