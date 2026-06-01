@@ -245,66 +245,81 @@ function toggleFaq(idx) {
 <div class="bg-white">
 
     <!-- Stars bar -->
-    <div class="flex items-center justify-center gap-2 py-2 bg-gray-50 border-b border-gray-100">
-        <div class="flex gap-0.5">
-            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
-            <i class="fa-solid fa-star-half-stroke text-amber-400 text-xs"></i>
+    <div style="display:flex; align-items:center; justify-content:center; gap:8px; padding:8px 16px; background:#f9fafb; border-bottom:1px solid #f3f4f6;">
+        <div style="display:flex; gap:2px;">
+            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
+            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
+            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
+            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
+            <i class="fa-solid fa-star-half-stroke" style="color:#f59e0b; font-size:11px;"></i>
         </div>
-        <span class="text-xs font-extrabold text-gray-800">4.8/5</span>
-        <span class="text-gray-300 text-xs">|</span>
-        <span class="text-xs font-bold text-gray-500">+2,500 زبون راضي</span>
+        <span style="font-size:12px; font-weight:800; color:#111;">4.8/5</span>
+        <span style="color:#d1d5db; font-size:12px;">|</span>
+        <span style="font-size:12px; font-weight:700; color:#6b7280;">+2,500 زبون راضي</span>
     </div>
 
-    <!-- Full-width swipeable gallery -->
-    <div class="relative gallery-container" id="gallery-container"
-         style="background:#f8f8f8; overflow:hidden;">
-        <!-- Slider track -->
-        <div id="gallery-track"
-             style="display:flex; transition:transform 0.32s cubic-bezier(.4,0,.2,1); will-change:transform;">
-            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
+    <!-- Beez-style gallery: thumbnails left + big image right -->
+    <div style="display:flex; gap:0; background:#fff; position:relative;">
+
+        <!-- Thumbnails column (left) -->
+        <div style="display:flex; flex-direction:column; gap:6px; padding:10px 8px; width:72px; flex-shrink:0; overflow-y:auto; max-height:480px;">
+            <button onclick="gallerySelect(0,this)" class="gthumb active-thumb"
+                style="border:2px solid #111; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
-                     alt="Vert d'eau"
-                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
-            </div>
-            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
+                     style="width:100%; height:56px; object-fit:cover; display:block;">
+            </button>
+            <button onclick="gallerySelect(1,this)" class="gthumb"
+                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg"
-                     alt="Rose"
-                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
-            </div>
-            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
+                     style="width:100%; height:56px; object-fit:cover; display:block;">
+            </button>
+            <button onclick="gallerySelect(2,this)" class="gthumb"
+                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg"
-                     alt="Rose Clair"
-                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
-            </div>
-            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
+                     style="width:100%; height:56px; object-fit:cover; display:block;">
+            </button>
+            <button onclick="gallerySelect(3,this)" class="gthumb"
+                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg"
-                     alt="Gris"
-                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
-            </div>
-            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
+                     style="width:100%; height:56px; object-fit:cover; display:block;">
+            </button>
+            <button onclick="gallerySelect(4,this)" class="gthumb"
+                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg"
-                     alt="Noir"
-                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
-            </div>
+                     style="width:100%; height:56px; object-fit:cover; display:block;">
+            </button>
         </div>
 
-        <!-- Zoom button -->
-        <button onclick="openZoom(currentImgIdx)"
-            style="position:absolute; top:12px; left:12px; width:32px; height:32px; background:rgba(255,255,255,0.85); border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.12); cursor:pointer; font-size:13px; color:#555; z-index:10;">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-        </button>
-    </div>
-
-    <!-- Dots -->
-    <div class="flex justify-center gap-2 py-3" id="gallery-dots">
-        <div class="dot active" data-idx="0"></div>
-        <div class="dot" data-idx="1"></div>
-        <div class="dot" data-idx="2"></div>
-        <div class="dot" data-idx="3"></div>
-        <div class="dot" data-idx="4"></div>
+        <!-- Main image (right) — touch swipeable -->
+        <div style="flex:1; position:relative; overflow:hidden; background:#f8f8f8;" id="gallery-container">
+            <div id="gallery-track" style="display:flex; transition:transform 0.3s cubic-bezier(.4,0,.2,1); will-change:transform; height:100%;">
+                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
+                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
+                </div>
+                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg"
+                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
+                </div>
+                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg"
+                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
+                </div>
+                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg"
+                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
+                </div>
+                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg"
+                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
+                </div>
+            </div>
+            <!-- Zoom btn -->
+            <button onclick="openZoom(currentImgIdx)"
+                style="position:absolute; top:10px; left:10px; width:30px; height:30px; background:rgba(255,255,255,0.9); border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.10); cursor:pointer; font-size:12px; color:#555; z-index:5;">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Product info -->
@@ -971,34 +986,49 @@ const selections = {
     trio: { 1:{color:'scrub_mint',size:'M'}, 2:{color:'scrub_pink',size:'M'}, 3:{color:'fleece_pink',size:'M'} }
 };
 
-// ── Gallery (slider) ─────────────────────────────────────
+// ── Gallery (thumbnails + main image) ────────────────────
 function showImg(idx) {
     if(idx < 0) idx = allImgs.length - 1;
     if(idx >= allImgs.length) idx = 0;
     currentImgIdx = idx;
-    const track = document.getElementById('gallery-track');
+    const track     = document.getElementById('gallery-track');
     const container = document.getElementById('gallery-container');
     if(track && container) {
         const w = container.offsetWidth;
         track.style.transform = `translateX(-${idx * w}px)`;
     }
-    document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===idx));
-}
-// Dot clicks
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.dot').forEach(d => d.addEventListener('click', () => showImg(+d.dataset.idx)));
-});
-// Touch swipe on gallery
-let tx = 0, ty = 0;
-const gc = document.getElementById('gallery-container');
-if(gc) {
-    gc.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
-    gc.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - tx;
-        const dy = e.changedTouches[0].clientY - ty;
-        if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) showImg(currentImgIdx + (dx < 0 ? 1 : -1));
+    // Sync thumbnails
+    document.querySelectorAll('.gthumb').forEach((t,i) => {
+        t.style.border = i===idx ? '2px solid #111' : '2px solid transparent';
     });
 }
+
+function gallerySelect(idx, btn) {
+    showImg(idx);
+    // Also sync hero color swatch
+    const colorKeys2 = Object.keys(imgMap);
+    if(idx < colorKeys2.length) {
+        heroColor_ = colorKeys2[idx];
+        document.getElementById('hero-color-name').innerText = products[colorKeys2[idx]]?.name || '';
+        document.querySelectorAll('#hero-swatches .c-swatch').forEach((s,i) => s.classList.toggle('active', i===idx));
+        // sync bundle item-1
+        heroColorChanged(colorKeys2[idx]);
+    }
+}
+
+// Touch swipe on main image
+let tx = 0, ty = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const gc = document.getElementById('gallery-container');
+    if(gc) {
+        gc.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
+        gc.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - tx;
+            const dy = e.changedTouches[0].clientY - ty;
+            if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) showImg(currentImgIdx + (dx < 0 ? 1 : -1));
+        });
+    }
+});
 
 // Zoom
 function openZoom(idx) {
@@ -1017,7 +1047,8 @@ function heroColor(key,el){
     document.getElementById('hero-color-name').innerText=products[key].name;
     document.querySelectorAll('#hero-swatches .c-swatch').forEach(s=>s.classList.remove('active'));
     el.classList.add('active');
-    showImg(Object.keys(products).indexOf(key));
+    const idx = Object.keys(products).indexOf(key);
+    showImg(idx);
     heroColorChanged(key); // sync bundle item-1
 }
 function heroSize(btn){
@@ -1275,12 +1306,11 @@ function initGallery() {
     const track     = document.getElementById('gallery-track');
     if(!container || !track) return;
     const w = container.offsetWidth;
-    // Set each slide to exact container width
     Array.from(track.children).forEach(slide => {
         slide.style.width = w + 'px';
         slide.style.minWidth = w + 'px';
+        slide.style.flexShrink = '0';
     });
-    // Re-apply current position
     showImg(currentImgIdx);
 }
 window.addEventListener('resize', initGallery);
