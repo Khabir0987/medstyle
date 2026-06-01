@@ -11,696 +11,745 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', 'Inter', sans-serif; background: #f8f8f8; }
-
         #main-gallery-view { transition: opacity 0.22s ease; }
         #main-gallery-view.fading { opacity: 0; }
-
-        /* Dot indicators */
-        .dot { width:8px; height:8px; border-radius:50%; background:#ddd; transition:background 0.2s; }
+        .dot { width:8px; height:8px; border-radius:50%; background:#ddd; transition:background 0.2s; cursor:pointer; }
         .dot.active { background:#0d9488; }
+        .c-swatch { width:30px; height:30px; border-radius:50%; border:3px solid transparent; outline:2px solid transparent; cursor:pointer; transition:all 0.18s; flex-shrink:0; }
+        .c-swatch.active { border-color:white; outline-color:#0d9488; box-shadow:0 0 0 2px #0d9488; }
+        .c-swatch:hover { transform:scale(1.12); }
+        .size-btn { min-width:40px; padding:5px 8px; border:2px solid #e5e7eb; border-radius:8px; font-size:12px; font-weight:700; color:#374151; cursor:pointer; transition:all 0.15s; background:white; font-family:'Cairo',sans-serif; }
+        .size-btn.active { border-color:#0d9488; background:#f0fdfa; color:#0d9488; }
+        .offer-card { border:2px solid #e5e7eb; border-radius:18px; background:white; transition:all 0.2s; }
+        .offer-card.selected { border-color:#0d9488; }
 
-        /* Color swatch */
-        .c-swatch {
-            width: 32px; height: 32px; border-radius: 50%;
-            border: 3px solid transparent;
-            outline: 2px solid transparent;
-            cursor: pointer; transition: all 0.18s; flex-shrink:0;
+        /* Modal */
+        #order-modal { display:none; position:fixed; inset:0; z-index:100; }
+        #order-modal.open { display:flex; }
+        .modal-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(2px); }
+        .modal-box {
+            position:relative; z-index:1; background:white;
+            border-radius:24px 24px 0 0; width:100%; max-height:92vh;
+            overflow-y:auto; padding:20px 16px 100px;
+            margin-top:auto;
+            animation: slideUp 0.3s ease;
         }
-        .c-swatch.active { border-color: white; outline-color: #0d9488; box-shadow: 0 0 0 2px #0d9488; }
-        .c-swatch:hover { transform: scale(1.12); }
+        @keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
 
-        /* Size btn */
-        .size-btn {
-            min-width: 44px; padding: 6px 10px;
-            border: 2px solid #e5e7eb; border-radius: 8px;
-            font-size: 13px; font-weight: 700; color: #374151;
-            cursor: pointer; transition: all 0.15s; background: white;
-        }
-        .size-btn.active { border-color: #0d9488; background: #f0fdfa; color: #0d9488; }
-        .size-btn.out { color: #d1d5db; border-color: #f3f4f6; text-decoration: line-through; cursor: not-allowed; }
-
-        /* Broderie toggle */
-        .broderie-btn {
-            width: 100%; padding: 14px;
-            border: 2px dashed #d1d5db; border-radius: 14px;
-            display: flex; align-items: center; justify-content: space-between;
-            cursor: pointer; transition: all 0.2s; background: white;
-            font-family: 'Cairo', sans-serif;
-        }
-        .broderie-btn.active { border-color: #0d9488; background: #f0fdfa; }
-
-        /* Add to cart CTA */
-        .cta-btn {
-            width: 100%; padding: 16px;
-            background: #111827; color: white;
-            font-weight: 800; font-size: 15px;
-            border-radius: 14px; border: none;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            cursor: pointer; transition: background 0.2s;
-        }
-        .cta-btn:hover { background: #1f2937; }
-
-        .sticky-bottom {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: white; padding: 12px 16px;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.10);
-            z-index: 50; display: flex; gap: 10px;
-        }
-
-        /* Star rating */
-        .star { color: #f59e0b; }
-
-        /* Section card */
-        .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 12px; }
-
-        /* Offer cards */
-        .offer-card {
-            border: 2px solid #e5e7eb; border-radius: 16px;
-            padding: 16px; background: white; cursor: pointer;
-            transition: all 0.2s;
-        }
-        .offer-card.active { border-color: #0d9488; background: #f0fdfa; }
-
-        /* Form input */
         .form-input {
-            width: 100%; padding: 12px 40px 12px 12px;
-            border: 1.5px solid #e5e7eb; border-radius: 12px;
-            font-family: 'Cairo', sans-serif; font-size: 14px;
-            outline: none; text-align: right; background: white;
-            transition: border-color 0.2s;
+            width:100%; padding:12px 40px 12px 12px;
+            border:1.5px solid #e5e7eb; border-radius:12px;
+            font-family:'Cairo',sans-serif; font-size:14px;
+            outline:none; text-align:right; background:white;
+            transition:border-color 0.2s;
         }
-        .form-input:focus { border-color: #0d9488; }
+        .form-input:focus { border-color:#0d9488; }
+        select.form-input { -webkit-appearance:none; appearance:none; }
+        .input-icon { position:absolute; right:12px; top:50%; transform:translateY(-50%); color:#9ca3af; pointer-events:none; }
 
-        select.form-input { appearance: none; }
+        .cta-btn { width:100%; padding:15px; background:#111827; color:white; font-weight:800; font-size:15px; border-radius:14px; border:none; display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; font-family:'Cairo',sans-serif; }
+        .cta-btn:active { background:#374151; }
 
-        .input-icon {
-            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-            color: #9ca3af; pointer-events: none;
-        }
+        .broderie-btn { width:100%; padding:14px; border:2px dashed #d1d5db; border-radius:14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:all 0.2s; background:white; font-family:'Cairo',sans-serif; }
+        .broderie-btn.active { border-color:#0d9488; background:#f0fdfa; }
 
-        @keyframes pulseCta {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .88; }
-        }
-        .pulse { animation: pulseCta 2s infinite; }
+        .sticky-bottom { position:fixed; bottom:0; left:0; right:0; background:white; padding:12px 16px; box-shadow:0 -4px 20px rgba(0,0,0,0.10); z-index:50; display:flex; gap:10px; }
+        .modal-sticky { position:sticky; bottom:0; left:0; right:0; background:white; padding:12px 16px 16px; border-top:1px solid #f3f4f6; margin:0 -16px; }
+
+        .star { color:#f59e0b; }
+
+        /* Item selector inside bundle */
+        .item-selector { background:#f9fafb; border-radius:14px; padding:14px; margin-top:10px; }
+        .item-selector .c-swatch { width:26px; height:26px; }
+
+        @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
+        .pulse { animation:pulseCta 2s infinite; }
     </style>
 </head>
 <body class="pb-28">
 
-    <!-- Header -->
-    <header class="bg-white sticky top-0 z-40 shadow-sm">
-        <div class="flex items-center justify-between px-4 py-3">
-            <div class="flex items-center gap-2">
-                <div class="bg-teal-600 text-white p-1.5 rounded-lg"><i class="fa-solid fa-user-md text-base"></i></div>
-                <span class="text-base font-bold text-teal-800">MedStyle<span class="text-rose-500">.ma</span></span>
-            </div>
-            <div class="flex items-center gap-2">
-                <a href="https://wa.me/212645066834" target="_blank"
-                   class="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
-                    <i class="fa-brands fa-whatsapp"></i> واتساب
-                </a>
+<!-- Header -->
+<header class="bg-white sticky top-0 z-40 shadow-sm">
+    <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center gap-2">
+            <div class="bg-teal-600 text-white p-1.5 rounded-lg"><i class="fa-solid fa-user-md text-base"></i></div>
+            <span class="text-base font-bold text-teal-800">MedStyle<span class="text-rose-500">.ma</span></span>
+        </div>
+        <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
+            <i class="fa-brands fa-whatsapp"></i> واتساب
+        </a>
+    </div>
+    <div class="bg-teal-600 text-white text-center py-1.5 px-4 text-xs font-semibold flex justify-center items-center gap-2">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>التوصيل مجاني + الدفع عند الاستلام (COD)</span>
+    </div>
+</header>
+
+<main id="main-content">
+
+<!-- ══════════════════════════════════
+     PRODUCT HERO
+══════════════════════════════════ -->
+<div class="bg-white">
+    <!-- Gallery -->
+    <div class="relative overflow-hidden bg-gray-100">
+        <img id="main-gallery-view"
+            src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
+            alt="Blouse Medicale" class="w-full object-cover" style="height:340px;object-position:top;">
+    </div>
+    <!-- Dots -->
+    <div class="flex justify-center gap-1.5 py-2.5" id="gallery-dots">
+        <div class="dot active" data-idx="0"></div>
+        <div class="dot" data-idx="1"></div>
+        <div class="dot" data-idx="2"></div>
+        <div class="dot" data-idx="3"></div>
+        <div class="dot" data-idx="4"></div>
+    </div>
+
+    <!-- Product info -->
+    <div class="px-4 pb-5 space-y-4">
+        <!-- Rating -->
+        <div class="flex items-center gap-1">
+            <i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i>
+            <span class="text-xs font-bold text-amber-600 mr-1">Excellente note 4.8/5</span>
+        </div>
+        <!-- Title + Price -->
+        <div>
+            <h1 class="text-xl font-extrabold text-gray-900">Blouse Médicale Professionnelle</h1>
+            <p class="text-xs text-gray-400 mt-0.5">بلوزة طبية مهنية للرجال والنساء</p>
+            <div class="flex items-baseline gap-2 mt-2">
+                <span id="hero-price" class="text-2xl font-extrabold text-gray-900">199 Dh</span>
+                <span class="text-sm text-gray-400 line-through">299 Dh</span>
+                <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
             </div>
         </div>
-        <!-- Promo ribbon -->
-        <div class="bg-teal-600 text-white text-center py-1.5 px-4 text-xs font-semibold flex justify-center items-center gap-2">
-            <i class="fa-solid fa-truck-fast"></i>
-            <span>التوصيل مجاني + الدفع عند الاستلام (COD)</span>
+
+        <!-- Hero color swatches (gallery preview only) -->
+        <div>
+            <p class="text-sm font-bold text-gray-700 mb-2">Couleur: <span id="hero-color-name" class="text-teal-700">Vert d'eau</span></p>
+            <div class="flex gap-2 flex-wrap" id="hero-swatches">
+                <button onclick="heroColor('scrub_mint',this)"  class="c-swatch active" style="background:#5FB3A1;" title="Vert d'eau"></button>
+                <button onclick="heroColor('scrub_pink',this)"  class="c-swatch" style="background:#E8879C;" title="Rose"></button>
+                <button onclick="heroColor('fleece_pink',this)" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
+                <button onclick="heroColor('fleece_grey',this)" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
+                <button onclick="heroColor('scrub_black',this)" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
+            </div>
         </div>
-    </header>
 
-    <main id="main-content">
-
-        <!-- ═══════════════════════════════════════
-             PRODUCT SECTION — like the reference image
-        ═══════════════════════════════════════ -->
-        <div class="bg-white">
-
-            <!-- Image Gallery -->
-            <div class="relative overflow-hidden" style="background:#f3f4f6;">
-                <img id="main-gallery-view"
-                    src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
-                    alt="Blouse Medicale"
-                    class="w-full object-cover" style="height:340px; object-position:top;">
-            </div>
-
-            <!-- Dots -->
-            <div class="flex justify-center gap-1.5 py-2.5" id="gallery-dots">
-                <div class="dot active" data-idx="0"></div>
-                <div class="dot" data-idx="1"></div>
-                <div class="dot" data-idx="2"></div>
-                <div class="dot" data-idx="3"></div>
-                <div class="dot" data-idx="4"></div>
-            </div>
-
-            <!-- Product info -->
-            <div class="px-4 pb-4 space-y-4">
-
-                <!-- Rating -->
-                <div class="flex items-center gap-1.5">
-                    <i class="fa-solid fa-star star text-sm"></i>
-                    <i class="fa-solid fa-star star text-sm"></i>
-                    <i class="fa-solid fa-star star text-sm"></i>
-                    <i class="fa-solid fa-star star text-sm"></i>
-                    <i class="fa-solid fa-star star text-sm"></i>
-                    <span class="text-xs font-bold text-amber-600 ml-1">Excellente note 4.8/5</span>
-                </div>
-
-                <!-- Title + Price -->
-                <div>
-                    <h1 class="text-xl font-extrabold text-gray-900 leading-snug">Blouse Médicale Professionnelle</h1>
-                    <p class="text-xs text-gray-400 mt-0.5">بلوزة طبية مهنية للرجال والنساء</p>
-                    <div class="flex items-baseline gap-2 mt-2">
-                        <span id="current-price" class="text-2xl font-extrabold text-gray-900">199 Dh</span>
-                        <span class="text-sm text-gray-400 line-through">299 Dh</span>
-                        <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
-                    </div>
-                </div>
-
-                <!-- Color selector -->
-                <div>
-                    <p class="text-sm font-bold text-gray-700 mb-2">
-                        Couleur: <span id="color-name" class="text-teal-700">Vert d'eau</span>
-                    </p>
-                    <div class="flex gap-2 flex-wrap" id="color-swatches">
-                        <button onclick="selectColor('scrub_mint', this)" class="c-swatch active" style="background:#5FB3A1;" title="Vert d'eau"></button>
-                        <button onclick="selectColor('scrub_pink', this)" class="c-swatch" style="background:#E8879C;" title="Rose"></button>
-                        <button onclick="selectColor('fleece_pink', this)" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
-                        <button onclick="selectColor('fleece_grey', this)" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
-                        <button onclick="selectColor('scrub_black', this)" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
-                    </div>
-                </div>
-
-                <!-- Size selector -->
-                <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <p class="text-sm font-bold text-gray-700">
-                            Taille: <span id="size-name" class="text-teal-700">M</span>
-                        </p>
-                        <button onclick="toggleGuide()" class="text-xs text-gray-400 flex items-center gap-1 underline">
-                            <i class="fa-solid fa-ruler-horizontal text-xs"></i> Guide des tailles
-                        </button>
-                    </div>
-                    <div class="flex gap-2 flex-wrap" id="size-buttons">
-                        <button onclick="selectSize(this)" data-size="XS" class="size-btn">XS</button>
-                        <button onclick="selectSize(this)" data-size="S" class="size-btn">S</button>
-                        <button onclick="selectSize(this)" data-size="M" class="size-btn active">M</button>
-                        <button onclick="selectSize(this)" data-size="L" class="size-btn">L</button>
-                        <button onclick="selectSize(this)" data-size="XL" class="size-btn">XL</button>
-                        <button onclick="selectSize(this)" data-size="XXL" class="size-btn">XXL</button>
-                    </div>
-
-                    <!-- Size guide (hidden by default) -->
-                    <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600">
-                        <table class="w-full text-center">
-                            <thead><tr class="font-bold text-gray-800 border-b border-gray-200">
-                                <td class="py-1">مقاس</td><td>صدر</td><td>خصر</td><td>ارتفاع</td>
-                            </tr></thead>
-                            <tbody>
-                                <tr class="border-b border-gray-100"><td class="py-1 font-bold">XS</td><td>80-84</td><td>62-66</td><td>155-160</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1 font-bold">S</td><td>84-88</td><td>66-70</td><td>160-165</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1 font-bold">M</td><td>88-92</td><td>70-74</td><td>165-170</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1 font-bold">L</td><td>92-96</td><td>74-78</td><td>168-173</td></tr>
-                                <tr class="border-b border-gray-100"><td class="py-1 font-bold">XL</td><td>96-100</td><td>78-82</td><td>170-175</td></tr>
-                                <tr><td class="py-1 font-bold">XXL</td><td>100-106</td><td>82-88</td><td>172-177</td></tr>
-                            </tbody>
-                        </table>
-                        <p class="text-center text-gray-400 mt-2">الأرقام بالسنتيمتر</p>
-                    </div>
-                </div>
-
-                <!-- Broderie add-on -->
-                <button id="broderie-btn" onclick="toggleBroderie()" class="broderie-btn">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm flex-shrink-0">
-                            <i class="fa-solid fa-paintbrush"></i>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-sm font-bold text-gray-800">Ajouter une broderie</p>
-                            <p class="text-xs text-gray-400">إضافة تطريز باسمك أو شعارك</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-sm font-extrabold text-purple-600">+ 40 Dh</span>
-                        <div id="broderie-check" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all">
-                            <i class="fa-solid fa-check text-xs text-white hidden"></i>
-                        </div>
-                    </div>
+        <!-- Hero size (solo only) -->
+        <div>
+            <div class="flex items-center justify-between mb-2">
+                <p class="text-sm font-bold text-gray-700">Taille: <span id="hero-size-name" class="text-teal-700">M</span></p>
+                <button onclick="toggleGuide()" class="text-xs text-gray-400 underline flex items-center gap-1">
+                    <i class="fa-solid fa-ruler-horizontal text-xs"></i> Guide des tailles
                 </button>
-
-                <!-- Broderie text input (hidden by default) -->
-                <div id="broderie-input-wrap" class="hidden">
-                    <div class="relative">
-                        <span class="input-icon"><i class="fa-solid fa-pencil text-sm"></i></span>
-                        <input type="text" id="broderie-text" placeholder="مثال: Dr. Ahmed — الاسم أو الشعار"
-                            class="form-input">
-                    </div>
-                </div>
-
+            </div>
+            <div class="flex gap-2 flex-wrap" id="hero-sizes">
+                <button onclick="heroSize(this)" data-size="XS" class="size-btn">XS</button>
+                <button onclick="heroSize(this)" data-size="S"  class="size-btn">S</button>
+                <button onclick="heroSize(this)" data-size="M"  class="size-btn active">M</button>
+                <button onclick="heroSize(this)" data-size="L"  class="size-btn">L</button>
+                <button onclick="heroSize(this)" data-size="XL" class="size-btn">XL</button>
+                <button onclick="heroSize(this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+            <!-- Size guide table -->
+            <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600">
+                <table class="w-full text-center">
+                    <thead><tr class="font-bold text-gray-800 border-b border-gray-200">
+                        <td class="py-1">مقاس</td><td>صدر (cm)</td><td>خصر (cm)</td>
+                    </tr></thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">XS</td><td>80-84</td><td>62-66</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">S</td><td>84-88</td><td>66-70</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">M</td><td>88-92</td><td>70-74</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">L</td><td>92-96</td><td>74-78</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">XL</td><td>96-100</td><td>78-82</td></tr>
+                        <tr><td class="py-1 font-bold">XXL</td><td>100-106</td><td>82-88</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════
-             OFFERS SECTION
-        ═══════════════════════════════════════ -->
-        <div class="px-4 mt-3">
-            <div class="card">
-                <h2 class="text-base font-extrabold text-gray-900 mb-1 flex items-center gap-2">
-                    <i class="fa-solid fa-tags text-rose-500"></i> العروض المتاحة
-                </h2>
-                <p class="text-xs text-gray-400 mb-4">كلما اشتريت أكثر، وفرت أكثر!</p>
-
-                <div class="space-y-3" id="offer-cards">
-                    <div class="offer-card" onclick="selectOffer('solo', this)">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 offer-radio flex items-center justify-center">
-                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden offer-dot"></div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-900">قطعة واحدة (Solo)</p>
-                                    <p class="text-xs text-gray-400">بلوزة أو سترة من اختيارك</p>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-lg font-extrabold text-gray-900">199 د</p>
-                                <p class="text-xs text-gray-400 line-through">299 د</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="offer-card active" onclick="selectOffer('duo', this)">
-                        <div class="absolute -top-2 right-4">
-                            <span class="bg-rose-500 text-white text-xs font-bold px-3 py-0.5 rounded-full">🔥 الأكثر طلباً</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border-2 border-teal-500 offer-radio flex items-center justify-center">
-                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full offer-dot"></div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-900">باك دبل (2 قطع)</p>
-                                    <p class="text-xs text-rose-500 font-semibold">وفرت 101 درهم + توصيل مجاني</p>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-lg font-extrabold text-gray-900">349 د</p>
-                                <p class="text-xs text-gray-400 line-through">450 د</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="offer-card" onclick="selectOffer('trio', this)">
-                        <span class="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-2 py-0.5 rounded-full mb-2">أفضل قيمة</span>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 offer-radio flex items-center justify-center">
-                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden offer-dot"></div>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-900">باك سوبر (3 قطع)</p>
-                                    <p class="text-xs text-rose-500 font-semibold">وفرت 220 درهم + توصيل مجاني</p>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <p class="text-lg font-extrabold text-gray-900">479 د</p>
-                                <p class="text-xs text-gray-400 line-through">699 د</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Broderie -->
+        <button id="broderie-btn" onclick="toggleBroderie()" class="broderie-btn">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm flex-shrink-0">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-bold text-gray-800">Ajouter une broderie</p>
+                    <p class="text-xs text-gray-400">تطريز باسمك أو شعارك</p>
                 </div>
             </div>
-        </div>
-
-        <!-- ═══════════════════════════════════════
-             ORDER FORM
-        ═══════════════════════════════════════ -->
-        <div class="px-4 mt-1" id="order-section">
-            <div class="card">
-                <h2 class="text-base font-extrabold text-gray-900 mb-1 flex items-center gap-2">
-                    <i class="fa-solid fa-box text-teal-600"></i> معلومات التوصيل
-                </h2>
-                <p class="text-xs text-gray-400 mb-4">سنتصل بكم لتأكيد الطلب قبل الإرسال</p>
-
-                <form id="order-form" onsubmit="handleFormSubmit(event)" class="space-y-3">
-                    <input type="hidden" id="selected-offer" value="duo">
-                    <input type="hidden" id="selected-color-key" value="scrub_mint">
-                    <input type="hidden" id="selected-size-val" value="M">
-
-                    <!-- Name -->
-                    <div class="relative">
-                        <span class="input-icon"><i class="fa-solid fa-user text-sm"></i></span>
-                        <input type="text" id="fullname" required placeholder="الاسم الكامل *" class="form-input">
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="relative">
-                        <span class="input-icon"><i class="fa-solid fa-phone text-sm"></i></span>
-                        <input type="tel" id="phone" required placeholder="رقم الهاتف *" class="form-input" dir="ltr" style="text-align:left; padding-right:12px; padding-left:40px;">
-                        <span style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#9ca3af;"><i class="fa-solid fa-phone text-sm"></i></span>
-                    </div>
-
-                    <!-- City -->
-                    <div class="relative">
-                        <span class="input-icon"><i class="fa-solid fa-location-dot text-sm"></i></span>
-                        <select id="city" required class="form-input">
-                            <option value="">المدينة *</option>
-                            <option>الدار البيضاء</option><option>الرباط</option>
-                            <option>مراكش</option><option>فاس</option>
-                            <option>طنجة</option><option>أكادير</option>
-                            <option>القنيطرة</option><option>وجدة</option>
-                            <option>مكناس</option><option>تطوان</option>
-                            <option>آسفي</option><option>تمارة</option>
-                            <option>الجديدة</option><option>الناظور</option>
-                            <option>سلا</option><option>مدينة أخرى</option>
-                        </select>
-                    </div>
-
-                    <!-- Address -->
-                    <div class="relative">
-                        <span style="position:absolute; right:12px; top:14px; color:#9ca3af; pointer-events:none;"><i class="fa-solid fa-house text-sm"></i></span>
-                        <textarea id="address" required rows="2" placeholder="عنوان التوصيل بالتفصيل *"
-                            class="form-input" style="padding-top:12px; padding-bottom:12px; resize:none;"></textarea>
-                    </div>
-
-                    <!-- Order Summary -->
-                    <div class="bg-teal-50 border border-teal-100 rounded-xl p-3 space-y-1.5">
-                        <p class="text-xs font-bold text-teal-800">ملخص الطلب:</p>
-                        <div class="flex justify-between text-sm">
-                            <span id="summary-offer" class="text-gray-600">باك دبل (2 قطع)</span>
-                            <span id="summary-price" class="font-extrabold text-gray-900">349 Dh</span>
-                        </div>
-                        <div id="summary-broderie" class="hidden flex justify-between text-xs text-purple-600">
-                            <span>تطريز (Broderie)</span><span class="font-bold">+ 40 Dh</span>
-                        </div>
-                        <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
-                            <span>التوصيل</span><span class="text-green-600 font-bold">مجاني 🎁</span>
-                        </div>
-                        <div class="flex justify-between text-sm font-extrabold text-gray-900 border-t border-teal-200 pt-1.5">
-                            <span>المجموع:</span>
-                            <span id="summary-total">349 Dh</span>
-                        </div>
-                    </div>
-
-                    <!-- Submit -->
-                    <button type="submit" id="submit-btn" class="cta-btn pulse">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span>Ajouter ma commande</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Reviews -->
-        <div class="px-4 mt-1 mb-4">
-            <div class="card">
-                <h2 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-comments text-amber-400"></i> آراء الزبناء
-                </h2>
-                <div class="space-y-4">
-                    <div class="border-b border-gray-100 pb-4">
-                        <div class="flex justify-between items-center mb-1">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">ك</div>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900">كوثر أ. — ممرضة</p>
-                                    <p class="text-xs text-gray-400">الرباط</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
-                        </div>
-                        <p class="text-xs text-gray-600 leading-relaxed">"خديت الباك دبل، تبارك الله غزالين بزاف! الثوب رطب ومكيعرقش. توصيل فالوقت."</p>
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">أ</div>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-900">د. أمين ش. — طبيب</p>
-                                    <p class="text-xs text-gray-400">الدار البيضاء</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
-                        </div>
-                        <p class="text-xs text-gray-600 leading-relaxed">"السترة الرمادية خفيفة ودافية. المقاس جا هو هداك تماما. خدمة ممتازة!"</p>
-                    </div>
+            <div class="flex items-center gap-2">
+                <span class="text-sm font-extrabold text-purple-600">+ 40 Dh</span>
+                <div id="broderie-check" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-check text-xs text-white hidden"></i>
                 </div>
             </div>
-        </div>
-
-        <!-- Live toast -->
-        <div id="toast"
-            class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-50">
-            <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0">
-                <i class="fa-solid fa-shopping-bag"></i>
+        </button>
+        <div id="broderie-input-wrap" class="hidden">
+            <div class="relative">
+                <span class="input-icon"><i class="fa-solid fa-pencil text-sm"></i></span>
+                <input type="text" id="broderie-text" placeholder="الاسم أو الشعار..." class="form-input">
             </div>
-            <div>
-                <p class="text-xs text-gray-400" id="toast-time">منذ 3 دقائق</p>
-                <p class="text-xs font-bold text-gray-900" id="toast-text">عميل من الرباط اشترى باك دبل</p>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Sticky bottom bar -->
-    <div class="sticky-bottom">
-        <a href="#order-section" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-center text-sm flex items-center justify-center gap-2 pulse">
-            <i class="fa-solid fa-bag-shopping"></i> Ajouter ma commande
-        </a>
-        <a href="https://wa.me/212645066834" target="_blank"
-           class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center gap-1 text-sm">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-        </a>
-    </div>
-
-    <!-- Success Screen -->
-    <div id="success-screen" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center px-4">
-        <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full text-center space-y-5 border border-teal-100">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
-                <i class="fa-solid fa-check-double"></i>
-            </div>
-            <div>
-                <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
-                <p class="text-gray-500 text-sm mt-1">شكراً لثقتكم في MedStyle.ma</p>
-                <p class="text-xs text-rose-500 font-semibold mt-1 pulse">سنتصل بكم خلال ساعتين لتأكيد الطلب.</p>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-xl text-right text-sm space-y-1.5 border border-gray-100">
-                <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="order-id"></span></p>
-                <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="success-name"></span></p>
-                <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="success-bundle"></span></p>
-                <p class="text-gray-500">اللون: <span class="font-bold text-gray-800" id="success-color"></span></p>
-                <p class="text-gray-500">المقاس: <span class="font-bold text-gray-800" id="success-size"></span></p>
-                <p class="text-gray-500">المجموع: <span class="font-bold text-teal-700" id="success-price"></span></p>
-                <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني 🎁</span></p>
-            </div>
-            <a id="whatsapp-link" target="_blank" href="#"
-                class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
-                <i class="fa-brands fa-whatsapp text-xl"></i> تأكيد عبر WhatsApp
-            </a>
         </div>
     </div>
+</div>
 
-    <footer class="bg-teal-900 text-teal-300 py-5 text-center">
-        <p class="text-sm font-semibold">MedStyle.ma © 2026</p>
-        <p class="text-xs text-teal-500 mt-1">ملابس مهنية طبية — الدفع عند الاستلام</p>
-    </footer>
+<!-- ══════════════════════════════════
+     OFFERS SECTION
+══════════════════════════════════ -->
+<div class="px-4 mt-3 space-y-4">
+
+    <div>
+        <h2 class="text-base font-extrabold text-gray-900 mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-tags text-rose-500"></i> العروض المتاحة
+        </h2>
+        <p class="text-xs text-gray-500">كلما اشتريت أكثر، وفرت أكثر!</p>
+    </div>
+
+    <!-- ───────────── SOLO ───────────── -->
+    <div class="offer-card p-5">
+        <div class="flex items-center justify-between">
+            <div>
+                <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-0.5 rounded-full">اقتصادي</span>
+                <h3 class="text-base font-extrabold text-gray-900 mt-1">قطعة واحدة (Solo)</h3>
+                <p class="text-xs text-gray-400">اختيار لون + مقاس واحد</p>
+            </div>
+            <div class="text-left">
+                <p class="text-xl font-extrabold text-gray-900">199 د</p>
+                <p class="text-xs text-gray-400 line-through">299 د</p>
+            </div>
+        </div>
+        <!-- Solo uses the hero color/size — direct CTA -->
+        <button onclick="openModal('solo')" class="cta-btn mt-4 bg-gray-900 pulse">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
+        </button>
+    </div>
+
+    <!-- ───────────── DUO ───────────── -->
+    <div class="offer-card p-5 relative">
+        <span class="absolute -top-3 right-4 bg-rose-500 text-white text-xs font-bold px-3 py-0.5 rounded-full shadow">🔥 الأكثر طلباً</span>
+        <div class="flex items-center justify-between mt-1">
+            <div>
+                <h3 class="text-base font-extrabold text-gray-900">باك دبل (2 قطع)</h3>
+                <p class="text-xs text-rose-500 font-semibold">وفرت 101 درهم + توصيل مجاني</p>
+            </div>
+            <div class="text-left">
+                <p class="text-xl font-extrabold text-gray-900">349 د</p>
+                <p class="text-xs text-gray-400 line-through">450 د</p>
+            </div>
+        </div>
+
+        <!-- Item 1 -->
+        <div class="item-selector mt-3">
+            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
+                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">1</span>
+                القطعة الأولى
+            </p>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3" data-bundle="duo" data-item="1" data-type="color">
+                <button onclick="itemColor('duo',1,this,'scrub_mint')"  class="c-swatch active" style="background:#5FB3A1;" title="Vert d'eau"></button>
+                <button onclick="itemColor('duo',1,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;" title="Rose"></button>
+                <button onclick="itemColor('duo',1,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
+                <button onclick="itemColor('duo',1,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
+                <button onclick="itemColor('duo',1,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap" data-bundle="duo" data-item="1" data-type="size">
+                <button onclick="itemSize('duo',1,this)" data-size="XS"  class="size-btn">XS</button>
+                <button onclick="itemSize('duo',1,this)" data-size="S"   class="size-btn">S</button>
+                <button onclick="itemSize('duo',1,this)" data-size="M"   class="size-btn active">M</button>
+                <button onclick="itemSize('duo',1,this)" data-size="L"   class="size-btn">L</button>
+                <button onclick="itemSize('duo',1,this)" data-size="XL"  class="size-btn">XL</button>
+                <button onclick="itemSize('duo',1,this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item-selector mt-2">
+            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
+                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">2</span>
+                القطعة الثانية
+            </p>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3" data-bundle="duo" data-item="2" data-type="color">
+                <button onclick="itemColor('duo',2,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;" title="Vert d'eau"></button>
+                <button onclick="itemColor('duo',2,this,'scrub_pink')"  class="c-swatch active" style="background:#E8879C;" title="Rose"></button>
+                <button onclick="itemColor('duo',2,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;" title="Rose Clair"></button>
+                <button onclick="itemColor('duo',2,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;" title="Gris"></button>
+                <button onclick="itemColor('duo',2,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;" title="Noir"></button>
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap" data-bundle="duo" data-item="2" data-type="size">
+                <button onclick="itemSize('duo',2,this)" data-size="XS"  class="size-btn">XS</button>
+                <button onclick="itemSize('duo',2,this)" data-size="S"   class="size-btn">S</button>
+                <button onclick="itemSize('duo',2,this)" data-size="M"   class="size-btn active">M</button>
+                <button onclick="itemSize('duo',2,this)" data-size="L"   class="size-btn">L</button>
+                <button onclick="itemSize('duo',2,this)" data-size="XL"  class="size-btn">XL</button>
+                <button onclick="itemSize('duo',2,this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+        </div>
+
+        <button onclick="openModal('duo')" class="cta-btn mt-4 pulse" style="background:#0d9488;">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 349 Dh
+        </button>
+    </div>
+
+    <!-- ───────────── TRIO ───────────── -->
+    <div class="offer-card p-5 relative">
+        <span class="absolute top-3 left-3 bg-amber-100 text-amber-700 text-xs font-bold px-2 py-0.5 rounded-full">أفضل قيمة</span>
+        <div class="flex items-center justify-between mt-4">
+            <div>
+                <h3 class="text-base font-extrabold text-gray-900">باك سوبر (3 قطع)</h3>
+                <p class="text-xs text-rose-500 font-semibold">وفرت 220 درهم + توصيل مجاني</p>
+            </div>
+            <div class="text-left">
+                <p class="text-xl font-extrabold text-gray-900">479 د</p>
+                <p class="text-xs text-gray-400 line-through">699 د</p>
+            </div>
+        </div>
+
+        <!-- Items 1,2,3 for trio -->
+        <div id="trio-items">
+        <!-- Item 1 -->
+        <div class="item-selector mt-3">
+            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
+                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">1</span>
+                القطعة الأولى
+            </p>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3">
+                <button onclick="itemColor('trio',1,this,'scrub_mint')"  class="c-swatch active" style="background:#5FB3A1;"></button>
+                <button onclick="itemColor('trio',1,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;"></button>
+                <button onclick="itemColor('trio',1,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;"></button>
+                <button onclick="itemColor('trio',1,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
+                <button onclick="itemColor('trio',1,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap">
+                <button onclick="itemSize('trio',1,this)" data-size="XS"  class="size-btn">XS</button>
+                <button onclick="itemSize('trio',1,this)" data-size="S"   class="size-btn">S</button>
+                <button onclick="itemSize('trio',1,this)" data-size="M"   class="size-btn active">M</button>
+                <button onclick="itemSize('trio',1,this)" data-size="L"   class="size-btn">L</button>
+                <button onclick="itemSize('trio',1,this)" data-size="XL"  class="size-btn">XL</button>
+                <button onclick="itemSize('trio',1,this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="item-selector mt-2">
+            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
+                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">2</span>
+                القطعة الثانية
+            </p>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3">
+                <button onclick="itemColor('trio',2,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;"></button>
+                <button onclick="itemColor('trio',2,this,'scrub_pink')"  class="c-swatch active" style="background:#E8879C;"></button>
+                <button onclick="itemColor('trio',2,this,'fleece_pink')" class="c-swatch" style="background:#E8A0B4;"></button>
+                <button onclick="itemColor('trio',2,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
+                <button onclick="itemColor('trio',2,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap">
+                <button onclick="itemSize('trio',2,this)" data-size="XS"  class="size-btn">XS</button>
+                <button onclick="itemSize('trio',2,this)" data-size="S"   class="size-btn">S</button>
+                <button onclick="itemSize('trio',2,this)" data-size="M"   class="size-btn active">M</button>
+                <button onclick="itemSize('trio',2,this)" data-size="L"   class="size-btn">L</button>
+                <button onclick="itemSize('trio',2,this)" data-size="XL"  class="size-btn">XL</button>
+                <button onclick="itemSize('trio',2,this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="item-selector mt-2">
+            <p class="text-xs font-extrabold text-teal-700 mb-2 flex items-center gap-1">
+                <span class="bg-teal-600 text-white w-4 h-4 rounded-full inline-flex items-center justify-center text-xs">3</span>
+                القطعة الثالثة
+            </p>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Couleur:</p>
+            <div class="flex gap-2 flex-wrap mb-3">
+                <button onclick="itemColor('trio',3,this,'scrub_mint')"  class="c-swatch" style="background:#5FB3A1;"></button>
+                <button onclick="itemColor('trio',3,this,'scrub_pink')"  class="c-swatch" style="background:#E8879C;"></button>
+                <button onclick="itemColor('trio',3,this,'fleece_pink')" class="c-swatch active" style="background:#E8A0B4;"></button>
+                <button onclick="itemColor('trio',3,this,'fleece_grey')" class="c-swatch" style="background:#9E9E9E;"></button>
+                <button onclick="itemColor('trio',3,this,'scrub_black')" class="c-swatch" style="background:#2C2C2C;"></button>
+            </div>
+            <p class="text-xs font-bold text-gray-500 mb-1.5">Taille:</p>
+            <div class="flex gap-1.5 flex-wrap">
+                <button onclick="itemSize('trio',3,this)" data-size="XS"  class="size-btn">XS</button>
+                <button onclick="itemSize('trio',3,this)" data-size="S"   class="size-btn">S</button>
+                <button onclick="itemSize('trio',3,this)" data-size="M"   class="size-btn active">M</button>
+                <button onclick="itemSize('trio',3,this)" data-size="L"   class="size-btn">L</button>
+                <button onclick="itemSize('trio',3,this)" data-size="XL"  class="size-btn">XL</button>
+                <button onclick="itemSize('trio',3,this)" data-size="XXL" class="size-btn">XXL</button>
+            </div>
+        </div>
+        </div>
+
+        <button onclick="openModal('trio')" class="cta-btn mt-4" style="background:#7c3aed;">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 479 Dh
+        </button>
+    </div>
+
+    <!-- Reviews -->
+    <div class="bg-white rounded-2xl p-5 mb-4">
+        <h2 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-comments text-amber-400"></i> آراء الزبناء
+        </h2>
+        <div class="space-y-4">
+            <div class="border-b border-gray-100 pb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">ك</div>
+                        <div><p class="text-xs font-bold text-gray-900">كوثر أ. — ممرضة</p><p class="text-xs text-gray-400">الرباط</p></div>
+                    </div>
+                    <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">"خديت الباك دبل، تبارك الله غزالين! الثوب رطب ومكيعرقش. توصيل فالوقت."</p>
+            </div>
+            <div>
+                <div class="flex justify-between items-center mb-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">أ</div>
+                        <div><p class="text-xs font-bold text-gray-900">د. أمين ش. — طبيب</p><p class="text-xs text-gray-400">الدار البيضاء</p></div>
+                    </div>
+                    <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">"السترة الرمادية خفيفة ودافية. المقاس جا هو هداك تماما. خدمة ممتازة!"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Live toast -->
+<div id="toast" class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-40">
+    <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-shopping-bag"></i></div>
+    <div>
+        <p class="text-xs text-gray-400" id="toast-time">منذ 3 دقائق</p>
+        <p class="text-xs font-bold text-gray-900" id="toast-text">عميل من الرباط اشترى باك دبل</p>
+    </div>
+</div>
+
+</main>
+
+<!-- Sticky bottom -->
+<div class="sticky-bottom">
+    <button onclick="openModal('duo')" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
+        <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
+    </button>
+    <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+    </a>
+</div>
+
+<!-- ══════════════════════════════════
+     ORDER MODAL (popup)
+══════════════════════════════════ -->
+<div id="order-modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-box">
+        <!-- Handle bar -->
+        <div class="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4"></div>
+
+        <!-- Modal header -->
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="text-lg font-extrabold text-gray-900">معلومات التوصيل</h2>
+            <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Order summary inside modal -->
+        <div class="bg-teal-50 border border-teal-100 rounded-xl p-3 mb-5 space-y-1.5">
+            <p class="text-xs font-bold text-teal-800">ملخص الطلب:</p>
+            <div class="flex justify-between text-sm">
+                <span id="modal-offer-name" class="text-gray-600">باك دبل (2 قطع)</span>
+                <span id="modal-offer-price" class="font-extrabold text-gray-900">349 Dh</span>
+            </div>
+            <div id="modal-items-detail" class="text-xs text-gray-500 space-y-0.5"></div>
+            <div id="modal-broderie-row" class="hidden flex justify-between text-xs text-purple-600">
+                <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
+            </div>
+            <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
+                <span>التوصيل</span><span class="text-green-600 font-bold">مجاني 🎁</span>
+            </div>
+            <div class="flex justify-between text-sm font-extrabold text-gray-900 border-t border-teal-200 pt-1.5">
+                <span>المجموع:</span><span id="modal-total">349 Dh</span>
+            </div>
+        </div>
+
+        <form id="order-form" onsubmit="handleSubmit(event)" class="space-y-3">
+            <!-- Name -->
+            <div class="relative">
+                <span class="input-icon"><i class="fa-solid fa-user text-sm"></i></span>
+                <input type="text" id="f-name" required placeholder="الاسم الكامل *" class="form-input">
+            </div>
+            <!-- Phone -->
+            <div class="relative">
+                <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-phone text-sm"></i></span>
+                <input type="tel" id="f-phone" required placeholder="0612345678 *" class="form-input" dir="ltr" style="text-align:left;padding-right:12px;padding-left:40px;">
+            </div>
+            <!-- City -->
+            <div class="relative">
+                <span class="input-icon"><i class="fa-solid fa-location-dot text-sm"></i></span>
+                <select id="f-city" required class="form-input">
+                    <option value="">المدينة *</option>
+                    <option>الدار البيضاء</option><option>الرباط</option>
+                    <option>مراكش</option><option>فاس</option>
+                    <option>طنجة</option><option>أكادير</option>
+                    <option>القنيطرة</option><option>وجدة</option>
+                    <option>مكناس</option><option>تطوان</option>
+                    <option>آسفي</option><option>تمارة</option>
+                    <option>الجديدة</option><option>الناظور</option>
+                    <option>سلا</option><option>مدينة أخرى</option>
+                </select>
+            </div>
+            <!-- Address -->
+            <div class="relative">
+                <span style="position:absolute;right:12px;top:14px;color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-house text-sm"></i></span>
+                <textarea id="f-address" required rows="2" placeholder="عنوان التوصيل بالتفصيل *" class="form-input" style="padding-top:12px;padding-bottom:12px;resize:none;"></textarea>
+            </div>
+
+            <!-- Sticky submit inside modal -->
+            <div class="modal-sticky">
+                <button type="submit" id="submit-btn" class="cta-btn">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>تأكيد الطلب — الدفع عند الاستلام</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Success Screen -->
+<div id="success-screen" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center px-4">
+    <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full text-center space-y-5 border border-teal-100">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+            <i class="fa-solid fa-check-double"></i>
+        </div>
+        <div>
+            <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
+            <p class="text-gray-500 text-sm mt-1">شكراً لثقتكم في MedStyle.ma</p>
+            <p class="text-xs text-rose-500 font-semibold mt-1 pulse">سنتصل بكم خلال ساعتين لتأكيد الطلب.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-xl text-right text-sm space-y-1.5 border border-gray-100">
+            <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="s-orderid"></span></p>
+            <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="s-name"></span></p>
+            <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="s-bundle"></span></p>
+            <p class="text-gray-500">التفاصيل: <span class="font-bold text-gray-800" id="s-items"></span></p>
+            <p class="text-gray-500">المجموع: <span class="font-bold text-teal-700" id="s-price"></span></p>
+            <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني 🎁</span></p>
+        </div>
+        <a id="s-wa-link" target="_blank" href="#" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
+            <i class="fa-brands fa-whatsapp text-xl"></i> تأكيد عبر WhatsApp
+        </a>
+    </div>
+</div>
+
+<footer class="bg-teal-900 text-teal-300 py-5 text-center">
+    <p class="text-sm font-semibold">MedStyle.ma © 2026</p>
+    <p class="text-xs text-teal-500 mt-1">ملابس مهنية طبية — الدفع عند الاستلام</p>
+</footer>
 
 <script>
-    // ── Data ──────────────────────────────────────────────
-    const products = {
-        scrub_mint:  { name:"Vert d'eau",   img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" },
-        scrub_pink:  { name:"Rose",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" },
-        fleece_pink: { name:"Rose Clair",   img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" },
-        fleece_grey: { name:"Gris",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg" },
-        scrub_black: { name:"Noir",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg" }
-    };
+// ── Data ─────────────────────────────────────────────────
+const products = {
+    scrub_mint:  { name:"Vert d'eau",   img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" },
+    scrub_pink:  { name:"Rose",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" },
+    fleece_pink: { name:"Rose Clair",   img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" },
+    fleece_grey: { name:"Gris",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg" },
+    scrub_black: { name:"Noir",         img:"https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg" }
+};
+const allImgs = Object.values(products).map(p=>p.img);
 
-    const allImgs = Object.values(products).map(p => p.img);
+const offers = {
+    solo: { name:"قطعة واحدة (Solo)", price:199, count:1 },
+    duo:  { name:"باك دبل (2 قطع)",  price:349, count:2 },
+    trio: { name:"باك سوبر (3 قطع)", price:479, count:3 }
+};
 
-    const offers = {
-        solo: { name:"قطعة واحدة (Solo)", price:199 },
-        duo:  { name:"باك دبل (2 قطع)",  price:349 },
-        trio: { name:"باك سوبر (3 قطع)", price:479 }
-    };
+// State
+let currentImgIdx  = 0;
+let heroColor_     = 'scrub_mint';
+let heroSize_      = 'M';
+let broderie       = false;
+let currentOffer_  = 'duo';
 
-    let currentOffer   = 'duo';
-    let currentColor   = 'scrub_mint';
-    let currentSize    = 'M';
-    let broderie       = false;
-    let currentImgIdx  = 0;
+// Per-bundle item selections: { duo:{1:{color,size}, 2:{color,size}}, trio:{...} }
+const selections = {
+    duo:  { 1:{color:'scrub_mint',size:'M'}, 2:{color:'scrub_pink',size:'M'} },
+    trio: { 1:{color:'scrub_mint',size:'M'}, 2:{color:'scrub_pink',size:'M'}, 3:{color:'fleece_pink',size:'M'} }
+};
 
-    // ── Gallery ───────────────────────────────────────────
-    function showImage(idx) {
-        if (idx < 0) idx = allImgs.length - 1;
-        if (idx >= allImgs.length) idx = 0;
-        currentImgIdx = idx;
-        const el = document.getElementById('main-gallery-view');
-        el.classList.add('fading');
-        setTimeout(() => { el.src = allImgs[idx]; el.classList.remove('fading'); }, 200);
-        document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i === idx));
-        // sync color swatch
-        const key = Object.keys(products)[idx];
-        if (key) {
-            document.getElementById('color-name').innerText = products[key].name;
-            document.getElementById('selected-color-key').value = key;
-            document.querySelectorAll('.c-swatch').forEach((s,i) => s.classList.toggle('active', i === idx));
-            currentColor = key;
+// ── Gallery ───────────────────────────────────────────────
+function showImg(idx) {
+    if(idx<0) idx=allImgs.length-1;
+    if(idx>=allImgs.length) idx=0;
+    currentImgIdx=idx;
+    const el=document.getElementById('main-gallery-view');
+    el.classList.add('fading');
+    setTimeout(()=>{el.src=allImgs[idx];el.classList.remove('fading');},200);
+    document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+document.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>showImg(+d.dataset.idx)));
+let tx=0;
+const gv=document.getElementById('main-gallery-view');
+gv.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
+gv.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>40) showImg(currentImgIdx+(dx<0?1:-1));});
+
+// ── Hero color/size ───────────────────────────────────────
+function heroColor(key,el){
+    heroColor_=key;
+    document.getElementById('hero-color-name').innerText=products[key].name;
+    document.querySelectorAll('#hero-swatches .c-swatch').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+    showImg(Object.keys(products).indexOf(key));
+}
+function heroSize(btn){
+    heroSize_=btn.dataset.size;
+    document.getElementById('hero-size-name').innerText=heroSize_;
+    document.querySelectorAll('#hero-sizes .size-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+}
+function toggleGuide(){ document.getElementById('size-guide').classList.toggle('hidden'); }
+
+// ── Broderie ──────────────────────────────────────────────
+function toggleBroderie(){
+    broderie=!broderie;
+    document.getElementById('broderie-btn').classList.toggle('active',broderie);
+    const chk=document.getElementById('broderie-check');
+    chk.classList.toggle('bg-teal-600',broderie);
+    chk.classList.toggle('border-teal-600',broderie);
+    chk.querySelector('i').classList.toggle('hidden',!broderie);
+    document.getElementById('broderie-input-wrap').classList.toggle('hidden',!broderie);
+}
+
+// ── Bundle item selectors ─────────────────────────────────
+function itemColor(bundle,item,el,key){
+    selections[bundle][item].color=key;
+    const parent=el.parentElement;
+    parent.querySelectorAll('.c-swatch').forEach(s=>s.classList.remove('active'));
+    el.classList.add('active');
+}
+function itemSize(bundle,item,btn){
+    selections[bundle][item].size=btn.dataset.size;
+    const parent=btn.parentElement;
+    parent.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+// ── Modal ─────────────────────────────────────────────────
+function openModal(offerKey){
+    currentOffer_=offerKey;
+    const offer=offers[offerKey];
+    const broderieExtra=broderie?40:0;
+    const total=offer.price+broderieExtra;
+
+    document.getElementById('modal-offer-name').innerText=offer.name;
+    document.getElementById('modal-offer-price').innerText=offer.price+' Dh';
+    document.getElementById('modal-total').innerText=total+' Dh';
+    document.getElementById('modal-broderie-row').classList.toggle('hidden',!broderie);
+
+    // Build items detail
+    const det=document.getElementById('modal-items-detail');
+    det.innerHTML='';
+    if(offerKey==='solo'){
+        det.innerHTML=`<p>• اللون: ${products[heroColor_].name} — المقاس: ${heroSize_}</p>`;
+    } else {
+        const count=offer.count;
+        for(let i=1;i<=count;i++){
+            const s=selections[offerKey][i];
+            det.innerHTML+=`<p>• ق${i}: ${products[s.color].name} — ${s.size}</p>`;
         }
     }
 
-    // Dot clicks
-    document.querySelectorAll('.dot').forEach(d => {
-        d.addEventListener('click', () => showImage(+d.dataset.idx));
-    });
+    // Reset form
+    document.getElementById('order-form').reset();
+    const btn=document.getElementById('submit-btn');
+    btn.disabled=false;
+    btn.innerHTML='<i class="fa-solid fa-truck-fast"></i><span>تأكيد الطلب — الدفع عند الاستلام</span>';
 
-    // Swipe support
-    let touchStartX = 0;
-    const gallery = document.getElementById('main-gallery-view');
-    gallery.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-    gallery.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(dx) > 40) showImage(currentImgIdx + (dx < 0 ? 1 : -1));
-    });
+    document.getElementById('order-modal').classList.add('open');
+    document.body.style.overflow='hidden';
+}
+function closeModal(){
+    document.getElementById('order-modal').classList.remove('open');
+    document.body.style.overflow='';
+}
 
-    // ── Color ─────────────────────────────────────────────
-    function selectColor(key, el) {
-        currentColor = key;
-        document.getElementById('selected-color-key').value = key;
-        document.getElementById('color-name').innerText = products[key].name;
-        document.querySelectorAll('.c-swatch').forEach(s => s.classList.remove('active'));
-        el.classList.add('active');
-        const idx = Object.keys(products).indexOf(key);
-        showImage(idx);
+// ── Form Submit ───────────────────────────────────────────
+async function handleSubmit(e){
+    e.preventDefault();
+    const btn=document.getElementById('submit-btn');
+    btn.disabled=true;
+    btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> جاري التسجيل...';
+
+    const fullName  = document.getElementById('f-name').value;
+    const phone     = document.getElementById('f-phone').value;
+    const city      = document.getElementById('f-city').value;
+    const address   = document.getElementById('f-address').value;
+    const broText   = broderie ? document.getElementById('broderie-text').value : '';
+    const offer     = offers[currentOffer_];
+    const broExtra  = broderie?40:0;
+    const total     = offer.price+broExtra;
+    const orderId   = 'MED-'+Math.floor(10000+Math.random()*90000);
+
+    // Build items string
+    let itemsArr=[];
+    if(currentOffer_==='solo'){
+        itemsArr.push(`اللون: ${products[heroColor_].name} | المقاس: ${heroSize_}`);
+    } else {
+        for(let i=1;i<=offer.count;i++){
+            const s=selections[currentOffer_][i];
+            itemsArr.push(`ق${i}: ${products[s.color].name} / ${s.size}`);
+        }
     }
+    if(broderie && broText) itemsArr.push(`Broderie: ${broText}`);
+    const itemsStr=itemsArr.join(' | ');
 
-    // ── Size ──────────────────────────────────────────────
-    function selectSize(btn) {
-        currentSize = btn.dataset.size;
-        document.getElementById('selected-size-val').value = currentSize;
-        document.getElementById('size-name').innerText = currentSize;
-        document.querySelectorAll('#size-buttons .size-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-    }
-
-    // ── Size guide toggle ─────────────────────────────────
-    function toggleGuide() {
-        const g = document.getElementById('size-guide');
-        g.classList.toggle('hidden');
-    }
-
-    // ── Broderie ──────────────────────────────────────────
-    function toggleBroderie() {
-        broderie = !broderie;
-        const btn   = document.getElementById('broderie-btn');
-        const check = document.getElementById('broderie-check');
-        const wrap  = document.getElementById('broderie-input-wrap');
-        const sumBr = document.getElementById('summary-broderie');
-        btn.classList.toggle('active', broderie);
-        check.classList.toggle('bg-teal-600', broderie);
-        check.classList.toggle('border-teal-600', broderie);
-        check.querySelector('i').classList.toggle('hidden', !broderie);
-        wrap.classList.toggle('hidden', !broderie);
-        sumBr.classList.toggle('hidden', !broderie);
-        updateTotal();
-    }
-
-    // ── Offers ────────────────────────────────────────────
-    function selectOffer(key, el) {
-        currentOffer = key;
-        document.getElementById('selected-offer').value = key;
-        document.querySelectorAll('.offer-card').forEach(c => c.classList.remove('active'));
-        el.classList.add('active');
-        document.querySelectorAll('.offer-radio').forEach(r => {
-            r.classList.remove('border-teal-500');
-            r.classList.add('border-gray-300');
+    // Save to Sheets
+    try {
+        await fetch('https://superagent-25ccd117.base44.app/functions/saveOrder',{
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({ orderId, fullName, phone, city, address,
+                bundleName:offer.name, totalPrice:total.toString(), items:itemsStr })
         });
-        document.querySelectorAll('.offer-dot').forEach(d => d.classList.add('hidden'));
-        const radio = el.querySelector('.offer-radio');
-        const dot   = el.querySelector('.offer-dot');
-        radio.classList.remove('border-gray-300'); radio.classList.add('border-teal-500');
-        dot.classList.remove('hidden');
-        document.getElementById('summary-offer').innerText = offers[key].name;
-        updateTotal();
-    }
+    } catch(err){ console.warn('Sheets:',err); }
 
-    function updateTotal() {
-        const base  = offers[currentOffer].price;
-        const extra = broderie ? 40 : 0;
-        const total = base + extra;
-        document.getElementById('summary-price').innerText = base + " Dh";
-        document.getElementById('summary-total').innerText = total + " Dh";
-        document.getElementById('current-price').innerText = base + " Dh";
-    }
+    // Populate success screen
+    document.getElementById('s-orderid').innerText='#'+orderId;
+    document.getElementById('s-name').innerText=fullName;
+    document.getElementById('s-bundle').innerText=offer.name;
+    document.getElementById('s-items').innerText=itemsStr;
+    document.getElementById('s-price').innerText=total+' Dh';
 
-    // ── Form Submit ───────────────────────────────────────
-    async function handleFormSubmit(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submit-btn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التسجيل...';
+    const waMsg=encodeURIComponent(
+        `السلام عليكم MedStyle.ma 🇲🇦\nأريد تأكيد طلبي:\n\n`+
+        `🏷️ العرض: ${offer.name}\n📦 التفاصيل: ${itemsStr}\n`+
+        `💰 المجموع: ${total} Dh\n👤 الاسم: ${fullName}\n`+
+        `📞 الهاتف: ${phone}\n📍 ${city}\n🏠 ${address}\n\n#${orderId}`
+    );
+    document.getElementById('s-wa-link').href=`https://wa.me/212645066834?text=${waMsg}`;
 
-        const fullName   = document.getElementById('fullname').value;
-        const phone      = document.getElementById('phone').value;
-        const city       = document.getElementById('city').value;
-        const address    = document.getElementById('address').value;
-        const broderieText = broderie ? document.getElementById('broderie-text').value : '';
-        const offerName  = offers[currentOffer].name;
-        const basePrice  = offers[currentOffer].price;
-        const totalPrice = basePrice + (broderie ? 40 : 0);
-        const orderId    = "MED-" + Math.floor(10000 + Math.random() * 90000);
-        const colorName  = products[currentColor].name;
+    closeModal();
+    document.getElementById('main-content').classList.add('hidden');
+    document.querySelector('.sticky-bottom').classList.add('hidden');
+    document.getElementById('success-screen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
 
-        const itemsStr = `${offerName} | اللون: ${colorName} | المقاس: ${currentSize}${broderie ? ' | Broderie: ' + broderieText : ''}`;
-
-        // Save to Google Sheets
-        try {
-            await fetch("https://superagent-25ccd117.base44.app/functions/saveOrder", {
-                method:"POST", headers:{"Content-Type":"application/json"},
-                body: JSON.stringify({ orderId, fullName, phone, city, address,
-                    bundleName: offerName, totalPrice: totalPrice.toString(), items: itemsStr })
-            });
-        } catch(err) { console.warn("Sheets:", err); }
-
-        // Populate success screen
-        document.getElementById('order-id').innerText    = "#" + orderId;
-        document.getElementById('success-name').innerText  = fullName;
-        document.getElementById('success-bundle').innerText = offerName;
-        document.getElementById('success-color').innerText  = colorName;
-        document.getElementById('success-size').innerText   = currentSize;
-        document.getElementById('success-price').innerText  = totalPrice + " Dh";
-
-        const waText = encodeURIComponent(
-            `السلام عليكم MedStyle.ma 🇲🇦\nأريد تأكيد طلبي:\n\n` +
-            `🏷️ العرض: ${offerName}\n🎨 اللون: ${colorName}\n📏 المقاس: ${currentSize}\n` +
-            (broderie ? `✏️ Broderie: ${broderieText}\n` : '') +
-            `💰 المجموع: ${totalPrice} Dh\n👤 الاسم: ${fullName}\n📞 الهاتف: ${phone}\n` +
-            `📍 المدينة: ${city}\n🏠 العنوان: ${address}\n\n#${orderId}`
-        );
-        document.getElementById('whatsapp-link').href = `https://wa.me/212645066834?text=${waText}`;
-
-        document.getElementById('main-content').classList.add('hidden');
-        document.getElementById('success-screen').classList.remove('hidden');
-        window.scrollTo({ top:0, behavior:'smooth' });
-    }
-
-    // ── Toast notifications ───────────────────────────────
-    const tCities  = ["الرباط","الدار البيضاء","مراكش","فاس","طنجة","أكادير","سلا"];
-    const tBundles = ["باك دبل","باك سوبر","قطعة واحدة"];
-    function showToast() {
-        const city   = tCities[Math.floor(Math.random() * tCities.length)];
-        const bundle = tBundles[Math.floor(Math.random() * tBundles.length)];
-        document.getElementById('toast-text').innerText = `عميل من ${city} اشترى ${bundle}`;
-        document.getElementById('toast-time').innerText = `منذ ${Math.floor(Math.random()*5)+1} دقائق`;
-        const t = document.getElementById('toast');
-        t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
-        setTimeout(() => { t.classList.remove('translate-y-0'); t.classList.add('translate-y-40'); }, 5000);
-    }
-
-    window.onload = function() {
-        // init duo offer active
-        selectOffer('duo', document.querySelector('#offer-cards .offer-card:nth-child(2)'));
-        setTimeout(showToast, 3000);
-        setInterval(showToast, 18000);
-    };
+// ── Toast ──────────────────────────────────────────────────
+const tC=['الرباط','الدار البيضاء','مراكش','فاس','طنجة','أكادير','سلا'];
+const tB=['باك دبل','باك سوبر','قطعة واحدة'];
+function showToast(){
+    document.getElementById('toast-text').innerText=`عميل من ${tC[Math.floor(Math.random()*tC.length)]} اشترى ${tB[Math.floor(Math.random()*tB.length)]}`;
+    document.getElementById('toast-time').innerText=`منذ ${Math.floor(Math.random()*5)+1} دقائق`;
+    const t=document.getElementById('toast');
+    t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
+    setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
+}
+window.onload=function(){ setTimeout(showToast,3000); setInterval(showToast,18000); };
 </script>
 </body>
 </html>
