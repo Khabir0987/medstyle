@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>MedStyle Maroc - Blouses & Vestes Professionnelles</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+// ── FAQ accordion ─────────────────────────────────────────
+function toggleFaq(idx) {
+    const ans  = document.querySelector('.faq-ans-'+idx);
+    const icon = document.querySelector('.faq-icon-'+idx);
+    const isOpen = !ans.classList.contains('hidden');
+
+    // Close all
+    for(let i=0;i<5;i++){
+        document.querySelector('.faq-ans-'+i)?.classList.add('hidden');
+        const ic = document.querySelector('.faq-icon-'+i);
+        if(ic) ic.style.transform = 'rotate(0deg)';
+    }
+
+    // Open clicked if was closed
+    if(!isOpen){
+        ans.classList.remove('hidden');
+        ans.classList.add('faq-ans-open');
+        if(icon) icon.style.transform = 'rotate(180deg)';
+    }
+}
+
+</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,6 +195,14 @@
         }
         .bundle-cta:active { opacity: 0.85; }
 
+
+        /* ── FAQ Accordion ── */
+        .faq-item { transition: all 0.2s; }
+        .faq-item:hover { border-color: #99f6e4 !important; }
+        .faq-item button { transition: background 0.2s; }
+        .faq-item button:hover { background: #f0fdfa !important; }
+        .faq-ans-open { animation: fadeDown 0.25s ease; }
+        @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
         @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
         .pulse { animation:pulseCta 2s infinite; }
     </style>
@@ -632,6 +662,88 @@
     </div>
 </div>
 
+    <!-- ══════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════ -->
+    <div class="px-4 mb-4">
+    <div class="bg-white rounded-2xl p-5">
+        <div class="text-center mb-5">
+            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-1">الأسئلة الشائعة</p>
+            <h2 class="text-lg font-extrabold text-gray-900">كل ما تحتاج معرفته</h2>
+        </div>
+
+        <div class="space-y-2">
+
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">كم من الوقت يستغرق استلام طلبيتي؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-0 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-0 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نوصل طلبيتك في ظرف <span class="font-bold text-teal-700">24 إلى 48 ساعة</span> بعد تأكيد الطلب. التوصيل مجاني لجميع مدن المغرب، وسيتصل بك أحد فريقنا لتحديد موعد التسليم.</p>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني تبديل المقاس إذا لم يناسبني؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-1 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-1 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم بالتأكيد! نقدم <span class="font-bold text-teal-700">تبديل مجاني للمقاس</span> خلال 7 أيام من الاستلام. فقط تواصل معنا عبر واتساب وسنرتب معك عملية التبديل بدون أي تعقيدات.</p>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكن إضافة تطريز (Broderie) على المنتج؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-2 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-2 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم خدمة التطريز بـ <span class="font-bold text-purple-600">40 درهم فقط</span> لكل قطعة. يمكنك إضافة اسمك أو اسم العيادة أو أي شعار تريده. فقط فعّل خيار البرودري عند الطلب واكتب النص المطلوب.</p>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل هناك ضمان أو سياسة استرجاع؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-3 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-3 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نضمن لك <span class="font-bold text-teal-700">رضا 100%</span>. إذا وصلك المنتج بعيب مصنعي أو مختلف عما طلبت، نستبدله مجاناً أو نرجع لك المبلغ كاملاً. راحتك أولويتنا.</p>
+                </div>
+            </div>
+
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني طلب عدة مقاسات لتجربتها في البيت؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-4 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-4 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">بالطبع! مع عروض الباك يمكنك اختيار مقاسات مختلفة لكل قطعة وتجربتها بكل راحة. الدفع فقط عند الاستلام، فلا خطر عليك.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="mt-5 bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+            <p class="text-sm font-bold text-gray-700 mb-1">سؤالك لم تجد جوابه؟</p>
+            <p class="text-xs text-gray-500 mb-3">فريقنا متاح 7/7 للرد على جميع استفساراتك</p>
+            <div class="flex gap-2 justify-center">
+                <a href="https://wa.me/212645066834" target="_blank"
+                   class="flex items-center gap-1.5 bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> واتساب
+                </a>
+                <a href="mailto:contact@medstyle.ma"
+                   class="flex items-center gap-1.5 bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+                    <i class="fa-solid fa-envelope text-sm"></i> contact@medstyle.ma
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
 <!-- Live toast -->
 <div id="toast" class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-40">
     <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-shopping-bag"></i></div>
@@ -1064,6 +1176,28 @@ window.onload=function(){
     setTimeout(showToast,3000);
     setInterval(showToast,18000);
 };
+
+// ── FAQ accordion ─────────────────────────────────────────
+function toggleFaq(idx) {
+    const ans  = document.querySelector('.faq-ans-'+idx);
+    const icon = document.querySelector('.faq-icon-'+idx);
+    const isOpen = !ans.classList.contains('hidden');
+
+    // Close all
+    for(let i=0;i<5;i++){
+        document.querySelector('.faq-ans-'+i)?.classList.add('hidden');
+        const ic = document.querySelector('.faq-icon-'+i);
+        if(ic) ic.style.transform = 'rotate(0deg)';
+    }
+
+    // Open clicked if was closed
+    if(!isOpen){
+        ans.classList.remove('hidden');
+        ans.classList.add('faq-ans-open');
+        if(icon) icon.style.transform = 'rotate(180deg)';
+    }
+}
+
 </script>
 </body>
 </html>
