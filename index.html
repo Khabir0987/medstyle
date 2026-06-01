@@ -37,7 +37,7 @@ function toggleFaq(idx) {
 
         /* ── Full-width gallery ── */
         .gallery-container { touch-action: pan-y; user-select: none; }
-        .gallery-track { will-change: transform; }
+        .gallery-track { will-change: transform; display:flex; }
         .gallery-slide img { display: block; }
         .dot { width:7px; height:7px; border-radius:50%; background:#d1d5db; transition:all 0.2s; cursor:pointer; }
         .dot.active { background:#111827; width:20px; border-radius:4px; }
@@ -259,33 +259,41 @@ function toggleFaq(idx) {
     </div>
 
     <!-- Full-width swipeable gallery -->
-    <div class="relative overflow-hidden bg-white gallery-container" id="gallery-container">
-        <div class="gallery-track flex transition-transform duration-300 ease-in-out" id="gallery-track">
-            <div class="gallery-slide flex-shrink-0 w-full">
+    <div class="relative gallery-container" id="gallery-container"
+         style="background:#f8f8f8; overflow:hidden;">
+        <!-- Slider track -->
+        <div id="gallery-track"
+             style="display:flex; transition:transform 0.32s cubic-bezier(.4,0,.2,1); will-change:transform;">
+            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
-                    alt="Vert d'eau" class="w-full object-cover object-top" style="height:420px;">
+                     alt="Vert d'eau"
+                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
             </div>
-            <div class="gallery-slide flex-shrink-0 w-full">
+            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg"
-                    alt="Rose" class="w-full object-cover object-top" style="height:420px;">
+                     alt="Rose"
+                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
             </div>
-            <div class="gallery-slide flex-shrink-0 w-full">
+            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg"
-                    alt="Rose Clair" class="w-full object-cover object-top" style="height:420px;">
+                     alt="Rose Clair"
+                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
             </div>
-            <div class="gallery-slide flex-shrink-0 w-full">
+            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg"
-                    alt="Gris" class="w-full object-cover object-top" style="height:420px;">
+                     alt="Gris"
+                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
             </div>
-            <div class="gallery-slide flex-shrink-0 w-full">
+            <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8; min-height:420px;">
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg"
-                    alt="Noir" class="w-full object-cover object-top" style="height:420px;">
+                     alt="Noir"
+                     style="width:100%; height:420px; object-fit:contain; object-position:center; display:block;">
             </div>
         </div>
 
         <!-- Zoom button -->
         <button onclick="openZoom(currentImgIdx)"
-            class="absolute top-3 left-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow text-gray-600 text-xs z-10">
+            style="position:absolute; top:12px; left:12px; width:32px; height:32px; background:rgba(255,255,255,0.85); border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.12); cursor:pointer; font-size:13px; color:#555; z-index:10;">
             <i class="fa-solid fa-magnifying-glass-plus"></i>
         </button>
     </div>
@@ -969,7 +977,11 @@ function showImg(idx) {
     if(idx >= allImgs.length) idx = 0;
     currentImgIdx = idx;
     const track = document.getElementById('gallery-track');
-    if(track) track.style.transform = `translateX(-${idx * 100}%)`;
+    const container = document.getElementById('gallery-container');
+    if(track && container) {
+        const w = container.offsetWidth;
+        track.style.transform = `translateX(-${idx * w}px)`;
+    }
     document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===idx));
 }
 // Dot clicks
@@ -1250,11 +1262,28 @@ function showToast(){
     setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
 }
 window.onload=function(){
+    // Initialize gallery slide widths
+    initGallery();
     // duo is default — show its items+cta, others collapsed
     selectBundle('duo');
     setTimeout(showToast,3000);
     setInterval(showToast,18000);
 };
+
+function initGallery() {
+    const container = document.getElementById('gallery-container');
+    const track     = document.getElementById('gallery-track');
+    if(!container || !track) return;
+    const w = container.offsetWidth;
+    // Set each slide to exact container width
+    Array.from(track.children).forEach(slide => {
+        slide.style.width = w + 'px';
+        slide.style.minWidth = w + 'px';
+    });
+    // Re-apply current position
+    showImg(currentImgIdx);
+}
+window.addEventListener('resize', initGallery);
 
 // ── FAQ accordion ─────────────────────────────────────────
 function toggleFaq(idx) {
