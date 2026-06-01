@@ -2,475 +2,489 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>MedStyle Maroc - Blouses & Vestes Professionnelles</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Cairo (Arabic) & Inter (English/French) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        body {
-            font-family: 'Cairo', 'Inter', sans-serif;
-        }
+        body { font-family: 'Cairo', 'Inter', sans-serif; }
+
         .animate-pulse-slow {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            animation: pulseCta 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
-        @keyframes pulse {
+        @keyframes pulseCta {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: .9; transform: scale(1.03); }
+            50% { opacity: .92; transform: scale(1.025); }
+        }
+
+        /* Main image fade transition */
+        #main-gallery-view { transition: opacity 0.25s ease; }
+        #main-gallery-view.fading { opacity: 0; }
+
+        /* Color swatch button */
+        .color-swatch {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            outline: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .color-swatch.active {
+            border-color: white;
+            outline-color: #0d9488;
+            box-shadow: 0 0 0 2px #0d9488;
+        }
+        .color-swatch:hover { transform: scale(1.12); }
+
+        /* Mobile sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 50;
+            padding: 12px 16px;
+            background: white;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.10);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* Swatch select item in configurator */
+        .swatch-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .swatch-option.selected {
+            border-color: #0d9488;
+            background: #f0fdfa;
+        }
+        .swatch-dot {
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 2px solid rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden pb-24">
 
     <!-- Top Promo Ribbon -->
-    <div class="bg-teal-600 text-white text-center py-2 px-4 text-sm font-semibold tracking-wide flex justify-center items-center gap-2">
+    <div class="bg-teal-600 text-white text-center py-2 px-4 text-xs font-semibold flex justify-center items-center gap-2">
         <i class="fa-solid fa-truck-fast animate-bounce"></i>
         <span>التوصيل فابور فالمغرب كامل + الدفع عند الاستلام (COD)</span>
     </div>
 
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow-sm sticky top-0 z-40 transition-all">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
             <div class="flex items-center gap-2">
-                <div class="bg-teal-600 text-white p-2 rounded-lg flex items-center justify-center">
-                    <i class="fa-solid fa-user-md text-xl"></i>
+                <div class="bg-teal-600 text-white p-1.5 rounded-lg">
+                    <i class="fa-solid fa-user-md text-lg"></i>
                 </div>
-                <span class="text-xl font-bold text-teal-800 tracking-tight">MedStyle<span class="text-rose-500">.ma</span></span>
+                <span class="text-lg font-bold text-teal-800">MedStyle<span class="text-rose-500">.ma</span></span>
             </div>
-
-            <!-- Fast Contact -->
-            <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium transition duration-300">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span class="hidden sm:inline">WhatsApp Support</span>
+            <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-1.5 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-sm font-semibold">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>واتساب</span>
             </a>
         </div>
     </header>
 
-    <!-- Main Store Content -->
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="py-8 bg-gradient-to-b from-teal-50 to-white">
-            <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <!-- Product Image Gallery -->
-                <div class="lg:col-span-6 space-y-4">
-                    <!-- Main Preview Card -->
-                    <div class="relative bg-white p-2 rounded-2xl shadow-md border border-gray-100 overflow-hidden group">
-                        <span class="absolute top-4 right-4 bg-rose-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider z-10">Best-Seller</span>
-                        <img id="main-gallery-view" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" alt="Blouse Medicale Premium" class="w-full h-[450px] object-cover rounded-xl transition-all duration-300">
-                    </div>
-                    
-                    <!-- Thumbnails Grid -->
-                    <div class="grid grid-cols-4 gap-2">
-                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg', this)" class="thumbnail-btn border-2 border-teal-600 rounded-lg overflow-hidden bg-white shadow-sm transition">
-                            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" alt="Vert d'eau" class="w-full h-20 object-cover">
-                        </button>
-                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg', this)" class="thumbnail-btn border-2 border-transparent rounded-lg overflow-hidden bg-white shadow-sm transition hover:border-teal-300">
-                            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" alt="Rose Blouse" class="w-full h-20 object-cover">
-                        </button>
-                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg', this)" class="thumbnail-btn border-2 border-transparent rounded-lg overflow-hidden bg-white shadow-sm transition hover:border-teal-300">
-                            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" alt="Veste Rose" class="w-full h-20 object-cover">
-                        </button>
-                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg', this)" class="thumbnail-btn border-2 border-transparent rounded-lg overflow-hidden bg-white shadow-sm transition hover:border-teal-300">
-                            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg" alt="Veste Grise" class="w-full h-20 object-cover">
-                        </button>
-                    </div>
-                    <!-- 5th image (black scrub) as extra thumbnail -->
-                    <div class="grid grid-cols-4 gap-2">
-                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg', this)" class="thumbnail-btn border-2 border-transparent rounded-lg overflow-hidden bg-white shadow-sm transition hover:border-teal-300">
-                            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg" alt="Blouse Noire" class="w-full h-20 object-cover">
-                        </button>
-                    </div>
+
+        <!-- Hero Section — mobile optimized -->
+        <section class="bg-gradient-to-b from-teal-50 to-white pt-4 pb-6">
+            <div class="container mx-auto px-4 space-y-4">
+
+                <!-- Main Image -->
+                <div class="relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+                    <span class="absolute top-3 right-3 bg-rose-500 text-white text-xs font-bold px-2.5 py-1 rounded-full z-10">Best-Seller 🔥</span>
+                    <img id="main-gallery-view"
+                        src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg"
+                        alt="Blouse Medicale Premium"
+                        class="w-full h-72 object-cover rounded-2xl">
                 </div>
 
-                <!-- Product General Presentation -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-stethoscope ml-1"></i>القطاع الصحي والمهني</span>
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-leaf ml-1"></i>مريح ولطيف على البشرة</span>
+                <!-- Color Swatches (thumbnail replaced by colored circles) -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs font-bold text-gray-500 mb-3">اختر اللون لتشوف الصورة:</p>
+                    <div class="flex gap-3 flex-wrap">
+                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg', this)"
+                            class="color-swatch active" style="background-color:#5FB3A1;" title="Vert d'eau"></button>
+                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg', this)"
+                            class="color-swatch" style="background-color:#E8879C;" title="Rose Blouse"></button>
+                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg', this)"
+                            class="color-swatch" style="background-color:#E8A0B4;" title="Veste Rose"></button>
+                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg', this)"
+                            class="color-swatch" style="background-color:#9E9E9E;" title="Veste Grise"></button>
+                        <button onclick="changeActiveImage('https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg', this)"
+                            class="color-swatch" style="background-color:#2C2C2C;" title="Blouse Noire"></button>
                     </div>
+                    <!-- Color label -->
+                    <p id="color-label" class="text-xs font-semibold text-teal-700 mt-2">Blouse — Vert d'eau</p>
+                </div>
 
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+                <!-- Product Text -->
+                <div class="space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-stethoscope ml-1"></i>القطاع الصحي</span>
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full"><i class="fa-solid fa-leaf ml-1"></i>مريح ولطيف</span>
+                    </div>
+                    <h1 class="text-2xl font-extrabold text-gray-900 leading-snug">
                         ملابس طبية ومهنية فاخرة للرجال والنساء
                     </h1>
-                    
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        اكتشفوا التشكيلة الجديدة من البلوزات الطبية الفاخرة والسترات الدافئة (Fleeces) المصممة خصيصاً لتوفير أقصى درجات الراحة والأناقة أثناء فترات العمل الطويلة. ألوان عصرية، خامات عالية الجودة ومقاومة لجميع ظروف العمل.
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        بلوزات طبية وسترات دافئة بخامات عالية الجودة — ألوان عصرية، مقاسات S إلى XXL، مريحة للعمل الطويل.
                     </p>
 
-                    <!-- Trust Points -->
-                    <div class="grid grid-cols-2 gap-4 border-t border-b border-gray-150 py-4 my-2">
-                        <div class="flex items-center gap-3">
-                            <div class="text-teal-600 text-2xl"><i class="fa-solid fa-shield-heart"></i></div>
+                    <!-- Mini trust badges -->
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <div class="flex items-center gap-2 bg-teal-50 rounded-xl p-3">
+                            <i class="fa-solid fa-shield-heart text-teal-600 text-lg"></i>
                             <div>
-                                <h4 class="font-bold text-sm text-gray-900">ثوب مضاد للتعرق</h4>
-                                <p class="text-xs text-gray-500">مريح ومناسب للعمل الطويل</p>
+                                <p class="text-xs font-bold text-gray-800">مضاد للتعرق</p>
+                                <p class="text-xs text-gray-400">مريح للعمل الطويل</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <div class="text-teal-600 text-2xl"><i class="fa-solid fa-temperature-three-quarters"></i></div>
+                        <div class="flex items-center gap-2 bg-teal-50 rounded-xl p-3">
+                            <i class="fa-solid fa-truck-fast text-teal-600 text-lg"></i>
                             <div>
-                                <h4 class="font-bold text-sm text-gray-900">سترات دافئة جداً</h4>
-                                <p class="text-xs text-gray-500">تصميم خفيف ودافئ</p>
+                                <p class="text-xs font-bold text-gray-800">توصيل مجاني</p>
+                                <p class="text-xs text-gray-400">الدفع عند الاستلام</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action Anchors -->
-                    <div class="space-y-3">
-                        <a href="#bundles-section" class="block w-full text-center bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-rose-200 transition duration-300 transform hover:-translate-y-0.5 animate-pulse-slow">
-                            <i class="fa-solid fa-shopping-cart ml-2"></i> اطلب الآن واستفد من عروض المجموعات
-                        </a>
-                        <div class="flex justify-center items-center gap-6 text-xs text-gray-500 font-semibold">
-                            <span><i class="fa-solid fa-check text-green-500 ml-1"></i> ضمان الجودة</span>
-                            <span><i class="fa-solid fa-rotate-left text-green-500 ml-1"></i> إمكانية التبديل والمراجعة</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- Features grid -->
-        <section class="py-12 bg-white">
+        <!-- Features -->
+        <section class="py-8 bg-white">
             <div class="container mx-auto px-4">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900">علاش غادي تختار MedStyle؟</h2>
-                    <p class="text-gray-500 mt-2">الملابس ديالنا مصممة خصيصاً باش تلبي الاحتياجات المهنية اليومية</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="bg-teal-50/50 p-6 rounded-2xl text-center border border-teal-50 transition hover:shadow-md">
-                        <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                <h2 class="text-xl font-bold text-gray-900 text-center mb-6">علاش تختار MedStyle؟</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center gap-4 bg-teal-50 p-4 rounded-2xl border border-teal-100">
+                        <div class="w-11 h-11 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl flex-shrink-0">
                             <i class="fa-solid fa-gem"></i>
                         </div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">جودة ممتازة (Premium Quality)</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">أثواب ممتازة لا تبهت مع الغسيل المتكرر، مريحة ولا تتجعد بسهولة.</p>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-900">جودة ممتازة (Premium)</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">لا تبهت مع الغسيل، مريحة ولا تتجعد بسهولة.</p>
+                        </div>
                     </div>
-
-                    <!-- Feature 2 -->
-                    <div class="bg-rose-50/50 p-6 rounded-2xl text-center border border-rose-50 transition hover:shadow-md">
-                        <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <div class="flex items-center gap-4 bg-rose-50 p-4 rounded-2xl border border-rose-100">
+                        <div class="w-11 h-11 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center text-xl flex-shrink-0">
                             <i class="fa-solid fa-palette"></i>
                         </div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">ألوان ومقاسات تناسب الجميع</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">متوفرة بألوان جذابة وهادئة (الوردي، الأخضر المائي، الرمادي، الأسود) وقياسات من S إلى XXL.</p>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-900">ألوان ومقاسات للجميع</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">وردي، أخضر مائي، رمادي، أسود — من S إلى XXL.</p>
+                        </div>
                     </div>
-
-                    <!-- Feature 3 -->
-                    <div class="bg-teal-50/50 p-6 rounded-2xl text-center border border-teal-50 transition hover:shadow-md">
-                        <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <div class="flex items-center gap-4 bg-teal-50 p-4 rounded-2xl border border-teal-100">
+                        <div class="w-11 h-11 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xl flex-shrink-0">
                             <i class="fa-solid fa-truck-ramp-box"></i>
                         </div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">خدمة زبناء سريعة</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">توصيل سريع حتى لباب الدار أو مقر العمل، مع إمكانية معاينة السلعة قبل الدفع.</p>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-900">خدمة سريعة للباب</h3>
+                            <p class="text-xs text-gray-500 mt-0.5">توصيل سريع مع إمكانية معاينة السلعة قبل الدفع.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Dynamic Bundles & Offers Section -->
-        <section id="bundles-section" class="py-12 bg-gray-50">
+        <!-- Bundles Section -->
+        <section id="bundles-section" class="py-8 bg-gray-50">
             <div class="container mx-auto px-4">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <span class="bg-rose-100 text-rose-600 font-bold text-xs px-3 py-1.5 rounded-full uppercase">تخفيضات هامة اليوم</span>
-                    <h2 class="text-3xl font-bold text-gray-900 mt-3">اختر العرض المناسب لك</h2>
-                    <p class="text-gray-500">كلما اشتريت أكثر، وفرت أكثر! التوصيل مجاني لجميع عروض التوفير</p>
+                <div class="text-center mb-6">
+                    <span class="bg-rose-100 text-rose-600 font-bold text-xs px-3 py-1.5 rounded-full">تخفيضات اليوم</span>
+                    <h2 class="text-2xl font-bold text-gray-900 mt-2">اختر العرض المناسب</h2>
+                    <p class="text-gray-500 text-sm">كلما اشتريت أكثر، وفرت أكثر!</p>
                 </div>
 
-                <!-- Bundles Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    
-                    <!-- Bundle Card 1 -->
-                    <div onclick="selectBundle('solo')" id="bundle-solo" class="bundle-card cursor-pointer bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-teal-300 transition-all duration-300 relative">
-                        <span class="absolute top-3 left-3 bg-gray-100 text-gray-600 font-bold text-xs px-2.5 py-1 rounded-full">عرض اقتصادي</span>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center text-teal-600 checked-circle">
-                                <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden"></div>
+                <!-- Bundle Cards -->
+                <div class="space-y-4 max-w-lg mx-auto">
+
+                    <!-- Solo -->
+                    <div onclick="selectBundle('solo')" id="bundle-solo"
+                        class="bundle-card cursor-pointer bg-white rounded-2xl p-5 border-2 border-gray-200 transition-all duration-200 relative">
+                        <span class="absolute top-3 left-3 bg-gray-100 text-gray-600 font-bold text-xs px-2 py-0.5 rounded-full">اقتصادي</span>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center checked-circle">
+                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden"></div>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-base text-gray-900">قطعة واحدة (Solo)</h3>
+                                    <p class="text-xs text-gray-500">بلوزة أو سترة من اختيارك</p>
+                                </div>
                             </div>
-                            <h3 class="font-extrabold text-lg text-gray-900">قطعة واحدة (Solo)</h3>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">احصل على قطعة واحدة من اختيارك (بلوزة أو سترة دافئة).</p>
-                        <div class="mt-auto">
-                            <span class="text-2xl font-extrabold text-teal-800">199 درهم</span>
-                            <span class="text-gray-400 text-xs line-through block">299 درهم</span>
+                            <div class="text-left">
+                                <span class="text-xl font-extrabold text-teal-800 block">199 د</span>
+                                <span class="text-gray-400 text-xs line-through">299 د</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Bundle Card 2 -->
-                    <div onclick="selectBundle('duo')" id="bundle-duo" class="bundle-card cursor-pointer bg-white rounded-2xl p-6 border-2 border-teal-500 shadow-xl shadow-teal-50 relative">
-                        <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-rose-500 text-white font-bold text-xs px-4 py-1.5 rounded-full shadow">الأكثر طلباً 🔥</span>
-                        <div class="flex items-center gap-3 mb-4 mt-2">
-                            <div class="w-5 h-5 rounded-full border-2 border-teal-500 flex items-center justify-center text-teal-600 checked-circle">
-                                <div class="w-2.5 h-2.5 bg-teal-600 rounded-full"></div>
+                    <!-- Duo — default selected -->
+                    <div onclick="selectBundle('duo')" id="bundle-duo"
+                        class="bundle-card cursor-pointer bg-white rounded-2xl p-5 border-2 border-teal-500 shadow-lg shadow-teal-50 relative">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-500 text-white font-bold text-xs px-4 py-1 rounded-full shadow">الأكثر طلباً 🔥</span>
+                        <div class="flex items-center justify-between mt-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border-2 border-teal-500 flex items-center justify-center checked-circle">
+                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-base text-gray-900">باك دبل (2 قطع)</h3>
+                                    <p class="text-xs text-rose-500 font-semibold">وفرت 101 درهم + توصيل مجاني</p>
+                                </div>
                             </div>
-                            <h3 class="font-extrabold text-lg text-gray-900">باك دبل (2 قطع)</h3>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">احصل على قطعتين من اختيارك مع تخفيض فوري وتوصيل مجاني.</p>
-                        <div class="mt-auto">
-                            <span class="text-2xl font-extrabold text-teal-800">349 درهم</span>
-                            <span class="text-gray-400 text-xs line-through block">450 درهم</span>
-                            <span class="text-rose-500 text-xs font-bold block mt-1"><i class="fa-solid fa-gift"></i> وفرت 101 درهم + توصيل مجاني</span>
+                            <div class="text-left">
+                                <span class="text-xl font-extrabold text-teal-800 block">349 د</span>
+                                <span class="text-gray-400 text-xs line-through">450 د</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Bundle Card 3 -->
-                    <div onclick="selectBundle('trio')" id="bundle-trio" class="bundle-card cursor-pointer bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-teal-300 transition-all duration-300 relative">
-                        <span class="absolute top-3 left-3 bg-amber-100 text-amber-800 font-bold text-xs px-2.5 py-1 rounded-full">أفضل قيمة</span>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center text-teal-600 checked-circle">
-                                <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden"></div>
+                    <!-- Trio -->
+                    <div onclick="selectBundle('trio')" id="bundle-trio"
+                        class="bundle-card cursor-pointer bg-white rounded-2xl p-5 border-2 border-gray-200 transition-all duration-200 relative">
+                        <span class="absolute top-3 left-3 bg-amber-100 text-amber-800 font-bold text-xs px-2 py-0.5 rounded-full">أفضل قيمة</span>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center checked-circle">
+                                    <div class="w-2.5 h-2.5 bg-teal-600 rounded-full hidden"></div>
+                                </div>
+                                <div>
+                                    <h3 class="font-extrabold text-base text-gray-900">باك سوبر (3 قطع)</h3>
+                                    <p class="text-xs text-rose-500 font-semibold">وفرت 220 درهم + توصيل مجاني</p>
+                                </div>
                             </div>
-                            <h3 class="font-extrabold text-lg text-gray-900">باك سوبر (3 قطع)</h3>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">العرض الأمثل للمهنيين: 3 قطع مذهلة تكفي لتغيير مظهرك طوال الأسبوع.</p>
-                        <div class="mt-auto">
-                            <span class="text-2xl font-extrabold text-teal-800">479 درهم</span>
-                            <span class="text-gray-400 text-xs line-through block">699 درهم</span>
-                            <span class="text-rose-500 text-xs font-bold block mt-1"><i class="fa-solid fa-gift"></i> وفرت 220 درهم + توصيل مجاني</span>
+                            <div class="text-left">
+                                <span class="text-xl font-extrabold text-teal-800 block">479 د</span>
+                                <span class="text-gray-400 text-xs line-through">699 د</span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Custom Bundle Configurator Dynamic Fields -->
-                <div class="bg-white p-6 rounded-2xl border border-gray-150 max-w-2xl mx-auto mt-8 shadow-sm">
-                    <h3 class="font-bold text-lg text-gray-900 mb-4 border-b border-gray-100 pb-2">
-                        <i class="fa-solid fa-sliders text-teal-600 ml-2"></i> خصص طلبك (الألوان والمقاسات)
+                <!-- Configurator -->
+                <div class="bg-white p-5 rounded-2xl border border-gray-100 max-w-lg mx-auto mt-6 shadow-sm">
+                    <h3 class="font-bold text-base text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-teal-600"></i> خصص طلبك
                     </h3>
-                    
-                    <div id="dynamic-selectors-container" class="space-y-6">
-                        <!-- Dynamic content will be injected here via Javascript -->
-                    </div>
+                    <div id="dynamic-selectors-container" class="space-y-5"></div>
                 </div>
 
-                <!-- Shipping and Checkout Form -->
-                <div id="checkout-form-container" class="bg-white p-6 md:p-8 rounded-2xl border-2 border-teal-600/30 max-w-2xl mx-auto mt-6 shadow-lg">
-                    <div class="text-center mb-6">
-                        <h3 class="font-extrabold text-xl md:text-2xl text-teal-800">معلومات التوصيل والدفع</h3>
-                        <p class="text-sm text-gray-500 mt-1">يرجى ملء الاستمارة أسفله لتأكيد الطلب. سنتواصل بكم هاتفياً لتأكيد التفاصيل قبل الإرسال.</p>
+                <!-- Checkout Form -->
+                <div class="bg-white p-5 rounded-2xl border-2 border-teal-500/30 max-w-lg mx-auto mt-5 shadow-lg">
+                    <div class="text-center mb-5">
+                        <h3 class="font-extrabold text-lg text-teal-800">معلومات التوصيل</h3>
+                        <p class="text-xs text-gray-400 mt-1">سنتصل بكم لتأكيد الطلب قبل الإرسال</p>
                     </div>
 
                     <form id="order-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                        <!-- Hidden state inputs for bundles -->
-                        <input type="hidden" id="selected-bundle-type" name="bundle_type" value="duo">
-                        <input type="hidden" id="order-total-price" name="total_price" value="349">
+                        <input type="hidden" id="selected-bundle-type" value="duo">
+                        <input type="hidden" id="order-total-price" value="349">
 
-                        <!-- Full Name -->
+                        <!-- Name -->
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="fullname">
-                                الاسم الكامل (الاسم والنسب) <span class="text-rose-500">*</span>
-                            </label>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">الاسم الكامل <span class="text-rose-500">*</span></label>
                             <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none">
-                                    <i class="fa-solid fa-user"></i>
-                                </span>
-                                <input type="text" id="fullname" required placeholder="مثال: أحمد الفيلالي" class="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition outline-none text-right">
+                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none"><i class="fa-solid fa-user text-sm"></i></span>
+                                <input type="text" id="fullname" required placeholder="مثال: أحمد الفيلالي"
+                                    class="w-full pr-9 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-right text-sm">
                             </div>
                         </div>
 
-                        <!-- Phone Number -->
+                        <!-- Phone -->
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="phone">
-                                رقم الهاتف <span class="text-rose-500">*</span>
-                            </label>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">رقم الهاتف <span class="text-rose-500">*</span></label>
                             <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <input type="tel" id="phone" required placeholder="مثال: 0612345678" class="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition outline-none text-left" dir="ltr">
+                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none"><i class="fa-solid fa-phone text-sm"></i></span>
+                                <input type="tel" id="phone" required placeholder="0612345678"
+                                    class="w-full pr-9 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-left text-sm" dir="ltr">
                             </div>
-                            <span class="text-xs text-gray-400 mt-1 block text-right">يرجى إدخال رقم هاتف شغال لنتصل بكم لتأكيد طلبيتك.</span>
                         </div>
 
-                        <!-- City dropdown -->
+                        <!-- City -->
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="city">
-                                المدينة <span class="text-rose-500">*</span>
-                            </label>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">المدينة <span class="text-rose-500">*</span></label>
                             <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </span>
-                                <select id="city" required class="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition outline-none bg-white text-right">
+                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 pointer-events-none"><i class="fa-solid fa-location-dot text-sm"></i></span>
+                                <select id="city" required class="w-full pr-9 pl-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none bg-white text-right text-sm">
                                     <option value="">-- اختر مدينتك --</option>
-                                    <option value="Casablanca">الدار البيضاء (Casablanca)</option>
-                                    <option value="Rabat">الرباط (Rabat)</option>
-                                    <option value="Marrakech">مراكش (Marrakech)</option>
-                                    <option value="Fes">فاس (Fes)</option>
-                                    <option value="Tangier">طنجة (Tangier)</option>
-                                    <option value="Agadir">أكادير (Agadir)</option>
-                                    <option value="Kenitra">القنيطرة (Kenitra)</option>
-                                    <option value="Oujda">وجدة (Oujda)</option>
-                                    <option value="Meknes">مكناس (Meknes)</option>
-                                    <option value="Tetouan">تطوان (Tetouan)</option>
-                                    <option value="Safi">آسفي (Safi)</option>
-                                    <option value="Temara">تمارة (Temara)</option>
-                                    <option value="El Jadida">الجديدة (El Jadida)</option>
-                                    <option value="Nador">الناظور (Nador)</option>
-                                    <option value="Salé">سلا (Salé)</option>
+                                    <option value="Casablanca">الدار البيضاء</option>
+                                    <option value="Rabat">الرباط</option>
+                                    <option value="Marrakech">مراكش</option>
+                                    <option value="Fes">فاس</option>
+                                    <option value="Tangier">طنجة</option>
+                                    <option value="Agadir">أكادير</option>
+                                    <option value="Kenitra">القنيطرة</option>
+                                    <option value="Oujda">وجدة</option>
+                                    <option value="Meknes">مكناس</option>
+                                    <option value="Tetouan">تطوان</option>
+                                    <option value="Safi">آسفي</option>
+                                    <option value="Temara">تمارة</option>
+                                    <option value="El Jadida">الجديدة</option>
+                                    <option value="Nador">الناظور</option>
+                                    <option value="Salé">سلا</option>
                                     <option value="Other">مدينة أخرى</option>
                                 </select>
                             </div>
                         </div>
 
-                        <!-- Full Shipping Address -->
+                        <!-- Address -->
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="address">
-                                عنوان التوصيل بالتفصيل <span class="text-rose-500">*</span>
-                            </label>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">عنوان التوصيل <span class="text-rose-500">*</span></label>
                             <div class="relative">
-                                <span class="absolute inset-y-0 right-0 pr-3 pt-3 flex items-start text-gray-400 pointer-events-none">
-                                    <i class="fa-solid fa-house"></i>
-                                </span>
-                                <textarea id="address" required rows="2" placeholder="مثال: رقم الدار، زنقة، الحي، بجانب صيدلية..." class="w-full pr-10 pl-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition outline-none text-right"></textarea>
+                                <span class="absolute top-3 right-0 pr-3 flex items-start text-gray-400 pointer-events-none"><i class="fa-solid fa-house text-sm"></i></span>
+                                <textarea id="address" required rows="2" placeholder="رقم الدار، زنقة، الحي..."
+                                    class="w-full pr-9 pl-3 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-right text-sm"></textarea>
                             </div>
                         </div>
 
-                        <!-- Trust Badge Info and Live Recap -->
-                        <div class="bg-teal-50 border border-teal-100 p-4 rounded-xl space-y-2 text-right">
-                            <h4 class="font-bold text-teal-800 text-sm">ملخص طلبك:</h4>
+                        <!-- Summary -->
+                        <div class="bg-teal-50 border border-teal-100 p-4 rounded-xl text-right">
+                            <h4 class="font-bold text-teal-800 text-sm mb-2">ملخص الطلب:</h4>
                             <div class="flex justify-between items-center text-sm">
                                 <span class="text-gray-600" id="summary-bundle-name">باك دبل (2 قطع)</span>
                                 <span class="font-bold text-teal-900" id="summary-bundle-price">349 درهم</span>
                             </div>
-                            <div class="flex justify-between items-center text-xs text-gray-500 border-t border-teal-100 pt-2">
-                                <span>شحن مجاني وسريع</span>
+                            <div class="flex justify-between items-center text-xs text-gray-500 border-t border-teal-100 pt-2 mt-2">
+                                <span>شحن مجاني</span>
                                 <span class="text-green-600 font-bold">0 درهم</span>
                             </div>
                         </div>
 
-                        <!-- CTA Pulse Submit Button -->
-                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-lg py-4 px-6 rounded-xl shadow-lg shadow-emerald-200 transition duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-0.5 mt-4">
-                            <i class="fa-solid fa-truck-fast animate-pulse"></i>
-                            <span>تأكيد الطلب والدفع عند الاستلام</span>
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base py-4 rounded-xl shadow-lg shadow-emerald-200 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <span>تأكيد الطلب — الدفع عند الاستلام</span>
                         </button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- Customer reviews section -->
-        <section class="py-12 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900">آراء زبنائنا الكرام</h2>
-                    <p class="text-gray-500 mt-2">بعض من الشهادات الحقيقية التي نفتخر بها</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Review 1 -->
-                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-3">
-                        <div class="flex justify-between items-center">
+        <!-- Reviews -->
+        <section class="py-8 bg-white">
+            <div class="container mx-auto px-4 max-w-lg">
+                <h2 class="text-xl font-bold text-gray-900 text-center mb-6">آراء زبنائنا</h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                        <div class="flex justify-between items-center mb-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm">ك</div>
+                                <div class="w-9 h-9 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm">ك</div>
                                 <div>
-                                    <h4 class="font-bold text-sm text-gray-900">كوثر أ. (ممرضة رئيسية)</h4>
-                                    <p class="text-xs text-gray-500">الرباط</p>
+                                    <h4 class="font-bold text-sm text-gray-900">كوثر أ.</h4>
+                                    <p class="text-xs text-gray-400">ممرضة — الرباط</p>
                                 </div>
                             </div>
-                            <div class="text-amber-400 flex gap-0.5 text-xs">
+                            <div class="text-amber-400 text-xs flex gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            "خديت الباك دبل فيه جوج بلوزات تبارك الله غزالين بزاف فالحقيقة الثوب ديالهم رطب ومكيعرقش ومكيبقاش يتكمش دغيا. شكرا ليكم بزاف على المعاملة والتوصيل السريع."
-                        </p>
+                        <p class="text-sm text-gray-600 leading-relaxed">"خديت الباك دبل، تبارك الله غزالين بزاف! الثوب رطب ومكيعرقش. شكرا على التوصيل السريع."</p>
                     </div>
-
-                    <!-- Review 2 -->
-                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-3">
-                        <div class="flex justify-between items-center">
+                    <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                        <div class="flex justify-between items-center mb-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-10 h-10 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm">أ</div>
+                                <div class="w-9 h-9 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm">أ</div>
                                 <div>
-                                    <h4 class="font-bold text-sm text-gray-900">د. أمين ش. (طبيب أسنان)</h4>
-                                    <p class="text-xs text-gray-500">الدار البيضاء</p>
+                                    <h4 class="font-bold text-sm text-gray-900">د. أمين ش.</h4>
+                                    <p class="text-xs text-gray-400">طبيب أسنان — الدار البيضاء</p>
                                 </div>
                             </div>
-                            <div class="text-amber-400 flex gap-0.5 text-xs">
+                            <div class="text-amber-400 text-xs flex gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            "السترة الدافئة (Veste Polaire) Grise غاية في الروعة، خفيفة ودافية بزاف ومناسبة للبرد فالعيادة. والمقاس جا هو هداك تماما. خدمة ممتازة."
-                        </p>
+                        <p class="text-sm text-gray-600 leading-relaxed">"السترة الرمادية خفيفة ودافية بزاف. والمقاس جا هو هداك تماما. خدمة ممتازة!"</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Dynamic Live Purchases Notification -->
-        <div id="live-purchase-notification" class="fixed bottom-4 right-4 bg-white shadow-xl border border-gray-150 p-3 rounded-xl flex items-center gap-3 max-w-sm transition-transform duration-500 transform translate-y-32 z-50">
-            <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-lg">
-                <i class="fa-solid fa-shopping-bag"></i>
+        <!-- Live purchase toast -->
+        <div id="live-purchase-notification"
+            class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-3 max-w-xs transition-transform duration-500 transform translate-y-48 z-50">
+            <div class="w-9 h-9 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-shopping-bag text-sm"></i>
             </div>
             <div>
-                <p class="text-xs text-gray-500 font-semibold" id="live-purchase-time">منذ دقيقتين</p>
-                <h5 class="text-xs font-bold text-gray-900" id="live-purchase-text">قام عميل من طنجة بشراء باك دبل</h5>
+                <p class="text-xs text-gray-400 font-semibold" id="live-purchase-time">منذ دقيقتين</p>
+                <p class="text-xs font-bold text-gray-900" id="live-purchase-text">عميل من الرباط اشترى باك دبل</p>
             </div>
         </div>
+
     </main>
 
-    <!-- Success Screen (Initially Hidden) -->
-    <div id="success-screen" class="hidden min-h-[80vh] flex items-center justify-center px-4 py-12">
-        <div class="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full border border-teal-100 text-center space-y-6">
-            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto">
+    <!-- Mobile Sticky CTA -->
+    <div class="sticky-cta md:hidden">
+        <a href="#bundles-section" class="flex-1 bg-rose-500 text-white font-bold py-3 rounded-xl text-center text-sm animate-pulse-slow">
+            <i class="fa-solid fa-shopping-cart ml-1"></i> اطلب الآن
+        </a>
+        <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3 px-4 rounded-xl text-sm flex items-center gap-1">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+        </a>
+    </div>
+
+    <!-- Success Screen -->
+    <div id="success-screen" class="hidden min-h-screen flex items-center justify-center px-4 py-10 bg-gray-50">
+        <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full border border-teal-100 text-center space-y-5">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
                 <i class="fa-solid fa-check-double"></i>
             </div>
-            
-            <div class="space-y-2">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-emerald-800">طلبكم مسجل بنجاح!</h2>
-                <p class="text-gray-600 font-semibold">شكراً جزيلاً لثقتكم في MedStyle.ma</p>
-                <p class="text-sm text-rose-500 font-semibold animate-pulse">سيتم الاتصال بكم في غضون ساعتين لتأكيد المقاسات وتأكيد الإرسال.</p>
+            <div class="space-y-1">
+                <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
+                <p class="text-gray-500 text-sm font-semibold">شكراً لثقتكم في MedStyle.ma</p>
+                <p class="text-xs text-rose-500 font-semibold animate-pulse">سنتصل بكم خلال ساعتين لتأكيد الطلب.</p>
             </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-150 text-right text-sm space-y-1.5">
-                <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="order-id">#MED-29402</span></p>
-                <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="success-name">احمد</span></p>
-                <p class="text-gray-500">العرض المطلوب: <span class="font-bold text-gray-800" id="success-bundle">باك دبل (2 قطع)</span></p>
-                <p class="text-gray-500">المبلغ الإجمالي: <span class="font-bold text-teal-700" id="success-price">349 درهم</span></p>
-                <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني فابور</span></p>
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-right text-sm space-y-1.5">
+                <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="order-id">#MED-00000</span></p>
+                <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="success-name"></span></p>
+                <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="success-bundle"></span></p>
+                <p class="text-gray-500">المبلغ: <span class="font-bold text-teal-700" id="success-price"></span></p>
+                <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني</span></p>
             </div>
-
-            <div class="space-y-2 pt-2">
-                <a id="whatsapp-confirm-link" target="_blank" href="#" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-green-200 transition duration-300 flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>تأكيد الطلب الفوري عبر WhatsApp</span>
-                </a>
-                <p class="text-xs text-gray-400">انقر هنا لإرسال طلبك للسرعة الفائقة في التجهيز!</p>
-            </div>
+            <a id="whatsapp-confirm-link" target="_blank" href="#"
+                class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>تأكيد الطلب عبر WhatsApp</span>
+            </a>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-teal-900 text-teal-200 py-8 text-center border-t border-teal-800">
-        <div class="container mx-auto px-4 space-y-4">
-            <p class="text-sm font-semibold">MedStyle.ma © 2026 - جميع الحقوق محفوظة</p>
-            <p class="text-xs text-teal-400">ملابس مهنية طبية بجودة عالية. الدفع عند الاستلام والتسليم سريع.</p>
-        </div>
+    <footer class="bg-teal-900 text-teal-300 py-6 text-center">
+        <p class="text-sm font-semibold">MedStyle.ma © 2026</p>
+        <p class="text-xs text-teal-500 mt-1">ملابس مهنية طبية — الدفع عند الاستلام</p>
     </footer>
 
-    <!-- Business Logic JavaScript -->
     <script>
-        // Global variables/state — using the actual hosted image URLs
         const productOptions = {
-            scrub_mint:   { name: "Blouse Médicale (Vert Eau)",      img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" },
-            scrub_pink:   { name: "Blouse Médicale (Rose Premium)",  img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" },
-            fleece_pink:  { name: "Veste Polaire (Rose Confort)",    img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" },
-            fleece_grey:  { name: "Veste Polaire (Gris Élégant)",    img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg" },
-            scrub_black:  { name: "Blouse Médicale (Noir Prestige)", img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg" }
+            scrub_mint:  { name: "Blouse Médicale (Vert Eau)",      img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg",  color: "#5FB3A1", label: "Blouse — Vert d'eau" },
+            scrub_pink:  { name: "Blouse Médicale (Rose Premium)",  img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg",  color: "#E8879C", label: "Blouse — Rose" },
+            fleece_pink: { name: "Veste Polaire (Rose Confort)",    img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg",  color: "#E8A0B4", label: "Veste — Rose" },
+            fleece_grey: { name: "Veste Polaire (Gris Élégant)",    img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg",  color: "#9E9E9E", label: "Veste — Gris" },
+            scrub_black: { name: "Blouse Médicale (Noir Prestige)", img: "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg",  color: "#2C2C2C", label: "Blouse — Noir" }
         };
-
-        const sizes = ["S", "M", "L", "XL", "XXL"];
 
         const bundlePricing = {
             solo: { name: "قطعة واحدة (Solo)", price: 199, itemsCount: 1 },
@@ -480,104 +494,125 @@
 
         let currentActiveBundle = 'duo';
 
-        // Change Main Image in Hero Gallery
+        // Color swatches in hero
+        const colorLabels = {
+            "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg": "Blouse — Vert d'eau",
+            "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg": "Blouse — Rose",
+            "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg": "Veste — Rose",
+            "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f024858fa_3bbfc750-2cd3-4091-92c0-0e31c120702f.jpg": "Veste — Gris",
+            "https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/51a2d4765_0edddbc4-3021-4141-9e51-b8b1fa5f032b.jpg": "Blouse — Noir"
+        };
+
         function changeActiveImage(imgSrc, element) {
-            document.getElementById('main-gallery-view').src = imgSrc;
-            document.querySelectorAll('.thumbnail-btn').forEach(btn => {
-                btn.classList.remove('border-teal-600');
-                btn.classList.add('border-transparent');
-            });
-            element.classList.remove('border-transparent');
-            element.classList.add('border-teal-600');
+            const mainImg = document.getElementById('main-gallery-view');
+            mainImg.classList.add('fading');
+            setTimeout(() => {
+                mainImg.src = imgSrc;
+                mainImg.classList.remove('fading');
+            }, 200);
+            document.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+            document.getElementById('color-label').innerText = colorLabels[imgSrc] || '';
         }
 
-        // Handle Bundle selection
         function selectBundle(bundleKey) {
             currentActiveBundle = bundleKey;
-            
             document.querySelectorAll('.bundle-card').forEach(card => {
-                card.classList.remove('border-teal-500', 'shadow-xl', 'shadow-teal-50');
+                card.classList.remove('border-teal-500', 'shadow-lg', 'shadow-teal-50');
                 card.classList.add('border-gray-200');
                 const dot = card.querySelector('.checked-circle div');
                 if (dot) dot.classList.add('hidden');
             });
-
             const activeCard = document.getElementById(`bundle-${bundleKey}`);
             activeCard.classList.remove('border-gray-200');
-            activeCard.classList.add('border-teal-500', 'shadow-xl', 'shadow-teal-50');
+            activeCard.classList.add('border-teal-500', 'shadow-lg', 'shadow-teal-50');
             activeCard.querySelector('.checked-circle div').classList.remove('hidden');
-
             document.getElementById('selected-bundle-type').value = bundleKey;
             document.getElementById('order-total-price').value = bundlePricing[bundleKey].price;
             document.getElementById('summary-bundle-name').innerText = bundlePricing[bundleKey].name;
             document.getElementById('summary-bundle-price').innerText = bundlePricing[bundleKey].price + " درهم";
-
             renderConfigurator(bundlePricing[bundleKey].itemsCount);
         }
 
-        // Render input color & size dropdowns dynamically
         function renderConfigurator(itemsCount) {
             const container = document.getElementById('dynamic-selectors-container');
             container.innerHTML = "";
 
             for (let i = 1; i <= itemsCount; i++) {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = "p-4 bg-gray-50 rounded-xl border border-gray-150 space-y-3";
+                itemDiv.className = "space-y-2";
 
                 const title = document.createElement('h4');
-                title.className = "text-sm font-extrabold text-teal-800 flex items-center gap-2";
-                title.innerHTML = `<span class="bg-teal-600 text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs font-semibold">${i}</span> تخصيص القطعة`;
+                title.className = "text-sm font-bold text-teal-800 flex items-center gap-2";
+                title.innerHTML = `<span class="bg-teal-600 text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">${i}</span> القطعة رقم ${i}`;
                 itemDiv.appendChild(title);
 
-                const selectRow = document.createElement('div');
-                selectRow.className = "grid grid-cols-2 gap-3";
+                // Color swatches for product selection
+                const swatchRow = document.createElement('div');
+                swatchRow.className = "grid grid-cols-1 gap-2";
+                swatchRow.id = `swatch-row-${i}`;
 
-                const prodCol = document.createElement('div');
-                prodCol.className = "space-y-1";
-                prodCol.innerHTML = `
-                    <label class="block text-xs font-bold text-gray-500">اختر نوع المنتج واللون</label>
-                    <select name="item_${i}_product" required onchange="updateGalleryFromSelect(this)" class="w-full bg-white border border-gray-300 rounded-lg p-2 text-xs font-semibold outline-none focus:ring-1 focus:ring-teal-500">
-                        <option value="scrub_mint"  ${i===1 ? 'selected':''}>Blouse (Vert Eau)</option>
-                        <option value="scrub_pink"  ${i===2 ? 'selected':''}>Blouse (Rose Confort)</option>
-                        <option value="fleece_pink">Veste Polaire - Rose</option>
-                        <option value="fleece_grey">Veste Polaire - Gris</option>
-                        <option value="scrub_black">Blouse (Noir Prestige)</option>
-                    </select>
+                const defaultSelections = ['scrub_mint', 'scrub_pink', 'fleece_grey'];
+                const defaultKey = defaultSelections[i - 1] || 'scrub_mint';
+
+                Object.entries(productOptions).forEach(([key, prod]) => {
+                    const opt = document.createElement('div');
+                    opt.className = `swatch-option${key === defaultKey ? ' selected' : ''}`;
+                    opt.dataset.key = key;
+                    opt.dataset.item = i;
+                    opt.innerHTML = `
+                        <span class="swatch-dot" style="background-color:${prod.color};"></span>
+                        <span class="flex-1 text-right">${prod.name}</span>
+                    `;
+                    opt.addEventListener('click', () => {
+                        swatchRow.querySelectorAll('.swatch-option').forEach(o => o.classList.remove('selected'));
+                        opt.classList.add('selected');
+                        // Update main gallery image
+                        const mainImg = document.getElementById('main-gallery-view');
+                        mainImg.classList.add('fading');
+                        setTimeout(() => { mainImg.src = prod.img; mainImg.classList.remove('fading'); }, 200);
+                    });
+                    swatchRow.appendChild(opt);
+                });
+                itemDiv.appendChild(swatchRow);
+
+                // Size selector
+                const sizeDiv = document.createElement('div');
+                sizeDiv.innerHTML = `
+                    <label class="block text-xs font-bold text-gray-500 mb-1.5">المقاس (Taille)</label>
+                    <div class="flex gap-2 flex-wrap" id="size-row-${i}">
+                        ${["S","M","L","XL","XXL"].map(s => `
+                            <button type="button" onclick="selectSize(this, ${i})" data-size="${s}"
+                                class="size-btn px-3 py-1.5 rounded-lg border-2 text-xs font-bold transition-all
+                                ${s === 'M' ? 'border-teal-500 bg-teal-50 text-teal-700' : 'border-gray-200 text-gray-600 hover:border-teal-300'}">${s}</button>
+                        `).join('')}
+                    </div>
                 `;
-                selectRow.appendChild(prodCol);
-
-                const sizeCol = document.createElement('div');
-                sizeCol.className = "space-y-1";
-                sizeCol.innerHTML = `
-                    <label class="block text-xs font-bold text-gray-500">المقاس المطلوب (Taille)</label>
-                    <select name="item_${i}_size" required class="w-full bg-white border border-gray-300 rounded-lg p-2 text-xs font-semibold outline-none focus:ring-1 focus:ring-teal-500">
-                        <option value="S">S</option>
-                        <option value="M" selected>M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                    </select>
-                `;
-                selectRow.appendChild(sizeCol);
-
-                itemDiv.appendChild(selectRow);
+                itemDiv.appendChild(sizeDiv);
                 container.appendChild(itemDiv);
+
+                if (i < itemsCount) {
+                    const divider = document.createElement('hr');
+                    divider.className = "border-gray-100";
+                    container.appendChild(divider);
+                }
             }
         }
 
-        function updateGalleryFromSelect(selectEl) {
-            const productKey = selectEl.value;
-            if (productOptions[productKey]) {
-                document.getElementById('main-gallery-view').src = productOptions[productKey].img;
-            }
+        function selectSize(btn, itemIndex) {
+            document.querySelectorAll(`#size-row-${itemIndex} .size-btn`).forEach(b => {
+                b.classList.remove('border-teal-500', 'bg-teal-50', 'text-teal-700');
+                b.classList.add('border-gray-200', 'text-gray-600');
+            });
+            btn.classList.add('border-teal-500', 'bg-teal-50', 'text-teal-700');
+            btn.classList.remove('border-gray-200', 'text-gray-600');
         }
 
         async function handleFormSubmit(e) {
             e.preventDefault();
-
-            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const submitBtn = document.getElementById('submit-btn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري تسجيل الطلب...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin ml-2"></i> جاري التسجيل...';
 
             const fullName   = document.getElementById('fullname').value;
             const phone      = document.getElementById('phone').value;
@@ -585,40 +620,29 @@
             const address    = document.getElementById('address').value;
             const bundleName = bundlePricing[currentActiveBundle].name;
             const totalPrice = bundlePricing[currentActiveBundle].price;
-
-            const orderId = "MED-" + Math.floor(10000 + Math.random() * 90000);
+            const orderId    = "MED-" + Math.floor(10000 + Math.random() * 90000);
 
             let configText = "";
             let itemsArr = [];
             const itemsCount = bundlePricing[currentActiveBundle].itemsCount;
             for (let i = 1; i <= itemsCount; i++) {
-                const prodVal  = document.querySelector(`[name="item_${i}_product"]`).value;
-                const sizeVal  = document.querySelector(`[name="item_${i}_size"]`).value;
-                const prodName = productOptions[prodVal].name;
-                const line = `قطعة ${i}: ${prodName} - المقاس: ${sizeVal}`;
+                const selectedSwatch = document.querySelector(`#swatch-row-${i} .swatch-option.selected`);
+                const prodKey  = selectedSwatch ? selectedSwatch.dataset.key : 'scrub_mint';
+                const sizeBtn  = document.querySelector(`#size-row-${i} .size-btn.border-teal-500`);
+                const sizeVal  = sizeBtn ? sizeBtn.dataset.size : 'M';
+                const prodName = productOptions[prodKey].name;
+                const line = `قطعة ${i}: ${prodName} - مقاس: ${sizeVal}`;
                 configText += `\n* ${line}`;
                 itemsArr.push(line);
             }
 
-            // Save to Google Sheets via backend function
             try {
                 await fetch("https://superagent-25ccd117.base44.app/functions/saveOrder", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        orderId,
-                        fullName,
-                        phone,
-                        city,
-                        address,
-                        bundleName,
-                        totalPrice: totalPrice.toString(),
-                        items: itemsArr.join(" | ")
-                    })
+                    body: JSON.stringify({ orderId, fullName, phone, city, address, bundleName, totalPrice: totalPrice.toString(), items: itemsArr.join(" | ") })
                 });
-            } catch(err) {
-                console.warn("Could not save to Sheets:", err);
-            }
+            } catch(err) { console.warn("Sheets save error:", err); }
 
             document.getElementById('order-id').innerText       = "#" + orderId;
             document.getElementById('success-name').innerText   = fullName;
@@ -626,46 +650,28 @@
             document.getElementById('success-price').innerText  = totalPrice + " درهم";
 
             const whatsappText = encodeURIComponent(
-                `السلام عليكم MedStyle.ma 🇲🇦\n` +
-                `أريد تأكيد طلبي لملابس العمل:\n\n` +
-                `🏷️ *الطلب:* ${bundleName}\n` +
-                `📊 *تفاصيل الطلب:* ${configText}\n` +
-                `💰 *المبلغ:* ${totalPrice} درهم (التوصيل فابور)\n` +
-                `👤 *الاسم الكامل:* ${fullName}\n` +
-                `📞 *الهاتف:* ${phone}\n` +
-                `📍 *المدينة:* ${city}\n` +
-                `🏠 *العنوان:* ${address}\n\n` +
-                `رقم مرجع الطلب: #${orderId}`
+                `السلام عليكم MedStyle.ma 🇲🇦\nأريد تأكيد طلبي:\n\n🏷️ *الطلب:* ${bundleName}\n📊 *التفاصيل:* ${configText}\n💰 *المبلغ:* ${totalPrice} درهم\n👤 *الاسم:* ${fullName}\n📞 *الهاتف:* ${phone}\n📍 *المدينة:* ${city}\n🏠 *العنوان:* ${address}\n\n#${orderId}`
             );
-
-            const whatsappNumber = "212645066834";
-            document.getElementById('whatsapp-confirm-link').href = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+            document.getElementById('whatsapp-confirm-link').href = `https://wa.me/212645066834?text=${whatsappText}`;
 
             document.getElementById('main-content').classList.add('hidden');
             document.getElementById('success-screen').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Live purchase social proof toast
-        const cities = ["Casablanca", "Rabat", "Marrakech", "Fes", "Tangier", "Agadir", "Kenitra", "Oujda", "Meknes", "Tetouan", "Salé"];
-        const customBundles = ["باك دبل (2 قطع)", "باك سوبر (3 قطع)", "عرض قطعة واحدة"];
-        
+        // Social proof toast
+        const cities = ["الدار البيضاء","الرباط","مراكش","فاس","طنجة","أكادير","القنيطرة","وجدة","سلا"];
+        const bundles = ["باك دبل","باك سوبر","قطعة واحدة"];
         function triggerSalesNotification() {
-            const randomCity   = cities[Math.floor(Math.random() * cities.length)];
-            const randomBundle = customBundles[Math.floor(Math.random() * customBundles.length)];
-            const randomMin    = Math.floor(Math.random() * 5) + 1;
-
-            document.getElementById('live-purchase-text').innerText = `قام عميل من ${randomCity} بشراء ${randomBundle}`;
-            document.getElementById('live-purchase-time').innerText = `منذ ${randomMin} دقائق`;
-
+            const city   = cities[Math.floor(Math.random() * cities.length)];
+            const bundle = bundles[Math.floor(Math.random() * bundles.length)];
+            const min    = Math.floor(Math.random() * 5) + 1;
+            document.getElementById('live-purchase-text').innerText = `عميل من ${city} اشترى ${bundle}`;
+            document.getElementById('live-purchase-time').innerText = `منذ ${min} دقائق`;
             const toast = document.getElementById('live-purchase-notification');
-            toast.classList.remove('translate-y-32');
+            toast.classList.remove('translate-y-48');
             toast.classList.add('translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0');
-                toast.classList.add('translate-y-32');
-            }, 5000);
+            setTimeout(() => { toast.classList.remove('translate-y-0'); toast.classList.add('translate-y-48'); }, 5000);
         }
 
         window.onload = function() {
