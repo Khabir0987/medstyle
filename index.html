@@ -464,51 +464,32 @@ function toggleFaq(idx) {
     <div class="g-badge"><i class="fa-solid fa-pen-nib"></i><span>تطريز متاح</span></div>
   </div>
 
-  <!-- Main slider -->
-  <div class="gallery-slider-wrap" id="gallery-container">
-    <div class="gallery-track" id="gallery-track">
-        <div class="gslide" id="gslide-0">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" alt="Bleu Ciel" loading="eager" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-1">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp" alt="Bleu Marine" loading="eager" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-2">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp" alt="Bordeaux" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-3">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp" alt="Gris Clair" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-4">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp" alt="Marron Chocolat" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-5">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp" alt="Militaire" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-6">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp" alt="Vert Pastel" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-7">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp" alt="Aubergine" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-8">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Rose Clair" loading="lazy" draggable="false">
-        </div>
-        <div class="gslide" id="gslide-9">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp" alt="Pétrole" loading="lazy" draggable="false">
-        </div>
-    </div>
-    <!-- Color name overlay -->
-    <div id="gallery-color-label" style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;pointer-events:none;backdrop-filter:blur(4px);">Bleu Ciel</div>
-    <!-- Arrows desktop -->
-    <button class="garrow garrow-prev" onclick="gSel(gIdx-1)" aria-label="prev"><i class="fa-solid fa-chevron-right"></i></button>
-    <button class="garrow garrow-next" onclick="gSel(gIdx+1)" aria-label="next"><i class="fa-solid fa-chevron-left"></i></button>
-    <!-- Zoom -->
-    <button class="gzoom-btn" onclick="openZoom(gIdx)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+  <!-- Single product image display -->
+  <div id="gallery-container" style="position:relative;margin:0;background:#f8f9fa;border-radius:0 0 24px 24px;overflow:hidden;">
+    <img id="main-product-img"
+         src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp"
+         alt="Bleu Ciel"
+         style="width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;display:block;transition:opacity .25s ease;"
+         loading="eager">
+    <!-- Color label -->
+    <div id="gallery-color-label" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;backdrop-filter:blur(4px);">Bleu Ciel</div>
+    <!-- Zoom btn -->
+    <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
   </div>
 
-
-
+  <!-- Color swatches row -->
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px 14px 6px;">
+            <button class="cswatch" onclick="pickColor('bleu_ciel',this)" style="width:30px;height:30px;border-radius:50%;background:#7EC8E3;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;outline:2.5px solid #0d9488;outline-offset:3px;transform:scale(1.25);" title="Bleu Ciel"></button>
+            <button class="cswatch" onclick="pickColor('bleu_marin',this)" style="width:30px;height:30px;border-radius:50%;background:#1B3A6B;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Marine"></button>
+            <button class="cswatch" onclick="pickColor('bordeaux',this)" style="width:30px;height:30px;border-radius:50%;background:#6D1A36;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bordeaux"></button>
+            <button class="cswatch" onclick="pickColor('gris_clair',this)" style="width:30px;height:30px;border-radius:50%;background:#B0B0B0;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Gris Clair"></button>
+            <button class="cswatch" onclick="pickColor('marron',this)" style="width:30px;height:30px;border-radius:50%;background:#4A2210;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Marron Chocolat"></button>
+            <button class="cswatch" onclick="pickColor('militaire',this)" style="width:30px;height:30px;border-radius:50%;background:#6B7C52;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Militaire"></button>
+            <button class="cswatch" onclick="pickColor('pastel',this)" style="width:30px;height:30px;border-radius:50%;background:#8FD5B2;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Vert Pastel"></button>
+            <button class="cswatch" onclick="pickColor('aubergine',this)" style="width:30px;height:30px;border-radius:50%;background:#4B1A4E;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Aubergine"></button>
+            <button class="cswatch" onclick="pickColor('rose_clair',this)" style="width:30px;height:30px;border-radius:50%;background:#F0A8B8;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Rose Clair"></button>
+            <button class="cswatch" onclick="pickColor('petroli',this)" style="width:30px;height:30px;border-radius:50%;background:#1A5F7A;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Pétrole"></button>
+  </div>
 
 </div>
 
@@ -1184,18 +1165,9 @@ let embPrice     = 0;
 // GALLERY
 // ══════════════════════════════════════════════════════════
 function initGallery() {
-    const track = document.getElementById('gallery-track');
-    const cont  = document.getElementById('gallery-container');
-    if (!track || !cont) return;
-    gW = cont.offsetWidth || window.innerWidth;
-    Array.from(track.children).forEach(slide => {
-        slide.style.width    = gW + 'px';
-        slide.style.minWidth = gW + 'px';
-        slide.style.flexShrink = '0';
-    });
-    _moveTo(gIdx);
-
-    // Touch/swipe support
+    // Touch/swipe on main image
+    const cont = document.getElementById('gallery-container');
+    if (!cont) return;
     let tx0 = 0;
     cont.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, {passive:true});
     cont.addEventListener('touchend',   e => {
@@ -1203,69 +1175,50 @@ function initGallery() {
         if (Math.abs(dx) > 40) gSel(gIdx + (dx > 0 ? 1 : -1));
     }, {passive:true});
 }
-window.addEventListener('resize', () => {
-    gW = 0;
-    setTimeout(initGallery, 50);
-});
 
-function _moveTo(idx) {
-    if (idx < 0) idx = allImgs.length - 1;
-    if (idx >= allImgs.length) idx = 0;
-    gIdx = idx;
-    const track = document.getElementById('gallery-track');
-    const cont  = document.getElementById('gallery-container');
-    if (track && cont) {
-        // Always recalculate width to avoid stale 0 value
-        gW = cont.offsetWidth || track.parentElement.offsetWidth || window.innerWidth;
-        // Make sure all slides have correct width
-        Array.from(track.children).forEach(slide => {
-            slide.style.width    = gW + 'px';
-            slide.style.minWidth = gW + 'px';
-        });
-        track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
-    }
-    // Sync hero swatches active state
-    const colorHexes = ['#7EC8E3','#1B3A6B','#6D1A36','#B0B0B0','#4A2210','#6B7C52','#8FD5B2','#4B1A4E','#F0A8B8','#1A5F7A'];
-    document.querySelectorAll('.cswatch').forEach((sw,i) => {
-        sw.style.outline      = (i===idx) ? '2.5px solid #0d9488' : 'none';
-        sw.style.outlineOffset= '2px';
-        sw.style.transform    = (i===idx) ? 'scale(1.22)' : 'scale(1)';
-    });
-    // Update color label
-    const lbl = document.getElementById('gallery-color-label');
-    if(lbl) lbl.innerText = colorKeys[idx] ? (colorNames[colorKeys[idx]]||colorKeys[idx]) : '';
-    // Swatch ring
-    document.querySelectorAll('.cswatch').forEach((s,i) => {
-        s.style.transform  = (i===idx) ? 'scale(1.28)' : 'scale(1)';
-        s.style.boxShadow  = (i===idx) ? '0 0 0 2px #fff,0 0 0 4px #0d9488' : 'none';
-    });
-    // Color name
-    const key = colorKeys[idx];
-    const nameEl = document.getElementById('hero-color-name');
-    if (nameEl && key) nameEl.innerText = colorNames[key] || key;
-}
+
 
 function gSel(idx) {
-    _moveTo(idx);
+    if (idx < 0) idx = colorKeys.length - 1;
+    if (idx >= colorKeys.length) idx = 0;
+    gIdx = idx;
     const key = colorKeys[idx];
-    if (key) _syncAllItem1(key);
+    if (key) pickColor(key, document.querySelectorAll('.cswatch')[idx]);
 }
 
 function pickColor(key, el) {
-    const idx = colorKeys.indexOf(key);
-    if (idx !== -1) gSel(idx);
-    // Update swatch active state
+    // Swap main image
+    const img = document.getElementById('main-product-img');
+    const lbl = document.getElementById('gallery-color-label');
+    if (img && imgMap[key]) {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = imgMap[key];
+            img.alt = colorNames[key] || key;
+            img.onload = () => { img.style.opacity = '1'; };
+            // fallback in case onload doesn't fire
+            setTimeout(() => { img.style.opacity = '1'; }, 400);
+        }, 180);
+    }
+    if (lbl) lbl.innerText = colorNames[key] || key;
+    // Sync color name in product info
+    const cn = document.getElementById('hero-color-name');
+    if (cn) cn.innerText = colorNames[key] || key;
+    // Update swatch highlight
     document.querySelectorAll('.cswatch').forEach(s => {
         s.style.outline = 'none';
+        s.style.outlineOffset = '0';
         s.style.transform = 'scale(1)';
-        s.classList.remove('swatch-active');
     });
     if(el) {
         el.style.outline = '2.5px solid #0d9488';
-        el.style.outlineOffset = '2px';
-        el.style.transform = 'scale(1.22)';
-        el.classList.add('swatch-active');
+        el.style.outlineOffset = '3px';
+        el.style.transform = 'scale(1.25)';
     }
+    // Sync bundle dropdown
+    const idx = colorKeys.indexOf(key);
+    if (idx !== -1) _syncAllItem1(key);
+    gIdx = idx;
 }
 
 function _syncAllItem1(key) {
