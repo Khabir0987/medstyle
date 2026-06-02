@@ -379,25 +379,8 @@ function toggleFaq(idx) {
         }
 
         /* Dot pagination */
-        .gallery-dots {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 12px 14px 16px;
-        }
-        .gdot {
-            width: 22px; height: 22px;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.7);
-            cursor: pointer;
-            padding: 0;
-            transition: transform 0.2s, outline 0.2s;
-            flex-shrink: 0;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.18);
-        }
-        .gdot:hover { transform: scale(1.2); }
+        /* gallery-dots removed */
+        /* gdot removed */
 
         
         /* ── Urgency bar ── */
@@ -524,19 +507,8 @@ function toggleFaq(idx) {
     <button class="gzoom-btn" onclick="openZoom(gIdx)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
   </div>
 
-  <!-- Color swatches as dots -->
-  <div class="gallery-dots" id="gallery-dots">
-        <button class="gdot gdot-active" onclick="gSel(0)" aria-label="Bleu Ciel" style="background:#7EC8E3; outline:2.5px solid #0d9488;outline-offset:2px;"></button>
-        <button class="gdot" onclick="gSel(1)" aria-label="Bleu Marine" style="background:#1B3A6B;"></button>
-        <button class="gdot" onclick="gSel(2)" aria-label="Bordeaux" style="background:#6D1A36;"></button>
-        <button class="gdot" onclick="gSel(3)" aria-label="Gris Clair" style="background:#B0B0B0;"></button>
-        <button class="gdot" onclick="gSel(4)" aria-label="Marron Chocolat" style="background:#4A2210;"></button>
-        <button class="gdot" onclick="gSel(5)" aria-label="Militaire" style="background:#6B7C52;"></button>
-        <button class="gdot" onclick="gSel(6)" aria-label="Vert Pastel" style="background:#8FD5B2;"></button>
-        <button class="gdot" onclick="gSel(7)" aria-label="Aubergine" style="background:#4B1A4E;"></button>
-        <button class="gdot" onclick="gSel(8)" aria-label="Rose Clair" style="background:#F0A8B8;"></button>
-        <button class="gdot" onclick="gSel(9)" aria-label="Pétrole" style="background:#1A5F7A;"></button>
-  </div>
+
+
 
 </div>
 
@@ -1215,13 +1187,21 @@ function initGallery() {
     const track = document.getElementById('gallery-track');
     const cont  = document.getElementById('gallery-container');
     if (!track || !cont) return;
-    gW = cont.offsetWidth;
+    gW = cont.offsetWidth || window.innerWidth;
     Array.from(track.children).forEach(slide => {
         slide.style.width    = gW + 'px';
         slide.style.minWidth = gW + 'px';
         slide.style.flexShrink = '0';
     });
     _moveTo(gIdx);
+
+    // Touch/swipe support
+    let tx0 = 0;
+    cont.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, {passive:true});
+    cont.addEventListener('touchend',   e => {
+        const dx = tx0 - e.changedTouches[0].clientX;
+        if (Math.abs(dx) > 40) gSel(gIdx + (dx > 0 ? 1 : -1));
+    }, {passive:true});
 }
 window.addEventListener('resize', () => {
     gW = 0;
@@ -1235,16 +1215,21 @@ function _moveTo(idx) {
     const track = document.getElementById('gallery-track');
     const cont  = document.getElementById('gallery-container');
     if (track && cont) {
-        if (!gW) gW = cont.offsetWidth;
+        // Always recalculate width to avoid stale 0 value
+        gW = cont.offsetWidth || track.parentElement.offsetWidth || window.innerWidth;
+        // Make sure all slides have correct width
+        Array.from(track.children).forEach(slide => {
+            slide.style.width    = gW + 'px';
+            slide.style.minWidth = gW + 'px';
+        });
         track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
     }
-    // Update dot swatches
+    // Sync hero swatches active state
     const colorHexes = ['#7EC8E3','#1B3A6B','#6D1A36','#B0B0B0','#4A2210','#6B7C52','#8FD5B2','#4B1A4E','#F0A8B8','#1A5F7A'];
-    document.querySelectorAll('.gdot').forEach((dot,i) => {
-        dot.style.background   = colorHexes[i] || '#d1d5db';
-        dot.style.outline      = (i===idx) ? '2.5px solid #0d9488' : 'none';
-        dot.style.outlineOffset= '2px';
-        dot.style.transform    = (i===idx) ? 'scale(1.4)' : 'scale(1)';
+    document.querySelectorAll('.cswatch').forEach((sw,i) => {
+        sw.style.outline      = (i===idx) ? '2.5px solid #0d9488' : 'none';
+        sw.style.outlineOffset= '2px';
+        sw.style.transform    = (i===idx) ? 'scale(1.22)' : 'scale(1)';
     });
     // Update color label
     const lbl = document.getElementById('gallery-color-label');
