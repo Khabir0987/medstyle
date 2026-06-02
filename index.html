@@ -367,6 +367,129 @@ function toggleFaq(idx) {
 </div>
 
 <!-- ══════════════════════════════════
+     PRODUCT INFO — title, price, colors, sizes, embroidery
+══════════════════════════════════ -->
+<div class="px-4 pt-4 pb-2 bg-white space-y-4">
+
+    <!-- Title + badges -->
+    <div>
+        <div class="flex flex-wrap gap-2 mb-2">
+            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                <i class="fa-solid fa-stethoscope ml-1"></i>للرجال والنساء
+            </span>
+            <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full">
+                <i class="fa-solid fa-leaf ml-1"></i>Premium Quality
+            </span>
+        </div>
+        <h1 class="text-2xl font-extrabold text-gray-900 leading-snug">
+            بلوزة / تيشرت طبي فاخر — Scrub Médical Premium
+        </h1>
+        <p class="text-sm text-gray-500 mt-1">مريح، مضاد للتعرق، مقاوم للبقع — مثالي للعمل الطويل</p>
+    </div>
+
+    <!-- Price -->
+    <div class="flex items-baseline gap-3">
+        <span class="text-3xl font-extrabold text-teal-700" id="hero-price">199 Dh</span>
+        <span class="text-base text-gray-400 line-through">299 Dh</span>
+        <span class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
+    </div>
+
+    <!-- Color selector -->
+    <div>
+        <p class="text-sm font-bold text-gray-700 mb-2">
+            اللون: <span class="text-teal-700 font-extrabold" id="hero-color-name">Blanc</span>
+        </p>
+        <div class="flex flex-wrap gap-2" id="hero-swatches">
+            <button onclick="pickColor('blanc',this)"       class="cswatch swatch-active" style="width:30px;height:30px;border-radius:50%;background:#FFFFFF;border:none;cursor:pointer;box-shadow:inset 0 0 0 1px #d1d5db;" title="Blanc"></button>
+            <button onclick="pickColor('bleu_ciel',this)"   class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#87CEEB;border:none;cursor:pointer;" title="Bleu Ciel"></button>
+            <button onclick="pickColor('bleu_marin',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#1B2A5E;border:none;cursor:pointer;" title="Bleu Marine"></button>
+            <button onclick="pickColor('bordeaux',this)"    class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7B1C3E;border:none;cursor:pointer;" title="Bordeaux"></button>
+            <button onclick="pickColor('gris_clair',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#B0B0B0;border:none;cursor:pointer;" title="Gris Clair"></button>
+            <button onclick="pickColor('marron',this)"      class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#3E1F0D;border:none;cursor:pointer;" title="Marron"></button>
+            <button onclick="pickColor('militaire',this)"   class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7A8C6E;border:none;cursor:pointer;" title="Militaire"></button>
+            <button onclick="pickColor('mauve',this)"       class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7B2D8B;border:none;cursor:pointer;" title="Mauve"></button>
+            <button onclick="pickColor('mauve_clair',this)" class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#C196D8;border:none;cursor:pointer;" title="Mauve Clair"></button>
+            <button onclick="pickColor('rose_clair',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#F4B8C8;border:none;cursor:pointer;" title="Rose Clair"></button>
+        </div>
+    </div>
+
+    <!-- Size selector -->
+    <div>
+        <div class="flex justify-between items-center mb-2">
+            <p class="text-sm font-bold text-gray-700">المقاس: <span class="text-teal-700 font-extrabold" id="hero-size-name">M</span></p>
+            <button onclick="toggleSizeGuide()" class="text-xs text-teal-600 underline font-semibold">دليل المقاسات ▾</button>
+        </div>
+        <div class="flex flex-wrap gap-2" id="hero-sizes">
+            <button onclick="pickSize('XS',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XS</button>
+            <button onclick="pickSize('S',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">S</button>
+            <button onclick="pickSize('M',this)"  class="size-btn size-active" style="min-width:44px;padding:6px 10px;border:2px solid #0d9488;border-radius:8px;background:#f0fdf4;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">M</button>
+            <button onclick="pickSize('L',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">L</button>
+            <button onclick="pickSize('XL',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XL</button>
+            <button onclick="pickSize('XXL',this)"class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XXL</button>
+        </div>
+        <!-- Size guide (hidden by default) -->
+        <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600 border border-gray-100">
+            <table class="w-full text-center">
+                <thead><tr class="font-bold text-gray-800"><th>المقاس</th><th>الصدر (cm)</th><th>الخصر (cm)</th><th>الطول (cm)</th></tr></thead>
+                <tbody>
+                    <tr><td>XS</td><td>80–84</td><td>64–68</td><td>150–158</td></tr>
+                    <tr class="bg-white"><td>S</td><td>84–88</td><td>68–72</td><td>158–162</td></tr>
+                    <tr><td>M</td><td>88–92</td><td>72–76</td><td>162–166</td></tr>
+                    <tr class="bg-white"><td>L</td><td>92–96</td><td>76–80</td><td>166–170</td></tr>
+                    <tr><td>XL</td><td>96–102</td><td>80–86</td><td>170–174</td></tr>
+                    <tr class="bg-white"><td>XXL</td><td>102–110</td><td>86–94</td><td>174–180</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Embroidery option -->
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+        <div class="flex items-start gap-3">
+            <input type="checkbox" id="embroidery-check" onchange="toggleEmbroidery(this)"
+                   class="mt-1 w-4 h-4 accent-teal-600 cursor-pointer">
+            <div>
+                <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
+                    <i class="fa-solid fa-pen-nib text-amber-600 ml-1"></i>
+                    إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+30 Dh</span>
+                </label>
+                <p class="text-xs text-gray-500 mt-0.5">سنتواصل معك لتحديد النص واللون والموضع المناسب</p>
+                <!-- Embroidery fields (shown when checked) -->
+                <div id="embroidery-fields" class="hidden mt-2 space-y-2">
+                    <input type="text" id="emb-text" placeholder="مثال: Dr. Ahmed / صيدلية النور"
+                           class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-amber-400 text-right"
+                           style="font-family:Cairo,sans-serif;">
+                    <select id="emb-color" class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none bg-white text-right">
+                        <option value="">لون التطريز (اختياري — سنحدده معك)</option>
+                        <option value="blanc">أبيض</option>
+                        <option value="noir">أسود</option>
+                        <option value="or">ذهبي</option>
+                        <option value="argent">فضي</option>
+                        <option value="rouge">أحمر</option>
+                        <option value="bleu">أزرق</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA button -->
+    <a href="#bundles-anchor" class="block w-full text-center bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-base py-3.5 rounded-xl shadow-lg shadow-rose-200 transition duration-200"
+       style="text-decoration:none;">
+        <i class="fa-solid fa-shopping-cart ml-2"></i> اطلب الآن — ابدأ من 199 Dh
+    </a>
+
+    <!-- Trust badges -->
+    <div class="flex justify-center gap-6 text-xs text-gray-500 font-semibold pb-2">
+        <span><i class="fa-solid fa-truck-fast text-teal-500 ml-1"></i>توصيل مجاني</span>
+        <span><i class="fa-solid fa-rotate-left text-teal-500 ml-1"></i>إمكانية التبديل</span>
+        <span><i class="fa-solid fa-shield-halved text-teal-500 ml-1"></i>دفع عند الاستلام</span>
+    </div>
+
+</div>
+
+<div id="bundles-anchor"></div>
+<!-- ══════════════════════════════════
      OFFERS SECTION — bundle & save style
 ══════════════════════════════════ -->
 <div class="px-4 mt-4 space-y-3">
@@ -1187,6 +1310,39 @@ function showToast() {
     el.classList.remove('translate-y-40');
     el.classList.add('translate-y-0');
     setTimeout(()=>{ el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
+}
+
+// ── Size selector ────────────────────────────────────
+let heroSize_ = 'M';
+function pickSize(siz, btn) {
+    heroSize_ = siz;
+    document.getElementById('hero-size-name').innerText = siz;
+    document.querySelectorAll('.size-btn').forEach(b => {
+        b.style.border      = 'none';
+        b.style.border      = '2px solid #e5e7eb';
+        b.style.background  = '#fff';
+    });
+    btn.style.border     = '2px solid #0d9488';
+    btn.style.background = '#f0fdf4';
+    // Sync size in active bundle item-1
+    ['solo','duo','trio'].forEach(b => {
+        const s = document.getElementById('size-'+b+'-1');
+        if (s) s.value = siz;
+    });
+}
+
+// ── Size guide toggle ─────────────────────────────────
+function toggleSizeGuide() {
+    const g = document.getElementById('size-guide');
+    if (g) g.classList.toggle('hidden');
+}
+
+// ── Embroidery toggle ─────────────────────────────────
+let embroideryPrice = 0;
+function toggleEmbroidery(cb) {
+    const fields = document.getElementById('embroidery-fields');
+    if (fields) fields.classList.toggle('hidden', !cb.checked);
+    embroideryPrice = cb.checked ? 30 : 0;
 }
 
 // ── Init ─────────────────────────────────────────────
