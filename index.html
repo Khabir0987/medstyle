@@ -604,1246 +604,307 @@ function toggleFaq(idx) {
 
 </div>
 
+<div id="bundles-anchor"></div>
 <!-- ══════════════════════════════════
-         FAQ SECTION
-    ══════════════════════════════════ -->
-    <div class="px-4 mb-4">
-    <div class="bg-white rounded-2xl p-5">
-        <div class="text-center mb-5">
-            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-1">الأسئلة الشائعة</p>
-            <h2 class="text-lg font-extrabold text-gray-900">كل ما تحتاج معرفته</h2>
-        </div>
-
-        <div class="space-y-2">
-
-            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
-                <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">كم من الوقت يستغرق استلام طلبيتي؟</span>
-                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-0 transition-transform duration-300 mr-3"></i>
-                </button>
-                <div class="faq-ans-0 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نوصل طلبيتك في ظرف <span class="font-bold text-teal-700">24 إلى 48 ساعة</span> بعد تأكيد الطلب. التوصيل مجاني لجميع مدن المغرب، وسيتصل بك أحد فريقنا لتحديد موعد التسليم.</p>
-                </div>
-            </div>
-
-            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
-                <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكنني تبديل المقاس إذا لم يناسبني؟</span>
-                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-1 transition-transform duration-300 mr-3"></i>
-                </button>
-                <div class="faq-ans-1 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم بالتأكيد! نقدم <span class="font-bold text-teal-700">تبديل مجاني للمقاس</span> خلال 7 أيام من الاستلام. فقط تواصل معنا عبر واتساب وسنرتب معك عملية التبديل بدون أي تعقيدات.</p>
-                </div>
-            </div>
-
-            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
-                <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكن إضافة تطريز (Broderie) على المنتج؟</span>
-                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-2 transition-transform duration-300 mr-3"></i>
-                </button>
-                <div class="faq-ans-2 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم خدمة التطريز بـ <span class="font-bold text-purple-600">40 درهم فقط</span> لكل قطعة. يمكنك إضافة اسمك أو اسم العيادة أو أي شعار تريده. فقط فعّل خيار البرودري عند الطلب واكتب النص المطلوب.</p>
-                </div>
-            </div>
-
-            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
-                <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل هناك ضمان أو سياسة استرجاع؟</span>
-                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-3 transition-transform duration-300 mr-3"></i>
-                </button>
-                <div class="faq-ans-3 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نضمن لك <span class="font-bold text-teal-700">رضا 100%</span>. إذا وصلك المنتج بعيب مصنعي أو مختلف عما طلبت، نستبدله مجاناً أو نرجع لك المبلغ كاملاً. راحتك أولويتنا.</p>
-                </div>
-            </div>
-
-            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
-                <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكنني طلب عدة مقاسات لتجربتها في البيت؟</span>
-                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-4 transition-transform duration-300 mr-3"></i>
-                </button>
-                <div class="faq-ans-4 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">بالطبع! مع عروض الباك يمكنك اختيار مقاسات مختلفة لكل قطعة وتجربتها بكل راحة. الدفع فقط عند الاستلام، فلا خطر عليك.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Contact CTA -->
-        <div class="mt-5 bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
-            <p class="text-sm font-bold text-gray-700 mb-1">سؤالك لم تجد جوابه؟</p>
-            <p class="text-xs text-gray-500 mb-3">فريقنا متاح 7/7 للرد على جميع استفساراتك</p>
-            <div class="flex gap-2 justify-center">
-                <a href="https://wa.me/212645066834" target="_blank"
-                   class="flex items-center gap-1.5 bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> واتساب
-                </a>
-                <a href="mailto:contact@medstyle.ma"
-                   class="flex items-center gap-1.5 bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                    <i class="fa-solid fa-envelope text-sm"></i> contact@medstyle.ma
-                </a>
-            </div>
-        </div>
-    </div>
-    </div>
-
-<!-- Live toast -->
-<div id="toast" class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-40">
-    <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-shopping-bag"></i></div>
-    <div>
-        <p class="text-xs text-gray-400" id="toast-time">منذ 3 دقائق</p>
-        <p class="text-xs font-bold text-gray-900" id="toast-text">عميل من الرباط اشترى باك دبل</p>
-    </div>
-</div>
-
-
-<!-- Zoom Modal -->
-<div id="zoom-modal">
-    <button id="zoom-close" onclick="closeZoom()"><i class="fa-solid fa-xmark"></i></button>
-    <img id="zoom-img" src="" alt="zoom">
-</div>
-
-</main>
-
-<!-- Sticky bottom -->
-<div class="sticky-bottom">
-    <button onclick="openModal('duo')" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
-        <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
-    </button>
-    <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
-    </a>
-</div>
-
-<!-- ══════════════════════════════════
-     ORDER MODAL (popup)
+     OFFERS SECTION — bundle & save style
 ══════════════════════════════════ -->
-<div id="order-modal">
-    <div class="modal-overlay" onclick="closeModal()"></div>
-    <div class="modal-box">
-        <!-- Handle bar -->
-        <div class="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4"></div>
+<div class="px-4 mt-4 space-y-3">
 
-        <!-- Order summary (injected by JS) -->
-        <div id="modal-summary"></div>
+    <div class="text-center">
+        <h2 class="text-xl font-extrabold text-gray-900">🎁 وفّر أكثر مع عروض التوفير</h2>
+        <p class="text-xs text-gray-500 mt-1">كلما زادت القطع، زاد التوفير — التوصيل مجاني دائماً</p>
+    </div>
 
-        <!-- Modal header -->
-        <div class="flex items-center justify-between mb-5">
-            <h2 class="text-lg font-extrabold text-gray-900">معلومات التوصيل</h2>
-            <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <!-- Order summary inside modal -->
-        <div class="bg-teal-50 border border-teal-100 rounded-xl p-3 mb-5 space-y-1.5">
-            <p class="text-xs font-bold text-teal-800">ملخص الطلب:</p>
-            <div class="flex justify-between text-sm">
-                <span id="modal-offer-name" class="text-gray-600">باك دبل (2 قطع)</span>
-                <span id="modal-offer-price" class="font-extrabold text-gray-900">349 Dh</span>
+    <!-- ───────────── SOLO ───────────── -->
+    <div class="bundle-row" id="row-solo" onclick="selectBundle('solo')">
+        <div class="bundle-row-header">
+            <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-solo" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">قطعة واحدة <span class="bundle-badge-grey">السعر العادي</span></p>
             </div>
-            <div id="modal-items-detail" class="text-xs text-gray-500 space-y-0.5"></div>
-            <div id="modal-broderie-row" class="hidden flex justify-between text-xs text-purple-600">
-                <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
-            </div>
-            <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
-                <span>التوصيل</span><span class="text-green-600 font-bold">مجاني 🎁</span>
-            </div>
-            <div class="flex justify-between text-sm font-extrabold text-gray-900 border-t border-teal-200 pt-1.5">
-                <span>المجموع:</span><span id="modal-total">349 Dh</span>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">199 Dh</p>
+                <p class="bundle-price-old">299 Dh</p>
             </div>
         </div>
-
-        <form id="order-form" onsubmit="handleSubmit(event)" class="space-y-3">
-            <!-- Name -->
-            <div class="relative">
-                <span class="input-icon"><i class="fa-solid fa-user text-sm"></i></span>
-                <input type="text" id="f-name" required placeholder="الاسم الكامل *" class="form-input">
-            </div>
-            <!-- Phone -->
-            <div class="relative">
-                <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-phone text-sm"></i></span>
-                <input type="tel" id="f-phone" required placeholder="0612345678 *" class="form-input" dir="ltr" style="text-align:left;padding-right:12px;padding-left:40px;">
-            </div>
-            <!-- City -->
-            <div class="relative">
-                <span class="input-icon"><i class="fa-solid fa-location-dot text-sm"></i></span>
-                <select id="f-city" required class="form-input">
-                    <option value="">المدينة *</option>
-                    <option>الدار البيضاء</option><option>الرباط</option>
-                    <option>مراكش</option><option>فاس</option>
-                    <option>طنجة</option><option>أكادير</option>
-                    <option>القنيطرة</option><option>وجدة</option>
-                    <option>مكناس</option><option>تطوان</option>
-                    <option>آسفي</option><option>تمارة</option>
-                    <option>الجديدة</option><option>الناظور</option>
-                    <option>سلا</option><option>مدينة أخرى</option>
-                </select>
-            </div>
-            <!-- Address -->
-            <div class="relative">
-                <span style="position:absolute;right:12px;top:14px;color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-house text-sm"></i></span>
-                <textarea id="f-address" required rows="2" placeholder="عنوان التوصيل بالتفصيل *" class="form-input" style="padding-top:12px;padding-bottom:12px;resize:none;"></textarea>
-            </div>
-
-            <!-- Sticky submit inside modal -->
-            <div class="modal-sticky">
-                <button type="submit" id="submit-btn" class="cta-btn">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <span>تأكيد الطلب — الدفع عند الاستلام</span>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Success Screen -->
-<div id="success-screen" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center px-4">
-    <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full text-center space-y-5 border border-teal-100">
-        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
-            <i class="fa-solid fa-check-double"></i>
-        </div>
-        <div>
-            <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
-            <p class="text-gray-500 text-sm mt-1">شكراً لثقتكم في MedStyle.ma</p>
-            <p class="text-xs text-rose-500 font-semibold mt-1 pulse">سنتصل بكم خلال ساعتين لتأكيد الطلب.</p>
-        </div>
-        <div class="bg-gray-50 p-4 rounded-xl text-right text-sm space-y-1.5 border border-gray-100">
-            <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="s-orderid"></span></p>
-            <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="s-name"></span></p>
-            <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="s-bundle"></span></p>
-            <p class="text-gray-500">التفاصيل: <span class="font-bold text-gray-800" id="s-items"></span></p>
-            <p class="text-gray-500">المجموع: <span class="font-bold text-teal-700" id="s-price"></span></p>
-            <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني 🎁</span></p>
-        </div>
-        <a id="s-wa-link" target="_blank" href="#" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
-            <i class="fa-brands fa-whatsapp text-xl"></i> تأكيد عبر WhatsApp
-        </a>
-    </div>
-</div>
-
-<footer class="bg-teal-900 text-teal-300 py-5 text-center">
-    <p class="text-sm font-semibold">MedStyle.ma © 2026</p>
-    <p class="text-xs text-teal-500 mt-1">ملابس مهنية طبية — الدفع عند الاستلام</p>
-</footer>
-
-<script>
-// ═══════════════════════════════════════════════════════
-// MedStyle.ma — JavaScript (clean full rewrite)
-// ═══════════════════════════════════════════════════════
-
-// ── Data ─────────────────────────────────────────────────
-const allImgs = ['https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp'];
-
-const colorKeys  = ['bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','pastel','aubergine','rose_clair','petroli'];
-const colorNames = {bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron Chocolat',militaire:'Militaire',pastel:'Vert Pastel',aubergine:'Aubergine',rose_clair:'Rose Clair',petroli:'Pétrole'};
-const imgMap     = {bleu_ciel:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp',bleu_marin:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp',bordeaux:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp',gris_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp',marron:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp',militaire:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp',pastel:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp',aubergine:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp',rose_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp',petroli:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp'};
-
-const bundlePricing = {
-    solo:  { name:'قطعة واحدة',  price:199, count:1, old:299 },
-    duo:   { name:'باك دبل',     price:349, count:2, old:450 },
-    trio:  { name:'باك سوبر',    price:479, count:3, old:699 }
-};
-
-// ── State ─────────────────────────────────────────────────
-let gIdx         = 0;
-let gW           = 0;
-let activeBundle = 'duo';
-let heroSize_    = 'M';
-let embPrice     = 0;
-
-// ══════════════════════════════════════════════════════════
-// GALLERY
-// ══════════════════════════════════════════════════════════
-function initGallery() {
-    // Touch/swipe on main image
-    const cont = document.getElementById('gallery-container');
-    if (!cont) return;
-    let tx0 = 0;
-    cont.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, {passive:true});
-    cont.addEventListener('touchend',   e => {
-        const dx = tx0 - e.changedTouches[0].clientX;
-        if (Math.abs(dx) > 40) gSel(gIdx + (dx > 0 ? 1 : -1));
-    }, {passive:true});
-}
-
-
-
-function gSel(idx) {
-    if (idx < 0) idx = colorKeys.length - 1;
-    if (idx >= colorKeys.length) idx = 0;
-    gIdx = idx;
-    const key = colorKeys[idx];
-    if (key) pickColor(key, document.querySelectorAll('.cswatch')[idx]);
-}
-
-function pickColor(key, el) {
-    // Swap main image
-    const img = document.getElementById('main-product-img');
-    const lbl = document.getElementById('gallery-color-label');
-    if (img && imgMap[key]) {
-        img.style.opacity = '0';
-        setTimeout(() => {
-            img.src = imgMap[key];
-            img.alt = colorNames[key] || key;
-            img.onload = () => { img.style.opacity = '1'; };
-            // fallback in case onload doesn't fire
-            setTimeout(() => { img.style.opacity = '1'; }, 400);
-        }, 180);
-    }
-    if (lbl) lbl.innerText = colorNames[key] || key;
-    // Sync color name in product info
-    const cn = document.getElementById('hero-color-name');
-    if (cn) cn.innerText = colorNames[key] || key;
-    // Update swatch highlight
-    document.querySelectorAll('.cswatch').forEach(s => {
-        s.style.outline = 'none';
-        s.style.outlineOffset = '0';
-        s.style.transform = 'scale(1)';
-    });
-    if(el) {
-        el.style.outline = '2.5px solid #0d9488';
-        el.style.outlineOffset = '3px';
-        el.style.transform = 'scale(1.25)';
-    }
-    // Sync bundle dropdown
-    const idx = colorKeys.indexOf(key);
-    if (idx !== -1) _syncAllItem1(key);
-    gIdx = idx;
-}
-
-function _syncAllItem1(key) {
-    ['solo','duo','trio'].forEach(b => {
-        const sel = document.getElementById('color-'+b+'-1');
-        if (sel) { sel.value = key; _refreshThumb(b,1); }
-    });
-}
-
-function _refreshThumb(bkey, num) {
-    const sel  = document.getElementById('color-'+bkey+'-'+num);
-    const vimg = document.getElementById('vimg-'+bkey+'-'+num);
-    if(sel && vimg && imgMap[sel.value]) {
-        vimg.src = imgMap[sel.value];
-    }
-}
-
-function syncFromBundle(bkey, num, sel) {
-    _refreshThumb(bkey, num);
-}
-
-// Touch swipe
-let _tx=0,_ty=0;
-function _initSwipe() {
-    const gc = document.getElementById('gallery-container');
-    if (!gc) return;
-    gc.addEventListener('touchstart', e => { _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; },{passive:true});
-    gc.addEventListener('touchend',   e => {
-        const dx = e.changedTouches[0].clientX - _tx;
-        const dy = e.changedTouches[0].clientY - _ty;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) gSel(gIdx + (dx<0?1:-1));
-    });
-}
-
-// Zoom
-function openZoom(idx) {
-    const zi = document.getElementById('zoom-img');
-    const zm = document.getElementById('zoom-modal');
-    if (zi) zi.src = allImgs[idx ?? gIdx];
-    if (zm) zm.classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-function closeZoom() {
-    const zm = document.getElementById('zoom-modal');
-    if (zm) zm.classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-// ══════════════════════════════════════════════════════════
-// BUNDLE SELECTION
-// ══════════════════════════════════════════════════════════
-function selectBundle(bkey) {
-    activeBundle = bkey;
-    ['solo','duo','trio'].forEach(k => {
-        const card     = document.getElementById('card-'+k);
-        const variants = document.getElementById('variants-'+k);
-        const radio    = document.getElementById('radio-'+k);
-        const rdot     = document.getElementById('rdot-'+k);
-        const active   = (k === bkey);
-
-        if(card) {
-            card.style.borderColor = active ? '#0d9488' : '#e5e7eb';
-            card.style.background  = active ? '#f0fdf4' : '#fff';
-            card.style.boxShadow   = active ? '0 0 0 3px rgba(13,148,136,.12)' : 'none';
-        }
-        if(variants) variants.style.display = active ? 'block' : 'none';
-        if(radio) radio.style.borderColor = active ? '#0d9488' : '#e5e7eb';
-        if(rdot)  rdot.style.background   = active ? '#0d9488' : 'transparent';
-    });
-    // Update order button price & text
-    const prices = {solo:'199',duo:'349',trio:'479'};
-    const labels = {solo:'قطعة واحدة',duo:'قطعتين',trio:'ثلاث قطع'};
-    const btn = document.getElementById('order-btn-text');
-    if(btn) btn.innerText = 'اطلب ' + labels[bkey] + ' — ' + prices[bkey] + ' Dh';
-    // Update sticky CTA
-    const sp = document.getElementById('sticky-price');
-    if(sp) sp.innerText = prices[bkey] + ' Dh';
-    // Sync thumbnails
-    const cnt = bundlePricing[bkey] ? bundlePricing[bkey].count : 1;
-    for(let n=1; n<=cnt; n++) _refreshThumb(bkey, n);
-}
-
-// ══════════════════════════════════════════════════════════
-// MODAL (order form popup)
-// ══════════════════════════════════════════════════════════
-
-
-function closeModal() {
-    const modal = document.getElementById('order-modal');
-    if (modal) modal.classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-// Close modal on backdrop click
-document.addEventListener('click', e => {
-    if (e.target.classList.contains('modal-overlay')) closeModal();
-});
-
-// ══════════════════════════════════════════════════════════
-// SIZE SELECTOR
-// ══════════════════════════════════════════════════════════
-function pickSize(siz, btn) {
-    heroSize_ = siz;
-    const nameEl = document.getElementById('hero-size-name');
-    if (nameEl) nameEl.innerText = siz;
-    document.querySelectorAll('.size-btn').forEach(b => {
-        b.style.border     = '2px solid #e5e7eb';
-        b.style.background = '#fff';
-        b.style.color      = '#374151';
-    });
-    btn.style.border     = '2px solid #0d9488';
-    btn.style.background = '#f0fdf4';
-    btn.style.color      = '#065f46';
-    // Sync size-1 in all bundles
-    ['solo','duo','trio'].forEach(b => {
-        const s = document.getElementById('size-'+b+'-1');
-        if (s) s.value = siz;
-    });
-}
-
-function toggleSizeGuide() {
-    const g = document.getElementById('size-guide');
-    if (g) g.classList.toggle('hidden');
-}
-
-// ══════════════════════════════════════════════════════════
-// EMBROIDERY
-// ══════════════════════════════════════════════════════════
-function toggleEmbroidery(cb) {
-    const fields = document.getElementById('embroidery-fields');
-    if (fields) fields.classList.toggle('hidden', !cb.checked);
-    embPrice = cb.checked ? 30 : 0;
-    // Update modal total if open
-    const totalEl = document.getElementById('modal-total');
-    const bp = bundlePricing[activeBundle];
-    if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
-    // Show/hide broderie row
-    const brod = document.getElementById('modal-broderie-row');
-    if (brod) brod.classList.toggle('hidden', !cb.checked);
-}
-
-// ══════════════════════════════════════════════════════════
-// FORM SUBMIT
-// ══════════════════════════════════════════════════════════
-function handleSubmit(e) {
-    e.preventDefault();
-
-    const name    = (document.getElementById('f-name')?.value    || '').trim();
-    const phone   = (document.getElementById('f-phone')?.value   || '').trim();
-    const city    = (document.getElementById('f-city')?.value    || '').trim();
-    const address = (document.getElementById('f-address')?.value || '').trim();
-
-    if (!name || !phone || !city || !address) {
-        // Shake invalid fields
-        [['f-name',name],['f-phone',phone],['f-city',city],['f-address',address]].forEach(([id,val]) => {
-            if (!val) {
-                const el = document.getElementById(id);
-                if (el) { el.style.borderColor='#f43f5e'; el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),600); }
-            }
-        });
-        return;
-    }
-
-    const bp    = bundlePricing[activeBundle];
-    const cnt   = bp.count;
-    const oid   = 'MED-' + Math.floor(10000 + Math.random() * 90000);
-    const total = bp.price + embPrice;
-
-    // Collect items
-    let lines = [];
-    for (let i=1; i<=cnt; i++) {
-        const csel  = document.getElementById('color-'+activeBundle+'-'+i);
-        const ssel  = document.getElementById('size-' +activeBundle+'-'+i);
-        const cname = csel ? (colorNames[csel.value]||csel.value) : '';
-        const sname = ssel ? ssel.value : '';
-        lines.push('• قطعة '+i+': '+cname+' / مقاس '+sname);
-    }
-
-    // Embroidery info
-    let embLine = '';
-    if (embPrice > 0) {
-        const embTxt = (document.getElementById('emb-text')?.value || '').trim();
-        const embClr = (document.getElementById('emb-color')?.value || '');
-        embLine = '\n✍️ *تطريز:* ' + (embTxt||'سيُحدد لاحقاً') + (embClr ? ' / '+embClr : '') + ' (+'+embPrice+' Dh)';
-    }
-
-    const msg = encodeURIComponent(
-        'السلام عليكم MedStyle.ma 🇲🇦\n' +
-        'طلب جديد:\n\n' +
-        '🏷️ *العرض:* ' + bp.name + ' — ' + total + ' Dh\n' +
-        '📋 *التفاصيل:*\n' + lines.join('\n') + embLine + '\n\n' +
-        '👤 *الاسم:* ' + name + '\n' +
-        '📞 *الهاتف:* ' + phone + '\n' +
-        '📍 *المدينة:* ' + city + '\n' +
-        '🏠 *العنوان:* ' + address + '\n' +
-        '🚚 التوصيل مجاني — دفع عند الاستلام\n' +
-        '🔖 #' + oid
-    );
-
-    // Populate success screen
-    const oidEl = document.getElementById('order-id');
-    const snEl  = document.getElementById('success-name');
-    const sbEl  = document.getElementById('success-bundle');
-    const spEl  = document.getElementById('success-price');
-    const waEl  = document.getElementById('whatsapp-confirm-link');
-    if (oidEl) oidEl.innerText = '#'+oid;
-    if (snEl)  snEl.innerText  = name;
-    if (sbEl)  sbEl.innerText  = bp.name;
-    if (spEl)  spEl.innerText  = total + ' Dh';
-    if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
-
-    // Close modal, show success
-    closeModal();
-    const mainEl = document.getElementById('main-content');
-    const succEl = document.getElementById('success-screen');
-    if (mainEl) mainEl.classList.add('hidden');
-    if (succEl) {
-        succEl.classList.remove('hidden');
-        succEl.style.display = 'flex';
-    }
-    window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ══════════════════════════════════════════════════════════
-// TOAST (social proof)
-// ══════════════════════════════════════════════════════════
-const _tc = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','تطوان','القنيطرة','مكناس'];
-const _tb = ['باك دبل','باك سوبر','قطعة واحدة'];
-function showToast() {
-    const city   = _tc[Math.floor(Math.random()*_tc.length)];
-    const bundle = _tb[Math.floor(Math.random()*_tb.length)];
-    const mins   = Math.floor(Math.random()*12)+1;
-    const el  = document.getElementById('toast');
-    const tt  = document.getElementById('toast-text');
-    const tim = document.getElementById('toast-time');
-    if (!el) return;
-    if (tt)  tt.innerText  = 'عميل من '+city+' اشترى '+bundle;
-    if (tim) tim.innerText = 'منذ '+mins+' دقيقة';
-    el.classList.remove('translate-y-40');
-    el.classList.add('translate-y-0');
-    setTimeout(() => { el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
-}
-
-// ══════════════════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded', () => {
-    initGallery();
-    selectBundle("duo");
-    _initSwipe();
-    selectBundle('duo');
-    setTimeout(showToast, 3000);
-    setInterval(showToast, 18000);
-});
-</script>
-
-<!-- ── Sticky CTA bar (mobile) ── -->
-<div id="sticky-cta">
-    <div>
-        <div class="scta-price" id="sticky-price">199 Dh</div>
-        <div class="scta-label">الدفع عند الاستلام — توصيل مجاني</div>
-    </div>
-    <button onclick="openModal(activeBundle)">
-        <i class="fa-solid fa-bag-shopping ml-1"></i> اطلب الآن
-    </button>
-</div>
-
-
-<!-- WhatsApp float -->
-<a id="wa-float" href="https://wa.me/212645066834" target="_blank" aria-label="تواصل معنا عبر واتساب">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<!-- Sticky CTA -->
-<div id="sticky-cta">
-    <div>
-        <div class="sp" id="sticky-price">من 199 Dh</div>
-        <div class="sl">دفع عند الاستلام — توصيل مجاني</div>
-    </div>
-    <button onclick="openModal(activeBundle)">
-        <i class="fa-solid fa-bag-shopping" style="margin-left:6px;"></i> اطلب الآن
-    </button>
-</div>
-
-<script>
-// Countdown
-(function(){
-    let t = Math.floor(Math.random()*7200)+7200;
-    function tick(){
-        const h=Math.floor(t/3600), m=Math.floor((t%3600)/60), s=t%60;
-        const f=n=>String(n).padStart(2,'0');
-        const eh=document.getElementById('cd-h');
-        const em=document.getElementById('cd-m');
-        const es=document.getElementById('cd-s');
-        if(eh)eh.innerText=f(h); if(em)em.innerText=f(m); if(es)es.innerText=f(s);
-        if(t>0)t--;
-    }
-    tick(); setInterval(tick,1000);
-})();
-</script>
-
-</body>
-</html><!-- Urgency bar -->
-    <div id="urgency-bar">
-        ⚡ عرض محدود — الأسعار المخفضة تنتهي خلال:&nbsp;
-        <strong><span id="cd-h">03</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span></strong>
-        &nbsp;— التوصيل مجاني + الدفع عند الاستلام 🚚
-    </div>
-
-    function openOrderModal() {
-    const b = activeBundle || 'solo';
-    const prices = {solo:199, duo:349, trio:479};
-    const labels = {solo:'قطعة واحدة', duo:'قطعتين', trio:'ثلاث قطع'};
-    const cnt = bundlePricing[b] ? bundlePricing[b].count : 1;
-
-    // Build items summary
-    let itemsHtml = '';
-    for(let n=1; n<=cnt; n++) {
-        const csel = document.getElementById('color-'+b+'-'+n);
-        const ssel = document.getElementById('size-'+b+'-'+n);
-        const colorName = csel ? (colorNames[csel.value]||csel.value) : '';
-        const sizeName  = ssel ? ssel.value : 'M';
-        const imgUrl    = csel ? (imgMap[csel.value]||'') : '';
-        itemsHtml += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">'
-            + (imgUrl ? '<img src="'+imgUrl+'" style="width:36px;height:36px;border-radius:8px;object-fit:cover;">' : '')
-            + '<span style="font-size:12px;font-family:Cairo,sans-serif;color:#374151;">'+ colorName +' — '+ sizeName +'</span>'
-            + '</div>';
-    }
-
-    // Embroidery
-    const emb = document.getElementById('embroidery-check') && document.getElementById('embroidery-check').checked;
-    const totalPrice = prices[b] + (emb ? 30 : 0);
-
-    // Fill modal summary
-    const ms = document.getElementById('modal-summary');
-    if(ms) ms.innerHTML = '<div style="background:#f9fafb;border-radius:10px;padding:10px 12px;margin-bottom:12px;">'
-        + '<p style="font-size:12px;font-weight:800;color:#111827;margin:0 0 6px;font-family:Cairo,sans-serif;">ملخص الطلب — '+labels[b]+'</p>'
-        + itemsHtml
-        + (emb ? '<p style="font-size:11px;color:#0d9488;margin:4px 0 0;font-family:Cairo,sans-serif;">✍️ تطريز +30 Dh</p>' : '')
-        + '<p style="font-size:15px;font-weight:900;color:#0d9488;margin:8px 0 0;font-family:Inter,sans-serif;">المجموع: '+totalPrice+' Dh</p>'
-        + '</div>';
-
-    // Set hidden fields
-    const hb = document.getElementById('h-bundle'); if(hb) hb.value = labels[b];
-    const hp = document.getElementById('h-price');  if(hp) hp.value = totalPrice;
-    const he = document.getElementById('h-emb');    if(he) he.value = emb ? 'نعم' : 'لا';
-
-    // Build items string for sheet
-    let itemsStr = '';
-    for(let n=1; n<=cnt; n++) {
-        const csel = document.getElementById('color-'+b+'-'+n);
-        const ssel = document.getElementById('size-'+b+'-'+n);
-        itemsStr += (n>1?', ':'') + (csel?colorNames[csel.value]||csel.value:'') + '/'+(ssel?ssel.value:'M');
-    }
-    const hi = document.getElementById('h-items'); if(hi) hi.value = itemsStr;
-
-    // Show modal
-    const modal = document.getElementById('order-modal');
-    if(modal) { modal.style.display='flex'; document.body.style.overflow='hidden'; }
-}
-
-</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', 'Inter', sans-serif; background: #f8f8f8; }
-        /* gallery uses slider now */
-
-        /* ── Full-width gallery ── */
-        .gallery-container { touch-action: pan-y; user-select: none; }
-        .gallery-track { will-change: transform; display:flex; }
-        .gallery-slide img { display: block; }
-        .dot { width:7px; height:7px; border-radius:50%; background:#d1d5db; transition:all 0.2s; cursor:pointer; }
-        .dot.active { background:#111827; width:20px; border-radius:4px; }
-
-        /* ── Zoom modal ── */
-        #zoom-modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); flex-direction:column; align-items:center; justify-content:center; }
-        #zoom-modal.open { display:flex; }
-        #zoom-modal img { max-width:100%; max-height:90vh; object-fit:contain; border-radius:8px; }
-        #zoom-close { position:absolute; top:16px; right:16px; w:36px; h:36px; background:rgba(255,255,255,0.15); border:none; color:white; font-size:20px; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-
-        .c-swatch { width:30px; height:30px; border-radius:50%; border:3px solid transparent; outline:2px solid transparent; cursor:pointer; transition:all 0.18s; flex-shrink:0; }
-        .c-swatch.active { border-color:white; outline-color:#0d9488; box-shadow:0 0 0 2px #0d9488; }
-        .c-swatch:hover { transform:scale(1.12); }
-        .size-btn { min-width:40px; padding:5px 8px; border:2px solid #e5e7eb; border-radius:8px; font-size:12px; font-weight:700; color:#374151; cursor:pointer; transition:all 0.15s; background:white; font-family:'Cairo',sans-serif; }
-        .size-btn.active { border-color:#0d9488; background:#f0fdfa; color:#0d9488; }
-        .offer-card { border:2px solid #e5e7eb; border-radius:18px; background:white; transition:all 0.2s; }
-        .offer-card.selected { border-color:#0d9488; }
-
-        /* Modal */
-        #order-modal { display:none; position:fixed; inset:0; z-index:100; }
-        #order-modal.open { display:flex; }
-        .modal-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(2px); }
-        .modal-box {
-            position:relative; z-index:1; background:white;
-            border-radius:24px 24px 0 0; width:100%; max-height:92vh;
-            overflow-y:auto; padding:20px 16px 100px;
-            margin-top:auto;
-            animation: slideUp 0.3s ease;
-        }
-        @keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
-
-        .form-input {
-            width:100%; padding:12px 40px 12px 12px;
-            border:1.5px solid #e5e7eb; border-radius:12px;
-            font-family:'Cairo',sans-serif; font-size:14px;
-            outline:none; text-align:right; background:white;
-            transition:border-color 0.2s;
-        }
-        .form-input:focus { border-color:#0d9488; }
-        select.form-input { -webkit-appearance:none; appearance:none; }
-        .input-icon { position:absolute; right:12px; top:50%; transform:translateY(-50%); color:#9ca3af; pointer-events:none; }
-
-        .cta-btn { width:100%; padding:15px; background:#111827; color:white; font-weight:800; font-size:15px; border-radius:14px; border:none; display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; font-family:'Cairo',sans-serif; }
-        .cta-btn:active { background:#374151; }
-
-        .broderie-btn { width:100%; padding:14px; border:2px dashed #d1d5db; border-radius:14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:all 0.2s; background:white; font-family:'Cairo',sans-serif; }
-        .broderie-btn.active { border-color:#0d9488; background:#f0fdfa; }
-
-        .sticky-bottom { position:fixed; bottom:0; left:0; right:0; background:white; padding:12px 16px; box-shadow:0 -4px 20px rgba(0,0,0,0.10); z-index:50; display:flex; gap:10px; }
-        .modal-sticky { position:sticky; bottom:0; left:0; right:0; background:white; padding:12px 16px 16px; border-top:1px solid #f3f4f6; margin:0 -16px; }
-
-        .star { color:#f59e0b; }
-
-        /* Item selector inside bundle */
-        .item-selector { background:#f9fafb; border-radius:14px; padding:14px; margin-top:10px; }
-        .item-selector .c-swatch { width:26px; height:26px; }
-
-
-        /* ── Compact item chip ── */
-        .item-chip {
-            display:flex; align-items:center; justify-content:space-between;
-            background:#f9fafb; border:1.5px solid #e5e7eb; border-radius:12px;
-            padding:10px 12px; cursor:pointer; transition:all 0.18s;
-        }
-        .item-chip:hover { border-color:#0d9488; background:#f0fdfa; }
-        .item-chip .chip-dot { width:18px; height:18px; border-radius:50%; border:2px solid rgba(0,0,0,0.12); flex-shrink:0; }
-        .item-chip .chip-info { flex:1; margin:0 10px; }
-        .item-chip .chip-info p { font-size:12px; font-weight:700; color:#374151; }
-        .item-chip .chip-info span { font-size:11px; color:#9ca3af; }
-        .chip-edit { font-size:11px; color:#0d9488; font-weight:700; white-space:nowrap; }
-
-        /* ── Accordion panel ── */
-        .chip-panel {
-            overflow:hidden; max-height:0; transition:max-height 0.35s ease, padding 0.2s;
-            background:#f9fafb; border-radius:0 0 12px 12px;
-            padding:0 12px;
-        }
-        .chip-panel.open { max-height:300px; padding:12px; }
-        .chip-panel .c-swatch { width:26px; height:26px; }
-
-        /* ══ Bundle & Save Rows ══ */
-        .bundle-row {
-            background: white; border: 2px solid #e5e7eb;
-            border-radius: 16px; padding: 14px 14px 14px;
-            cursor: pointer; transition: all 0.2s; position: relative;
-            overflow: hidden;
-        }
-        .bundle-row.active { border-color: #0d9488; background: #fafffe; }
-        .bundle-row-featured { border-color: #0d9488; background: #fafffe; }
-
-        .bundle-badge-top {
-            position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-            background: #ef4444; color: white; font-size: 10px; font-weight: 800;
-            padding: 3px 12px; border-radius: 0 0 10px 10px; white-space: nowrap;
-        }
-
-        .bundle-row-header {
-            display: flex; align-items: center; gap: 10px;
-        }
-
-        .bundle-radio {
-            width: 20px; height: 20px; border-radius: 50%;
-            border: 2px solid #d1d5db; display: flex; align-items: center;
-            justify-content: center; flex-shrink: 0; transition: all 0.2s;
-        }
-        .bundle-row.active .bundle-radio,
-        .bundle-row-featured .bundle-radio { border-color: #0d9488; }
-        .bundle-radio-dot {
-            width: 10px; height: 10px; border-radius: 50%; background: #0d9488;
-            opacity: 0; transition: opacity 0.2s;
-        }
-        .bundle-row.active .bundle-radio-dot,
-        .bundle-row-featured .bundle-radio-dot { opacity: 1; }
-
-        .bundle-thumb {
-            width: 44px; height: 44px; border-radius: 8px;
-            object-fit: cover; flex-shrink: 0; border: 1px solid #f3f4f6;
-        }
-        .bundle-title-wrap { flex: 1; }
-        .bundle-title { font-size: 14px; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .bundle-subtitle { font-size: 11px; color: #6b7280; margin-top: 1px; }
-
-        .bundle-badge-green  { background:#dcfce7; color:#166534; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
-        .bundle-badge-grey   { background:#f3f4f6; color:#6b7280;  font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
-        .bundle-badge-yellow { background:#fef9c3; color:#854d0e; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
-
-        .bundle-price-wrap { text-align: left; flex-shrink: 0; }
-        .bundle-price { font-size: 15px; font-weight: 800; color: #111827; }
-        .bundle-price-old { font-size: 11px; color: #9ca3af; text-decoration: line-through; }
-
-        /* Item rows inside bundle */
-        .bundle-items-wrap { margin-top: 12px; border-top: 1px solid #f3f4f6; padding-top: 12px; space-y: 8px; }
-        .bundle-item-row {
-            display: flex; align-items: center; gap: 8px;
-            margin-bottom: 8px;
-        }
-        .bundle-item-row:last-child { margin-bottom: 0; }
-        .bundle-item-num {
-            width: 20px; height: 20px; border-radius: 50%;
-            background: #0d9488; color: white; font-size: 11px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .bundle-item-thumb {
-            width: 36px; height: 36px; border-radius: 7px;
-            object-fit: cover; flex-shrink: 0; border: 1px solid #e5e7eb;
-            transition: opacity 0.2s;
-        }
-        .bundle-select {
-            flex: 1; padding: 6px 8px; border: 1.5px solid #e5e7eb;
-            border-radius: 8px; font-family: 'Cairo', sans-serif;
-            font-size: 12px; font-weight: 600; color: #374151;
-            background: white; outline: none; cursor: pointer;
-            -webkit-appearance: none; appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239ca3af'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; background-position: left 8px center;
-        }
-        .bundle-select:focus { border-color: #0d9488; }
-
-        .bundle-cta {
-            width: 100%; margin-top: 12px; padding: 13px;
-            background: #111827; color: white; font-weight: 800;
-            font-size: 14px; border-radius: 12px; border: none;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            cursor: pointer; font-family: 'Cairo', sans-serif;
-            transition: opacity 0.2s;
-        }
-        .bundle-cta:active { opacity: 0.85; }
-
-
-        /* ── FAQ Accordion ── */
-        .faq-item { transition: all 0.2s; }
-        .faq-item:hover { border-color: #99f6e4 !important; }
-        .faq-item button { transition: background 0.2s; }
-        .faq-item button:hover { background: #f0fdfa !important; }
-        .faq-ans-open { animation: fadeDown 0.25s ease; }
-        @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-        @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
-        .pulse { animation:pulseCta 2s infinite; }
-    
-        /* Shake animation for invalid fields */
-        @keyframes shake {
-            0%,100%{transform:translateX(0)}
-            20%{transform:translateX(-6px)}
-            40%{transform:translateX(6px)}
-            60%{transform:translateX(-4px)}
-            80%{transform:translateX(4px)}
-        }
-        .shake { animation:shake 0.5s ease-in-out; }
-
-        /* Sticky CTA bar at bottom on mobile */
-        #sticky-cta {
-            position:fixed;bottom:0;left:0;right:0;z-index:49;
-            background:linear-gradient(135deg,#0d9488,#0f766e);
-            padding:12px 16px;
-            display:flex;align-items:center;justify-content:space-between;
-            box-shadow:0 -4px 20px rgba(0,0,0,0.15);
-            border-top:2px solid #14b8a6;
-        }
-        #sticky-cta .scta-price { color:#fff;font-size:18px;font-weight:900;line-height:1.1; }
-        #sticky-cta .scta-label { color:#99f6e4;font-size:11px;font-weight:600; }
-        #sticky-cta button {
-            background:#f43f5e;color:#fff;border:none;
-            padding:12px 22px;border-radius:12px;
-            font-family:Cairo,sans-serif;font-size:14px;font-weight:800;
-            cursor:pointer;white-space:nowrap;
-            box-shadow:0 4px 12px rgba(244,63,94,.4);
-            transition:transform 0.15s,background 0.15s;
-        }
-        #sticky-cta button:active { transform:scale(0.97); }
-
-        /* Pulse on CTA */
-        @keyframes ctaPulse {
-            0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}
-            50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}
-        }
-        #sticky-cta button { animation:ctaPulse 2s ease-in-out infinite; }
-
-        /* Modal smooth open */
-        #order-modal .modal-box {
-            animation:slideUp 0.32s cubic-bezier(.4,0,.2,1);
-        }
-        @keyframes slideUp {
-            from{transform:translateY(100%);opacity:0;}
-            to{transform:translateY(0);opacity:1;}
-        }
-
-        /* ════════════════════════════════
-           HERO GALLERY — beez.ma style
-        ════════════════════════════════ */
-        .hero-gallery-wrap {
-            background: #fff;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        /* Stars bar */
-        .gallery-stars-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 7px 16px;
-            background: #f9fafb;
-            border-bottom: 1px solid #f1f5f9;
-            font-family: Cairo, sans-serif;
-        }
-        .stars-text  { color: #f59e0b; font-size: 15px; letter-spacing: 1px; }
-        .stars-score { font-size: 13px; font-weight: 800; color: #111; }
-        .stars-sep   { color: #d1d5db; }
-        .stars-count { font-size: 12px; font-weight: 600; color: #6b7280; }
-
-        /* Slider container */
-        .gallery-slider-wrap {
-            position: relative;
-            overflow: hidden;
-            background: #f8f9fa;
-            /* Rounded bottom corners — the "حواف مائلة" effect */
-            border-radius: 0 0 28px 28px;
-            margin: 0 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-        }
-
-        /* Track */
-        .gallery-track {
-            display: flex;
-            will-change: transform;
-            transition: transform 0.38s cubic-bezier(.4,0,.2,1);
-        }
-
-        /* Each slide */
-        .gslide {
-            flex-shrink: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            min-height: 420px;
-            max-height: 520px;
-            overflow: hidden;
-        }
-        .gslide img {
-            width: 100%;
-            height: 480px;
-            object-fit: contain;
-            object-position: center;
-            display: block;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-        @media (max-width: 480px) {
-            .gslide { min-height: 340px; max-height: 420px; }
-            .gslide img { height: 380px; }
-        }
-
-        /* Arrows (show on desktop only) */
-        .garrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 36px; height: 36px;
-            background: rgba(255,255,255,0.92);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 13px;
-            color: #374151;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-            transition: background 0.15s, transform 0.15s;
-            z-index: 5;
-        }
-        .garrow:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
-        .garrow-prev  { right: 10px; }
-        .garrow-next  { left:  10px; }
-        @media (max-width: 768px) { .garrow { display: none; } }
-
-        /* Zoom button */
-        .gzoom-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 32px; height: 32px;
-            background: rgba(255,255,255,0.88);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 13px;
-            color: #555;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 5;
-        }
-
-        /* Dot pagination */
-        /* gallery-dots removed */
-        /* gdot removed */
-
-        
-        /* ── Urgency bar ── */
-        #urgency-bar{background:linear-gradient(90deg,#f43f5e,#e11d48);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;font-family:Cairo,sans-serif;}
-        /* ── Guarantee strip ── */
-        .guarantee-strip{display:flex;overflow-x:auto;gap:10px;padding:12px 14px;scrollbar-width:none;border-bottom:1px solid #f1f5f9;}
-        .guarantee-strip::-webkit-scrollbar{display:none;}
-        .g-badge{flex-shrink:0;display:flex;align-items:center;gap:7px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:40px;padding:7px 13px;white-space:nowrap;}
-        .g-badge i{color:#0d9488;font-size:13px;}
-        .g-badge span{font-size:11px;font-weight:700;color:#374151;}
-        /* ── Section title ── */
-        .section-title{font-size:17px;font-weight:900;color:#111827;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-        .section-title::before{content:'';display:inline-block;width:4px;height:20px;background:#0d9488;border-radius:4px;flex-shrink:0;}
-        /* ── Rating bars ── */
-        .rbar-bg{flex:1;height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;}
-        .rbar-fill{height:100%;border-radius:99px;}
-        /* ── Review cards ── */
-        .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
-        .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
-        .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
-        /* ── Steps ── */
-        .step-c{width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
-        .step-l{width:2px;height:24px;background:#d1fae5;margin:3px auto;}
-        /* ── WA float ── */
-        #wa-float{position:fixed;bottom:78px;left:14px;width:50px;height:50px;border-radius:50%;background:#25D366;box-shadow:0 4px 18px rgba(37,211,102,.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:23px;z-index:48;text-decoration:none;animation:waPulse 2.5s ease-in-out infinite;}
-        @keyframes waPulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,.8);}}
-        /* ── Shake ── */
-        @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
-        .shake{animation:shake .5s ease;}
-        /* ── Sticky CTA ── */
-        #sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:49;background:linear-gradient(135deg,#0d9488,#0f766e);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.15);border-top:2px solid #14b8a6;}
-        #sticky-cta .sp{color:#fff;font-size:18px;font-weight:900;line-height:1.1;}
-        #sticky-cta .sl{color:#99f6e4;font-size:11px;font-weight:600;}
-        #sticky-cta button{background:#f43f5e;color:#fff;border:none;padding:12px 20px;border-radius:12px;font-family:Cairo,sans-serif;font-size:14px;font-weight:800;cursor:pointer;animation:ctaPulse 2s ease-in-out infinite;}
-        @keyframes ctaPulse{0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}}
-        /* Gallery rounded corners */
-        .gallery-slider-wrap{border-radius:0 0 26px 26px;margin:0 10px;box-shadow:0 6px 28px rgba(0,0,0,.08);}
-
-        </style>
-</head>
-<body class="pb-28">
-
-<!-- Header -->
-<header class="bg-white sticky top-0 z-40 shadow-sm">
-    <div class="flex items-center justify-between px-4 py-3">
-        <div class="flex items-center gap-2">
-            <div class="bg-teal-600 text-white p-1.5 rounded-lg"><i class="fa-solid fa-user-md text-base"></i></div>
-            <span class="text-base font-bold text-teal-800">MedStyle<span class="text-rose-500">.ma</span></span>
-        </div>
-        <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
-            <i class="fa-brands fa-whatsapp"></i> واتساب
-        </a>
-    </div>
-    <div class="bg-teal-600 text-white text-center py-1.5 px-4 text-xs font-semibold flex justify-center items-center gap-2">
-        <i class="fa-solid fa-truck-fast"></i>
-        <span>التوصيل مجاني + الدفع عند الاستلام (COD)</span>
-    </div>
-</header>
-
-<main id="main-content">
-
-<!-- ══════════════════════════════════
-     PRODUCT HERO
-══════════════════════════════════ -->
-<div class="hero-gallery-wrap">
-
-  <!-- Stars bar -->
-  <div class="gallery-stars-bar">
-    <span class="stars-text">★★★★<span style="opacity:.45">★</span></span>
-    <span class="stars-score">4.8/5</span>
-    <span class="stars-sep">|</span>
-    <span class="stars-count">+2,500 زبون راضي</span>
-  </div>
-
-  <!-- Guarantee badges -->
-  <div class="guarantee-strip">
-    <div class="g-badge"><i class="fa-solid fa-truck-fast"></i><span>توصيل 24-48h</span></div>
-    <div class="g-badge"><i class="fa-solid fa-hand-holding-heart"></i><span>دفع عند الاستلام</span></div>
-    <div class="g-badge"><i class="fa-solid fa-rotate-left"></i><span>تبديل مجاني</span></div>
-    <div class="g-badge"><i class="fa-solid fa-shield-check"></i><span>جودة مضمونة</span></div>
-    <div class="g-badge"><i class="fa-solid fa-pen-nib"></i><span>تطريز متاح</span></div>
-  </div>
-
-  <!-- Single product image display -->
-  <div id="gallery-container" style="position:relative;margin:0 10px;background:#f8f9fa;border-radius:20px;overflow:hidden;">
-    <img id="main-product-img"
-         src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp"
-         alt="Bleu Ciel"
-         style="width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;display:block;transition:opacity .25s ease;border-radius:20px;"
-         loading="eager">
-    <!-- Color label -->
-    <div id="gallery-color-label" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;backdrop-filter:blur(4px);">Bleu Ciel</div>
-    <!-- Zoom btn -->
-    <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-  </div>
-
-
-  </div>
-
-</div>
-
-<!-- ══════════════════════════════════
-     PRODUCT INFO — title, price, colors, sizes, embroidery
-══════════════════════════════════ -->
-<div class="px-4 pt-4 pb-2 bg-white space-y-4">
-
-    <!-- Title + badges -->
-    <div>
-        <div class="flex flex-wrap gap-2 mb-2">
-            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2.5 py-1 rounded-full">
-                <i class="fa-solid fa-stethoscope ml-1"></i>للرجال والنساء
-            </span>
-            <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full">
-                <i class="fa-solid fa-leaf ml-1"></i>Premium Quality
-            </span>
-        </div>
-        <h1 class="text-2xl font-extrabold text-gray-900 leading-snug">
-            بلوزة / تيشرت طبي فاخر — Scrub Médical Premium
-        </h1>
-        <p class="text-sm text-gray-500 mt-1">مريح، مضاد للتعرق، مقاوم للبقع — مثالي للعمل الطويل</p>
-    </div>
-
-    <!-- Price -->
-    <div class="flex items-baseline gap-3">
-        <span class="text-3xl font-extrabold text-teal-700" id="hero-price">199 Dh</span>
-        <span class="text-base text-gray-400 line-through">299 Dh</span>
-        <span class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
-    </div>
-
-    <!-- Color selector -->
-    <div>
-        <p class="text-sm font-bold text-gray-700 mb-2">
-            اللون: <span class="text-teal-700 font-extrabold" id="hero-color-name">Bleu Ciel</span>
-        </p>
-    <div class="flex flex-wrap gap-2" id="hero-swatches">
-            <button onclick="pickColor('bleu_ciel',this)" class="cswatch swatch-active" style="width:28px;height:28px;border-radius:50%;background:#7EC8E3;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Ciel"></button>
-            <button onclick="pickColor('bleu_marin',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#1B3A6B;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Marine"></button>
-            <button onclick="pickColor('bordeaux',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#6D1A36;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bordeaux"></button>
-            <button onclick="pickColor('gris_clair',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#B0B0B0;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Gris Clair"></button>
-            <button onclick="pickColor('marron',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#4A2210;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Marron Chocolat"></button>
-            <button onclick="pickColor('militaire',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#6B7C52;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Militaire"></button>
-            <button onclick="pickColor('pastel',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#8FD5B2;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Vert Pastel"></button>
-            <button onclick="pickColor('aubergine',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#4B1A4E;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Aubergine"></button>
-            <button onclick="pickColor('rose_clair',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#F0A8B8;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Rose Clair"></button>
-            <button onclick="pickColor('petroli',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#1A5F7A;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Pétrole"></button>
-        </div>div>
-    </div>
-
-    <!-- Size selector -->
-    <div>
-        <div class="flex justify-between items-center mb-2">
-            <p class="text-sm font-bold text-gray-700">المقاس: <span class="text-teal-700 font-extrabold" id="hero-size-name">M</span></p>
-            <button onclick="toggleSizeGuide()" class="text-xs text-teal-600 underline font-semibold">دليل المقاسات ▾</button>
-        </div>
-        <div class="flex flex-wrap gap-2" id="hero-sizes">
-            <button onclick="pickSize('XS',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XS</button>
-            <button onclick="pickSize('S',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">S</button>
-            <button onclick="pickSize('M',this)"  class="size-btn size-active" style="min-width:44px;padding:6px 10px;border:2px solid #0d9488;border-radius:8px;background:#f0fdf4;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">M</button>
-            <button onclick="pickSize('L',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">L</button>
-            <button onclick="pickSize('XL',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XL</button>
-            <button onclick="pickSize('XXL',this)"class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XXL</button>
-        </div>
-        <!-- Size guide (hidden by default) -->
-        <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600 border border-gray-100">
-            <table class="w-full text-center">
-                <thead><tr class="font-bold text-gray-800"><th>المقاس</th><th>الصدر (cm)</th><th>الخصر (cm)</th><th>الطول (cm)</th></tr></thead>
-                <tbody>
-                    <tr><td>XS</td><td>80–84</td><td>64–68</td><td>150–158</td></tr>
-                    <tr class="bg-white"><td>S</td><td>84–88</td><td>68–72</td><td>158–162</td></tr>
-                    <tr><td>M</td><td>88–92</td><td>72–76</td><td>162–166</td></tr>
-                    <tr class="bg-white"><td>L</td><td>92–96</td><td>76–80</td><td>166–170</td></tr>
-                    <tr><td>XL</td><td>96–102</td><td>80–86</td><td>170–174</td></tr>
-                    <tr class="bg-white"><td>XXL</td><td>102–110</td><td>86–94</td><td>174–180</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Embroidery option -->
-    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
-        <div class="flex items-start gap-3">
-            <input type="checkbox" id="embroidery-check" onchange="toggleEmbroidery(this)"
-                   class="mt-1 w-4 h-4 accent-teal-600 cursor-pointer">
-            <div>
-                <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
-                    <i class="fa-solid fa-pen-nib text-amber-600 ml-1"></i>
-                    إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+30 Dh</span>
-                </label>
-                <p class="text-xs text-gray-500 mt-0.5">سنتواصل معك لتحديد النص واللون والموضع المناسب</p>
-                <!-- Embroidery fields (shown when checked) -->
-                <div id="embroidery-fields" class="hidden mt-2 space-y-2">
-                    <input type="text" id="emb-text" placeholder="مثال: Dr. Ahmed / صيدلية النور"
-                           class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-amber-400 text-right"
-                           style="font-family:Cairo,sans-serif;">
-                    <select id="emb-color" class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none bg-white text-right">
-                        <option value="">لون التطريز (اختياري — سنحدده معك)</option>
-                        <option value="blanc">أبيض</option>
-                        <option value="noir">أسود</option>
-                        <option value="or">ذهبي</option>
-                        <option value="argent">فضي</option>
-                        <option value="rouge">أحمر</option>
-                        <option value="bleu">أزرق</option>
+        <div class="bundle-items-wrap hidden" id="items-solo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-solo-1" alt="">
+                <select class="bundle-select" id="color-solo-1" onchange="syncFromBundle('solo',1,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
                     </select>
-                </div>
+                <select class="bundle-select" id="size-solo-1">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('solo')" class="bundle-cta hidden" id="cta-solo">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 199 Dh
+        </button>
+    </div>
+
+    <!-- ───────────── DUO ───────────── -->
+    <div class="bundle-row bundle-row-featured" id="row-duo" onclick="selectBundle('duo')">
+        <span class="bundle-badge-top">الأكثر طلباً 🔥</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-duo" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">قطعتين معاً <span class="bundle-badge-green">وفر 22%</span></p>
+                <p class="bundle-subtitle">349 بدل 450 درهم</p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">349 Dh</p>
+                <p class="bundle-price-old">450 Dh</p>
+            </div>
+        </div>
+        <div class="bundle-items-wrap" id="items-duo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-duo-1" alt="">
+                <select class="bundle-select" id="color-duo-1" onchange="syncFromBundle('duo',1,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
+                <select class="bundle-select" id="size-duo-1">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-duo-2" alt="">
+                <select class="bundle-select" id="color-duo-2" onchange="syncFromBundle('duo',2,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
+                <select class="bundle-select" id="size-duo-2">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta" id="cta-duo" style="background:#0d9488;">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 349 Dh
+        </button>
+    </div>
+
+    <!-- ───────────── TRIO ───────────── -->
+    <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
+        <span class="bundle-badge-top" style="background:#f59e0b;">أفضل قيمة ⭐</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-trio"><div class="bundle-radio-dot"></div></div>
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-thumb" id="main-thumb-trio" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">ثلاث قطع <span class="bundle-badge-yellow">وفر 31%</span></p>
+                <p class="bundle-subtitle">479 بدل 699 درهم</p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">479 Dh</p>
+                <p class="bundle-price-old">699 Dh</p>
+            </div>
+        </div>
+        <div class="bundle-items-wrap hidden" id="items-trio">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-trio-1" alt="">
+                <select class="bundle-select" id="color-trio-1" onchange="syncFromBundle('trio',1,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-1">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-trio-2" alt="">
+                <select class="bundle-select" id="color-trio-2" onchange="syncFromBundle('trio',2,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-2">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">3</div>
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" class="bundle-item-thumb" id="thumb-trio-3" alt="">
+                <select class="bundle-select" id="color-trio-3" onchange="syncFromBundle('trio',3,this)">
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-3">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('trio')" class="bundle-cta hidden" id="cta-trio" style="background:#7c3aed;">
+            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 479 Dh
+        </button>
+    </div>
+
+    <!-- ══════════════════════════════════
+         CONVERSION BOOSTER SECTIONS
+    ══════════════════════════════════ -->
+
+    <!-- Stats -->
+    <div style="background:linear-gradient(135deg,#0d9488,#0f766e);border-radius:20px;padding:16px;margin-bottom:12px;">
+        <div class="grid grid-cols-3 gap-2 text-center text-white">
+            <div><p style="font-size:22px;font-weight:900;">+2500</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">زبون سعيد</p></div>
+            <div style="border-right:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2);">
+                <p style="font-size:22px;font-weight:900;">4.8★</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">تقييم الزبناء</p>
+            </div>
+            <div><p style="font-size:22px;font-weight:900;">48h</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">توصيل سريع</p></div>
+        </div>
+    </div>
+
+    <!-- Benefits -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">فوائد المنتج</h2>
+        <div style="display:flex;flex-direction:column;gap:13px;">
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#f0fdf4;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-wind" style="color:#0d9488;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">قماش مضاد للتعرق وسريع الجفاف</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تقنية خاصة تتيح تهوية البشرة طوال وردياتك — بدون حرارة</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#fff1f2;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-shield-halved" style="color:#f43f5e;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">مقاوم للبقع — يبقى كالجديد بعد 50 غسلة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">ألوان ثابتة، لا تتجعد، لا تبهت أبداً</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#faf5ff;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-person-running" style="color:#7c3aed;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">تفصيل احترافي — حرية حركة كاملة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">قصة مدروسة للبيئة الطبية — وقوف، انحناء، تنقل</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#fffbeb;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-palette" style="color:#d97706;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">10 ألوان عصرية — من XS إلى XXL</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تشكيلة تناسب جميع الأذواق والأجسام — للرجال والنساء</p></div>
             </div>
         </div>
     </div>
 
-    <!-- CTA button -->
-    <a href="#bundles-anchor" class="block w-full text-center bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-base py-3.5 rounded-xl shadow-lg shadow-rose-200 transition duration-200"
-       style="text-decoration:none;">
-        <i class="fa-solid fa-shopping-cart ml-2"></i> اطلب الآن — ابدأ من 199 Dh
-    </a>
-
-    <!-- Trust badges -->
-    <div class="flex justify-center gap-6 text-xs text-gray-500 font-semibold pb-2">
-        <span><i class="fa-solid fa-truck-fast text-teal-500 ml-1"></i>توصيل مجاني</span>
-        <span><i class="fa-solid fa-rotate-left text-teal-500 ml-1"></i>إمكانية التبديل</span>
-        <span><i class="fa-solid fa-shield-halved text-teal-500 ml-1"></i>دفع عند الاستلام</span>
+    <!-- How it works -->
+    <div style="background:#f0fdf4;border-radius:20px;padding:16px;margin-bottom:12px;border:1px solid #d1fae5;">
+        <h2 class="section-title">كيف تطلب؟</h2>
+        <div>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">1</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">اختر عرضك + الألوان + المقاسات</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">Solo أو Duo أو Super Pack</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">2</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">أدخل الاسم والهاتف والمدينة</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">30 ثانية فقط</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">استقبل طلبك وادفع عند الاستلام 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">خلال 24-48h — تعاين قبل ما تدفع</p></div>
+            </div>
+        </div>
     </div>
 
-</div>
+    <!-- Reviews -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">آراء الزبناء</h2>
+        <!-- Rating summary -->
+        <div style="display:flex;align-items:center;gap:14px;padding:12px;background:#f9fafb;border-radius:14px;margin-bottom:14px;">
+            <div style="text-align:center;flex-shrink:0;">
+                <p style="font-size:40px;font-weight:900;color:#111;line-height:1;">4.8</p>
+                <div style="color:#f59e0b;font-size:13px;">★★★★★</div>
+                <p style="font-size:10px;color:#9ca3af;margin-top:2px;">+2,500 تقييم</p>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"><div class="rbar-fill" style="width:82%;background:#f59e0b;"></div></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"><div class="rbar-fill" style="width:12%;background:#a3e635;"></div></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"><div class="rbar-fill" style="width:4%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"><div class="rbar-fill" style="width:2%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
+            </div>
+        </div>
+        <!-- Review cards -->
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#0d9488;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">ك</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">كوثر أ. — ممرضة</p><p style="font-size:10px;color:#9ca3af;">الرباط</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"خديت الباك دبل، تبارك الله! الثوب رطب ومكيعرقش ولا يتكمش. التوصيل جا فالوقت. غادي نطلب زيد."</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 3 أيام ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#f43f5e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">أ</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">د. أمين ش. — طبيب</p><p style="font-size:10px;color:#9ca3af;">الدار البيضاء</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"السترة الرمادية خفيفة ودافية بزاف. المقاس جا هو هداك بالضبط. خدمة من الأحسن!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ أسبوع ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#7c3aed;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">س</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">سلمى ب. — صيدلانية</p><p style="font-size:10px;color:#9ca3af;">مراكش</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"طلبت الباك سوبر فيه تلاتة قطع. التطريز زوين بزاف وجا سريع. شكرا MedStyle!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 5 أيام ✓</p>
+        </div>
+    </div>
 
 <!-- ══════════════════════════════════
          FAQ SECTION
@@ -2156,16 +1217,23 @@ function _syncAllItem1(key) {
     });
 }
 
-function _refreshThumb(bkey, num) {
-    const sel  = document.getElementById('color-'+bkey+'-'+num);
-    const vimg = document.getElementById('vimg-'+bkey+'-'+num);
-    if(sel && vimg && imgMap[sel.value]) {
-        vimg.src = imgMap[sel.value];
+function _refreshThumb(bkey, n) {
+    const csel = document.getElementById('color-'+bkey+'-'+n);
+    const th   = document.getElementById('thumb-'+bkey+'-'+n);
+    const mth  = document.getElementById('main-thumb-'+bkey);
+    if (csel && imgMap[csel.value]) {
+        const url = imgMap[csel.value];
+        if (th)              th.src  = url;
+        if (n===1 && mth)  mth.src = url;
     }
 }
 
-function syncFromBundle(bkey, num, sel) {
-    _refreshThumb(bkey, num);
+function syncFromBundle(bkey, n, sel) {
+    _refreshThumb(bkey, n);
+    if (n===1) {
+        const idx = colorKeys.indexOf(sel.value);
+        if (idx !== -1) _moveTo(idx);
+    }
 }
 
 // Touch swipe
@@ -2200,33 +1268,30 @@ function closeZoom() {
 // ══════════════════════════════════════════════════════════
 function selectBundle(bkey) {
     activeBundle = bkey;
-    ['solo','duo','trio'].forEach(k => {
-        const card     = document.getElementById('card-'+k);
-        const variants = document.getElementById('variants-'+k);
-        const radio    = document.getElementById('radio-'+k);
-        const rdot     = document.getElementById('rdot-'+k);
-        const active   = (k === bkey);
 
-        if(card) {
-            card.style.borderColor = active ? '#0d9488' : '#e5e7eb';
-            card.style.background  = active ? '#f0fdf4' : '#fff';
-            card.style.boxShadow   = active ? '0 0 0 3px rgba(13,148,136,.12)' : 'none';
+    ['solo','duo','trio'].forEach(k => {
+        const row   = document.getElementById('row-'+k);
+        const items = document.getElementById('items-'+k);
+        const cta   = document.getElementById('cta-'+k);
+        const radio = document.getElementById('radio-'+k);
+        const dot   = radio ? radio.querySelector('.bundle-radio-dot') : null;
+        const active = (k === bkey);
+
+        if (row) {
+            row.style.borderColor = active ? '#0d9488' : '#e5e7eb';
+            row.style.background  = active ? '#f0fdf4' : '#fff';
         }
-        if(variants) variants.style.display = active ? 'block' : 'none';
-        if(radio) radio.style.borderColor = active ? '#0d9488' : '#e5e7eb';
-        if(rdot)  rdot.style.background   = active ? '#0d9488' : 'transparent';
+        if (items) { items.classList.toggle('hidden', !active); }
+        if (cta)   { cta.classList.toggle('hidden', !active); }
+        if (dot)   { dot.style.background = active ? '#0d9488' : '#d1d5db'; }
     });
-    // Update order button price & text
-    const prices = {solo:'199',duo:'349',trio:'479'};
-    const labels = {solo:'قطعة واحدة',duo:'قطعتين',trio:'ثلاث قطع'};
-    const btn = document.getElementById('order-btn-text');
-    if(btn) btn.innerText = 'اطلب ' + labels[bkey] + ' — ' + prices[bkey] + ' Dh';
-    // Update sticky CTA
+
+    // Init thumbs for this bundle
+    const cnt = bundlePricing[bkey].count;
+    for (let i=1; i<=cnt; i++) _refreshThumb(bkey, i);
+    // Update sticky CTA price
     const sp = document.getElementById('sticky-price');
-    if(sp) sp.innerText = prices[bkey] + ' Dh';
-    // Sync thumbnails
-    const cnt = bundlePricing[bkey] ? bundlePricing[bkey].count : 1;
-    for(let n=1; n<=cnt; n++) _refreshThumb(bkey, n);
+    if (sp) sp.innerText = bundlePricing[bkey].price + ' Dh';
 }
 
 // ══════════════════════════════════════════════════════════
@@ -2437,7 +1502,6 @@ function showToast() {
 // ══════════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', () => {
     initGallery();
-    selectBundle("duo");
     _initSwipe();
     selectBundle('duo');
     setTimeout(showToast, 3000);
