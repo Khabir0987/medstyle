@@ -383,23 +383,21 @@ function toggleFaq(idx) {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 10px 0 14px;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 14px 16px;
         }
         .gdot {
-            width: 7px; height: 7px;
+            width: 22px; height: 22px;
             border-radius: 50%;
-            background: #d1d5db;
-            border: none;
+            border: 2px solid rgba(255,255,255,0.7);
             cursor: pointer;
             padding: 0;
-            transition: all 0.25s;
+            transition: transform 0.2s, outline 0.2s;
             flex-shrink: 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.18);
         }
-        .gdot-active, .gdot:hover {
-            background: #0d9488;
-            transform: scale(1.35);
-        }
+        .gdot:hover { transform: scale(1.2); }
 
         
         /* ── Urgency bar ── */
@@ -487,63 +485,57 @@ function toggleFaq(idx) {
   <div class="gallery-slider-wrap" id="gallery-container">
     <div class="gallery-track" id="gallery-track">
         <div class="gslide" id="gslide-0">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" alt="Bleu Ciel" loading="eager" draggable="false">
         </div>
         <div class="gslide" id="gslide-1">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp" alt="Bleu Marine" loading="eager" draggable="false">
         </div>
         <div class="gslide" id="gslide-2">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp" alt="Bordeaux" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-3">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp" alt="Gris Clair" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-4">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp" alt="Marron Chocolat" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-5">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp" alt="Militaire" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-6">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp" alt="Vert Pastel" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-7">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp" alt="Aubergine" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-8">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Rose Clair" loading="lazy" draggable="false">
         </div>
         <div class="gslide" id="gslide-9">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy" draggable="false">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp" alt="Pétrole" loading="lazy" draggable="false">
         </div>
     </div>
-
-    <!-- Prev / Next arrows -->
-    <button class="garrow garrow-prev" onclick="gSel(gIdx-1)" aria-label="prev">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-    <button class="garrow garrow-next" onclick="gSel(gIdx+1)" aria-label="next">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-
+    <!-- Color name overlay -->
+    <div id="gallery-color-label" style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;pointer-events:none;backdrop-filter:blur(4px);">Bleu Ciel</div>
+    <!-- Arrows desktop -->
+    <button class="garrow garrow-prev" onclick="gSel(gIdx-1)" aria-label="prev"><i class="fa-solid fa-chevron-right"></i></button>
+    <button class="garrow garrow-next" onclick="gSel(gIdx+1)" aria-label="next"><i class="fa-solid fa-chevron-left"></i></button>
     <!-- Zoom -->
-    <button class="gzoom-btn" onclick="openZoom(gIdx)" aria-label="zoom">
-      <i class="fa-solid fa-magnifying-glass-plus"></i>
-    </button>
+    <button class="gzoom-btn" onclick="openZoom(gIdx)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
   </div>
 
-  <!-- Dot pagination -->
+  <!-- Color swatches as dots -->
   <div class="gallery-dots" id="gallery-dots">
-<button class="gdot gdot-active" onclick="gSel(0)" aria-label="Blanc"></button>
-<button class="gdot" onclick="gSel(1)" aria-label="Bleu Ciel"></button>
-<button class="gdot" onclick="gSel(2)" aria-label="Bleu Marine"></button>
-<button class="gdot" onclick="gSel(3)" aria-label="Bordeaux"></button>
-<button class="gdot" onclick="gSel(4)" aria-label="Gris Clair"></button>
-<button class="gdot" onclick="gSel(5)" aria-label="Marron"></button>
-<button class="gdot" onclick="gSel(6)" aria-label="Militaire"></button>
-<button class="gdot" onclick="gSel(7)" aria-label="Mauve"></button>
-<button class="gdot" onclick="gSel(8)" aria-label="Mauve Clair"></button>
-<button class="gdot" onclick="gSel(9)" aria-label="Rose Clair"></button>
+        <button class="gdot gdot-active" onclick="gSel(0)" aria-label="Bleu Ciel" style="background:#7EC8E3; outline:2.5px solid #0d9488;outline-offset:2px;"></button>
+        <button class="gdot" onclick="gSel(1)" aria-label="Bleu Marine" style="background:#1B3A6B;"></button>
+        <button class="gdot" onclick="gSel(2)" aria-label="Bordeaux" style="background:#6D1A36;"></button>
+        <button class="gdot" onclick="gSel(3)" aria-label="Gris Clair" style="background:#B0B0B0;"></button>
+        <button class="gdot" onclick="gSel(4)" aria-label="Marron Chocolat" style="background:#4A2210;"></button>
+        <button class="gdot" onclick="gSel(5)" aria-label="Militaire" style="background:#6B7C52;"></button>
+        <button class="gdot" onclick="gSel(6)" aria-label="Vert Pastel" style="background:#8FD5B2;"></button>
+        <button class="gdot" onclick="gSel(7)" aria-label="Aubergine" style="background:#4B1A4E;"></button>
+        <button class="gdot" onclick="gSel(8)" aria-label="Rose Clair" style="background:#F0A8B8;"></button>
+        <button class="gdot" onclick="gSel(9)" aria-label="Pétrole" style="background:#1A5F7A;"></button>
   </div>
 
 </div>
@@ -579,20 +571,20 @@ function toggleFaq(idx) {
     <!-- Color selector -->
     <div>
         <p class="text-sm font-bold text-gray-700 mb-2">
-            اللون: <span class="text-teal-700 font-extrabold" id="hero-color-name">Blanc</span>
+            اللون: <span class="text-teal-700 font-extrabold" id="hero-color-name">Bleu Ciel</span>
         </p>
-        <div class="flex flex-wrap gap-2" id="hero-swatches">
-            <button onclick="pickColor('blanc',this)"       class="cswatch swatch-active" style="width:30px;height:30px;border-radius:50%;background:#FFFFFF;border:none;cursor:pointer;box-shadow:inset 0 0 0 1px #d1d5db;" title="Blanc"></button>
-            <button onclick="pickColor('bleu_ciel',this)"   class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#87CEEB;border:none;cursor:pointer;" title="Bleu Ciel"></button>
-            <button onclick="pickColor('bleu_marin',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#1B2A5E;border:none;cursor:pointer;" title="Bleu Marine"></button>
-            <button onclick="pickColor('bordeaux',this)"    class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7B1C3E;border:none;cursor:pointer;" title="Bordeaux"></button>
-            <button onclick="pickColor('gris_clair',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#B0B0B0;border:none;cursor:pointer;" title="Gris Clair"></button>
-            <button onclick="pickColor('marron',this)"      class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#3E1F0D;border:none;cursor:pointer;" title="Marron"></button>
-            <button onclick="pickColor('militaire',this)"   class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7A8C6E;border:none;cursor:pointer;" title="Militaire"></button>
-            <button onclick="pickColor('mauve',this)"       class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#7B2D8B;border:none;cursor:pointer;" title="Mauve"></button>
-            <button onclick="pickColor('mauve_clair',this)" class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#C196D8;border:none;cursor:pointer;" title="Mauve Clair"></button>
-            <button onclick="pickColor('rose_clair',this)"  class="cswatch" style="width:30px;height:30px;border-radius:50%;background:#F4B8C8;border:none;cursor:pointer;" title="Rose Clair"></button>
-        </div>
+    <div class="flex flex-wrap gap-2" id="hero-swatches">
+            <button onclick="pickColor('bleu_ciel',this)" class="cswatch swatch-active" style="width:28px;height:28px;border-radius:50%;background:#7EC8E3;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Ciel"></button>
+            <button onclick="pickColor('bleu_marin',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#1B3A6B;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Marine"></button>
+            <button onclick="pickColor('bordeaux',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#6D1A36;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bordeaux"></button>
+            <button onclick="pickColor('gris_clair',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#B0B0B0;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Gris Clair"></button>
+            <button onclick="pickColor('marron',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#4A2210;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Marron Chocolat"></button>
+            <button onclick="pickColor('militaire',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#6B7C52;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Militaire"></button>
+            <button onclick="pickColor('pastel',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#8FD5B2;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Vert Pastel"></button>
+            <button onclick="pickColor('aubergine',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#4B1A4E;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Aubergine"></button>
+            <button onclick="pickColor('rose_clair',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#F0A8B8;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Rose Clair"></button>
+            <button onclick="pickColor('petroli',this)" class="cswatch" style="width:28px;height:28px;border-radius:50%;background:#1A5F7A;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Pétrole"></button>
+        </div>div>
     </div>
 
     <!-- Size selector -->
@@ -699,17 +691,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-solo-1" alt="">
                 <select class="bundle-select" id="color-solo-1" onchange="syncFromBundle('solo',1,this)">
-                    <option value="blanc" selected>Blanc</option>
-                    <option value="bleu_ciel">Bleu Ciel</option>
-                    <option value="bleu_marin">Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-solo-1">
                     <option>XS</option><option>S</option><option selected>M</option>
                     <option>L</option><option>XL</option><option>XXL</option>
@@ -741,17 +733,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-duo-1" alt="">
                 <select class="bundle-select" id="color-duo-1" onchange="syncFromBundle('duo',1,this)">
-                    <option value="blanc">Blanc</option>
-                    <option value="bleu_ciel" selected>Bleu Ciel</option>
-                    <option value="bleu_marin">Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-duo-1">
                     <option>XS</option><option>S</option><option selected>M</option>
                     <option>L</option><option>XL</option><option>XXL</option>
@@ -761,17 +753,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">2</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-duo-2" alt="">
                 <select class="bundle-select" id="color-duo-2" onchange="syncFromBundle('duo',2,this)">
-                    <option value="blanc">Blanc</option>
-                    <option value="bleu_ciel">Bleu Ciel</option>
-                    <option value="bleu_marin" selected>Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-duo-2">
                     <option>XS</option><option>S</option><option selected>M</option>
                     <option>L</option><option>XL</option><option>XXL</option>
@@ -803,17 +795,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">1</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5a6e9685f_4d85877a-84b8-44b0-8245-c1429bf718ad.jpg" class="bundle-item-thumb" id="thumb-trio-1" alt="">
                 <select class="bundle-select" id="color-trio-1" onchange="syncFromBundle('trio',1,this)">
-                    <option value="blanc" selected>Blanc</option>
-                    <option value="bleu_ciel">Bleu Ciel</option>
-                    <option value="bleu_marin">Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-trio-1">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
@@ -822,17 +814,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">2</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/7e438d3fd_3c4547be-14fb-4053-9997-5d9768e2a29c.jpg" class="bundle-item-thumb" id="thumb-trio-2" alt="">
                 <select class="bundle-select" id="color-trio-2" onchange="syncFromBundle('trio',2,this)">
-                    <option value="blanc">Blanc</option>
-                    <option value="bleu_ciel" selected>Bleu Ciel</option>
-                    <option value="bleu_marin">Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-trio-2">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
@@ -841,17 +833,17 @@ function toggleFaq(idx) {
                 <div class="bundle-item-num">3</div>
                 <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8426cbbfa_1ca5c3a6-1ee5-4be0-901f-54f3fa05e626.jpg" class="bundle-item-thumb" id="thumb-trio-3" alt="">
                 <select class="bundle-select" id="color-trio-3" onchange="syncFromBundle('trio',3,this)">
-                    <option value="blanc" selected>Blanc</option>
-                    <option value="bleu_ciel">Bleu Ciel</option>
-                    <option value="bleu_marin">Bleu Marine</option>
-                    <option value="bordeaux">Bordeaux</option>
-                    <option value="gris_clair">Gris Clair</option>
-                    <option value="marron">Marron</option>
-                    <option value="militaire">Militaire</option>
-                    <option value="mauve">Mauve</option>
-                    <option value="mauve_clair">Mauve Clair</option>
-                    <option value="rose_clair">Rose Clair</option>
-                </select>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_marin">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="militaire">Militaire</option>
+                        <option value="pastel">Vert Pastel</option>
+                        <option value="aubergine">Aubergine</option>
+                        <option value="rose_clair">Rose Clair</option>
+                        <option value="petroli">Pétrole</option>
+                    </select>
                 <select class="bundle-select" id="size-trio-3">
                     <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option>
                 </select>
@@ -1197,22 +1189,11 @@ function toggleFaq(idx) {
 // ═══════════════════════════════════════════════════════
 
 // ── Data ─────────────────────────────────────────────────
-const allImgs = [
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'
-];
+const allImgs = ['https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp'];
 
-const colorKeys  = ['blanc','bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','mauve','mauve_clair','rose_clair'];
-const colorNames = {blanc:'Blanc',bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron',militaire:'Militaire',mauve:'Mauve',mauve_clair:'Mauve Clair',rose_clair:'Rose Clair'};
-const imgMap     = {blanc:allImgs[0],bleu_ciel:allImgs[1],bleu_marin:allImgs[2],bordeaux:allImgs[3],gris_clair:allImgs[4],marron:allImgs[5],militaire:allImgs[6],mauve:allImgs[7],mauve_clair:allImgs[8],rose_clair:allImgs[9]};
+const colorKeys  = ['bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','pastel','aubergine','rose_clair','petroli'];
+const colorNames = {bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron Chocolat',militaire:'Militaire',pastel:'Vert Pastel',aubergine:'Aubergine',rose_clair:'Rose Clair',petroli:'Pétrole'};
+const imgMap     = {bleu_ciel:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp',bleu_marin:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8717ea7f4_bleumarinwep.webp',bordeaux:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8cef451ff_bordowep.webp',gris_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/bdf0b88ab_grisclairwep.webp',marron:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/5e5103c87_maronchocolatwep.webp',militaire:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b69f53491_miulitairclairewep.webp',pastel:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f89d60776_pastelwep.webp',aubergine:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/cad3fb838_moveeuberginwep.webp',rose_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp',petroli:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2b3cc7911_petroliwep.webp'};
 
 const bundlePricing = {
     solo:  { name:'قطعة واحدة',  price:199, count:1, old:299 },
@@ -1257,10 +1238,17 @@ function _moveTo(idx) {
         if (!gW) gW = cont.offsetWidth;
         track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
     }
-    // Update dot pagination
+    // Update dot swatches
+    const colorHexes = ['#7EC8E3','#1B3A6B','#6D1A36','#B0B0B0','#4A2210','#6B7C52','#8FD5B2','#4B1A4E','#F0A8B8','#1A5F7A'];
     document.querySelectorAll('.gdot').forEach((dot,i) => {
-        dot.classList.toggle('gdot-active', i===idx);
+        dot.style.background   = colorHexes[i] || '#d1d5db';
+        dot.style.outline      = (i===idx) ? '2.5px solid #0d9488' : 'none';
+        dot.style.outlineOffset= '2px';
+        dot.style.transform    = (i===idx) ? 'scale(1.4)' : 'scale(1)';
     });
+    // Update color label
+    const lbl = document.getElementById('gallery-color-label');
+    if(lbl) lbl.innerText = colorKeys[idx] ? (colorNames[colorKeys[idx]]||colorKeys[idx]) : '';
     // Swatch ring
     document.querySelectorAll('.cswatch').forEach((s,i) => {
         s.style.transform  = (i===idx) ? 'scale(1.28)' : 'scale(1)';
@@ -1281,6 +1269,18 @@ function gSel(idx) {
 function pickColor(key, el) {
     const idx = colorKeys.indexOf(key);
     if (idx !== -1) gSel(idx);
+    // Update swatch active state
+    document.querySelectorAll('.cswatch').forEach(s => {
+        s.style.outline = 'none';
+        s.style.transform = 'scale(1)';
+        s.classList.remove('swatch-active');
+    });
+    if(el) {
+        el.style.outline = '2.5px solid #0d9488';
+        el.style.outlineOffset = '2px';
+        el.style.transform = 'scale(1.22)';
+        el.classList.add('swatch-active');
+    }
 }
 
 function _syncAllItem1(key) {
