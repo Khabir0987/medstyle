@@ -263,7 +263,142 @@ function toggleFaq(idx) {
             from{transform:translateY(100%);opacity:0;}
             to{transform:translateY(0);opacity:1;}
         }
-</style>
+
+        /* ════════════════════════════════
+           HERO GALLERY — beez.ma style
+        ════════════════════════════════ */
+        .hero-gallery-wrap {
+            background: #fff;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        /* Stars bar */
+        .gallery-stars-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 7px 16px;
+            background: #f9fafb;
+            border-bottom: 1px solid #f1f5f9;
+            font-family: Cairo, sans-serif;
+        }
+        .stars-text  { color: #f59e0b; font-size: 15px; letter-spacing: 1px; }
+        .stars-score { font-size: 13px; font-weight: 800; color: #111; }
+        .stars-sep   { color: #d1d5db; }
+        .stars-count { font-size: 12px; font-weight: 600; color: #6b7280; }
+
+        /* Slider container */
+        .gallery-slider-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #f8f9fa;
+            /* Rounded bottom corners — the "حواف مائلة" effect */
+            border-radius: 0 0 28px 28px;
+            margin: 0 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        /* Track */
+        .gallery-track {
+            display: flex;
+            will-change: transform;
+            transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* Each slide */
+        .gslide {
+            flex-shrink: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            min-height: 420px;
+            max-height: 520px;
+            overflow: hidden;
+        }
+        .gslide img {
+            width: 100%;
+            height: 480px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        @media (max-width: 480px) {
+            .gslide { min-height: 340px; max-height: 420px; }
+            .gslide img { height: 380px; }
+        }
+
+        /* Arrows (show on desktop only) */
+        .garrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.92);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13px;
+            color: #374151;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+            transition: background 0.15s, transform 0.15s;
+            z-index: 5;
+        }
+        .garrow:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
+        .garrow-prev  { right: 10px; }
+        .garrow-next  { left:  10px; }
+        @media (max-width: 768px) { .garrow { display: none; } }
+
+        /* Zoom button */
+        .gzoom-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 32px; height: 32px;
+            background: rgba(255,255,255,0.88);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13px;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        /* Dot pagination */
+        .gallery-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 0 14px;
+        }
+        .gdot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #d1d5db;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s;
+            flex-shrink: 0;
+        }
+        .gdot-active, .gdot:hover {
+            background: #0d9488;
+            transform: scale(1.35);
+        }
+
+        </style>
 </head>
 <body class="pb-28">
 
@@ -289,126 +424,77 @@ function toggleFaq(idx) {
 <!-- ══════════════════════════════════
      PRODUCT HERO
 ══════════════════════════════════ -->
-<div class="bg-white">
+<div class="hero-gallery-wrap">
 
   <!-- Stars bar -->
-  <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#f9fafb;border-bottom:1px solid #f3f4f6;">
-    <span style="color:#f59e0b;font-size:13px;letter-spacing:1px;">★★★★½</span>
-    <span style="font-size:12px;font-weight:800;color:#111;">4.8/5</span>
-    <span style="color:#d1d5db;">|</span>
-    <span style="font-size:12px;font-weight:600;color:#6b7280;">+2,500 زبون راضي</span>
+  <div class="gallery-stars-bar">
+    <span class="stars-text">★★★★<span style="opacity:.45">★</span></span>
+    <span class="stars-score">4.8/5</span>
+    <span class="stars-sep">|</span>
+    <span class="stars-count">+2,500 زبون راضي</span>
   </div>
 
-  <!-- Gallery: thumbs column left + main image right -->
-  <div style="display:flex;background:#fff;border-bottom:1px solid #f3f4f6;">
-
-    <!-- Vertical thumbnails -->
-    <div id="gallery-thumbs"
-         style="display:flex;flex-direction:column;gap:6px;padding:10px 6px;width:74px;flex-shrink:0;overflow-y:auto;max-height:520px;">
-          <button onclick="gSel(0)" id="gthumb-0"
-            style="border:2px solid #111827;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(1)" id="gthumb-1"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(2)" id="gthumb-2"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="eager"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(3)" id="gthumb-3"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(4)" id="gthumb-4"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(5)" id="gthumb-5"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(6)" id="gthumb-6"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(7)" id="gthumb-7"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(8)" id="gthumb-8"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
-          <button onclick="gSel(9)" id="gthumb-9"
-            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
-            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy"
-                 style="width:100%;height:60px;object-fit:cover;display:block;">
-          </button>
+  <!-- Main slider -->
+  <div class="gallery-slider-wrap" id="gallery-container">
+    <div class="gallery-track" id="gallery-track">
+        <div class="gslide" id="gslide-0">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-1">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-2">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-3">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-4">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-5">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-6">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-7">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-8">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy" draggable="false">
+        </div>
+        <div class="gslide" id="gslide-9">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy" draggable="false">
+        </div>
     </div>
 
-    <!-- Main image (slider) -->
-    <div id="gallery-container"
-         style="flex:1;position:relative;overflow:hidden;background:#f8f8f8;">
-      <div id="gallery-track"
-           style="display:flex;will-change:transform;transition:transform 0.32s cubic-bezier(.4,0,.2,1);">
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
-          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy"
-               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
-        </div>
-      </div>
-      <!-- Zoom -->
-      <button onclick="openZoom(gIdx)"
-        style="position:absolute;top:10px;left:10px;width:32px;height:32px;background:rgba(255,255,255,.88);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;font-size:13px;color:#555;z-index:5;">
-        <i class="fa-solid fa-magnifying-glass-plus"></i>
-      </button>
-    </div>
+    <!-- Prev / Next arrows -->
+    <button class="garrow garrow-prev" onclick="gSel(gIdx-1)" aria-label="prev">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <button class="garrow garrow-next" onclick="gSel(gIdx+1)" aria-label="next">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Zoom -->
+    <button class="gzoom-btn" onclick="openZoom(gIdx)" aria-label="zoom">
+      <i class="fa-solid fa-magnifying-glass-plus"></i>
+    </button>
+  </div>
+
+  <!-- Dot pagination -->
+  <div class="gallery-dots" id="gallery-dots">
+<button class="gdot gdot-active" onclick="gSel(0)" aria-label="Blanc"></button>
+<button class="gdot" onclick="gSel(1)" aria-label="Bleu Ciel"></button>
+<button class="gdot" onclick="gSel(2)" aria-label="Bleu Marine"></button>
+<button class="gdot" onclick="gSel(3)" aria-label="Bordeaux"></button>
+<button class="gdot" onclick="gSel(4)" aria-label="Gris Clair"></button>
+<button class="gdot" onclick="gSel(5)" aria-label="Marron"></button>
+<button class="gdot" onclick="gSel(6)" aria-label="Militaire"></button>
+<button class="gdot" onclick="gSel(7)" aria-label="Mauve"></button>
+<button class="gdot" onclick="gSel(8)" aria-label="Mauve Clair"></button>
+<button class="gdot" onclick="gSel(9)" aria-label="Rose Clair"></button>
   </div>
 
 </div>
@@ -1165,10 +1251,14 @@ function initGallery() {
     Array.from(track.children).forEach(slide => {
         slide.style.width    = gW + 'px';
         slide.style.minWidth = gW + 'px';
+        slide.style.flexShrink = '0';
     });
     _moveTo(gIdx);
 }
-window.addEventListener('resize', () => { gW = 0; initGallery(); });
+window.addEventListener('resize', () => {
+    gW = 0;
+    setTimeout(initGallery, 50);
+});
 
 function _moveTo(idx) {
     if (idx < 0) idx = allImgs.length - 1;
@@ -1180,9 +1270,9 @@ function _moveTo(idx) {
         if (!gW) gW = cont.offsetWidth;
         track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
     }
-    // Thumbnails
-    document.querySelectorAll('[id^="gthumb-"]').forEach((btn,i) => {
-        btn.style.border = (i===idx) ? '2.5px solid #0d9488' : '2px solid transparent';
+    // Update dot pagination
+    document.querySelectorAll('.gdot').forEach((dot,i) => {
+        dot.classList.toggle('gdot-active', i===idx);
     });
     // Swatch ring
     document.querySelectorAll('.cswatch').forEach((s,i) => {
