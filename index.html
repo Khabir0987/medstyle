@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="UNIFORMEDICAL — الزي الطبي المغربي الاحترافي. بلوزات طبية عالية الجودة، 10 ألوان، توصيل لجميع مدن المغرب، دفع عند الاستلام.">
     <title>UNIFORMEDICAL - الزي الطبي المغربي الاحترافي</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
 <script>
 // ── FAQ accordion ─────────────────────────────────────────
 function toggleFaq(idx) {
@@ -29,13 +29,111 @@ function toggleFaq(idx) {
     }
 }
 </script>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600&display=swap"></noscript>
+    <noscript></noscript>
     <style>
+
+/* Minimal reset (replaces Tailwind preflight) */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+html{line-height:1.5;-webkit-text-size-adjust:100%}
+body{margin:0;line-height:inherit}
+h1,h2,h3,h4{font-size:inherit;font-weight:inherit;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:inherit}
+button{font-family:inherit;font-size:100%;line-height:inherit;cursor:pointer;background:transparent;border:0;padding:0}
+img,video{max-width:100%;height:auto}
+ul,ol{list-style:none;margin:0;padding:0}
+select{font-family:inherit}
+
+
+
+/* === PURGED TAILWIND === */
+.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.flex-wrap{flex-wrap:wrap}
+.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.font-mono{font-family:ui-monospace,monospace}
+.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}
+.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.h-1{height:.25rem}.h-4{height:1rem}.h-8{height:2rem}.h-16{height:4rem}
+.inset-0{inset:0}
+.items-baseline{align-items:baseline}.items-center{align-items:center}.items-start{align-items:flex-start}
+.justify-between{justify-content:space-between}.justify-center{justify-content:center}
+.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}
+.line-through{text-decoration:line-through}
+.max-w-sm{max-width:24rem}.max-w-xs{max-width:20rem}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}
+.ml-1{margin-left:.25rem}.mr-3{margin-right:.75rem}
+.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+.outline-none{outline:2px solid transparent;outline-offset:2px}
+.overflow-hidden{overflow:hidden}
+.p-1\.5{padding:.375rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}
+.pb-2{padding-bottom:.5rem}.pb-28{padding-bottom:7rem}
+.pr-3{padding-right:.75rem}.pt-1\.5{padding-top:.375rem}.pt-4{padding-top:1rem}
+.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}
+.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}
+.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}
+.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}
+.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+.right-3{right:.75rem}
+.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}
+.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}
+.shadow-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}
+.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+.shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.shadow-green-100{--tw-shadow-color:#dcfce7;box-shadow:0 10px 15px -3px var(--tw-shadow-color)}
+.space-y-0\.5>:not([hidden])~:not([hidden]){margin-top:.125rem}
+.space-y-1>:not([hidden])~:not([hidden]){margin-top:.25rem}
+.space-y-1\.5>:not([hidden])~:not([hidden]){margin-top:.375rem}
+.space-y-2>:not([hidden])~:not([hidden]){margin-top:.5rem}
+.space-y-3>:not([hidden])~:not([hidden]){margin-top:.75rem}
+.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}
+.space-y-5>:not([hidden])~:not([hidden]){margin-top:1.25rem}
+.text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}
+.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-center{text-align:center}.text-right{text-align:right}
+.text-white{color:#fff}
+.text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}.text-gray-600{color:#4b5563}.text-gray-700{color:#374151}.text-gray-800{color:#1f2937}.text-gray-900{color:#111827}
+.text-teal-300{color:#5eead4}.text-teal-500{color:#14b8a6}.text-teal-600{color:#0d9488}.text-teal-700{color:#0f766e}.text-teal-800{color:#115e59}
+.text-amber-600{color:#d97706}
+.text-emerald-600{color:#059669}.text-emerald-800{color:#065f46}
+.text-green-600{color:#16a34a}.text-green-700{color:#15803d}
+.text-rose-500{color:#f43f5e}.text-rose-600{color:#e11d48}
+.text-purple-600{color:#9333ea}
+.top-0{top:0}
+.tracking-wide{letter-spacing:.025em}.tracking-widest{letter-spacing:.1em}
+.transition-all{transition:all .15s cubic-bezier(.4,0,.2,1)}
+.translate-y-40{transform:translateY(10rem)}
+.w-4{width:1rem}.w-8{width:2rem}.w-10{width:2.5rem}.w-16{width:4rem}.w-full{width:100%}
+.z-40{z-index:40}.z-50{z-index:50}
+.bottom-24{bottom:6rem}
+.cursor-pointer{cursor:pointer}
+.duration-500{transition-duration:.5s}
+.bg-white{background:#fff}
+.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-gray-200{background:#e5e7eb}.bg-gray-800{background:#1f2937}.bg-gray-900{background:#111827}
+.bg-teal-50{background:#f0fdfa}.bg-teal-100{background:#ccfbf1}.bg-teal-600{background:#0d9488}.bg-teal-900{background:#134e4a}
+.bg-emerald-100{background:#d1fae5}
+.bg-green-100{background:#dcfce7}.bg-green-500{background:#22c55e}
+.bg-rose-100{background:#ffe4e6}.bg-rose-500{background:#f43f5e}
+.border-t{border-top:1px solid}
+.border-gray-100{border-color:#f3f4f6}
+.border-teal-100{border-color:#ccfbf1}.border-teal-200{border-color:#99f6e4}
+.border-amber-300{border-color:#fcd34d}
+/* Display utilities */
+.hidden{display:none!important}
+.block{display:block}
+.inline-block{display:inline-block}
+.inline{display:inline}
+.flex{display:flex}
+.grid{display:grid}
+.relative{position:relative}
+.absolute{position:absolute}
+.fixed{position:fixed}
+
+
         body { font-family: 'Cairo', 'Inter', sans-serif; background: #f8f8f8; }
         /* gallery uses slider now */
 
@@ -428,15 +526,15 @@ function toggleFaq(idx) {
 <header class="bg-white sticky top-0 z-40 shadow-sm">
     <div class="flex items-center justify-between px-4 py-3">
         <div class="flex items-center gap-2">
-            <div class="bg-teal-600 text-white p-1.5 rounded-lg"><i class="fa-solid fa-user-md text-base"></i></div>
+            <div class="bg-teal-600 text-white p-1.5 rounded-lg"><span class="text-base" aria-hidden="true">👨‍⚕️</span></div>
             <span class="text-base font-extrabold tracking-wide text-teal-800">UNIFORME<span class="text-rose-500">DICAL</span></span>
         </div>
         <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
-            <i class="fa-brands fa-whatsapp"></i> واتساب
+            <span aria-hidden="true">💬</span> واتساب
         </a>
     </div>
     <div class="bg-teal-600 text-white text-center py-1.5 px-4 text-xs font-semibold flex justify-center items-center gap-2">
-        <i class="fa-solid fa-truck-fast"></i>
+        <span aria-hidden="true">🚚</span>
         <span>التوصيل مجاني + الدفع عند الاستلام (COD)</span>
     </div>
 </header>
@@ -458,12 +556,12 @@ function toggleFaq(idx) {
 
   <!-- Guarantee badges -->
   <div class="guarantee-strip">
-    <div class="g-badge"><i class="fa-solid fa-truck-fast"></i><span>توصيل 4-5 أيام</span></div>
-    <div class="g-badge"><i class="fa-solid fa-tag"></i><span>توصيل 18 درهم</span></div>
-    <div class="g-badge"><i class="fa-solid fa-hand-holding-heart"></i><span>دفع عند الاستلام</span></div>
-    <div class="g-badge"><i class="fa-solid fa-rotate-left"></i><span>تبديل مجاني</span></div>
-    <div class="g-badge"><i class="fa-solid fa-scissors"></i><span>تصنيع حسب الطلب</span></div>
-    <div class="g-badge"><i class="fa-solid fa-pen-nib"></i><span>تطريز متاح</span></div>
+    <div class="g-badge"><span aria-hidden="true">🚚</span><span>توصيل 4-5 أيام</span></div>
+    <div class="g-badge"><span aria-hidden="true">🏷️</span><span>توصيل 18 درهم</span></div>
+    <div class="g-badge"><span aria-hidden="true">🫶</span><span>دفع عند الاستلام</span></div>
+    <div class="g-badge"><span aria-hidden="true">↩️</span><span>تبديل مجاني</span></div>
+    <div class="g-badge"><span aria-hidden="true">✂️</span><span>تصنيع حسب الطلب</span></div>
+    <div class="g-badge"><span aria-hidden="true">✒️</span><span>تطريز متاح</span></div>
   </div>
 
   <!-- Single product image display -->
@@ -476,7 +574,7 @@ function toggleFaq(idx) {
     <!-- Color label -->
     <div id="gallery-color-label" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;backdrop-filter:blur(4px);">Bleu Ciel</div>
     <!-- Zoom btn -->
-    <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+    <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><span aria-hidden="true">🔍</span></button>
   </div>
 
 
@@ -493,10 +591,10 @@ function toggleFaq(idx) {
     <div>
         <div class="flex flex-wrap gap-2 mb-2">
             <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2.5 py-1 rounded-full">
-                <i class="fa-solid fa-stethoscope ml-1"></i>للرجال والنساء
+                <span class="ml-1" aria-hidden="true">🩺</span>للرجال والنساء
             </span>
             <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full">
-                <i class="fa-solid fa-leaf ml-1"></i>Premium Quality
+                <span class="ml-1" aria-hidden="true">🌿</span>Premium Quality
             </span>
         </div>
         <h1 class="text-2xl font-extrabold text-gray-900 leading-snug">
@@ -570,7 +668,7 @@ function toggleFaq(idx) {
                    class="mt-1 w-4 h-4 cursor-pointer" style="accent-color:#7c3aed;">
             <div>
                 <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
-                    <i class="fa-solid fa-pen-nib text-amber-600 ml-1"></i>
+                    <span class="text-amber-600 ml-1" aria-hidden="true">✒️</span>
                     إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+30 Dh</span>
                 </label>
                 <p class="text-xs text-gray-500 mt-0.5">سنتواصل معك لتحديد النص واللون والموضع المناسب</p>
@@ -646,7 +744,7 @@ function toggleFaq(idx) {
             </div>
         </div>
         <button onclick="event.stopPropagation();openModal('solo')" class="bundle-cta hidden" id="cta-solo">
-            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 269 Dh
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 269 Dh
         </button>
     </div>
 
@@ -708,7 +806,7 @@ function toggleFaq(idx) {
             </div>
         </div>
         <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta" id="cta-duo" style="background:#0d9488;">
-            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 499 Dh
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 499 Dh
         </button>
     </div>
 
@@ -787,7 +885,7 @@ function toggleFaq(idx) {
             </div>
         </div>
         <button onclick="event.stopPropagation();openModal('trio')" class="bundle-cta hidden" id="cta-trio" style="background:#7c3aed;">
-            <i class="fa-solid fa-bag-shopping"></i> اطلب الآن — 720 Dh
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 720 Dh
         </button>
     </div>
 
@@ -811,19 +909,19 @@ function toggleFaq(idx) {
         <h2 class="section-title">فوائد المنتج</h2>
         <div style="display:flex;flex-direction:column;gap:13px;">
             <div style="display:flex;align-items:flex-start;gap:11px;">
-                <div style="width:38px;height:38px;background:#f0fdf4;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-wind" style="color:#0d9488;"></i></div>
+                <div style="width:38px;height:38px;background:#f0fdf4;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span aria-hidden="true">💨</span></div>
                 <div><p style="font-size:13px;font-weight:800;color:#111;">قماش مضاد للتعرق وسريع الجفاف</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تقنية خاصة تتيح تهوية البشرة طوال وردياتك — بدون حرارة</p></div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:11px;">
-                <div style="width:38px;height:38px;background:#fff1f2;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-shield-halved" style="color:#f43f5e;"></i></div>
+                <div style="width:38px;height:38px;background:#fff1f2;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span aria-hidden="true">🛡️</span></div>
                 <div><p style="font-size:13px;font-weight:800;color:#111;">مقاوم للبقع — يبقى كالجديد بعد 50 غسلة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">ألوان ثابتة، لا تتجعد، لا تبهت أبداً</p></div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:11px;">
-                <div style="width:38px;height:38px;background:#faf5ff;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-person-running" style="color:#7c3aed;"></i></div>
+                <div style="width:38px;height:38px;background:#faf5ff;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span aria-hidden="true">🏃</span></div>
                 <div><p style="font-size:13px;font-weight:800;color:#111;">تفصيل احترافي — حرية حركة كاملة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">قصة مدروسة للبيئة الطبية — وقوف، انحناء، تنقل</p></div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:11px;">
-                <div style="width:38px;height:38px;background:#fffbeb;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-palette" style="color:#d97706;"></i></div>
+                <div style="width:38px;height:38px;background:#fffbeb;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span aria-hidden="true">🎨</span></div>
                 <div><p style="font-size:13px;font-weight:800;color:#111;">10 ألوان عصرية — من XS إلى XXL</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تشكيلة تناسب جميع الأذواق والأجسام — للرجال والنساء</p></div>
             </div>
         </div>
@@ -872,7 +970,7 @@ function toggleFaq(idx) {
                     <div style="width:34px;height:34px;background:#0d9488;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">ك</div>
                     <div><p style="font-size:12px;font-weight:800;color:#111;">كوثر أ. — ممرضة</p><p style="font-size:10px;color:#9ca3af;">الرباط</p></div>
                 </div>
-                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
             </div>
             <p style="font-size:12px;color:#374151;line-height:1.7;">"خديت الباك دبل، تبارك الله! الثوب رطب ومكيعرقش ولا يتكمش. التوصيل جا فالوقت. غادي نطلب زيد."</p>
             <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 3 أيام ✓</p>
@@ -883,7 +981,7 @@ function toggleFaq(idx) {
                     <div style="width:34px;height:34px;background:#f43f5e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">أ</div>
                     <div><p style="font-size:12px;font-weight:800;color:#111;">د. أمين ش. — طبيب</p><p style="font-size:10px;color:#9ca3af;">الدار البيضاء</p></div>
                 </div>
-                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
             </div>
             <p style="font-size:12px;color:#374151;line-height:1.7;">"السترة الرمادية خفيفة ودافية بزاف. المقاس جا هو هداك بالضبط. خدمة من الأحسن!"</p>
             <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ أسبوع ✓</p>
@@ -894,7 +992,7 @@ function toggleFaq(idx) {
                     <div style="width:34px;height:34px;background:#7c3aed;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">س</div>
                     <div><p style="font-size:12px;font-weight:800;color:#111;">سلمى ب. — صيدلانية</p><p style="font-size:10px;color:#9ca3af;">مراكش</p></div>
                 </div>
-                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
             </div>
             <p style="font-size:12px;color:#374151;line-height:1.7;">"طلبت الباك سوبر فيه تلاتة قطع. التطريز زوين بزاف وجا سريع. شكرا MedStyle!"</p>
             <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 5 أيام ✓</p>
@@ -1057,11 +1155,11 @@ function toggleFaq(idx) {
             <div class="flex gap-2 justify-center">
                 <a href="https://wa.me/212645066834" target="_blank"
                    class="flex items-center gap-1.5 bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> واتساب
+                    <span class="text-sm" aria-hidden="true">💬</span> واتساب
                 </a>
                 <a href="mailto:contact@medstyle.ma"
                    class="flex items-center gap-1.5 bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
-                    <i class="fa-solid fa-envelope text-sm"></i> contact@medstyle.ma
+                    <span class="text-sm" aria-hidden="true">✉️</span> contact@medstyle.ma
                 </a>
             </div>
         </div>
@@ -1070,7 +1168,7 @@ function toggleFaq(idx) {
 
 <!-- Live toast -->
 <div id="toast" class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-40">
-    <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><i class="fa-solid fa-shopping-bag"></i></div>
+    <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><span aria-hidden="true">🛍️</span></div>
     <div>
         <p class="text-xs text-gray-400" id="toast-time">منذ 3 دقائق</p>
         <p class="text-xs font-bold text-gray-900" id="toast-text">عميل من الرباط اشترى باك دبل</p>
@@ -1080,7 +1178,7 @@ function toggleFaq(idx) {
 
 <!-- Zoom Modal -->
 <div id="zoom-modal">
-    <button id="zoom-close" onclick="closeZoom()"><i class="fa-solid fa-xmark"></i></button>
+    <button id="zoom-close" onclick="closeZoom()"><span aria-hidden="true">✕</span></button>
     <img loading="lazy" id="zoom-img" src="" alt="zoom">
 </div>
 
@@ -1089,10 +1187,10 @@ function toggleFaq(idx) {
 <!-- Sticky bottom -->
 <div class="sticky-bottom">
     <button onclick="openModal('duo')" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
-        <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
+        <span aria-hidden="true">🛍️</span> اطلب الآن
     </button>
     <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span class="text-lg" aria-hidden="true">💬</span>
     </a>
 </div>
 
@@ -1109,7 +1207,7 @@ function toggleFaq(idx) {
         <div class="flex items-center justify-between mb-5">
             <h2 class="text-lg font-extrabold text-gray-900">معلومات التوصيل</h2>
             <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
-                <i class="fa-solid fa-xmark"></i>
+                <span aria-hidden="true">✕</span>
             </button>
         </div>
 
@@ -1135,17 +1233,17 @@ function toggleFaq(idx) {
         <form id="order-form" onsubmit="handleSubmit(event)" class="space-y-3">
             <!-- Name -->
             <div class="relative">
-                <span class="input-icon"><i class="fa-solid fa-user text-sm"></i></span>
+                <span class="input-icon"><span class="text-sm" aria-hidden="true">👤</span></span>
                 <input type="text" id="f-name" required placeholder="الاسم الكامل *" class="form-input">
             </div>
             <!-- Phone -->
             <div class="relative">
-                <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-phone text-sm"></i></span>
+                <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"><span class="text-sm" aria-hidden="true">📞</span></span>
                 <input type="tel" id="f-phone" required placeholder="0612345678 *" class="form-input" dir="ltr" style="text-align:left;padding-right:12px;padding-left:40px;">
             </div>
             <!-- City -->
             <div class="relative">
-                <span class="input-icon"><i class="fa-solid fa-location-dot text-sm"></i></span>
+                <span class="input-icon"><span class="text-sm" aria-hidden="true">📍</span></span>
                 <select id="f-city" required class="form-input">
                     <option value="">المدينة *</option>
                     <option>الدار البيضاء</option><option>الرباط</option>
@@ -1160,14 +1258,14 @@ function toggleFaq(idx) {
             </div>
             <!-- Address -->
             <div class="relative">
-                <span style="position:absolute;right:12px;top:14px;color:#9ca3af;pointer-events:none;"><i class="fa-solid fa-house text-sm"></i></span>
+                <span style="position:absolute;right:12px;top:14px;color:#9ca3af;pointer-events:none;"><span class="text-sm" aria-hidden="true">🏠</span></span>
                 <textarea id="f-address" required rows="2" placeholder="عنوان التوصيل بالتفصيل *" class="form-input" style="padding-top:12px;padding-bottom:12px;resize:none;"></textarea>
             </div>
 
             <!-- Sticky submit inside modal -->
             <div class="modal-sticky">
                 <button type="submit" id="submit-btn" class="cta-btn">
-                    <i class="fa-solid fa-truck-fast"></i>
+                    <span aria-hidden="true">🚚</span>
                     <span>تأكيد الطلب — الدفع عند الاستلام</span>
                 </button>
             </div>
@@ -1179,7 +1277,7 @@ function toggleFaq(idx) {
 <div id="success-screen" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center px-4">
     <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full text-center space-y-5 border border-teal-100">
         <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
-            <i class="fa-solid fa-check-double"></i>
+            <span aria-hidden="true">✅</span>
         </div>
         <div>
             <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
@@ -1195,7 +1293,7 @@ function toggleFaq(idx) {
             <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني </span></p>
         </div>
         <a id="s-wa-link" target="_blank" href="#" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
-            <i class="fa-brands fa-whatsapp text-xl"></i> تأكيد عبر WhatsApp
+            <span class="text-xl" aria-hidden="true">💬</span> تأكيد عبر WhatsApp
         </a>
     </div>
 </div>
@@ -1601,14 +1699,14 @@ window.addEventListener('DOMContentLoaded', () => {
         <div class="scta-label">الدفع عند الاستلام — توصيل 18 Dh</div>
     </div>
     <button onclick="openModal(activeBundle)">
-        <i class="fa-solid fa-bag-shopping ml-1"></i> اطلب الآن
+        <span class="ml-1" aria-hidden="true">🛍️</span> اطلب الآن
     </button>
 </div>
 
 
 <!-- WhatsApp float -->
 <a id="wa-float" href="https://wa.me/212645066834" target="_blank" aria-label="تواصل معنا عبر واتساب">
-    <i class="fa-brands fa-whatsapp"></i>
+    <span aria-hidden="true">💬</span>
 </a>
 
 <!-- Sticky CTA -->
@@ -1618,7 +1716,7 @@ window.addEventListener('DOMContentLoaded', () => {
         <div class="sl">دفع عند الاستلام — توصيل 18 Dh</div>
     </div>
     <button onclick="openModal(activeBundle)">
-        <i class="fa-solid fa-bag-shopping" style="margin-left:6px;"></i> اطلب الآن
+        <span aria-hidden="true">🛍️</span> اطلب الآن
     </button>
 </div>
 
