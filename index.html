@@ -216,7 +216,54 @@ function toggleFaq(idx) {
         @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
         @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
         .pulse { animation:pulseCta 2s infinite; }
-    </style>
+    
+        /* Shake animation for invalid fields */
+        @keyframes shake {
+            0%,100%{transform:translateX(0)}
+            20%{transform:translateX(-6px)}
+            40%{transform:translateX(6px)}
+            60%{transform:translateX(-4px)}
+            80%{transform:translateX(4px)}
+        }
+        .shake { animation:shake 0.5s ease-in-out; }
+
+        /* Sticky CTA bar at bottom on mobile */
+        #sticky-cta {
+            position:fixed;bottom:0;left:0;right:0;z-index:49;
+            background:linear-gradient(135deg,#0d9488,#0f766e);
+            padding:12px 16px;
+            display:flex;align-items:center;justify-content:space-between;
+            box-shadow:0 -4px 20px rgba(0,0,0,0.15);
+            border-top:2px solid #14b8a6;
+        }
+        #sticky-cta .scta-price { color:#fff;font-size:18px;font-weight:900;line-height:1.1; }
+        #sticky-cta .scta-label { color:#99f6e4;font-size:11px;font-weight:600; }
+        #sticky-cta button {
+            background:#f43f5e;color:#fff;border:none;
+            padding:12px 22px;border-radius:12px;
+            font-family:Cairo,sans-serif;font-size:14px;font-weight:800;
+            cursor:pointer;white-space:nowrap;
+            box-shadow:0 4px 12px rgba(244,63,94,.4);
+            transition:transform 0.15s,background 0.15s;
+        }
+        #sticky-cta button:active { transform:scale(0.97); }
+
+        /* Pulse on CTA */
+        @keyframes ctaPulse {
+            0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}
+            50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}
+        }
+        #sticky-cta button { animation:ctaPulse 2s ease-in-out infinite; }
+
+        /* Modal smooth open */
+        #order-modal .modal-box {
+            animation:slideUp 0.32s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes slideUp {
+            from{transform:translateY(100%);opacity:0;}
+            to{transform:translateY(0);opacity:1;}
+        }
+</style>
 </head>
 <body class="pb-28">
 
@@ -1072,122 +1119,125 @@ function toggleFaq(idx) {
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════
-// MedStyle — JavaScript
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════
+// MedStyle.ma — JavaScript (clean full rewrite)
+// ═══════════════════════════════════════════════════════
 
-const allImgs  = ['https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'];
-const colorKeys= ['blanc','bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','mauve','mauve_clair','rose_clair'];
-const colorNames={blanc:'Blanc',bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron',militaire:'Militaire',mauve:'Mauve',mauve_clair:'Mauve Clair',rose_clair:'Rose Clair'};
-const imgMap   = {blanc:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',bleu_ciel:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',bleu_marin:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',bordeaux:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',gris_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',marron:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',militaire:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',mauve:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',mauve_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',rose_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'};
+// ── Data ─────────────────────────────────────────────────
+const allImgs = [
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',
+    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'
+];
+
+const colorKeys  = ['blanc','bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','mauve','mauve_clair','rose_clair'];
+const colorNames = {blanc:'Blanc',bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron',militaire:'Militaire',mauve:'Mauve',mauve_clair:'Mauve Clair',rose_clair:'Rose Clair'};
+const imgMap     = {blanc:allImgs[0],bleu_ciel:allImgs[1],bleu_marin:allImgs[2],bordeaux:allImgs[3],gris_clair:allImgs[4],marron:allImgs[5],militaire:allImgs[6],mauve:allImgs[7],mauve_clair:allImgs[8],rose_clair:allImgs[9]};
 
 const bundlePricing = {
-    solo:  { name:'قطعة واحدة', price:199, count:1 },
-    duo:   { name:'باك دبل',    price:349, count:2 },
-    trio:  { name:'باك سوبر',   price:479, count:3 }
+    solo:  { name:'قطعة واحدة',  price:199, count:1, old:299 },
+    duo:   { name:'باك دبل',     price:349, count:2, old:450 },
+    trio:  { name:'باك سوبر',    price:479, count:3, old:699 }
 };
 
-// ── Gallery ──────────────────────────────────────
-let gIdx = 0, gW = 0;
+// ── State ─────────────────────────────────────────────────
+let gIdx         = 0;
+let gW           = 0;
+let activeBundle = 'duo';
+let heroSize_    = 'M';
+let embPrice     = 0;
 
+// ══════════════════════════════════════════════════════════
+// GALLERY
+// ══════════════════════════════════════════════════════════
 function initGallery() {
     const track = document.getElementById('gallery-track');
     const cont  = document.getElementById('gallery-container');
     if (!track || !cont) return;
     gW = cont.offsetWidth;
     Array.from(track.children).forEach(slide => {
-        slide.style.width = gW + 'px';
+        slide.style.width    = gW + 'px';
         slide.style.minWidth = gW + 'px';
     });
     _moveTo(gIdx);
 }
-window.addEventListener('resize', initGallery);
+window.addEventListener('resize', () => { gW = 0; initGallery(); });
 
 function _moveTo(idx) {
+    if (idx < 0) idx = allImgs.length - 1;
+    if (idx >= allImgs.length) idx = 0;
+    gIdx = idx;
     const track = document.getElementById('gallery-track');
     const cont  = document.getElementById('gallery-container');
     if (track && cont) {
         if (!gW) gW = cont.offsetWidth;
         track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
     }
-    // Highlight active thumbnail
-    document.querySelectorAll('[id^="gthumb-"]').forEach((btn, i) => {
-        btn.style.border = (i === idx) ? '2px solid #111827' : '2px solid transparent';
+    // Thumbnails
+    document.querySelectorAll('[id^="gthumb-"]').forEach((btn,i) => {
+        btn.style.border = (i===idx) ? '2.5px solid #0d9488' : '2px solid transparent';
     });
-    // Update color name in product info
-    const nameEl = document.getElementById('hero-color-name');
-    if (nameEl && colorNames[colorKeys[idx]]) {
-        nameEl.innerText = colorNames[colorKeys[idx]];
-    }
-    // Highlight active swatch
-    document.querySelectorAll('.cswatch').forEach((s, i) => {
-        if (i === idx) {
-            s.style.transform = 'scale(1.25)';
-            s.style.boxShadow = '0 0 0 2px #fff, 0 0 0 4px #111827';
-        } else {
-            s.style.transform = 'scale(1)';
-            s.style.boxShadow = 'none';
-        }
+    // Swatch ring
+    document.querySelectorAll('.cswatch').forEach((s,i) => {
+        s.style.transform  = (i===idx) ? 'scale(1.28)' : 'scale(1)';
+        s.style.boxShadow  = (i===idx) ? '0 0 0 2px #fff,0 0 0 4px #0d9488' : 'none';
     });
-}
-
-// Called when user clicks a thumbnail
-function gSel(idx) {
-    if (idx < 0) idx = allImgs.length - 1;
-    if (idx >= allImgs.length) idx = 0;
-    gIdx = idx;
-    _moveTo(idx);
-    // Sync bundle item-1 to this color
+    // Color name
     const key = colorKeys[idx];
-    _syncBundleItem1(key);
+    const nameEl = document.getElementById('hero-color-name');
+    if (nameEl && key) nameEl.innerText = colorNames[key] || key;
 }
 
-// Called when user clicks a color swatch (hero section)
+function gSel(idx) {
+    _moveTo(idx);
+    const key = colorKeys[idx];
+    if (key) _syncAllItem1(key);
+}
+
 function pickColor(key, el) {
     const idx = colorKeys.indexOf(key);
     if (idx !== -1) gSel(idx);
 }
 
-// Sync bundle item-1 color across all bundles
-function _syncBundleItem1(key) {
+function _syncAllItem1(key) {
     ['solo','duo','trio'].forEach(b => {
-        const sel = document.getElementById('color-' + b + '-1');
-        if (sel) sel.value = key;
-        _updateThumb(b, 1);
+        const sel = document.getElementById('color-'+b+'-1');
+        if (sel) { sel.value = key; _refreshThumb(b,1); }
     });
 }
 
-// Update the mini preview thumb inside a bundle item row
-function _updateThumb(bkey, itemNum) {
-    const colorSel = document.getElementById('color-' + bkey + '-' + itemNum);
-    const thumbEl  = document.getElementById('thumb-' + bkey + '-' + itemNum);
-    const mainThumb= document.getElementById('main-thumb-' + bkey);
-    if (colorSel && imgMap[colorSel.value]) {
-        const url = imgMap[colorSel.value];
-        if (thumbEl)   thumbEl.src   = url;
-        if (itemNum===1 && mainThumb) mainThumb.src = url;
+function _refreshThumb(bkey, n) {
+    const csel = document.getElementById('color-'+bkey+'-'+n);
+    const th   = document.getElementById('thumb-'+bkey+'-'+n);
+    const mth  = document.getElementById('main-thumb-'+bkey);
+    if (csel && imgMap[csel.value]) {
+        const url = imgMap[csel.value];
+        if (th)              th.src  = url;
+        if (n===1 && mth)  mth.src = url;
     }
 }
 
-// Called by bundle color select onchange
-function syncFromBundle(bkey, itemNum, sel) {
-    _updateThumb(bkey, itemNum);
-    // If item 1, sync gallery
-    if (itemNum === 1) {
+function syncFromBundle(bkey, n, sel) {
+    _refreshThumb(bkey, n);
+    if (n===1) {
         const idx = colorKeys.indexOf(sel.value);
-        if (idx !== -1) {
-            gIdx = idx;
-            _moveTo(idx);
-        }
+        if (idx !== -1) _moveTo(idx);
     }
 }
 
-// Touch swipe support
-let _tx=0, _ty=0;
+// Touch swipe
+let _tx=0,_ty=0;
 function _initSwipe() {
     const gc = document.getElementById('gallery-container');
     if (!gc) return;
-    gc.addEventListener('touchstart', e => { _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; }, {passive:true});
+    gc.addEventListener('touchstart', e => { _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; },{passive:true});
     gc.addEventListener('touchend',   e => {
         const dx = e.changedTouches[0].clientX - _tx;
         const dy = e.changedTouches[0].clientY - _ty;
@@ -1197,87 +1247,209 @@ function _initSwipe() {
 
 // Zoom
 function openZoom(idx) {
-    document.getElementById('zoom-img').src = allImgs[idx ?? gIdx];
-    document.getElementById('zoom-modal').classList.add('open');
+    const zi = document.getElementById('zoom-img');
+    const zm = document.getElementById('zoom-modal');
+    if (zi) zi.src = allImgs[idx ?? gIdx];
+    if (zm) zm.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
 function closeZoom() {
-    document.getElementById('zoom-modal').classList.remove('open');
+    const zm = document.getElementById('zoom-modal');
+    if (zm) zm.classList.remove('open');
     document.body.style.overflow = '';
 }
 
-// ── Bundles ──────────────────────────────────────────
-let activeBundle = 'duo';
-
+// ══════════════════════════════════════════════════════════
+// BUNDLE SELECTION
+// ══════════════════════════════════════════════════════════
 function selectBundle(bkey) {
     activeBundle = bkey;
-    ['solo','duo','trio'].forEach(k => {
-        const row    = document.getElementById('row-'+k);
-        const items  = document.getElementById('items-'+k);
-        const cta    = document.getElementById('cta-'+k);
-        const radio  = document.getElementById('radio-'+k);
-        const dot    = radio ? radio.querySelector('.bundle-radio-dot') : null;
 
+    ['solo','duo','trio'].forEach(k => {
+        const row   = document.getElementById('row-'+k);
+        const items = document.getElementById('items-'+k);
+        const cta   = document.getElementById('cta-'+k);
+        const radio = document.getElementById('radio-'+k);
+        const dot   = radio ? radio.querySelector('.bundle-radio-dot') : null;
         const active = (k === bkey);
+
         if (row) {
             row.style.borderColor = active ? '#0d9488' : '#e5e7eb';
             row.style.background  = active ? '#f0fdf4' : '#fff';
         }
-        if (items) items.classList.toggle('hidden', !active);
-        if (cta)   cta.classList.toggle('hidden', !active);
-        if (dot)   dot.style.background = active ? '#0d9488' : '#e5e7eb';
+        if (items) { items.classList.toggle('hidden', !active); }
+        if (cta)   { cta.classList.toggle('hidden', !active); }
+        if (dot)   { dot.style.background = active ? '#0d9488' : '#d1d5db'; }
     });
 
-    // Update form summary
-    const bp = bundlePricing[bkey];
-    const sn = document.getElementById('summary-bundle-name');
-    const sp = document.getElementById('summary-bundle-price');
-    if (sn) sn.innerText = bp.name;
-    if (sp) sp.innerText = bp.price + ' درهم';
-    const hb = document.getElementById('selected-bundle-type');
-    const hp = document.getElementById('order-total-price');
-    if (hb) hb.value = bkey;
-    if (hp) hp.value = bp.price;
-
-    // Init thumbs for active bundle
-    [1,2,3].forEach(i => _updateThumb(bkey, i));
+    // Init thumbs for this bundle
+    const cnt = bundlePricing[bkey].count;
+    for (let i=1; i<=cnt; i++) _refreshThumb(bkey, i);
+    // Update sticky CTA price
+    const sp = document.getElementById('sticky-price');
+    if (sp) sp.innerText = bundlePricing[bkey].price + ' Dh';
 }
 
-// ── Order form ───────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+// MODAL (order form popup)
+// ══════════════════════════════════════════════════════════
+function openModal(bkey) {
+    if (bkey) { activeBundle = bkey; selectBundle(bkey); }
+
+    const bp  = bundlePricing[activeBundle];
+    const cnt = bp.count;
+
+    // Populate modal summary
+    const nameEl  = document.getElementById('modal-offer-name');
+    const priceEl = document.getElementById('modal-offer-price');
+    const totalEl = document.getElementById('modal-total');
+    const detEl   = document.getElementById('modal-items-detail');
+
+    if (nameEl)  nameEl.innerText  = bp.name;
+    if (priceEl) priceEl.innerText = bp.price + ' Dh';
+    if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
+
+    // Build items detail in summary
+    if (detEl) {
+        let html = '';
+        for (let i=1; i<=cnt; i++) {
+            const csel = document.getElementById('color-'+activeBundle+'-'+i);
+            const ssel = document.getElementById('size-' +activeBundle+'-'+i);
+            const cname = csel ? (colorNames[csel.value]||csel.value) : '';
+            const sname = ssel ? ssel.value : '';
+            html += '<div class="flex justify-between"><span>قطعة '+i+':</span><span class="font-semibold text-gray-700">'+cname+' — '+sname+'</span></div>';
+        }
+        detEl.innerHTML = html;
+    }
+
+    // Show broderie row if active
+    const brod = document.getElementById('modal-broderie-row');
+    if (brod) brod.classList.toggle('hidden', embPrice===0);
+
+    // Open modal
+    const modal = document.getElementById('order-modal');
+    if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // Scroll to top of modal box
+        const box = modal.querySelector('.modal-box');
+        if (box) box.scrollTop = 0;
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('order-modal');
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Close modal on backdrop click
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('modal-overlay')) closeModal();
+});
+
+// ══════════════════════════════════════════════════════════
+// SIZE SELECTOR
+// ══════════════════════════════════════════════════════════
+function pickSize(siz, btn) {
+    heroSize_ = siz;
+    const nameEl = document.getElementById('hero-size-name');
+    if (nameEl) nameEl.innerText = siz;
+    document.querySelectorAll('.size-btn').forEach(b => {
+        b.style.border     = '2px solid #e5e7eb';
+        b.style.background = '#fff';
+        b.style.color      = '#374151';
+    });
+    btn.style.border     = '2px solid #0d9488';
+    btn.style.background = '#f0fdf4';
+    btn.style.color      = '#065f46';
+    // Sync size-1 in all bundles
+    ['solo','duo','trio'].forEach(b => {
+        const s = document.getElementById('size-'+b+'-1');
+        if (s) s.value = siz;
+    });
+}
+
+function toggleSizeGuide() {
+    const g = document.getElementById('size-guide');
+    if (g) g.classList.toggle('hidden');
+}
+
+// ══════════════════════════════════════════════════════════
+// EMBROIDERY
+// ══════════════════════════════════════════════════════════
+function toggleEmbroidery(cb) {
+    const fields = document.getElementById('embroidery-fields');
+    if (fields) fields.classList.toggle('hidden', !cb.checked);
+    embPrice = cb.checked ? 30 : 0;
+    // Update modal total if open
+    const totalEl = document.getElementById('modal-total');
+    const bp = bundlePricing[activeBundle];
+    if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
+    // Show/hide broderie row
+    const brod = document.getElementById('modal-broderie-row');
+    if (brod) brod.classList.toggle('hidden', !cb.checked);
+}
+
+// ══════════════════════════════════════════════════════════
+// FORM SUBMIT
+// ══════════════════════════════════════════════════════════
 function handleSubmit(e) {
     e.preventDefault();
+
     const name    = (document.getElementById('f-name')?.value    || '').trim();
     const phone   = (document.getElementById('f-phone')?.value   || '').trim();
     const city    = (document.getElementById('f-city')?.value    || '').trim();
     const address = (document.getElementById('f-address')?.value || '').trim();
-    if (!name || !phone || !city || !address) return;
+
+    if (!name || !phone || !city || !address) {
+        // Shake invalid fields
+        [['f-name',name],['f-phone',phone],['f-city',city],['f-address',address]].forEach(([id,val]) => {
+            if (!val) {
+                const el = document.getElementById(id);
+                if (el) { el.style.borderColor='#f43f5e'; el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),600); }
+            }
+        });
+        return;
+    }
 
     const bp    = bundlePricing[activeBundle];
+    const cnt   = bp.count;
     const oid   = 'MED-' + Math.floor(10000 + Math.random() * 90000);
-    const count = bp.count || 1;
+    const total = bp.price + embPrice;
 
+    // Collect items
     let lines = [];
-    for (let i=1; i<=count; i++) {
+    for (let i=1; i<=cnt; i++) {
         const csel  = document.getElementById('color-'+activeBundle+'-'+i);
         const ssel  = document.getElementById('size-' +activeBundle+'-'+i);
-        const cname = csel ? (colorNames[csel.value] || csel.value) : '';
+        const cname = csel ? (colorNames[csel.value]||csel.value) : '';
         const sname = ssel ? ssel.value : '';
-        lines.push('• قطعة '+i+': '+cname+' — مقاس '+sname);
+        lines.push('• قطعة '+i+': '+cname+' / مقاس '+sname);
+    }
+
+    // Embroidery info
+    let embLine = '';
+    if (embPrice > 0) {
+        const embTxt = (document.getElementById('emb-text')?.value || '').trim();
+        const embClr = (document.getElementById('emb-color')?.value || '');
+        embLine = '\n✍️ *تطريز:* ' + (embTxt||'سيُحدد لاحقاً') + (embClr ? ' / '+embClr : '') + ' (+'+embPrice+' Dh)';
     }
 
     const msg = encodeURIComponent(
         'السلام عليكم MedStyle.ma 🇲🇦\n' +
-        'أريد تأكيد طلبي:\n\n' +
-        '🏷️ *الطلب:* ' + bp.name + '\n' +
-        '📊 *التفاصيل:*\n' + lines.join('\n') + '\n' +
-        '💰 *المبلغ:* ' + bp.price + ' درهم (دفع عند الاستلام)\n' +
+        'طلب جديد:\n\n' +
+        '🏷️ *العرض:* ' + bp.name + ' — ' + total + ' Dh\n' +
+        '📋 *التفاصيل:*\n' + lines.join('\n') + embLine + '\n\n' +
         '👤 *الاسم:* ' + name + '\n' +
         '📞 *الهاتف:* ' + phone + '\n' +
         '📍 *المدينة:* ' + city + '\n' +
         '🏠 *العنوان:* ' + address + '\n' +
-        '🔖 رقم الطلب: #' + oid
+        '🚚 التوصيل مجاني — دفع عند الاستلام\n' +
+        '🔖 #' + oid
     );
 
+    // Populate success screen
     const oidEl = document.getElementById('order-id');
     const snEl  = document.getElementById('success-name');
     const sbEl  = document.getElementById('success-bundle');
@@ -1286,66 +1458,44 @@ function handleSubmit(e) {
     if (oidEl) oidEl.innerText = '#'+oid;
     if (snEl)  snEl.innerText  = name;
     if (sbEl)  sbEl.innerText  = bp.name;
-    if (spEl)  spEl.innerText  = bp.price+' درهم';
+    if (spEl)  spEl.innerText  = total + ' Dh';
     if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
 
-    document.getElementById('main-content')?.classList.add('hidden');
-    document.getElementById('success-screen')?.classList.remove('hidden');
+    // Close modal, show success
+    closeModal();
+    const mainEl = document.getElementById('main-content');
+    const succEl = document.getElementById('success-screen');
+    if (mainEl) mainEl.classList.add('hidden');
+    if (succEl) {
+        succEl.classList.remove('hidden');
+        succEl.style.display = 'flex';
+    }
     window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── Toast ─────────────────────────────────────────────
-const _tcities  = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','مكناس'];
-const _tbundles = ['باك دبل','باك سوبر','قطعة واحدة'];
+// ══════════════════════════════════════════════════════════
+// TOAST (social proof)
+// ══════════════════════════════════════════════════════════
+const _tc = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','تطوان','القنيطرة','مكناس'];
+const _tb = ['باك دبل','باك سوبر','قطعة واحدة'];
 function showToast() {
-    const city   = _tcities [Math.floor(Math.random()*_tcities.length)];
-    const bundle = _tbundles[Math.floor(Math.random()*_tbundles.length)];
-    const mins   = Math.floor(Math.random()*9)+1;
-    const el     = document.getElementById('toast');
-    const tt     = document.getElementById('toast-text');
-    const tim    = document.getElementById('toast-time');
+    const city   = _tc[Math.floor(Math.random()*_tc.length)];
+    const bundle = _tb[Math.floor(Math.random()*_tb.length)];
+    const mins   = Math.floor(Math.random()*12)+1;
+    const el  = document.getElementById('toast');
+    const tt  = document.getElementById('toast-text');
+    const tim = document.getElementById('toast-time');
     if (!el) return;
     if (tt)  tt.innerText  = 'عميل من '+city+' اشترى '+bundle;
-    if (tim) tim.innerText = 'منذ '+mins+' دقائق';
+    if (tim) tim.innerText = 'منذ '+mins+' دقيقة';
     el.classList.remove('translate-y-40');
     el.classList.add('translate-y-0');
-    setTimeout(()=>{ el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
+    setTimeout(() => { el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
 }
 
-// ── Size selector ────────────────────────────────────
-let heroSize_ = 'M';
-function pickSize(siz, btn) {
-    heroSize_ = siz;
-    document.getElementById('hero-size-name').innerText = siz;
-    document.querySelectorAll('.size-btn').forEach(b => {
-        b.style.border      = 'none';
-        b.style.border      = '2px solid #e5e7eb';
-        b.style.background  = '#fff';
-    });
-    btn.style.border     = '2px solid #0d9488';
-    btn.style.background = '#f0fdf4';
-    // Sync size in active bundle item-1
-    ['solo','duo','trio'].forEach(b => {
-        const s = document.getElementById('size-'+b+'-1');
-        if (s) s.value = siz;
-    });
-}
-
-// ── Size guide toggle ─────────────────────────────────
-function toggleSizeGuide() {
-    const g = document.getElementById('size-guide');
-    if (g) g.classList.toggle('hidden');
-}
-
-// ── Embroidery toggle ─────────────────────────────────
-let embroideryPrice = 0;
-function toggleEmbroidery(cb) {
-    const fields = document.getElementById('embroidery-fields');
-    if (fields) fields.classList.toggle('hidden', !cb.checked);
-    embroideryPrice = cb.checked ? 30 : 0;
-}
-
-// ── Init ─────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', () => {
     initGallery();
     _initSwipe();
@@ -1354,5 +1504,17 @@ window.addEventListener('DOMContentLoaded', () => {
     setInterval(showToast, 18000);
 });
 </script>
+
+<!-- ── Sticky CTA bar (mobile) ── -->
+<div id="sticky-cta">
+    <div>
+        <div class="scta-price" id="sticky-price">199 Dh</div>
+        <div class="scta-label">الدفع عند الاستلام — توصيل مجاني</div>
+    </div>
+    <button onclick="openModal(activeBundle)">
+        <i class="fa-solid fa-bag-shopping ml-1"></i> اطلب الآن
+    </button>
+</div>
+
 </body>
 </html>
