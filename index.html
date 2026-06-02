@@ -244,223 +244,126 @@ function toggleFaq(idx) {
 ══════════════════════════════════ -->
 <div class="bg-white">
 
-    <!-- Stars bar -->
-    <div style="display:flex; align-items:center; justify-content:center; gap:8px; padding:8px 16px; background:#f9fafb; border-bottom:1px solid #f3f4f6;">
-        <div style="display:flex; gap:2px;">
-            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
-            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
-            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
-            <i class="fa-solid fa-star" style="color:#f59e0b; font-size:11px;"></i>
-            <i class="fa-solid fa-star-half-stroke" style="color:#f59e0b; font-size:11px;"></i>
-        </div>
-        <span style="font-size:12px; font-weight:800; color:#111;">4.8/5</span>
-        <span style="color:#d1d5db; font-size:12px;">|</span>
-        <span style="font-size:12px; font-weight:700; color:#6b7280;">+2,500 زبون راضي</span>
+  <!-- Stars bar -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;background:#f9fafb;border-bottom:1px solid #f3f4f6;">
+    <span style="color:#f59e0b;font-size:13px;letter-spacing:1px;">★★★★½</span>
+    <span style="font-size:12px;font-weight:800;color:#111;">4.8/5</span>
+    <span style="color:#d1d5db;">|</span>
+    <span style="font-size:12px;font-weight:600;color:#6b7280;">+2,500 زبون راضي</span>
+  </div>
+
+  <!-- Gallery: thumbs column left + main image right -->
+  <div style="display:flex;background:#fff;border-bottom:1px solid #f3f4f6;">
+
+    <!-- Vertical thumbnails -->
+    <div id="gallery-thumbs"
+         style="display:flex;flex-direction:column;gap:6px;padding:10px 6px;width:74px;flex-shrink:0;overflow-y:auto;max-height:520px;">
+          <button onclick="gSel(0)" id="gthumb-0"
+            style="border:2px solid #111827;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(1)" id="gthumb-1"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(2)" id="gthumb-2"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="eager"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(3)" id="gthumb-3"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(4)" id="gthumb-4"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(5)" id="gthumb-5"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(6)" id="gthumb-6"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(7)" id="gthumb-7"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(8)" id="gthumb-8"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
+          <button onclick="gSel(9)" id="gthumb-9"
+            style="border:2px solid transparent;border-radius:8px;overflow:hidden;background:#f3f4f6;cursor:pointer;padding:0;flex-shrink:0;transition:border 0.2s;">
+            <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy"
+                 style="width:100%;height:60px;object-fit:cover;display:block;">
+          </button>
     </div>
 
-    <!-- Beez-style gallery: thumbnails left + big image right -->
-    <div style="display:flex; gap:0; background:#fff; position:relative;">
-
-        <!-- Thumbnails column (left) -->
-        <div style="display:flex; flex-direction:column; gap:6px; padding:10px 8px; width:72px; flex-shrink:0; overflow-y:auto; max-height:480px;">
-            <button onclick="gallerySelect(0,this)" class="gthumb"
-                style="border:2px solid #111; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(1,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(2,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(3,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(4,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(5,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(6,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(7,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(8,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
-            <button onclick="gallerySelect(9,this)" class="gthumb"
-                style="border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f8f8f8; cursor:pointer; padding:0; flex-shrink:0;">
-                <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp"
-                     style="width:100%; height:56px; object-fit:cover; display:block;">
-            </button>
+    <!-- Main image (slider) -->
+    <div id="gallery-container"
+         style="flex:1;position:relative;overflow:hidden;background:#f8f8f8;">
+      <div id="gallery-track"
+           style="display:flex;will-change:transform;transition:transform 0.32s cubic-bezier(.4,0,.2,1);">
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" alt="Blanc" loading="eager"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
         </div>
-
-        <!-- Main image (right) — touch swipeable -->
-        <div style="flex:1; position:relative; overflow:hidden; background:#f8f8f8;" id="gallery-container">
-            <div id="gallery-track" style="display:flex; transition:transform 0.3s cubic-bezier(.4,0,.2,1); will-change:transform; height:100%;">
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-                <div style="flex-shrink:0; width:100%; display:flex; align-items:center; justify-content:center; background:#f8f8f8;">
-                    <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp"
-                         style="width:100%; height:480px; object-fit:contain; object-position:center; display:block;">
-                </div>
-
-            <!-- Zoom btn -->
-            <button onclick="openZoom(currentImgIdx)"
-                style="position:absolute; top:10px; left:10px; width:30px; height:30px; background:rgba(255,255,255,0.9); border:none; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.10); cursor:pointer; font-size:12px; color:#555; z-index:5;">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-            </button>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp" alt="Bleu Ciel" loading="eager"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
         </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp" alt="Bleu Marine" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp" alt="Bordeaux" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp" alt="Gris Clair" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp" alt="Marron" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp" alt="Militaire" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp" alt="Mauve" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp" alt="Mauve Clair" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+        <div style="flex-shrink:0;width:100%;display:flex;align-items:center;justify-content:center;background:#f8f8f8;min-height:500px;">
+          <img src="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp" alt="Rose Clair" loading="lazy"
+               style="width:100%;height:500px;object-fit:contain;object-position:center;display:block;">
+        </div>
+      </div>
+      <!-- Zoom -->
+      <button onclick="openZoom(gIdx)"
+        style="position:absolute;top:10px;left:10px;width:32px;height:32px;background:rgba(255,255,255,.88);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;font-size:13px;color:#555;z-index:5;">
+        <i class="fa-solid fa-magnifying-glass-plus"></i>
+      </button>
     </div>
+  </div>
 
-    <!-- Product info -->
-    <div class="px-4 pb-5 space-y-4">
-        <!-- Rating -->
-        <div class="flex items-center gap-1">
-            <i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i>
-            <span class="text-xs font-bold text-amber-600 mr-1">Excellente note 4.8/5</span>
-        </div>
-        <!-- Title + Price -->
-        <div>
-            <h1 class="text-xl font-extrabold text-gray-900">Blouse Médicale Professionnelle</h1>
-            <p class="text-xs text-gray-400 mt-0.5">بلوزة طبية مهنية للرجال والنساء</p>
-            <div class="flex items-baseline gap-2 mt-2">
-                <span id="hero-price" class="text-2xl font-extrabold text-gray-900">199 Dh</span>
-                <span class="text-sm text-gray-400 line-through">299 Dh</span>
-                <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
-            </div>
-        </div>
-
-        <!-- Hero color swatches (gallery preview only) -->
-        <div>
-            <p class="text-sm font-bold text-gray-700 mb-2">Couleur: <span id="hero-color-name" class="text-teal-700">Blanc</span></p>
-            <div class="flex gap-2 flex-wrap" id="hero-swatches">
-                <button onclick="heroColor('blanc',this)" class="c-swatch active" style="background:#FFFFFF; box-shadow: inset 0 0 0 1px #ccc;" title="Blanc"></button>
-                <button onclick="heroColor('bleu_ciel',this)" class="c-swatch" style="background:#87CEEB;" title="Bleu Ciel"></button>
-                <button onclick="heroColor('bleu_marin',this)" class="c-swatch" style="background:#1B2A5E;" title="Bleu Marine"></button>
-                <button onclick="heroColor('bordeaux',this)" class="c-swatch" style="background:#7B1C3E;" title="Bordeaux"></button>
-                <button onclick="heroColor('gris_clair',this)" class="c-swatch" style="background:#B0B0B0;" title="Gris Clair"></button>
-                <button onclick="heroColor('marron',this)" class="c-swatch" style="background:#3E1F0D;" title="Marron"></button>
-                <button onclick="heroColor('militaire',this)" class="c-swatch" style="background:#7A8C6E;" title="Militaire"></button>
-                <button onclick="heroColor('mauve',this)" class="c-swatch" style="background:#7B2D8B;" title="Mauve"></button>
-                <button onclick="heroColor('mauve_clair',this)" class="c-swatch" style="background:#C196D8;" title="Mauve Clair"></button>
-                <button onclick="heroColor('rose_clair',this)" class="c-swatch" style="background:#F4B8C8;" title="Rose Clair"></button>
-            </div>
-        </div>
-
-        <!-- Hero size (solo only) -->
-        <div>
-            <div class="flex items-center justify-between mb-2">
-                <p class="text-sm font-bold text-gray-700">Taille: <span id="hero-size-name" class="text-teal-700">M</span></p>
-                <button onclick="toggleGuide()" class="text-xs text-gray-400 underline flex items-center gap-1">
-                    <i class="fa-solid fa-ruler-horizontal text-xs"></i> Guide des tailles
-                </button>
-            </div>
-            <div class="flex gap-2 flex-wrap" id="hero-sizes">
-                <button onclick="heroSize(this)" data-size="XS" class="size-btn">XS</button>
-                <button onclick="heroSize(this)" data-size="S"  class="size-btn">S</button>
-                <button onclick="heroSize(this)" data-size="M"  class="size-btn active">M</button>
-                <button onclick="heroSize(this)" data-size="L"  class="size-btn">L</button>
-                <button onclick="heroSize(this)" data-size="XL" class="size-btn">XL</button>
-                <button onclick="heroSize(this)" data-size="XXL" class="size-btn">XXL</button>
-            </div>
-            <!-- Size guide table -->
-            <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600">
-                <table class="w-full text-center">
-                    <thead><tr class="font-bold text-gray-800 border-b border-gray-200">
-                        <td class="py-1">مقاس</td><td>صدر (cm)</td><td>خصر (cm)</td>
-                    </tr></thead>
-                    <tbody>
-                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">XS</td><td>80-84</td><td>62-66</td></tr>
-                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">S</td><td>84-88</td><td>66-70</td></tr>
-                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">M</td><td>88-92</td><td>70-74</td></tr>
-                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">L</td><td>92-96</td><td>74-78</td></tr>
-                        <tr class="border-b border-gray-100"><td class="py-1 font-bold">XL</td><td>96-100</td><td>78-82</td></tr>
-                        <tr><td class="py-1 font-bold">XXL</td><td>100-106</td><td>82-88</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Broderie -->
-        <button id="broderie-btn" onclick="toggleBroderie()" class="broderie-btn">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm flex-shrink-0">
-                    <i class="fa-solid fa-paintbrush"></i>
-                </div>
-                <div class="text-right">
-                    <p class="text-sm font-bold text-gray-800">Ajouter une broderie</p>
-                    <p class="text-xs text-gray-400">تطريز باسمك أو شعارك</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-sm font-extrabold text-purple-600">+ 40 Dh</span>
-                <div id="broderie-check" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all">
-                    <i class="fa-solid fa-check text-xs text-white hidden"></i>
-                </div>
-            </div>
-        </button>
-        <div id="broderie-input-wrap" class="hidden">
-            <div class="relative">
-                <span class="input-icon"><i class="fa-solid fa-pencil text-sm"></i></span>
-                <input type="text" id="broderie-text" placeholder="الاسم أو الشعار..." class="form-input">
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- ══════════════════════════════════
@@ -1046,55 +949,132 @@ function toggleFaq(idx) {
 </footer>
 
 <script>
-// ── Data ─────────────────────────────────────────────────
-const products = {
-    blanc: { name: 'Blanc', hex: '#FFFFFF', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp' },
-    bleu_ciel: { name: 'Bleu Ciel', hex: '#87CEEB', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp' },
-    bleu_marin: { name: 'Bleu Marine', hex: '#1B2A5E', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp' },
-    bordeaux: { name: 'Bordeaux', hex: '#7B1C3E', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp' },
-    gris_clair: { name: 'Gris Clair', hex: '#B0B0B0', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp' },
-    marron: { name: 'Marron', hex: '#3E1F0D', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp' },
-    militaire: { name: 'Militaire', hex: '#7A8C6E', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp' },
-    mauve: { name: 'Mauve', hex: '#7B2D8B', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp' },
-    mauve_clair: { name: 'Mauve Clair', hex: '#C196D8', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp' },
-    rose_clair: { name: 'Rose Clair', hex: '#F4B8C8', img: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp' },
+// ═══════════════════════════════════════════════
+// MedStyle — JavaScript
+// ═══════════════════════════════════════════════
+
+const allImgs  = ['https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp','https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'];
+const colorKeys= ['blanc','bleu_ciel','bleu_marin','bordeaux','gris_clair','marron','militaire','mauve','mauve_clair','rose_clair'];
+const colorNames={blanc:'Blanc',bleu_ciel:'Bleu Ciel',bleu_marin:'Bleu Marine',bordeaux:'Bordeaux',gris_clair:'Gris Clair',marron:'Marron',militaire:'Militaire',mauve:'Mauve',mauve_clair:'Mauve Clair',rose_clair:'Rose Clair'};
+const imgMap   = {blanc:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',bleu_ciel:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',bleu_marin:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',bordeaux:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',gris_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',marron:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',militaire:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',mauve:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',mauve_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',rose_clair:'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'};
+
+const bundlePricing = {
+    solo:  { name:'قطعة واحدة', price:199, count:1 },
+    duo:   { name:'باك دبل',    price:349, count:2 },
+    trio:  { name:'باك سوبر',   price:479, count:3 }
 };
-const allImgs = [
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',
-    'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp'
-];
-        document.getElementById('hero-color-name').innerText = products[colorKeys2[idx]]?.name || '';
-        document.querySelectorAll('#hero-swatches .c-swatch').forEach((s,i) => s.classList.toggle('active', i===idx));
-        // sync bundle item-1
-        heroColorChanged(colorKeys2[idx]);
+
+// ── Gallery ──────────────────────────────────────
+let gIdx = 0, gW = 0;
+
+function initGallery() {
+    const track = document.getElementById('gallery-track');
+    const cont  = document.getElementById('gallery-container');
+    if (!track || !cont) return;
+    gW = cont.offsetWidth;
+    Array.from(track.children).forEach(slide => {
+        slide.style.width = gW + 'px';
+        slide.style.minWidth = gW + 'px';
+    });
+    _moveTo(gIdx);
+}
+window.addEventListener('resize', initGallery);
+
+function _moveTo(idx) {
+    const track = document.getElementById('gallery-track');
+    const cont  = document.getElementById('gallery-container');
+    if (track && cont) {
+        if (!gW) gW = cont.offsetWidth;
+        track.style.transform = 'translateX(-' + (idx * gW) + 'px)';
+    }
+    // Highlight active thumbnail
+    document.querySelectorAll('[id^="gthumb-"]').forEach((btn, i) => {
+        btn.style.border = (i === idx) ? '2px solid #111827' : '2px solid transparent';
+    });
+    // Update color name in product info
+    const nameEl = document.getElementById('hero-color-name');
+    if (nameEl && colorNames[colorKeys[idx]]) {
+        nameEl.innerText = colorNames[colorKeys[idx]];
+    }
+    // Highlight active swatch
+    document.querySelectorAll('.cswatch').forEach((s, i) => {
+        if (i === idx) {
+            s.style.transform = 'scale(1.25)';
+            s.style.boxShadow = '0 0 0 2px #fff, 0 0 0 4px #111827';
+        } else {
+            s.style.transform = 'scale(1)';
+            s.style.boxShadow = 'none';
+        }
+    });
+}
+
+// Called when user clicks a thumbnail
+function gSel(idx) {
+    if (idx < 0) idx = allImgs.length - 1;
+    if (idx >= allImgs.length) idx = 0;
+    gIdx = idx;
+    _moveTo(idx);
+    // Sync bundle item-1 to this color
+    const key = colorKeys[idx];
+    _syncBundleItem1(key);
+}
+
+// Called when user clicks a color swatch (hero section)
+function pickColor(key, el) {
+    const idx = colorKeys.indexOf(key);
+    if (idx !== -1) gSel(idx);
+}
+
+// Sync bundle item-1 color across all bundles
+function _syncBundleItem1(key) {
+    ['solo','duo','trio'].forEach(b => {
+        const sel = document.getElementById('color-' + b + '-1');
+        if (sel) sel.value = key;
+        _updateThumb(b, 1);
+    });
+}
+
+// Update the mini preview thumb inside a bundle item row
+function _updateThumb(bkey, itemNum) {
+    const colorSel = document.getElementById('color-' + bkey + '-' + itemNum);
+    const thumbEl  = document.getElementById('thumb-' + bkey + '-' + itemNum);
+    const mainThumb= document.getElementById('main-thumb-' + bkey);
+    if (colorSel && imgMap[colorSel.value]) {
+        const url = imgMap[colorSel.value];
+        if (thumbEl)   thumbEl.src   = url;
+        if (itemNum===1 && mainThumb) mainThumb.src = url;
     }
 }
 
-// Touch swipe on main image
-let tx = 0, ty = 0;
-document.addEventListener('DOMContentLoaded', () => {
-    const gc = document.getElementById('gallery-container');
-    if(gc) {
-        gc.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
-        gc.addEventListener('touchend', e => {
-            const dx = e.changedTouches[0].clientX - tx;
-            const dy = e.changedTouches[0].clientY - ty;
-            if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) showImg(currentImgIdx + (dx < 0 ? 1 : -1));
-        });
+// Called by bundle color select onchange
+function syncFromBundle(bkey, itemNum, sel) {
+    _updateThumb(bkey, itemNum);
+    // If item 1, sync gallery
+    if (itemNum === 1) {
+        const idx = colorKeys.indexOf(sel.value);
+        if (idx !== -1) {
+            gIdx = idx;
+            _moveTo(idx);
+        }
     }
-});
+}
+
+// Touch swipe support
+let _tx=0, _ty=0;
+function _initSwipe() {
+    const gc = document.getElementById('gallery-container');
+    if (!gc) return;
+    gc.addEventListener('touchstart', e => { _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; }, {passive:true});
+    gc.addEventListener('touchend',   e => {
+        const dx = e.changedTouches[0].clientX - _tx;
+        const dy = e.changedTouches[0].clientY - _ty;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) gSel(gIdx + (dx<0?1:-1));
+    });
+}
 
 // Zoom
 function openZoom(idx) {
-    document.getElementById('zoom-img').src = allImgs[idx];
+    document.getElementById('zoom-img').src = allImgs[idx ?? gIdx];
     document.getElementById('zoom-modal').classList.add('open');
     document.body.style.overflow = 'hidden';
 }
@@ -1103,306 +1083,120 @@ function closeZoom() {
     document.body.style.overflow = '';
 }
 
-// ── Hero color/size ───────────────────────────────────────
-function heroColor(key,el){
-    heroColor_=key;
-    document.getElementById('hero-color-name').innerText=products[key].name;
-    document.querySelectorAll('#hero-swatches .c-swatch').forEach(s=>s.classList.remove('active'));
-    el.classList.add('active');
-    const idx = Object.keys(products).indexOf(key);
-    showImg(idx);
-    heroColorChanged(key); // sync bundle item-1
-}
-function heroSize(btn){
-    heroSize_=btn.dataset.size;
-    document.getElementById('hero-size-name').innerText=heroSize_;
-    document.querySelectorAll('#hero-sizes .size-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    heroSizeChanged(heroSize_); // sync bundle item-1
-}
-function toggleGuide(){ document.getElementById('size-guide').classList.toggle('hidden'); }
+// ── Bundles ──────────────────────────────────────────
+let activeBundle = 'duo';
 
-// ── Broderie ──────────────────────────────────────────────
-function toggleBroderie(){
-    broderie=!broderie;
-    document.getElementById('broderie-btn').classList.toggle('active',broderie);
-    const chk=document.getElementById('broderie-check');
-    chk.classList.toggle('bg-teal-600',broderie);
-    chk.classList.toggle('border-teal-600',broderie);
-    chk.querySelector('i').classList.toggle('hidden',!broderie);
-    document.getElementById('broderie-input-wrap').classList.toggle('hidden',!broderie);
-}
+function selectBundle(bkey) {
+    activeBundle = bkey;
+    ['solo','duo','trio'].forEach(k => {
+        const row    = document.getElementById('row-'+k);
+        const items  = document.getElementById('items-'+k);
+        const cta    = document.getElementById('cta-'+k);
+        const radio  = document.getElementById('radio-'+k);
+        const dot    = radio ? radio.querySelector('.bundle-radio-dot') : null;
 
-
-// ── Bundle & Save row logic ──────────────────────────────
-const imgMap = {
-    blanc: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp',
-    bleu_ciel: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/317028426_bleu_ciel.webp',
-    bleu_marin: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/78890358a_bleu_marin.webp',
-    bordeaux: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ce1902255_bordeaux.webp',
-    gris_clair: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/ddf5ed73c_gris_clair.webp',
-    marron: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/6090613f3_marron.webp',
-    militaire: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/b03ba72f0_militaire.webp',
-    mauve: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/31b3fbc78_mauve.webp',
-    mauve_clair: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/505e26b43_mauve_clair.webp',
-    rose_clair: 'https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/899b16a63_rose_clair.webp',
-};
-let activeBundleRow = 'duo';
-
-// Sync item-1 color+size in a bundle FROM the hero selectors (top of page)
-function syncItem1FromHero(bundle) {
-    const colorSel = document.getElementById('color-'+bundle+'-1');
-    const sizeSel  = document.getElementById('size-'+bundle+'-1');
-    if(colorSel) colorSel.value = heroColor_;
-    if(sizeSel) {
-        for(let o of sizeSel.options) o.selected = (o.text === heroSize_);
-    }
-    // update thumb too
-    const thumb = document.getElementById('thumb-'+bundle+'-1');
-    if(thumb) thumb.src = imgMap[heroColor_] || thumb.src;
-}
-
-// Called when user changes a bundle dropdown — update thumb + hero gallery
-function syncFromBundle(bundle, item, select) {
-    const key   = select.value;
-    const thumb = document.getElementById('thumb-'+bundle+'-'+item);
-    if(thumb) {
-        thumb.style.opacity='0';
-        setTimeout(()=>{ thumb.src=imgMap[key]; thumb.style.opacity='1'; },180);
-    }
-    // item-1 change also syncs hero color selector
-    if(item===1) {
-        heroColor_ = key;
-        document.getElementById('hero-color-name').innerText = products[key]?.name || key;
-        document.querySelectorAll('#hero-swatches .c-swatch').forEach((s,i)=>{
-            s.classList.toggle('active', Object.keys(imgMap)[i]===key);
-        });
-        showImg(Object.keys(imgMap).indexOf(key));
-    }
-}
-
-function selectBundle(key) {
-    const allKeys = ['solo','duo','trio'];
-
-    allKeys.forEach(k => {
-        const row   = document.getElementById('row-'+k);
-        const items = document.getElementById('items-'+k);
-        const cta   = document.getElementById('cta-'+k);
-        // Reset styles — remove active, remove featured highlight for non-duo
-        row.classList.remove('active');
-        if(k !== 'duo') row.classList.remove('bundle-row-featured');
-        // Collapse items and hide CTA for all except the selected
-        if(k !== key) {
-            items?.classList.add('hidden');
-            cta?.classList.add('hidden');
+        const active = (k === bkey);
+        if (row) {
+            row.style.borderColor = active ? '#0d9488' : '#e5e7eb';
+            row.style.background  = active ? '#f0fdf4' : '#fff';
         }
+        if (items) items.classList.toggle('hidden', !active);
+        if (cta)   cta.classList.toggle('hidden', !active);
+        if (dot)   dot.style.background = active ? '#0d9488' : '#e5e7eb';
     });
 
-    // Activate selected row
-    const row   = document.getElementById('row-'+key);
-    const items = document.getElementById('items-'+key);
-    const cta   = document.getElementById('cta-'+key);
-    row.classList.add('active');
-    items?.classList.remove('hidden');
-    cta?.classList.remove('hidden');
+    // Update form summary
+    const bp = bundlePricing[bkey];
+    const sn = document.getElementById('summary-bundle-name');
+    const sp = document.getElementById('summary-bundle-price');
+    if (sn) sn.innerText = bp.name;
+    if (sp) sp.innerText = bp.price + ' درهم';
+    const hb = document.getElementById('selected-bundle-type');
+    const hp = document.getElementById('order-total-price');
+    if (hb) hb.value = bkey;
+    if (hp) hp.value = bp.price;
 
-    activeBundleRow = key;
-    currentOffer_   = key;
-
-    // Always sync item-1 with hero color+size
-    syncItem1FromHero(key);
+    // Init thumbs for active bundle
+    [1,2,3].forEach(i => _updateThumb(bkey, i));
 }
 
-// Hero color/size changes → also update item-1 in the active bundle
-function heroColorChanged(key) {
-    heroColor_ = key;
-    const colorSel = document.getElementById('color-'+activeBundleRow+'-1');
-    if(colorSel) colorSel.value = key;
-    const thumb = document.getElementById('thumb-'+activeBundleRow+'-1');
-    if(thumb) { thumb.style.opacity='0'; setTimeout(()=>{ thumb.src=imgMap[key]; thumb.style.opacity='1'; },180); }
-}
-function heroSizeChanged(size) {
-    heroSize_ = size;
-    const sizeSel = document.getElementById('size-'+activeBundleRow+'-1');
-    if(sizeSel) for(let o of sizeSel.options) o.selected = (o.text === size);
-}
-
-function renderChips(){} // no-op, kept for compat
-// ── Bundle item selectors ─────────────────────────────────
-function itemColor(bundle,item,el,key){
-    selections[bundle][item].color=key;
-    const parent=el.parentElement;
-    parent.querySelectorAll('.c-swatch').forEach(s=>s.classList.remove('active'));
-    el.classList.add('active');
-}
-function itemSize(bundle,item,btn){
-    selections[bundle][item].size=btn.dataset.size;
-    const parent=btn.parentElement;
-    parent.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-}
-
-// ── Modal ─────────────────────────────────────────────────
-function openModal(offerKey){
-    currentOffer_=offerKey;
-    const offer=offers[offerKey];
-    const broderieExtra=broderie?40:0;
-    const total=offer.price+broderieExtra;
-
-    document.getElementById('modal-offer-name').innerText=offer.name;
-    document.getElementById('modal-offer-price').innerText=offer.price+' Dh';
-    document.getElementById('modal-total').innerText=total+' Dh';
-    document.getElementById('modal-broderie-row').classList.toggle('hidden',!broderie);
-
-    // Build items detail from dropdowns
-    const det=document.getElementById('modal-items-detail');
-    det.innerHTML='';
-    const itemsWrap = document.getElementById('items-'+offerKey);
-    if(itemsWrap) {
-        const rows = itemsWrap.querySelectorAll('.bundle-item-row');
-        rows.forEach((row,idx) => {
-            const selects = row.querySelectorAll('.bundle-select');
-            const color = selects[0]?.options[selects[0].selectedIndex]?.text || '';
-            const size  = selects[1]?.options[selects[1].selectedIndex]?.text || '';
-            det.innerHTML += `<p>• ق${idx+1}: ${color} — ${size}</p>`;
-        });
-    } else {
-        det.innerHTML=`<p>• اللون: ${products[heroColor_].name} — المقاس: ${heroSize_}</p>`;
-    }
-
-    // Reset form
-    document.getElementById('order-form').reset();
-    const btn=document.getElementById('submit-btn');
-    btn.disabled=false;
-    btn.innerHTML='<i class="fa-solid fa-truck-fast"></i><span>تأكيد الطلب — الدفع عند الاستلام</span>';
-
-    document.getElementById('order-modal').classList.add('open');
-    document.body.style.overflow='hidden';
-}
-function closeModal(){
-    document.getElementById('order-modal').classList.remove('open');
-    document.body.style.overflow='';
-}
-
-// ── Form Submit ───────────────────────────────────────────
-async function handleSubmit(e){
+// ── Order form ───────────────────────────────────────
+function handleSubmit(e) {
     e.preventDefault();
-    const btn=document.getElementById('submit-btn');
-    btn.disabled=true;
-    btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> جاري التسجيل...';
+    const name    = (document.getElementById('f-name')?.value    || '').trim();
+    const phone   = (document.getElementById('f-phone')?.value   || '').trim();
+    const city    = (document.getElementById('f-city')?.value    || '').trim();
+    const address = (document.getElementById('f-address')?.value || '').trim();
+    if (!name || !phone || !city || !address) return;
 
-    const fullName  = document.getElementById('f-name').value;
-    const phone     = document.getElementById('f-phone').value;
-    const city      = document.getElementById('f-city').value;
-    const address   = document.getElementById('f-address').value;
-    const broText   = broderie ? document.getElementById('broderie-text').value : '';
-    const offer     = offers[currentOffer_];
-    const broExtra  = broderie?40:0;
-    const total     = offer.price+broExtra;
-    const orderId   = 'MED-'+Math.floor(10000+Math.random()*90000);
+    const bp    = bundlePricing[activeBundle];
+    const oid   = 'MED-' + Math.floor(10000 + Math.random() * 90000);
+    const count = bp.count || 1;
 
-    // Build items string from dropdowns
-    let itemsArr=[];
-    const itemsWrap2 = document.getElementById('items-'+currentOffer_);
-    if(itemsWrap2) {
-        const rows2 = itemsWrap2.querySelectorAll('.bundle-item-row');
-        rows2.forEach((row,idx) => {
-            const selects = row.querySelectorAll('.bundle-select');
-            const color = selects[0]?.options[selects[0].selectedIndex]?.text || '';
-            const size  = selects[1]?.options[selects[1].selectedIndex]?.text || '';
-            itemsArr.push(`ق${idx+1}: ${color} / ${size}`);
-        });
-    } else {
-        itemsArr.push(`اللون: ${products[heroColor_].name} | المقاس: ${heroSize_}`);
+    let lines = [];
+    for (let i=1; i<=count; i++) {
+        const csel  = document.getElementById('color-'+activeBundle+'-'+i);
+        const ssel  = document.getElementById('size-' +activeBundle+'-'+i);
+        const cname = csel ? (colorNames[csel.value] || csel.value) : '';
+        const sname = ssel ? ssel.value : '';
+        lines.push('• قطعة '+i+': '+cname+' — مقاس '+sname);
     }
-    if(broderie && broText) itemsArr.push(`Broderie: ${broText}`);
-    const itemsStr=itemsArr.join(' | ');
 
-    // Save to Sheets
-    try {
-        await fetch('https://superagent-25ccd117.base44.app/functions/saveOrder',{
-            method:'POST', headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({ orderId, fullName, phone, city, address,
-                bundleName:offer.name, totalPrice:total.toString(), items:itemsStr })
-        });
-    } catch(err){ console.warn('Sheets:',err); }
-
-    // Populate success screen
-    document.getElementById('s-orderid').innerText='#'+orderId;
-    document.getElementById('s-name').innerText=fullName;
-    document.getElementById('s-bundle').innerText=offer.name;
-    document.getElementById('s-items').innerText=itemsStr;
-    document.getElementById('s-price').innerText=total+' Dh';
-
-    const waMsg=encodeURIComponent(
-        `السلام عليكم MedStyle.ma 🇲🇦\nأريد تأكيد طلبي:\n\n`+
-        `🏷️ العرض: ${offer.name}\n📦 التفاصيل: ${itemsStr}\n`+
-        `💰 المجموع: ${total} Dh\n👤 الاسم: ${fullName}\n`+
-        `📞 الهاتف: ${phone}\n📍 ${city}\n🏠 ${address}\n\n#${orderId}`
+    const msg = encodeURIComponent(
+        'السلام عليكم MedStyle.ma 🇲🇦\n' +
+        'أريد تأكيد طلبي:\n\n' +
+        '🏷️ *الطلب:* ' + bp.name + '\n' +
+        '📊 *التفاصيل:*\n' + lines.join('\n') + '\n' +
+        '💰 *المبلغ:* ' + bp.price + ' درهم (دفع عند الاستلام)\n' +
+        '👤 *الاسم:* ' + name + '\n' +
+        '📞 *الهاتف:* ' + phone + '\n' +
+        '📍 *المدينة:* ' + city + '\n' +
+        '🏠 *العنوان:* ' + address + '\n' +
+        '🔖 رقم الطلب: #' + oid
     );
-    document.getElementById('s-wa-link').href=`https://wa.me/212645066834?text=${waMsg}`;
 
-    closeModal();
-    document.getElementById('main-content').classList.add('hidden');
-    document.querySelector('.sticky-bottom').classList.add('hidden');
-    document.getElementById('success-screen').classList.remove('hidden');
+    const oidEl = document.getElementById('order-id');
+    const snEl  = document.getElementById('success-name');
+    const sbEl  = document.getElementById('success-bundle');
+    const spEl  = document.getElementById('success-price');
+    const waEl  = document.getElementById('whatsapp-confirm-link');
+    if (oidEl) oidEl.innerText = '#'+oid;
+    if (snEl)  snEl.innerText  = name;
+    if (sbEl)  sbEl.innerText  = bp.name;
+    if (spEl)  spEl.innerText  = bp.price+' درهم';
+    if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
+
+    document.getElementById('main-content')?.classList.add('hidden');
+    document.getElementById('success-screen')?.classList.remove('hidden');
     window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── Toast ──────────────────────────────────────────────────
-const tC=['الرباط','الدار البيضاء','مراكش','فاس','طنجة','أكادير','سلا'];
-const tB=['باك دبل','باك سوبر','قطعة واحدة'];
-function showToast(){
-    document.getElementById('toast-text').innerText=`عميل من ${tC[Math.floor(Math.random()*tC.length)]} اشترى ${tB[Math.floor(Math.random()*tB.length)]}`;
-    document.getElementById('toast-time').innerText=`منذ ${Math.floor(Math.random()*5)+1} دقائق`;
-    const t=document.getElementById('toast');
-    t.classList.remove('translate-y-40'); t.classList.add('translate-y-0');
-    setTimeout(()=>{t.classList.remove('translate-y-0'); t.classList.add('translate-y-40');},5000);
+// ── Toast ─────────────────────────────────────────────
+const _tcities  = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','مكناس'];
+const _tbundles = ['باك دبل','باك سوبر','قطعة واحدة'];
+function showToast() {
+    const city   = _tcities [Math.floor(Math.random()*_tcities.length)];
+    const bundle = _tbundles[Math.floor(Math.random()*_tbundles.length)];
+    const mins   = Math.floor(Math.random()*9)+1;
+    const el     = document.getElementById('toast');
+    const tt     = document.getElementById('toast-text');
+    const tim    = document.getElementById('toast-time');
+    if (!el) return;
+    if (tt)  tt.innerText  = 'عميل من '+city+' اشترى '+bundle;
+    if (tim) tim.innerText = 'منذ '+mins+' دقائق';
+    el.classList.remove('translate-y-40');
+    el.classList.add('translate-y-0');
+    setTimeout(()=>{ el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
 }
-window.onload=function(){
-    // Initialize gallery slide widths
+
+// ── Init ─────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
     initGallery();
-    // duo is default — show its items+cta, others collapsed
+    _initSwipe();
     selectBundle('duo');
-    setTimeout(showToast,3000);
-    setInterval(showToast,18000);
-};
-
-function initGallery() {
-    const container = document.getElementById('gallery-container');
-    const track     = document.getElementById('gallery-track');
-    if(!container || !track) return;
-    const w = container.offsetWidth;
-    Array.from(track.children).forEach(slide => {
-        slide.style.width = w + 'px';
-        slide.style.minWidth = w + 'px';
-        slide.style.flexShrink = '0';
-    });
-    showImg(currentImgIdx);
-}
-window.addEventListener('resize', initGallery);
-
-// ── FAQ accordion ─────────────────────────────────────────
-function toggleFaq(idx) {
-    const ans  = document.querySelector('.faq-ans-'+idx);
-    const icon = document.querySelector('.faq-icon-'+idx);
-    const isOpen = !ans.classList.contains('hidden');
-
-    // Close all
-    for(let i=0;i<5;i++){
-        document.querySelector('.faq-ans-'+i)?.classList.add('hidden');
-        const ic = document.querySelector('.faq-icon-'+i);
-        if(ic) ic.style.transform = 'rotate(0deg)';
-    }
-
-    // Open clicked if was closed
-    if(!isOpen){
-        ans.classList.remove('hidden');
-        ans.classList.add('faq-ans-open');
-        if(icon) icon.style.transform = 'rotate(180deg)';
-    }
-}
-
+    setTimeout(showToast, 3000);
+    setInterval(showToast, 18000);
+});
 </script>
 </body>
 </html>
