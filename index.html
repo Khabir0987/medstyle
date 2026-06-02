@@ -608,7 +608,7 @@ function toggleFaq(idx) {
     </div>
 
     <!-- ───────────── SOLO ───────────── -->
-    <div class="bundle-row" id="row-solo" onclick="selectBundle('solo')">
+    <div class="bundle-row active" id="row-solo" onclick="selectBundle('solo')">
         <div class="bundle-row-header">
             <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
             <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-solo" alt="">
@@ -648,7 +648,7 @@ function toggleFaq(idx) {
     </div>
 
     <!-- ───────────── DUO ───────────── -->
-    <div class="bundle-row bundle-row-featured" id="row-duo" onclick="selectBundle('duo')">
+    <div class="bundle-row" id="row-duo" onclick="selectBundle('duo')">
         <span class="bundle-badge-top">الأكثر طلباً 🔥</span>
         <div class="bundle-row-header mt-1">
             <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
@@ -1223,7 +1223,7 @@ const bundlePricing = {
 // ── State ─────────────────────────────────────────────────
 let gIdx         = 0;
 let gW           = 0;
-let activeBundle = 'duo';
+let activeBundle = 'solo';
 let heroSize_    = 'M';
 let embPrice     = 0;
 
@@ -1585,7 +1585,7 @@ function showToast() {
 window.addEventListener('DOMContentLoaded', () => {
     initGallery();
     _initSwipe();
-    selectBundle('duo');
+    selectBundle('solo');
     setTimeout(showToast, 3000);
     setInterval(showToast, 18000);
 });
