@@ -465,11 +465,11 @@ function toggleFaq(idx) {
   </div>
 
   <!-- Single product image display -->
-  <div id="gallery-container" style="position:relative;margin:0;background:#f8f9fa;border-radius:0 0 24px 24px;overflow:hidden;">
+  <div id="gallery-container" style="position:relative;margin:0 10px;background:#f8f9fa;border-radius:20px;overflow:hidden;">
     <img id="main-product-img"
          src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp"
          alt="Bleu Ciel"
-         style="width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;display:block;transition:opacity .25s ease;"
+         style="width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;display:block;transition:opacity .25s ease;border-radius:20px;"
          loading="eager">
     <!-- Color label -->
     <div id="gallery-color-label" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;backdrop-filter:blur(4px);">Bleu Ciel</div>
@@ -477,18 +477,7 @@ function toggleFaq(idx) {
     <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
   </div>
 
-  <!-- Color swatches row -->
-  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px 14px 6px;">
-            <button class="cswatch" onclick="pickColor('bleu_ciel',this)" style="width:30px;height:30px;border-radius:50%;background:#7EC8E3;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;outline:2.5px solid #0d9488;outline-offset:3px;transform:scale(1.25);" title="Bleu Ciel"></button>
-            <button class="cswatch" onclick="pickColor('bleu_marin',this)" style="width:30px;height:30px;border-radius:50%;background:#1B3A6B;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Marine"></button>
-            <button class="cswatch" onclick="pickColor('bordeaux',this)" style="width:30px;height:30px;border-radius:50%;background:#6D1A36;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bordeaux"></button>
-            <button class="cswatch" onclick="pickColor('gris_clair',this)" style="width:30px;height:30px;border-radius:50%;background:#B0B0B0;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Gris Clair"></button>
-            <button class="cswatch" onclick="pickColor('marron',this)" style="width:30px;height:30px;border-radius:50%;background:#4A2210;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Marron Chocolat"></button>
-            <button class="cswatch" onclick="pickColor('militaire',this)" style="width:30px;height:30px;border-radius:50%;background:#6B7C52;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Militaire"></button>
-            <button class="cswatch" onclick="pickColor('pastel',this)" style="width:30px;height:30px;border-radius:50%;background:#8FD5B2;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Vert Pastel"></button>
-            <button class="cswatch" onclick="pickColor('aubergine',this)" style="width:30px;height:30px;border-radius:50%;background:#4B1A4E;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Aubergine"></button>
-            <button class="cswatch" onclick="pickColor('rose_clair',this)" style="width:30px;height:30px;border-radius:50%;background:#F0A8B8;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Rose Clair"></button>
-            <button class="cswatch" onclick="pickColor('petroli',this)" style="width:30px;height:30px;border-radius:50%;background:#1A5F7A;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 6px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Pétrole"></button>
+
   </div>
 
 </div>
