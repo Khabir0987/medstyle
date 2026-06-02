@@ -2,6 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <link rel="preload" as="image" href="https://base44.app/api/apps/6a1d9178135b8b3525ccd117/files/mp/public/6a1d9178135b8b3525ccd117/dc107213a_blanc.webp" fetchpriority="high">
+    <meta name="theme-color" content="#0d9488">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>MedStyle Maroc - Blouses & Vestes Professionnelles</title>
     <script src="https://cdn.tailwindcss.com">
@@ -398,6 +401,43 @@ function toggleFaq(idx) {
             transform: scale(1.35);
         }
 
+        
+        /* ── Urgency bar ── */
+        #urgency-bar{background:linear-gradient(90deg,#f43f5e,#e11d48);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;font-family:Cairo,sans-serif;}
+        /* ── Guarantee strip ── */
+        .guarantee-strip{display:flex;overflow-x:auto;gap:10px;padding:12px 14px;scrollbar-width:none;border-bottom:1px solid #f1f5f9;}
+        .guarantee-strip::-webkit-scrollbar{display:none;}
+        .g-badge{flex-shrink:0;display:flex;align-items:center;gap:7px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:40px;padding:7px 13px;white-space:nowrap;}
+        .g-badge i{color:#0d9488;font-size:13px;}
+        .g-badge span{font-size:11px;font-weight:700;color:#374151;}
+        /* ── Section title ── */
+        .section-title{font-size:17px;font-weight:900;color:#111827;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+        .section-title::before{content:'';display:inline-block;width:4px;height:20px;background:#0d9488;border-radius:4px;flex-shrink:0;}
+        /* ── Rating bars ── */
+        .rbar-bg{flex:1;height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;}
+        .rbar-fill{height:100%;border-radius:99px;}
+        /* ── Review cards ── */
+        .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+        .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
+        .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
+        /* ── Steps ── */
+        .step-c{width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
+        .step-l{width:2px;height:24px;background:#d1fae5;margin:3px auto;}
+        /* ── WA float ── */
+        #wa-float{position:fixed;bottom:78px;left:14px;width:50px;height:50px;border-radius:50%;background:#25D366;box-shadow:0 4px 18px rgba(37,211,102,.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:23px;z-index:48;text-decoration:none;animation:waPulse 2.5s ease-in-out infinite;}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,.8);}}
+        /* ── Shake ── */
+        @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+        .shake{animation:shake .5s ease;}
+        /* ── Sticky CTA ── */
+        #sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:49;background:linear-gradient(135deg,#0d9488,#0f766e);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.15);border-top:2px solid #14b8a6;}
+        #sticky-cta .sp{color:#fff;font-size:18px;font-weight:900;line-height:1.1;}
+        #sticky-cta .sl{color:#99f6e4;font-size:11px;font-weight:600;}
+        #sticky-cta button{background:#f43f5e;color:#fff;border:none;padding:12px 20px;border-radius:12px;font-family:Cairo,sans-serif;font-size:14px;font-weight:800;cursor:pointer;animation:ctaPulse 2s ease-in-out infinite;}
+        @keyframes ctaPulse{0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}}
+        /* Gallery rounded corners */
+        .gallery-slider-wrap{border-radius:0 0 26px 26px;margin:0 10px;box-shadow:0 6px 28px rgba(0,0,0,.08);}
+
         </style>
 </head>
 <body class="pb-28">
@@ -432,6 +472,15 @@ function toggleFaq(idx) {
     <span class="stars-score">4.8/5</span>
     <span class="stars-sep">|</span>
     <span class="stars-count">+2,500 زبون راضي</span>
+  </div>
+
+  <!-- Guarantee badges -->
+  <div class="guarantee-strip">
+    <div class="g-badge"><i class="fa-solid fa-truck-fast"></i><span>توصيل 24-48h</span></div>
+    <div class="g-badge"><i class="fa-solid fa-hand-holding-heart"></i><span>دفع عند الاستلام</span></div>
+    <div class="g-badge"><i class="fa-solid fa-rotate-left"></i><span>تبديل مجاني</span></div>
+    <div class="g-badge"><i class="fa-solid fa-shield-check"></i><span>جودة مضمونة</span></div>
+    <div class="g-badge"><i class="fa-solid fa-pen-nib"></i><span>تطريز متاح</span></div>
   </div>
 
   <!-- Main slider -->
@@ -817,175 +866,113 @@ function toggleFaq(idx) {
          CONVERSION BOOSTER SECTIONS
     ══════════════════════════════════ -->
 
-    <!-- 1. Stats bar -->
-    <div class="bg-teal-700 rounded-2xl p-4 mb-3 text-white">
-        <div class="grid grid-cols-3 gap-2 text-center">
-            <div>
-                <p class="text-xl font-extrabold">+2500</p>
-                <p class="text-xs text-teal-200 mt-0.5">زبون راضي</p>
+    <!-- Stats -->
+    <div style="background:linear-gradient(135deg,#0d9488,#0f766e);border-radius:20px;padding:16px;margin-bottom:12px;">
+        <div class="grid grid-cols-3 gap-2 text-center text-white">
+            <div><p style="font-size:22px;font-weight:900;">+2500</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">زبون سعيد</p></div>
+            <div style="border-right:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2);">
+                <p style="font-size:22px;font-weight:900;">4.8★</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">تقييم الزبناء</p>
             </div>
-            <div class="border-x border-teal-500">
-                <p class="text-xl font-extrabold">4.8⭐</p>
-                <p class="text-xs text-teal-200 mt-0.5">تقييم متوسط</p>
+            <div><p style="font-size:22px;font-weight:900;">48h</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">توصيل سريع</p></div>
+        </div>
+    </div>
+
+    <!-- Benefits -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">فوائد المنتج</h2>
+        <div style="display:flex;flex-direction:column;gap:13px;">
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#f0fdf4;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-wind" style="color:#0d9488;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">قماش مضاد للتعرق وسريع الجفاف</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تقنية خاصة تتيح تهوية البشرة طوال وردياتك — بدون حرارة</p></div>
             </div>
-            <div>
-                <p class="text-xl font-extrabold">48h</p>
-                <p class="text-xs text-teal-200 mt-0.5">توصيل سريع</p>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#fff1f2;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-shield-halved" style="color:#f43f5e;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">مقاوم للبقع — يبقى كالجديد بعد 50 غسلة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">ألوان ثابتة، لا تتجعد، لا تبهت أبداً</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#faf5ff;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-person-running" style="color:#7c3aed;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">تفصيل احترافي — حرية حركة كاملة</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">قصة مدروسة للبيئة الطبية — وقوف، انحناء، تنقل</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+                <div style="width:38px;height:38px;background:#fffbeb;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-palette" style="color:#d97706;"></i></div>
+                <div><p style="font-size:13px;font-weight:800;color:#111;">10 ألوان عصرية — من XS إلى XXL</p><p style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.6;">تشكيلة تناسب جميع الأذواق والأجسام — للرجال والنساء</p></div>
             </div>
         </div>
     </div>
 
-    <!-- 2. Product features -->
-    <div class="bg-white rounded-2xl p-5 mb-3">
-        <h2 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-teal-600"></i> فوائد المنتج
-        </h2>
-        <div class="space-y-3">
-            <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-wind text-teal-600 text-sm"></i>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">قماش مضاد للتعرق وسريع الجفاف</p>
-                    <p class="text-xs text-gray-500 mt-0.5">خامة تقنية تسمح بتهوية البشرة طوال ورديتك الطويلة دون إحساس بالحرارة</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-shield-halved text-rose-500 text-sm"></i>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">مقاوم للبقع والغسيل المتكرر</p>
-                    <p class="text-xs text-gray-500 mt-0.5">الألوان تبقى زاهية حتى بعد 50 غسلة، ولا تتجعد بسهولة</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-scissors text-purple-600 text-sm"></i>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">تفصيل احترافي مريح للحركة</p>
-                    <p class="text-xs text-gray-500 mt-0.5">قصة مدروسة تمنحك حرية الحركة الكاملة سواء وقفت أو انحنيت</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-star text-amber-500 text-sm"></i>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">مظهر أنيق وعصري في العمل</p>
-                    <p class="text-xs text-gray-500 mt-0.5">ألوان هادئة ومدروسة تليق بالبيئة الطبية وتعكس احترافيتك</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-temperature-arrow-down text-blue-600 text-sm"></i>
-                </div>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">Veste Polaire دافئة وخفيفة الوزن</p>
-                    <p class="text-xs text-gray-500 mt-0.5">سترة داخلية مثالية للبرد في غرف العمليات والعيادات المكيفة</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Why buy from us -->
-    <div class="bg-white rounded-2xl p-5 mb-3">
-        <h2 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-medal text-amber-500"></i> علاش MedStyle.ma؟
-        </h2>
-        <div class="space-y-3">
-            <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
-                <i class="fa-solid fa-truck-fast text-green-600 text-lg flex-shrink-0"></i>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">توصيل مجاني لجميع المدن</p>
-                    <p class="text-xs text-gray-500">نوصل لدارك في 24 إلى 48 ساعة</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 p-3 bg-teal-50 rounded-xl border border-teal-100">
-                <i class="fa-solid fa-hand-holding-heart text-teal-600 text-lg flex-shrink-0"></i>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">الدفع عند الاستلام (COD)</p>
-                    <p class="text-xs text-gray-500">تشوف المنتج قبل ما تدفع — بلا مخاطرة</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
-                <i class="fa-solid fa-arrows-rotate text-blue-600 text-lg flex-shrink-0"></i>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">تبديل مجاني إذا ما عجبكش المقاس</p>
-                    <p class="text-xs text-gray-500">اتصل بينا وغادي نحلو المشكل فوراً</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 p-3 bg-purple-50 rounded-xl border border-purple-100">
-                <i class="fa-solid fa-headset text-purple-600 text-lg flex-shrink-0"></i>
-                <div>
-                    <p class="text-sm font-bold text-gray-900">خدمة زبناء 7/7 على واتساب</p>
-                    <p class="text-xs text-gray-500">فريقنا دائماً معك قبل وبعد الشراء</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Urgency / scarcity bar -->
-    <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 mb-3">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fa-solid fa-fire text-rose-500"></i>
-            </div>
-            <div class="flex-1">
-                <p class="text-sm font-extrabold text-rose-700">⚡ طلب كثير على المخزون الحالي</p>
-                <p class="text-xs text-rose-500 mt-0.5">+18 شخص شافو هاد المنتج اليوم — المخزون محدود</p>
-                <!-- Stock bar -->
-                <div class="mt-2 bg-rose-200 rounded-full h-1.5">
-                    <div class="bg-rose-500 h-1.5 rounded-full" style="width:72%"></div>
-                </div>
-                <p class="text-xs text-rose-400 mt-1">72% من المخزون نفد</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. Guarantee badge -->
-    <div class="bg-gray-900 rounded-2xl p-4 mb-3 text-white flex items-center gap-4">
-        <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-            <i class="fa-solid fa-shield-check text-green-400 text-2xl"></i>
-        </div>
+    <!-- How it works -->
+    <div style="background:#f0fdf4;border-radius:20px;padding:16px;margin-bottom:12px;border:1px solid #d1fae5;">
+        <h2 class="section-title">كيف تطلب؟</h2>
         <div>
-            <p class="text-sm font-extrabold">ضمان رضا 100%</p>
-            <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">إلا ما عجبكش المنتج لأي سبب — نرجعو ليك فلوسك أو نبدلو بجودة أحسن. بلا شروط.</p>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">1</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">اختر عرضك + الألوان + المقاسات</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">Solo أو Duo أو Super Pack</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">2</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">أدخل الاسم والهاتف والمدينة</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">30 ثانية فقط</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">استقبل طلبك وادفع عند الاستلام 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">خلال 24-48h — تعاين قبل ما تدفع</p></div>
+            </div>
         </div>
     </div>
 
     <!-- Reviews -->
-    <div class="bg-white rounded-2xl p-5 mb-4">
-        <h2 class="text-base font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-comments text-amber-400"></i> آراء الزبناء
-        </h2>
-        <div class="space-y-4">
-            <div class="border-b border-gray-100 pb-4">
-                <div class="flex justify-between items-center mb-1">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">ك</div>
-                        <div><p class="text-xs font-bold text-gray-900">كوثر أ. — ممرضة</p><p class="text-xs text-gray-400">الرباط</p></div>
-                    </div>
-                    <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
-                </div>
-                <p class="text-xs text-gray-600 leading-relaxed">"خديت الباك دبل، تبارك الله غزالين! الثوب رطب ومكيعرقش. توصيل فالوقت."</p>
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">آراء الزبناء</h2>
+        <!-- Rating summary -->
+        <div style="display:flex;align-items:center;gap:14px;padding:12px;background:#f9fafb;border-radius:14px;margin-bottom:14px;">
+            <div style="text-align:center;flex-shrink:0;">
+                <p style="font-size:40px;font-weight:900;color:#111;line-height:1;">4.8</p>
+                <div style="color:#f59e0b;font-size:13px;">★★★★★</div>
+                <p style="font-size:10px;color:#9ca3af;margin-top:2px;">+2,500 تقييم</p>
             </div>
-            <div>
-                <div class="flex justify-between items-center mb-1">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">أ</div>
-                        <div><p class="text-xs font-bold text-gray-900">د. أمين ش. — طبيب</p><p class="text-xs text-gray-400">الدار البيضاء</p></div>
-                    </div>
-                    <div class="flex gap-0.5"><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i><i class="fa-solid fa-star star text-xs"></i></div>
-                </div>
-                <p class="text-xs text-gray-600 leading-relaxed">"السترة الرمادية خفيفة ودافية. المقاس جا هو هداك تماما. خدمة ممتازة!"</p>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"><div class="rbar-fill" style="width:82%;background:#f59e0b;"></div></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"><div class="rbar-fill" style="width:12%;background:#a3e635;"></div></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"><div class="rbar-fill" style="width:4%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"><div class="rbar-fill" style="width:2%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
             </div>
         </div>
+        <!-- Review cards -->
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#0d9488;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">ك</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">كوثر أ. — ممرضة</p><p style="font-size:10px;color:#9ca3af;">الرباط</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"خديت الباك دبل، تبارك الله! الثوب رطب ومكيعرقش ولا يتكمش. التوصيل جا فالوقت. غادي نطلب زيد."</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 3 أيام ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#f43f5e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">أ</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">د. أمين ش. — طبيب</p><p style="font-size:10px;color:#9ca3af;">الدار البيضاء</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"السترة الرمادية خفيفة ودافية بزاف. المقاس جا هو هداك بالضبط. خدمة من الأحسن!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ أسبوع ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#7c3aed;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">س</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">سلمى ب. — صيدلانية</p><p style="font-size:10px;color:#9ca3af;">مراكش</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><i class="fa-solid fa-circle-check"></i> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"طلبت الباك سوبر فيه تلاتة قطع. التطريز زوين بزاف وجا سريع. شكرا MedStyle!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 5 أيام ✓</p>
+        </div>
     </div>
-</div>
 
-    <!-- ══════════════════════════════════
+<!-- ══════════════════════════════════
          FAQ SECTION
     ══════════════════════════════════ -->
     <div class="px-4 mb-4">
@@ -1606,5 +1593,46 @@ window.addEventListener('DOMContentLoaded', () => {
     </button>
 </div>
 
+
+<!-- WhatsApp float -->
+<a id="wa-float" href="https://wa.me/212645066834" target="_blank" aria-label="تواصل معنا عبر واتساب">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Sticky CTA -->
+<div id="sticky-cta">
+    <div>
+        <div class="sp" id="sticky-price">من 199 Dh</div>
+        <div class="sl">دفع عند الاستلام — توصيل مجاني</div>
+    </div>
+    <button onclick="openModal(activeBundle)">
+        <i class="fa-solid fa-bag-shopping" style="margin-left:6px;"></i> اطلب الآن
+    </button>
+</div>
+
+<script>
+// Countdown
+(function(){
+    let t = Math.floor(Math.random()*7200)+7200;
+    function tick(){
+        const h=Math.floor(t/3600), m=Math.floor((t%3600)/60), s=t%60;
+        const f=n=>String(n).padStart(2,'0');
+        const eh=document.getElementById('cd-h');
+        const em=document.getElementById('cd-m');
+        const es=document.getElementById('cd-s');
+        if(eh)eh.innerText=f(h); if(em)em.innerText=f(m); if(es)es.innerText=f(s);
+        if(t>0)t--;
+    }
+    tick(); setInterval(tick,1000);
+})();
+</script>
+
 </body>
-</html>
+</html><!-- Urgency bar -->
+    <div id="urgency-bar">
+        ⚡ عرض محدود — الأسعار المخفضة تنتهي خلال:&nbsp;
+        <strong><span id="cd-h">03</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span></strong>
+        &nbsp;— التوصيل مجاني + الدفع عند الاستلام 🚚
+    </div>
+
+    
