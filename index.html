@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com">
 // ── FAQ accordion ─────────────────────────────────────────
 function toggleFaq(idx) {
-    const totalFaqs = 5;
+    const totalFaqs = 10;
     for (let j = 0; j < totalFaqs; j++) {
         const ans  = document.querySelector('.faq-ans-' + j);
         const icon = document.querySelector('.faq-icon-' + j);
@@ -905,62 +905,147 @@ function toggleFaq(idx) {
             <h2 class="text-lg font-extrabold text-gray-900">كل ما تحتاج معرفته</h2>
         </div>
 
-        <div class="space-y-2">
+        <div class="space-y-2" id="faq-list">
 
+            <!-- Q0 -->
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">كم من الوقت يستغرق التصنيع والتوصيل؟</span>
+                    <span class="text-sm font-bold text-gray-900">ما نوع القماش المستعمل؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-0 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-0 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نقوم بتصنيع زيك الطبي بعد تأكيد طلبك، ثم يصلك خلال <span class="font-bold text-teal-700">4 إلى 5 أيام عمل</span>. رسوم التوصيل <span class="font-bold text-teal-700">18 درهم</span> لجميع مدن المغرب، ومجاني عند تجاوز <span class="font-bold text-teal-700">500 درهم</span>.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نستعمل قماش <span class="font-bold text-teal-700">Bestretch</span> عالي الجودة، يتميز بالمرونة والراحة أثناء العمل لساعات طويلة، كما أنه خفيف، عملي، وسهل العناية والغسيل.</p>
                 </div>
             </div>
 
+            <!-- Q1 -->
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكنني تبديل المقاس إذا لم يناسبني؟</span>
+                    <span class="text-sm font-bold text-gray-900">كم تستغرق مدة تجهيز وإرسال الطلب؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-1 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-1 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم <span class="font-bold text-teal-700">تبديل مجاني للمقاس</span> خلال 7 أيام من الاستلام. فقط تواصل معنا عبر واتساب وسنرتب معك عملية التبديل بدون أي تعقيد.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">بعد تأكيد الطلب:</p>
+                    <ul class="text-sm text-gray-600 space-y-1 pr-3">
+                        <li>• يتم <span class="font-bold text-teal-700">تجهيز الطلب خلال 24 إلى 48 ساعة</span></li>
+                        <li>• مدة التوصيل بين <span class="font-bold text-teal-700">1 إلى 3 أيام عمل</span> حسب المدينة وشركة التوصيل</li>
+                        <li>• رسوم التوصيل <span class="font-bold text-teal-700">18 درهم</span> — مجاني عند تجاوز <span class="font-bold text-teal-700">500 درهم</span></li>
+                    </ul>
                 </div>
             </div>
 
+            <!-- Q2 -->
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكن إضافة تطريز (Broderie) على المنتج؟</span>
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني إضافة تطريز (Logo أو اسم)؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-2 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-2 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم خدمة التطريز بـ <span class="font-bold text-purple-600">30 درهم فقط</span> لكل قطعة. يمكنك إضافة اسمك أو اسم العيادة أو أي شعار تريده. فقط فعّل خيار البرودري عند الطلب واكتب النص المطلوب.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر خدمة التطريز للشعارات والأسماء بـ <span class="font-bold text-purple-600">30 درهم</span> لكل قطعة. كما نقدم عروضاً خاصة للمصحات، المختبرات، العيادات والفرق الطبية — تواصل معنا للحصول على عرض.</p>
                 </div>
             </div>
 
+            <!-- Q3 -->
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل هناك ضمان أو سياسة استرجاع؟</span>
+                    <span class="text-sm font-bold text-gray-900">ما هي سياسة الاستبدال؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-3 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-3 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نضمن لك <span class="font-bold text-teal-700">رضا 100%</span>. كل قطعة تُصنَّع خصيصاً لك من قماش <span class="font-bold text-teal-700">Polyester Stretch</span> عالي الجودة. إذا وصلك المنتج بعيب أو مختلف عما طلبت، نستبدله مجاناً.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">نقوم بالاستبدال فقط في حالة وجود عيب في التصنيع مثل:</p>
+                    <ul class="text-sm text-gray-600 space-y-1 pr-3">
+                        <li>• خياطة غير سليمة</li>
+                        <li>• مقاس مختلف عن المطلوب</li>
+                        <li>• لون أو منتج مختلف عن الطلب</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-2">⚠️ لا يتم الاستبدال إذا تغيّر رأيك في اللون أو المقاس بعد تأكيد الطلب، لأن كل قطعة تُصنَّع خصيصاً لك.</p>
                 </div>
             </div>
 
+            <!-- Q4 -->
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">هل يمكنني طلب عدة مقاسات لتجربتها في البيت؟</span>
+                    <span class="text-sm font-bold text-gray-900">كيف أختار المقاس المناسب؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-4 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-4 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">بالطبع! مع عروض الباك يمكنك اختيار مقاسات مختلفة لكل قطعة وتجربتها بكل راحة. الدفع فقط عند الاستلام، فلا خطر عليك.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">اعتمد على دليل المقاسات الموجود في صفحة المنتج. إذا كنت مترددًا بين مقاسين، ننصح باختيار <span class="font-bold text-teal-700">المقاس الأكبر</span> لمزيد من الراحة.</p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(5)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني طلب كميات بالجملة؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-5 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-5 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر أسعاراً خاصة للطلبات بالجملة للمستشفيات، المصحات، المختبرات والعيادات الطبية. تواصل معنا عبر واتساب للحصول على عرض مخصص.</p>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(6)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل القماش شفاف؟ وهل يتحمل الغسيل المتكرر؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-6 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-6 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">لا، القماش <span class="font-bold text-teal-700">غير شفاف</span> ويوفر تغطية مريحة لبيئة العمل الطبية. كما أنه يتحمل <span class="font-bold text-teal-700">الغسيل المتكرر</span> مع الحفاظ على لونه وشكله وجودته.</p>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(7)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل تتوفر موديلات خاصة بالمحجبات؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-7 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-7 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نوفر موديلات مناسبة للمحجبات بتصميم عملي ومريح مع تغطية أفضل أثناء العمل.</p>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(8)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">كيف يمكنني تتبع طلبي؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-8 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-8 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">بعد شحن الطلب، سيتم تزويدك برقم التتبع لمتابعة حالة الشحنة حتى وصولها إليك.</p>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(9)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">ماذا لو واجهت مشكلة في طلبي؟</span>
+                    <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-9 transition-transform duration-300 mr-3"></i>
+                </button>
+                <div class="faq-ans-9 hidden px-4 pb-4">
+                    <p class="text-sm text-gray-600 leading-relaxed">فريق خدمة العملاء جاهز لمساعدتك في أي وقت. تواصل معنا عبر واتساب وسنعمل على حل مشكلتك في أسرع وقت ممكن.</p>
                 </div>
             </div>
 
         </div>
 
+        <!-- Why us -->
+        <div class="mt-5 bg-teal-50 border border-teal-100 rounded-xl p-4">
+            <p class="text-sm font-extrabold text-teal-800 mb-3 text-center">لماذا يختار مئات المهنيين الصحيين منتجاتنا؟</p>
+            <div class="space-y-1.5">
+                <p class="text-xs text-teal-700 font-semibold">✅ قماش Bestretch عالي الجودة</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ تصميم عملي ومريح طوال اليوم</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ ألوان عصرية ومتنوعة</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ خياطة احترافية ومتانة عالية</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ إمكانية التطريز للأسماء والشعارات</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ توصيل سريع لجميع مدن المغرب</p>
+                <p class="text-xs text-teal-700 font-semibold">✅ خدمة عملاء سريعة ومتجاوبة</p>
+            </div>
+        </div>
+
         <!-- Contact CTA -->
-        <div class="mt-5 bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+        <div class="mt-4 bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
             <p class="text-sm font-bold text-gray-700 mb-1">سؤالك لم تجد جوابه؟</p>
             <p class="text-xs text-gray-500 mb-3">فريقنا متاح 7/7 للرد على جميع استفساراتك</p>
             <div class="flex gap-2 justify-center">
