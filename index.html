@@ -10,22 +10,19 @@
     <script src="https://cdn.tailwindcss.com">
 // ── FAQ accordion ─────────────────────────────────────────
 function toggleFaq(idx) {
-    const ans  = document.querySelector('.faq-ans-'+idx);
-    const icon = document.querySelector('.faq-icon-'+idx);
-    const isOpen = !ans.classList.contains('hidden');
-
-    // Close all
-    for(let i=0;i<5;i++){
-        document.querySelector('.faq-ans-'+i)?.classList.add('hidden');
-        const ic = document.querySelector('.faq-icon-'+i);
-        if(ic) ic.style.transform = 'rotate(0deg)';
-    }
-
-    // Open clicked if was closed
-    if(!isOpen){
-        ans.classList.remove('hidden');
-        ans.classList.add('faq-ans-open');
-        if(icon) icon.style.transform = 'rotate(180deg)';
+    const totalFaqs = 5;
+    for (let j = 0; j < totalFaqs; j++) {
+        const ans  = document.querySelector('.faq-ans-' + j);
+        const icon = document.querySelector('.faq-icon-' + j);
+        if (!ans) continue;
+        if (j === idx) {
+            const isOpen = !ans.classList.contains('hidden');
+            ans.classList.toggle('hidden', isOpen);
+            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        } else {
+            ans.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
     }
 }
 
@@ -457,10 +454,11 @@ function toggleFaq(idx) {
 
   <!-- Guarantee badges -->
   <div class="guarantee-strip">
-    <div class="g-badge"><i class="fa-solid fa-truck-fast"></i><span>توصيل 24-48h</span></div>
+    <div class="g-badge"><i class="fa-solid fa-truck-fast"></i><span>توصيل 4-5 أيام</span></div>
+    <div class="g-badge"><i class="fa-solid fa-tag"></i><span>توصيل 18 درهم</span></div>
     <div class="g-badge"><i class="fa-solid fa-hand-holding-heart"></i><span>دفع عند الاستلام</span></div>
     <div class="g-badge"><i class="fa-solid fa-rotate-left"></i><span>تبديل مجاني</span></div>
-    <div class="g-badge"><i class="fa-solid fa-shield-check"></i><span>جودة مضمونة</span></div>
+    <div class="g-badge"><i class="fa-solid fa-scissors"></i><span>تصنيع حسب الطلب</span></div>
     <div class="g-badge"><i class="fa-solid fa-pen-nib"></i><span>تطريز متاح</span></div>
   </div>
 
@@ -500,7 +498,7 @@ function toggleFaq(idx) {
         <h1 class="text-2xl font-extrabold text-gray-900 leading-snug">
             بلوزة / تيشرت طبي فاخر — Scrub Médical Premium
         </h1>
-        <p class="text-sm text-gray-500 mt-1">مريح، مضاد للتعرق، مقاوم للبقع — مثالي للعمل الطويل</p>
+        <p class="text-sm text-gray-500 mt-1">مُصنَّع خصيصاً لك من قماش Polyester Stretch — مريح، مضاد للتعرق، مثالي للعمل الطويل</p>
     </div>
 
     <!-- Price -->
@@ -911,11 +909,11 @@ function toggleFaq(idx) {
 
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-right bg-white">
-                    <span class="text-sm font-bold text-gray-900">كم من الوقت يستغرق استلام طلبيتي؟</span>
+                    <span class="text-sm font-bold text-gray-900">كم من الوقت يستغرق التصنيع والتوصيل؟</span>
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-0 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-0 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نوصل طلبيتك في ظرف <span class="font-bold text-teal-700">24 إلى 48 ساعة</span> بعد تأكيد الطلب. التوصيل مجاني لجميع مدن المغرب، وسيتصل بك أحد فريقنا لتحديد موعد التسليم.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نقوم بتصنيع زيك الطبي بعد تأكيد طلبك، ثم يصلك خلال <span class="font-bold text-teal-700">4 إلى 5 أيام عمل</span>. رسوم التوصيل <span class="font-bold text-teal-700">18 درهم</span> لجميع مدن المغرب، ومجاني عند تجاوز <span class="font-bold text-teal-700">500 درهم</span>.</p>
                 </div>
             </div>
 
@@ -925,7 +923,7 @@ function toggleFaq(idx) {
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-1 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-1 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم بالتأكيد! نقدم <span class="font-bold text-teal-700">تبديل مجاني للمقاس</span> خلال 7 أيام من الاستلام. فقط تواصل معنا عبر واتساب وسنرتب معك عملية التبديل بدون أي تعقيدات.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم <span class="font-bold text-teal-700">تبديل مجاني للمقاس</span> خلال 7 أيام من الاستلام. فقط تواصل معنا عبر واتساب وسنرتب معك عملية التبديل بدون أي تعقيد.</p>
                 </div>
             </div>
 
@@ -935,7 +933,7 @@ function toggleFaq(idx) {
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-2 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-2 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم خدمة التطريز بـ <span class="font-bold text-purple-600">40 درهم فقط</span> لكل قطعة. يمكنك إضافة اسمك أو اسم العيادة أو أي شعار تريده. فقط فعّل خيار البرودري عند الطلب واكتب النص المطلوب.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نقدم خدمة التطريز بـ <span class="font-bold text-purple-600">30 درهم فقط</span> لكل قطعة. يمكنك إضافة اسمك أو اسم العيادة أو أي شعار تريده. فقط فعّل خيار البرودري عند الطلب واكتب النص المطلوب.</p>
                 </div>
             </div>
 
@@ -945,7 +943,7 @@ function toggleFaq(idx) {
                     <i class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 faq-icon-3 transition-transform duration-300 mr-3"></i>
                 </button>
                 <div class="faq-ans-3 hidden px-4 pb-4">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نضمن لك <span class="font-bold text-teal-700">رضا 100%</span>. إذا وصلك المنتج بعيب مصنعي أو مختلف عما طلبت، نستبدله مجاناً أو نرجع لك المبلغ كاملاً. راحتك أولويتنا.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نضمن لك <span class="font-bold text-teal-700">رضا 100%</span>. كل قطعة تُصنَّع خصيصاً لك من قماش <span class="font-bold text-teal-700">Polyester Stretch</span> عالي الجودة. إذا وصلك المنتج بعيب أو مختلف عما طلبت، نستبدله مجاناً.</p>
                 </div>
             </div>
 
