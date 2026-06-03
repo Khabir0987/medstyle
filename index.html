@@ -1742,14 +1742,14 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
-
+<script>
 function scrollToBundles() {
   var target = document.getElementById('bundles-section');
   if (!target) return;
   var start = window.pageYOffset;
   var end = target.getBoundingClientRect().top + start - 60;
   var dist = end - start;
-  var duration = 350;
+  var duration = 300;
   var startTime = null;
   function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
   function step(ts) {
@@ -1761,7 +1761,7 @@ function scrollToBundles() {
   }
   requestAnimationFrame(step);
 }
-
+</script>
 </body>
 </html>
 
