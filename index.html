@@ -1655,6 +1655,22 @@ function handleSubmit(e) {
         }
     }
 
+    // Send to Google Sheet
+    fetch('https://api.base44.com/api/apps/6a1d9178135b8b3525ccd117/functions/saveOrder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            orderId: oid,
+            fullName: name,
+            phone: phone,
+            city: city,
+            address: address,
+            bundleName: bp.name,
+            totalPrice: total,
+            items: lines.join(' | ')
+        })
+    }).catch(function(){});
+
     // Close modal, show success
     closeModal();
     const mainEl = document.getElementById('main-content');
