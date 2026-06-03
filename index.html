@@ -1658,7 +1658,7 @@ function handleSubmit(e) {
     }
 
     // Send to Google Sheet
-    fetch('https://api.base44.com/api/apps/6a1d9178135b8b3525ccd117/functions/saveOrder', {
+    fetch('https://api.base44.com/api/apps/6a1d9178135b8b3525ccd117/functions/saveOrderDirect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
