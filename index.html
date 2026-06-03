@@ -1181,7 +1181,7 @@ select{font-family:inherit}
 
 <!-- Sticky bottom -->
 <div class="sticky-bottom">
-    <button onclick="var el=document.getElementById('bundles-section');window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'})" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
+    <button onclick="scrollToBundles()" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
         <span aria-hidden="true">🛍️</span> اطلب الآن
     </button>
     <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
@@ -1741,6 +1741,26 @@ window.addEventListener('DOMContentLoaded', () => {
     tick(); setInterval(tick,1000);
 })();
 </script>
+
+
+function scrollToBundles() {
+  var target = document.getElementById('bundles-section');
+  if (!target) return;
+  var start = window.pageYOffset;
+  var end = target.getBoundingClientRect().top + start - 60;
+  var dist = end - start;
+  var duration = 350;
+  var startTime = null;
+  function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    var elapsed = ts - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + dist * ease(progress));
+    if (elapsed < duration) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
 </body>
 </html>
