@@ -1699,48 +1699,19 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- ── Sticky CTA bar (mobile) ── -->
+<!-- Sticky CTA -->
 <div id="sticky-cta">
     <div>
         <div class="scta-price" id="sticky-price">269 Dh</div>
         <div class="scta-label">الدفع عند الاستلام — توصيل 18 Dh</div>
     </div>
-    <button onclick="openModal(activeBundle)">
-        <span class="ml-1" aria-hidden="true">🛍️</span> اطلب الآن
-    </button>
-</div>
-
-
-<!-- Sticky CTA -->
-<div id="sticky-cta">
-    <div>
-        <div class="sp" id="sticky-price">من 269 Dh</div>
-        <div class="sl">دفع عند الاستلام — توصيل 18 Dh</div>
-    </div>
-    <button onclick="openModal(activeBundle)">
+    <button onclick="scrollToBundles()">
         <span aria-hidden="true">🛍️</span> اطلب الآن
     </button>
-    <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
-        <span class="text-lg" aria-hidden="true">💬</span>
+    <a href="https://wa.me/212645066834" target="_blank" style="background:#22c55e;color:#fff;font-weight:700;padding:14px 16px;border-radius:12px;display:flex;align-items:center;font-size:14px;text-decoration:none;">
+        <span aria-hidden="true">💬</span>
     </a>
 </div>
-
-<script>
-// Countdown
-(function(){
-    let t = Math.floor(Math.random()*7200)+7200;
-    function tick(){
-        const h=Math.floor(t/3600), m=Math.floor((t%3600)/60), s=t%60;
-        const f=n=>String(n).padStart(2,'0');
-        const eh=document.getElementById('cd-h');
-        const em=document.getElementById('cd-m');
-        const es=document.getElementById('cd-s');
-        if(eh)eh.innerText=f(h); if(em)em.innerText=f(m); if(es)es.innerText=f(s);
-        if(t>0)t--;
-    }
-    tick(); setInterval(tick,1000);
-})();
-</script>
 
 <script>
 function scrollToBundles() {
@@ -1764,5 +1735,3 @@ function scrollToBundles() {
 </script>
 </body>
 </html>
-
-    
