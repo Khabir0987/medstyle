@@ -1492,7 +1492,7 @@ function openModal(bkey) {
 
     if (nameEl)  nameEl.innerText  = bp.name;
     if (priceEl) priceEl.innerText = bp.price + ' Dh';
-    if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
+    if (totalEl) totalEl.innerText = (bp.price + embPrice + bp.delivery) + ' Dh';
     // Update delivery row
     const deliveryEl = document.getElementById('modal-delivery-text');
     if (deliveryEl) {
@@ -1581,7 +1581,7 @@ function toggleEmbroidery(cb) {
     // Update modal total if open
     const totalEl = document.getElementById('modal-total');
     const bp = bundlePricing[activeBundle];
-    if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
+    if (totalEl) totalEl.innerText = (bp.price + embPrice + bp.delivery) + ' Dh';
     // Show/hide broderie row
     const brod = document.getElementById('modal-broderie-row');
     if (brod) brod.classList.toggle('hidden', !cb.checked);
@@ -1612,7 +1612,7 @@ function handleSubmit(e) {
     const bp    = bundlePricing[activeBundle];
     const cnt   = bp.count;
     const oid   = 'MED-' + Math.floor(10000 + Math.random() * 90000);
-    const total = bp.price + embPrice;
+    const total = bp.price + embPrice + bp.delivery;
 
     // Collect items
     let lines = [];
