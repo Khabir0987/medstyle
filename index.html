@@ -1259,29 +1259,60 @@ select{font-family:inherit}
 </div>
 
 <!-- Success Screen -->
-<div id="success-screen" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center px-4">
-    <div class="bg-white rounded-3xl shadow-xl p-7 max-w-sm w-full text-center space-y-5 border border-teal-100">
-        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
-            <span aria-hidden="true">✅</span>
-        </div>
-        <div>
-            <h2 class="text-2xl font-extrabold text-emerald-800">طلبكم مسجل!</h2>
-            <p class="text-gray-500 text-sm mt-1">شكراً لثقتكم في Uniformedical.ma</p>
-            <p class="text-xs text-rose-500 font-semibold mt-1 pulse">سنتصل بكم خلال ساعتين لتأكيد الطلب.</p>
-        </div>
-        <div class="bg-gray-50 p-4 rounded-xl text-right text-sm space-y-1.5 border border-gray-100">
-            <p class="text-gray-500">رقم الطلب: <span class="font-mono font-bold text-gray-800" id="s-orderid"></span></p>
-            <p class="text-gray-500">الاسم: <span class="font-bold text-gray-800" id="s-name"></span></p>
-            <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="s-bundle"></span></p>
-            <p class="text-gray-500">التفاصيل: <span class="font-bold text-gray-800" id="s-items"></span></p>
-            <p class="text-gray-500">المجموع: <span class="font-bold text-teal-700" id="s-price"></span></p>
-            <p class="text-gray-500">الشحن: <span id="s-shipping" class="font-bold text-green-600">مجاني </span></p>
-        </div>
-        <a id="s-wa-link" target="_blank" href="#" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
-            <span class="text-xl" aria-hidden="true">💬</span> تأكيد عبر WhatsApp
-        </a>
+<div id="success-screen" class="hidden fixed inset-0 z-50 flex items-end justify-center" style="background:rgba(15,23,42,0.55);backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:28px 28px 0 0;width:100%;max-width:480px;padding:32px 24px 36px;text-align:center;direction:rtl;animation:slideUp .35s cubic-bezier(.16,1,.3,1) both;">
+
+    <!-- Icon -->
+    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#14b8a6);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 8px 24px rgba(13,148,136,0.3);">✅</div>
+
+    <!-- Title -->
+    <h2 style="font-size:22px;font-weight:800;color:#0d9488;margin:0 0 6px;">تم تسجيل طلبكم!</h2>
+    <p style="font-size:14px;color:#64748b;margin:0 0 4px;">شكراً لثقتكم في <strong style="color:#0f172a;">Uniformedical</strong></p>
+    <p style="font-size:12px;color:#ef4444;font-weight:700;margin:0 0 22px;">سنتصل بكم خلال ساعتين لتأكيد الطلب 📞</p>
+
+    <!-- Order Summary -->
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px;text-align:right;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">رقم الطلب</span>
+        <span id="s-orderid" style="font-size:13px;font-weight:700;color:#0f172a;font-family:monospace;letter-spacing:0.5px;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الاسم</span>
+        <span id="s-name" style="font-size:13px;font-weight:700;color:#0f172a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الباقة</span>
+        <span id="s-bundle" style="font-size:13px;font-weight:700;color:#0f172a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">التفاصيل</span>
+        <span id="s-items" style="font-size:12px;font-weight:600;color:#334155;max-width:180px;text-align:left;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الشحن</span>
+        <span id="s-shipping" style="font-size:13px;font-weight:700;color:#16a34a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0 2px;">
+        <span style="font-size:13px;color:#0f172a;font-weight:700;">المجموع</span>
+        <span id="s-price" style="font-size:18px;font-weight:800;color:#0d9488;"></span>
+      </div>
     </div>
+
+    <!-- WhatsApp Button -->
+    <a id="s-wa-link" target="_blank" href="#"
+       style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:15px;font-weight:700;border-radius:14px;text-decoration:none;box-shadow:0 4px 16px rgba(34,197,94,0.35);">
+      <span style="font-size:20px;">💬</span> متابعة عبر WhatsApp
+    </a>
+
+  </div>
 </div>
+
+<style>
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+</style>
 
 <footer class="bg-teal-900 text-teal-300 py-5 text-center">
     <p class="text-sm font-semibold">Uniformedical.ma © 2026</p>
