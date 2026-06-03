@@ -1657,20 +1657,22 @@ function handleSubmit(e) {
         }
     }
 
-    // Send to Google Sheet
-    fetch('https://api.base44.com/api/apps/6a1d9178135b8b3525ccd117/functions/saveOrderDirect', {
+    // Send to Google Sheet via Google Forms (no CORS)
+    var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfwyZKjMVQD4jAxS6f801cU85tvjEhT8mRUDXBy0jgwSJKjdQ/formResponse';
+    var formData = new URLSearchParams();
+    formData.append('entry.1974094258', oid);
+    formData.append('entry.1521175253', name);
+    formData.append('entry.536799142', phone);
+    formData.append('entry.193900618', city);
+    formData.append('entry.1836498247', address);
+    formData.append('entry.225541929', bp.name);
+    formData.append('entry.1014667188', String(total));
+    formData.append('entry.588498797', lines.join(' | '));
+    fetch(formUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            orderId: oid,
-            fullName: name,
-            phone: phone,
-            city: city,
-            address: address,
-            bundleName: bp.name,
-            totalPrice: total,
-            items: lines.join(' | ')
-        })
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
     }).catch(function(){});
 
     // Close modal, show success
