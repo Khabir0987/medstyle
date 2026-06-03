@@ -1717,8 +1717,9 @@ window.addEventListener('DOMContentLoaded', () => {
 function scrollToBundles() {
   var target = document.getElementById('bundles-section');
   if (!target) return;
-  var top = target.getBoundingClientRect().top + window.pageYOffset - 60;
-  window.scrollTo(0, top);
+  var top = target.offsetTop - 60;
+  document.documentElement.scrollTop = top;
+  document.body.scrollTop = top;
 }
 </script>
 </body>
