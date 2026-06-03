@@ -1221,7 +1221,7 @@ select{font-family:inherit}
                 <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
             </div>
             <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
-                <span>التوصيل</span><span class="text-green-600 font-bold">مجاني </span>
+                <span>التوصيل</span><span id="modal-delivery-text" class="font-bold">مجاني </span>
             </div>
             <div class="flex justify-between text-sm font-extrabold text-gray-900 border-t border-teal-200 pt-1.5">
                 <span>المجموع:</span><span id="modal-total">499 Dh</span>
@@ -1288,7 +1288,7 @@ select{font-family:inherit}
             <p class="text-gray-500">العرض: <span class="font-bold text-gray-800" id="s-bundle"></span></p>
             <p class="text-gray-500">التفاصيل: <span class="font-bold text-gray-800" id="s-items"></span></p>
             <p class="text-gray-500">المجموع: <span class="font-bold text-teal-700" id="s-price"></span></p>
-            <p class="text-gray-500">الشحن: <span class="text-green-600 font-bold">مجاني </span></p>
+            <p class="text-gray-500">الشحن: <span id="s-shipping" class="font-bold text-green-600">مجاني </span></p>
         </div>
         <a id="s-wa-link" target="_blank" href="#" class="w-full bg-green-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-green-100">
             <span class="text-xl" aria-hidden="true">💬</span> تأكيد عبر WhatsApp
@@ -1493,6 +1493,17 @@ function openModal(bkey) {
     if (nameEl)  nameEl.innerText  = bp.name;
     if (priceEl) priceEl.innerText = bp.price + ' Dh';
     if (totalEl) totalEl.innerText = (bp.price + embPrice) + ' Dh';
+    // Update delivery row
+    const deliveryEl = document.getElementById('modal-delivery-text');
+    if (deliveryEl) {
+        if (bp.delivery > 0) {
+            deliveryEl.textContent = bp.delivery + ' Dh';
+            deliveryEl.className = 'font-bold text-gray-700';
+        } else {
+            deliveryEl.textContent = 'مجاني ✓';
+            deliveryEl.className = 'font-bold text-green-600';
+        }
+    }
 
     // Build items detail in summary
     if (detEl) {
@@ -1630,7 +1641,7 @@ function handleSubmit(e) {
         '📞 *الهاتف:* ' + phone + '\n' +
         '📍 *المدينة:* ' + city + '\n' +
         '🏠 *العنوان:* ' + address + '\n' +
-        '🚚 التوصيل مجاني — دفع عند الاستلام\n' +
+        '🚚 التوصيل: ' + (bp.delivery > 0 ? bp.delivery + ' Dh' : 'مجاني') + ' — دفع عند الاستلام\n' +
         '🔖 #' + oid
     );
 
@@ -1645,6 +1656,17 @@ function handleSubmit(e) {
     if (sbEl)  sbEl.innerText  = bp.name;
     if (spEl)  spEl.innerText  = total + ' Dh';
     if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
+    // Update shipping display in success screen
+    const sShipEl = document.getElementById('s-shipping');
+    if (sShipEl) {
+        if (bp.delivery > 0) {
+            sShipEl.textContent = bp.delivery + ' Dh';
+            sShipEl.className = 'font-bold text-gray-700';
+        } else {
+            sShipEl.textContent = 'مجاني ✓';
+            sShipEl.className = 'font-bold text-green-600';
+        }
+    }
 
     // Close modal, show success
     closeModal();
