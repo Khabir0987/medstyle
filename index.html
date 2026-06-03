@@ -1633,15 +1633,17 @@ function handleSubmit(e) {
     );
 
     // Populate success screen
-    const oidEl = document.getElementById('order-id');
-    const snEl  = document.getElementById('success-name');
-    const sbEl  = document.getElementById('success-bundle');
-    const spEl  = document.getElementById('success-price');
-    const waEl  = document.getElementById('whatsapp-confirm-link');
+    const oidEl = document.getElementById('s-orderid');
+    const snEl  = document.getElementById('s-name');
+    const sbEl  = document.getElementById('s-bundle');
+    const spEl  = document.getElementById('s-price');
+    const siEl  = document.getElementById('s-items');
+    const waEl  = document.getElementById('s-wa-link');
     if (oidEl) oidEl.innerText = '#'+oid;
     if (snEl)  snEl.innerText  = name;
     if (sbEl)  sbEl.innerText  = bp.name;
     if (spEl)  spEl.innerText  = total + ' Dh';
+    if (siEl)  siEl.innerText  = lines.join(' | ');
     if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
     // Update shipping display in success screen
     const sShipEl = document.getElementById('s-shipping');
