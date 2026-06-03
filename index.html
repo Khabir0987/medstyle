@@ -664,7 +664,7 @@ select{font-family:inherit}
             <div>
                 <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
                     <span class="text-amber-600 ml-1" aria-hidden="true">✒️</span>
-                    إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+30 Dh</span>
+                    إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+45 Dh</span>
                 </label>
                 <p class="text-xs text-gray-500 mt-0.5">سنتواصل معك لتحديد النص واللون والموضع المناسب</p>
                 <!-- Embroidery fields (shown when checked) -->
@@ -1040,7 +1040,7 @@ select{font-family:inherit}
                     <i id="faq-icon-2" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
                 </button>
                 <div id="faq-ans-2" style="display:none;padding:0 16px 16px;">
-                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر خدمة التطريز للشعارات والأسماء بـ <span class="font-bold text-purple-600">30 درهم</span> لكل قطعة. كما نقدم عروضاً خاصة للمصحات، المختبرات، العيادات والفرق الطبية — تواصل معنا للحصول على عرض.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر خدمة التطريز للشعارات والأسماء بـ <span class="font-bold text-purple-600">45 درهم</span> لكل قطعة. كما نقدم عروضاً خاصة للمصحات، المختبرات، العيادات والفرق الطبية — تواصل معنا للحصول على عرض.</p>
                 </div>
             </div>
 
@@ -1595,7 +1595,7 @@ function toggleSizeGuide() {
 function toggleEmbroidery(cb) {
     const fields = document.getElementById('embroidery-fields');
     if (fields) fields.classList.toggle('hidden', !cb.checked);
-    embPrice = cb.checked ? 30 : 0;
+    embPrice = cb.checked ? 45 : 0;
     // Update modal total if open
     const totalEl = document.getElementById('modal-total');
     const bp = bundlePricing[activeBundle];
