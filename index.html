@@ -504,9 +504,6 @@ select{font-family:inherit}
         /* ── Steps ── */
         .step-c{width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
         .step-l{width:2px;height:24px;background:#d1fae5;margin:3px auto;}
-        /* ── WA float ── */
-        #wa-float{position:fixed;bottom:78px;left:14px;width:50px;height:50px;border-radius:50%;background:#25D366;box-shadow:0 4px 18px rgba(37,211,102,.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:23px;z-index:48;text-decoration:none;animation:waPulse 2.5s ease-in-out infinite;}
-        @keyframes waPulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,.8);}}
         /* ── Shake ── */
         @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
         .shake{animation:shake .5s ease;}
@@ -1187,9 +1184,6 @@ select{font-family:inherit}
     <button onclick="openModal('duo')" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
         <span aria-hidden="true">🛍️</span> اطلب الآن
     </button>
-    <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
-        <span class="text-lg" aria-hidden="true">💬</span>
-    </a>
 </div>
 
 <!-- ══════════════════════════════════
@@ -1713,11 +1707,6 @@ window.addEventListener('DOMContentLoaded', () => {
     </button>
 </div>
 
-
-<!-- WhatsApp float -->
-<a id="wa-float" href="https://wa.me/212645066834" target="_blank" aria-label="تواصل معنا عبر واتساب">
-    <span aria-hidden="true">💬</span>
-</a>
 
 <!-- Sticky CTA -->
 <div id="sticky-cta">
