@@ -479,7 +479,20 @@ select{font-family:inherit}
         }
 
         /* Dot pagination */
-        /* gallery-dots removed */
+        /* gallery dots */
+    .gdot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      display: inline-block;
+      transition: all .25s ease;
+      cursor: pointer;
+    }
+    .gdot.active {
+      width: 22px;
+      border-radius: 4px;
+      background: #0d9488;
+    }
         /* gdot removed */
 
         
@@ -572,6 +585,19 @@ select{font-family:inherit}
     <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><span aria-hidden="true">🔍</span></button>
   </div>
 
+  <!-- Gallery dots -->
+  <div id="gallery-dots" style="display:flex;justify-content:center;align-items:center;gap:6px;padding:10px 0 4px;">
+    <span class="gdot active" data-idx="0"></span>
+    <span class="gdot" data-idx="1"></span>
+    <span class="gdot" data-idx="2"></span>
+    <span class="gdot" data-idx="3"></span>
+    <span class="gdot" data-idx="4"></span>
+    <span class="gdot" data-idx="5"></span>
+    <span class="gdot" data-idx="6"></span>
+    <span class="gdot" data-idx="7"></span>
+    <span class="gdot" data-idx="8"></span>
+    <span class="gdot" data-idx="9"></span>
+  </div>
 
   </div>
 
@@ -1405,6 +1431,22 @@ function initGallery() {
 
 
 
+function updateDots(activeIdx) {
+    document.querySelectorAll('.gdot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIdx);
+    });
+}
+
+// Dots click
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.gdot').forEach(dot => {
+        dot.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-idx'));
+            gSel(idx);
+        });
+    });
+});
+
 function gSel(idx) {
     if (idx < 0) idx = colorKeys.length - 1;
     if (idx >= colorKeys.length) idx = 0;
@@ -1446,6 +1488,8 @@ function pickColor(key, el) {
     const idx = colorKeys.indexOf(key);
     if (idx !== -1) _syncAllItem1(key);
     gIdx = idx;
+    // Update dots
+    updateDots(idx);
 }
 
 function _syncAllItem1(key) {
