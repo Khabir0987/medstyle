@@ -6,115 +6,137 @@
 <title>Uniformedical – بلوزات طبية احترافية في المغرب</title>
 <meta name="description" content="Uniformedical – البلوزات الطبية الأكثر جودة في المغرب. تسليم سريع، دفع عند الاستلام.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --teal: #0d9488;
-    --teal-dark: #0f766e;
-    --teal-light: #f0fdfa;
-    --text: #111827;
-    --muted: #6b7280;
-    --border: #e5e7eb;
-  }
-  body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --teal: #0d9488; --teal-dark: #0f766e; --teal-light: #f0fdfa;
+  --text: #111827; --muted: #6b7280; --border: #e5e7eb;
+}
+body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
 
-  /* ANNOUNCE */
-  .announce { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 600; padding: 8px 16px; }
+/* ANNOUNCE */
+.announce { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 600; padding: 9px 16px; }
 
-  /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
-  .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-  .nav-logo span { font-size: 20px; font-weight: 900; color: var(--teal); }
-  .nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--teal-dark); }
+/* NAV */
+nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1px solid var(--border); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
+.nav-logo { font-size: 20px; font-weight: 900; color: var(--teal); text-decoration: none; }
+.nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--teal-dark); }
 
-  /* HERO */
-  .hero { background: linear-gradient(160deg, #f0fdfa 0%, #fff 60%); min-height: 85vh; display: flex; align-items: center; overflow: hidden; padding: 48px 24px 0; position: relative; }
-  .hero-content { position: relative; z-index: 2; max-width: 460px; padding-bottom: 48px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1.5px solid var(--teal); color: var(--teal); border-radius: 50px; padding: 5px 14px; font-size: 12px; font-weight: 700; margin-bottom: 20px; }
-  .hero h1 { font-size: clamp(32px, 9vw, 54px); font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 16px; }
-  .hero h1 span { color: var(--teal); }
-  .hero p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-primary { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 14px 30px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
-  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-  .btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); border-radius: 50px; padding: 12px 26px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s; }
-  .btn-outline:hover { background: var(--teal-light); }
-  .hero-img { position: absolute; left: 0; bottom: 0; height: 88%; max-height: 540px; object-fit: contain; object-position: bottom; }
-  .hero-stats { display: flex; gap: 24px; margin-top: 36px; }
-  .hero-stat strong { display: block; font-size: 24px; font-weight: 900; color: var(--teal); }
-  .hero-stat span { font-size: 12px; color: var(--muted); }
+/* GENDER TABS */
+.gender-tabs { display: flex; border-bottom: 2px solid var(--border); background: #fff; position: sticky; top: 57px; z-index: 100; }
+.gender-tab { flex: 1; padding: 14px; text-align: center; font-size: 15px; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+.gender-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
 
-  /* TRUST */
-  .trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 28px; padding: 14px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
-  .trust-item { display: flex; align-items: center; gap: 7px; }
+/* HERO */
+.hero { background: linear-gradient(150deg, #f0fdfa 0%, #fff 55%); min-height: 82vh; display: flex; align-items: center; overflow: hidden; padding: 44px 24px 0; position: relative; }
+.hero-content { position: relative; z-index: 2; max-width: 450px; padding-bottom: 44px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1.5px solid var(--teal); color: var(--teal); border-radius: 50px; padding: 5px 14px; font-size: 12px; font-weight: 700; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 9vw, 52px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+.hero h1 span { color: var(--teal); }
+.hero p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 26px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 14px 30px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); border-radius: 50px; padding: 12px 26px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-outline:hover { background: var(--teal-light); }
+.hero-img { position: absolute; left: 0; bottom: 0; height: 86%; max-height: 530px; object-fit: contain; object-position: bottom; }
+.hero-stats { display: flex; gap: 22px; margin-top: 32px; }
+.hero-stat strong { display: block; font-size: 22px; font-weight: 900; color: var(--teal); }
+.hero-stat span { font-size: 12px; color: var(--muted); }
 
-  /* SECTION */
-  .section { padding: 60px 20px; max-width: 920px; margin: 0 auto; }
-  .s-title { text-align: center; font-size: 26px; font-weight: 900; margin-bottom: 8px; }
-  .s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 36px; }
+/* TRUST */
+.trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
 
-  /* COLORS */
-  .colors-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-  .color-card { border-radius: 16px; overflow: hidden; border: 1.5px solid var(--border); background: #fafafa; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: var(--text); display: block; }
-  .color-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
-  .color-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
-  .color-card-label { padding: 8px; text-align: center; font-size: 11px; font-weight: 700; color: var(--muted); }
+/* SECTION */
+.section { padding: 52px 20px; max-width: 960px; margin: 0 auto; }
+.s-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 6px; }
+.s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 32px; }
 
-  /* FEATURES */
-  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .feature-card { background: var(--teal-light); border-radius: 20px; padding: 24px; border: 1px solid #99f6e4; }
-  .feature-icon { font-size: 34px; margin-bottom: 10px; }
-  .feature-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
-  .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+/* GENDER SECTIONS */
+.gender-section { display: none; }
+.gender-section.active { display: block; }
 
-  /* REVIEWS */
-  .reviews-grid { display: grid; gap: 14px; }
-  .review-card { background: #fafafa; border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
-  .review-stars { color: #f59e0b; font-size: 15px; margin-bottom: 8px; }
-  .review-text { font-size: 14px; line-height: 1.7; margin-bottom: 10px; }
-  .review-author { font-size: 12px; font-weight: 700; color: var(--muted); }
+/* CATEGORY CARDS */
+.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cat-card { position: relative; border-radius: 20px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e5e7eb; transition: transform 0.2s, box-shadow 0.2s; }
+.cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cat-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%); padding: 20px 16px 16px; }
+.cat-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.cat-sub { font-size: 12px; opacity: 0.85; }
+.cat-badge { position: absolute; top: 12px; right: 12px; background: var(--teal); color: #fff; border-radius: 50px; padding: 4px 10px; font-size: 11px; font-weight: 700; }
 
-  /* CTA BAND */
-  .cta-band { background: linear-gradient(135deg, #0d9488, #065f46); color: #fff; text-align: center; padding: 60px 24px; }
-  .cta-band h2 { font-size: 28px; font-weight: 900; margin-bottom: 12px; }
-  .cta-band p { font-size: 15px; opacity: 0.88; margin-bottom: 28px; }
-  .btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
-  .btn-white:hover { transform: translateY(-2px); }
+/* MEN GRID — 2 cols */
+.categories-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-  /* FOOTER */
-  footer { background: #111827; color: #9ca3af; text-align: center; padding: 28px 20px; font-size: 13px; }
-  footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
-  footer a:hover { color: #fff; }
+/* COLOR STRIP */
+.color-strip { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
+.color-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border); cursor: pointer; transition: transform 0.15s; }
+.color-dot:hover { transform: scale(1.2); }
 
-  /* WA */
-  .wa { position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
-  .wa:hover { transform: scale(1.1); }
-  .wa svg { width: 28px; height: 28px; fill: #fff; }
+/* FEATURES */
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.feature-card { background: var(--teal-light); border-radius: 18px; padding: 22px; border: 1px solid #99f6e4; }
+.feature-icon { font-size: 30px; margin-bottom: 8px; }
+.feature-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 5px; }
+.feature-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  /* MOBILE */
-  @media (max-width: 600px) {
-    .hero { min-height: auto; padding: 36px 20px 260px; }
-    .hero-img { height: 240px; left: 50%; transform: translateX(-50%); opacity: 0.25; }
-    .hero-content { max-width: 100%; }
-    .colors-grid { grid-template-columns: repeat(2, 1fr); }
-    .features-grid { grid-template-columns: 1fr; }
-    .trust { gap: 14px; font-size: 12px; }
-    .hero-stats { gap: 16px; }
-  }
+/* REVIEWS */
+.reviews-grid { display: grid; gap: 12px; }
+.review-card { background: #fafafa; border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+.review-stars { color: #f59e0b; font-size: 14px; margin-bottom: 7px; }
+.review-text { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+.review-author { font-size: 12px; font-weight: 700; color: var(--muted); }
+
+/* CTA BAND */
+.cta-band { background: linear-gradient(135deg, #0d9488, #065f46); color: #fff; text-align: center; padding: 60px 24px; }
+.cta-band h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; }
+.cta-band p { font-size: 15px; opacity: 0.88; margin-bottom: 26px; }
+.btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
+.btn-white:hover { transform: translateY(-2px); }
+
+/* FOOTER */
+footer { background: #111827; color: #9ca3af; text-align: center; padding: 28px 20px; font-size: 13px; }
+footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
+footer a:hover { color: #fff; }
+.footer-links { margin-bottom: 10px; }
+
+/* WA */
+.wa { position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
+.wa:hover { transform: scale(1.1); }
+.wa svg { width: 28px; height: 28px; fill: #fff; }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 0; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero { min-height: auto; padding: 34px 20px 240px; }
+  .hero-img { height: 220px; left: 50%; transform: translateX(-50%); opacity: 0.22; }
+  .hero-content { max-width: 100%; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: 1fr; }
+  .trust { gap: 12px; font-size: 12px; }
+  .hero-stats { gap: 14px; }
+  .gender-tabs { top: 53px; }
+}
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCE -->
 <div class="announce">🚚 توصيل مجاني فوق 500 درهم &nbsp;|&nbsp; الدفع عند الاستلام في جميع أنحاء المغرب</div>
 
+<!-- NAV -->
 <nav>
-  <a href="home.html" class="nav-logo">
-    <span>Uniformedical</span>
-  </a>
-  <a href="index.html" class="nav-cta">🛍 اطلب الآن</a>
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">Uniformedical</a>
+    <a href="index.html" class="nav-cta">🛍 اطلب الآن</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -125,7 +147,7 @@
     <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
     <div class="hero-btns">
       <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
-      <a href="#colors" class="btn-outline">استعرض الألوان</a>
+      <a href="#collections" class="btn-outline">استعرض الكولكشن</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
@@ -138,43 +160,143 @@
 
 <!-- TRUST -->
 <div class="trust">
-  <div class="trust-item">🚚 توصيل 24-48h</div>
-  <div class="trust-item">💳 الدفع عند الاستلام</div>
-  <div class="trust-item">✅ جودة مضمونة 100%</div>
-  <div class="trust-item">📦 تغليف احترافي</div>
+  <div>🚚 توصيل 24-48h</div>
+  <div>💳 الدفع عند الاستلام</div>
+  <div>✅ جودة مضمونة 100%</div>
+  <div>📦 تغليف احترافي</div>
 </div>
 
-<!-- COLORS -->
-<div class="section" id="colors">
-  <div class="s-title">اختر لونك المفضل</div>
-  <div class="s-sub">10 ألوان راقية — جميع المقاسات من XS إلى 4XL</div>
-  <div class="colors-grid">
-    <a href="index.html" class="color-card"><img src="bleu_ciel.webp" alt="أزرق سماوي" loading="lazy"><div class="color-card-label">أزرق سماوي</div></a>
-    <a href="index.html" class="color-card"><img src="bleu_marin.webp" alt="أزرق مارين" loading="lazy"><div class="color-card-label">أزرق مارين</div></a>
-    <a href="index.html" class="color-card"><img src="bordeaux.webp" alt="بوردو" loading="lazy"><div class="color-card-label">بوردو</div></a>
-    <a href="index.html" class="color-card"><img src="gris_clair.webp" alt="رمادي" loading="lazy"><div class="color-card-label">رمادي فاتح</div></a>
-    <a href="index.html" class="color-card"><img src="marron.webp" alt="بني" loading="lazy"><div class="color-card-label">بني شوكولا</div></a>
-    <a href="index.html" class="color-card"><img src="militaire.webp" alt="عسكري" loading="lazy"><div class="color-card-label">عسكري</div></a>
-    <a href="index.html" class="color-card"><img src="mauve.webp" alt="أوبيرجين" loading="lazy"><div class="color-card-label">أوبيرجين</div></a>
-    <a href="index.html" class="color-card"><img src="rose_clair.webp" alt="وردي" loading="lazy"><div class="color-card-label">وردي فاتح</div></a>
-    <a href="index.html" class="color-card"><img src="mauve_clair.webp" alt="باستيل" loading="lazy"><div class="color-card-label">باستيل</div></a>
-    <a href="index.html" class="color-card"><img src="blanc.webp" alt="أبيض" loading="lazy"><div class="color-card-label">أبيض</div></a>
+<!-- COLLECTIONS -->
+<div id="collections" style="background:#f9fafb;">
+
+  <!-- GENDER TABS -->
+  <div class="gender-tabs">
+    <div class="gender-tab active" onclick="switchGender('women', this)">👩 نساء</div>
+    <div class="gender-tab" onclick="switchGender('men', this)">👨 رجال</div>
   </div>
-</div>
+
+  <!-- WOMEN -->
+  <div class="gender-section active" id="section-women">
+    <div class="section">
+      <div class="s-title">كولكشن النساء</div>
+      <div class="s-sub">بلوزات طبية أنيقة بـ 3 موديلات مختلفة — كلها متوفرة بـ 10 ألوان</div>
+      <div class="categories-grid">
+
+        <!-- موديل V95 -->
+        <a href="index.html" class="cat-card">
+          <img src="bleu_ciel.webp" alt="موديل V95" loading="lazy">
+          <div class="cat-overlay">
+            <div class="cat-name">موديل V95</div>
+            <div class="cat-sub">ياقة V كلاسيكية · مريح ومتنفس</div>
+          </div>
+          <div class="cat-badge">الأكثر طلباً</div>
+        </a>
+
+        <!-- موديل أميرة -->
+        <a href="index.html" class="cat-card">
+          <img src="rose_clair.webp" alt="موديل أميرة" loading="lazy">
+          <div class="cat-overlay">
+            <div class="cat-name">موديل أميرة</div>
+            <div class="cat-sub">تصميم أنثوي أنيق · قصة مميزة</div>
+          </div>
+        </a>
+
+        <!-- موديل كول أفيسي -->
+        <a href="index.html" class="cat-card">
+          <img src="bordeaux.webp" alt="موديل كول أفيسي" loading="lazy">
+          <div class="cat-overlay">
+            <div class="cat-name">موديل كول أفيسي</div>
+            <div class="cat-sub">ياقة Col Officier · احترافي بامتياز</div>
+          </div>
+          <div class="cat-badge">جديد</div>
+        </a>
+
+      </div>
+      <!-- COLOR STRIP -->
+      <div style="text-align:center; margin-top:28px;">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:12px; font-weight:600;">متوفر بـ 10 ألوان</p>
+        <div class="color-strip">
+          <div class="color-dot" style="background:#87CEEB;" title="أزرق سماوي"></div>
+          <div class="color-dot" style="background:#1a3a5c;" title="أزرق مارين"></div>
+          <div class="color-dot" style="background:#6B2B3C;" title="بوردو"></div>
+          <div class="color-dot" style="background:#b8bcc0;" title="رمادي فاتح"></div>
+          <div class="color-dot" style="background:#5c3a1e;" title="بني شوكولا"></div>
+          <div class="color-dot" style="background:#4b5320;" title="عسكري"></div>
+          <div class="color-dot" style="background:#6b4f7c;" title="أوبيرجين"></div>
+          <div class="color-dot" style="background:#f4a7b9;" title="وردي فاتح"></div>
+          <div class="color-dot" style="background:#c8b4d8;" title="باستيل"></div>
+          <div class="color-dot" style="background:#f5f5f5; border-color:#ccc;" title="أبيض"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEN -->
+  <div class="gender-section" id="section-men">
+    <div class="section">
+      <div class="s-title">كولكشن الرجال</div>
+      <div class="s-sub">بلوزات طبية رجالية بقصة احترافية — مريحة طوال يوم العمل</div>
+      <div class="categories-grid-2">
+
+        <!-- موديل V95 رجال -->
+        <a href="index.html" class="cat-card">
+          <img src="bleu_marin.webp" alt="موديل V95 رجال" loading="lazy">
+          <div class="cat-overlay">
+            <div class="cat-name">موديل V95</div>
+            <div class="cat-sub">ياقة V · مريح ومتنفس طوال اليوم</div>
+          </div>
+          <div class="cat-badge">الأكثر طلباً</div>
+        </a>
+
+        <!-- موديل كول أفيسي رجال -->
+        <a href="index.html" class="cat-card">
+          <img src="militaire.webp" alt="موديل كول أفيسي رجال" loading="lazy">
+          <div class="cat-overlay">
+            <div class="cat-name">موديل كول أفيسي</div>
+            <div class="cat-sub">ياقة Col Officier · أناقة احترافية</div>
+          </div>
+          <div class="cat-badge">جديد</div>
+        </a>
+
+      </div>
+      <!-- COLOR STRIP -->
+      <div style="text-align:center; margin-top:28px;">
+        <p style="font-size:13px; color:var(--muted); margin-bottom:12px; font-weight:600;">متوفر بـ 10 ألوان</p>
+        <div class="color-strip">
+          <div class="color-dot" style="background:#87CEEB;"></div>
+          <div class="color-dot" style="background:#1a3a5c;"></div>
+          <div class="color-dot" style="background:#6B2B3C;"></div>
+          <div class="color-dot" style="background:#b8bcc0;"></div>
+          <div class="color-dot" style="background:#5c3a1e;"></div>
+          <div class="color-dot" style="background:#4b5320;"></div>
+          <div class="color-dot" style="background:#6b4f7c;"></div>
+          <div class="color-dot" style="background:#f4a7b9;"></div>
+          <div class="color-dot" style="background:#c8b4d8;"></div>
+          <div class="color-dot" style="background:#f5f5f5; border-color:#ccc;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end collections -->
+
+<div class="divider"></div>
 
 <!-- FEATURES -->
-<div style="background:#f9fafb; padding: 60px 20px;">
-  <div style="max-width:920px; margin:0 auto;">
+<div style="padding: 52px 20px; background:#fff;">
+  <div style="max-width:960px; margin:0 auto;">
     <div class="s-title">لماذا Uniformedical؟</div>
     <div class="s-sub">تفاصيل مصممة للمختصين الصحيين</div>
     <div class="features-grid">
       <div class="feature-card"><div class="feature-icon">🧵</div><h3>قماش Bestretch المرن</h3><p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p></div>
       <div class="feature-card"><div class="feature-icon">📏</div><h3>مقاسات XS إلى 4XL</h3><p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية.</p></div>
       <div class="feature-card"><div class="feature-icon">⚡</div><h3>تصنيع في 24-48 ساعة</h3><p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p></div>
-      <div class="feature-card"><div class="feature-icon">🪡</div><h3>تطريز الاسم +45 درهم</h3><p>أضف اسمك أو تخصصك بشكل احترافي — لمسة شخصية تميزك.</p></div>
+      <div class="feature-card"><div class="feature-icon">🪡</div><h3>تطريز الاسم +45 درهم</h3><p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p></div>
     </div>
   </div>
 </div>
+
+<div class="divider"></div>
 
 <!-- REVIEWS -->
 <div class="section">
@@ -190,13 +312,13 @@
 <!-- CTA -->
 <div class="cta-band">
   <h2>جاهز لترقية زيّك الطبي؟</h2>
-  <p>اطلب الآن وادفع عند الاستلام — بدون مخاطرة، توصيل لجميع أنحاء المغرب</p>
+  <p>اطلب الآن وادفع عند الاستلام — توصيل لجميع أنحاء المغرب</p>
   <a href="index.html" class="btn-white">🛍 اطلب الآن</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div style="margin-bottom:10px;">
+  <div class="footer-links">
     <a href="home.html">الرئيسية</a>
     <a href="index.html">اطلب الآن</a>
     <a href="mailto:contact@uniformedical.com">contact@uniformedical.com</a>
@@ -208,6 +330,17 @@
 <a href="https://wa.me/212600000000" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<script>
+function switchGender(gender, tab) {
+  // Tabs
+  document.querySelectorAll('.gender-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  // Sections
+  document.querySelectorAll('.gender-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-' + gender).classList.add('active');
+}
+</script>
 
 </body>
 </html>
