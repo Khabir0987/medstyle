@@ -32,95 +32,93 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 
 /* ── HERO ── */
 .hero {
-  background: linear-gradient(135deg, #f0fdfa 0%, #e6faf7 40%, #fff 100%);
-  min-height: 88vh; display: flex; align-items: center;
-  overflow: hidden; padding: 0 0 0 0; position: relative;
+  background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 50%, #fff 100%);
+  overflow: hidden; padding: 0; position: relative;
 }
 .hero-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  width: 100%; max-width: 1100px; margin: 0 auto;
-  padding: 60px 28px 60px; gap: 32px;
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%; max-width: 500px; margin: 0 auto;
+  padding: 32px 24px 40px; gap: 0;
+  text-align: center;
 }
-.hero-content { position: relative; z-index: 2; flex: 1; }
+
+/* ── الصورة المتحركة (الكتلة العلوية) ── */
+.hero-visual {
+  width: 300px; height: 300px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  margin-left: -40px; /* تحريك الدائرة نحو اليسار */
+  margin-bottom: 8px;
+}
+.hero-visual-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px dashed rgba(13,148,136,.28);
+  animation: spin-slow 20s linear infinite;
+}
+.hero-visual-ring2 {
+  position: absolute; inset: 22px; border-radius: 50%;
+  border: 1.5px dashed rgba(13,148,136,.15);
+  animation: spin-slow 30s linear infinite reverse;
+}
+.hero-scrub-img {
+  width: 200px; height: 200px;
+  object-fit: contain; position: relative; z-index: 2;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 6px 20px rgba(13,148,136,.2));
+  animation: float 4s ease-in-out infinite;
+}
+.hero-chip {
+  position: absolute; background: #fff;
+  border-radius: 50px; padding: 6px 13px;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  white-space: nowrap; z-index: 3;
+  border: 1px solid var(--border);
+  animation: float 4s ease-in-out infinite;
+}
+.hero-chip.c1 { top: 20px; left: 50%; transform: translateX(10px); animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+.hero-chip.c2 { bottom: 28px; left: 50%; transform: translateX(20px); animation-delay: 1s; }
+.hero-chip.c3 { bottom: 52px; right: 50%; transform: translateX(10px); animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+.hero-chip.c4 { top: 44px; right: 50%; transform: translateX(10px); animation-delay: 1.5s; }
+
+/* ── الـ badge ── */
 .hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
   background: #fff; border: 1.5px solid var(--teal);
   color: var(--teal); border-radius: 50px;
-  padding: 6px 16px; font-size: 12px; font-weight: 700;
-  margin-bottom: 22px;
+  padding: 7px 18px; font-size: 13px; font-weight: 700;
+  margin-bottom: 20px;
   box-shadow: 0 2px 12px rgba(13,148,136,.15);
 }
-.hero h1 { margin: 0; }
 
-/* ── Hero headline بجانب الصورة ── */
-.hero-headline-wrap {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-bottom: 28px;
-}
-.hero-headline-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+/* ── الـ headline ── */
+.hero h1 { margin: 0 0 16px; text-align: center; }
 .hw-label {
-  font-size: clamp(11px, 2vw, 13px);
-  font-weight: 700;
-  color: var(--teal);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: .75;
-  margin-bottom: 6px;
+  display: block;
+  font-size: 11px; font-weight: 700;
+  color: var(--teal); letter-spacing: 3px;
+  text-transform: uppercase; opacity: .7;
+  margin-bottom: 8px;
 }
 .hw-word {
-  display: block;
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-  font-size: clamp(38px, 8.5vw, 64px);
+  display: block; font-weight: 900;
+  line-height: 1.05; letter-spacing: -1.5px;
+  font-size: clamp(42px, 11vw, 62px);
   color: var(--text);
 }
 .hw-word.teal {
-  color: var(--teal);
-  position: relative;
-  width: fit-content;
+  color: var(--teal); position: relative; width: fit-content; margin: 0 auto;
 }
 .hw-word.teal::after {
-  content: '';
-  position: absolute;
-  bottom: 3px; right: 0; left: 0;
-  height: 4px;
+  content: ''; position: absolute;
+  bottom: 4px; right: 0; left: 0; height: 5px;
   background: linear-gradient(90deg, var(--teal), #5eead4);
-  border-radius: 3px;
-  opacity: .4;
+  border-radius: 3px; opacity: .35;
 }
-.hw-word.light {
-  color: #94a3b8;
-  font-size: clamp(28px, 6vw, 44px);
-  font-weight: 700;
-  letter-spacing: -1px;
-}
+.hw-word.light { color: #94a3b8; font-size: clamp(30px,8vw,44px); font-weight: 700; letter-spacing: -1px; }
 
-/* الصورة الصغيرة بجانب الـ headline */
-.hero-mini-img {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  flex-shrink: 0;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 4px 12px rgba(13,148,136,.2));
-  animation: float 4s ease-in-out infinite;
-}
-
-@media (max-width: 600px) {
-  .hero-headline-wrap { gap: 16px; }
-  .hero-mini-img { width: 75px; height: 75px; }
-  .hw-word { font-size: clamp(32px, 9vw, 46px); }
-  .hw-word.light { font-size: clamp(22px, 6vw, 32px); }
-}
-.hero p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 30px; max-width: 400px; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 26px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 .btn-primary {
   background: var(--teal); color: #fff; border: none;
   border-radius: 50px; padding: 15px 34px;
@@ -139,42 +137,17 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 }
 .btn-outline:hover { background: var(--teal-light); }
 
-/* hero visual */
-.hero-visual {
-  flex-shrink: 0; width: 320px; height: 320px;
-  position: relative; display: flex; align-items: center; justify-content: center;
+.hero-stats {
+  display: flex; gap: 0; margin-top: 32px;
+  background: #fff; border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.07);
+  border: 1px solid var(--border); overflow: hidden;
+  width: 100%;
 }
-.hero-visual-ring {
-  position: absolute; inset: 0; border-radius: 50%;
-  border: 2px dashed rgba(13,148,136,.25);
-  animation: spin-slow 20s linear infinite;
-}
-.hero-visual-ring2 {
-  position: absolute; inset: 24px; border-radius: 50%;
-  border: 1.5px dashed rgba(13,148,136,.15);
-  animation: spin-slow 30s linear infinite reverse;
-}
-.hero-scrub-img {
-  width: 240px; height: 240px;
-  object-fit: contain; position: relative; z-index: 2;
-  filter: drop-shadow(0 8px 24px rgba(13,148,136,.18));
-  animation: float 4s ease-in-out infinite;
-  mix-blend-mode: multiply;
-}
-/* الشارات الطافية حول الصورة */
-.hero-chip {
-  position: absolute; background: #fff;
-  border-radius: 50px; padding: 7px 14px;
-  font-size: 12px; font-weight: 700; color: var(--text);
-  box-shadow: 0 4px 16px rgba(0,0,0,.1);
-  white-space: nowrap; z-index: 3;
-  border: 1px solid var(--border);
-  animation: float 4s ease-in-out infinite;
-}
-.hero-chip.c1 { top: 18px; right: 10px; animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-.hero-chip.c2 { bottom: 30px; right: 0px; animation-delay: 1s; }
-.hero-chip.c3 { bottom: 50px; left: 0px; animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-.hero-chip.c4 { top: 40px; left: 10px; animation-delay: 1.5s; }
+.hero-stat { flex: 1; padding: 14px 8px; text-align: center; }
+.hero-stat:not(:last-child) { border-left: 1px solid var(--border); }
+.hero-stat strong { display: block; font-size: 20px; font-weight: 900; color: var(--teal); line-height: 1; }
+.hero-stat span { font-size: 11px; color: var(--muted); margin-top: 3px; display: block; }
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
@@ -184,11 +157,6 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.hero-stats { display: flex; gap: 28px; margin-top: 36px; }
-.hero-stat strong { display: block; font-size: 24px; font-weight: 900; color: var(--teal); line-height: 1; }
-.hero-stat span { font-size: 12px; color: var(--muted); margin-top: 3px; display: block; }
-.hero-stat-divider { width: 1px; background: var(--border); align-self: stretch; }
 
 /* TRUST */
 .trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
@@ -257,17 +225,11 @@ footer a:hover { color: #fff; }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .hero { min-height: auto; }
-  .hero-inner { flex-direction: column-reverse; padding: 32px 20px 40px; gap: 20px; }
-  .hero-visual { width: 220px; height: 220px; }
-  .hero-scrub-img { width: 160px; height: 160px; }
-  .hero-chip { font-size: 10px; padding: 5px 10px; }
-  .hero-chip.c1 { top: 5px; right: 0; }
-  .hero-chip.c2 { bottom: 10px; right: -5px; }
-  .hero-chip.c3 { bottom: 20px; left: -5px; }
-  .hero-chip.c4 { top: 20px; left: 0; }
-  .hero-content { max-width: 100%; }
-  .hero-stats { gap: 16px; }
+  .hero-visual { width: 260px; height: 260px; margin-left: -30px; }
+  .hero-scrub-img { width: 175px; height: 175px; }
+  .hero-chip { font-size: 11px; padding: 5px 11px; }
+  .hw-word { font-size: clamp(36px, 10vw, 50px); }
+  .hw-word.light { font-size: clamp(26px, 7.5vw, 36px); }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: 1fr; }
@@ -294,22 +256,26 @@ footer a:hover { color: #fff; }
 <section class="hero">
   <div class="hero-inner">
 
-    <!-- النص -->
-    <div class="hero-content">
+    <!-- الصورة المتحركة فوق -->
+    <div class="hero-visual">
+      <div class="hero-visual-ring"></div>
+      <div class="hero-visual-ring2"></div>
+      <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d755171e9_vwep.webp"
+           alt="بلوزة طبية Uniformedical" class="hero-scrub-img" loading="eager" fetchpriority="high">
+      <div class="hero-chip c1">✨ Bestretch</div>
+      <div class="hero-chip c2">📏 XS → 4XL</div>
+      <div class="hero-chip c3">🎨 10 ألوان</div>
+      <div class="hero-chip c4">⚡ 24h تصنيع</div>
+    </div>
+
+    <!-- badge + headline + أزرار تحت الصورة -->
+    <div class="hero-content" style="width:100%;">
       <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
       <h1>
-        <div class="hero-headline-wrap">
-          <!-- الصورة الصغيرة يمين الكلمات -->
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d755171e9_vwep.webp"
-               alt="" class="hero-mini-img" loading="eager" fetchpriority="high">
-          <!-- الكلمات -->
-          <div class="hero-headline-lines">
-            <span class="hw-label">الزي الطبي المغربي الأول</span>
-            <span class="hw-word light">راحة</span>
-            <span class="hw-word teal">أناقة</span>
-            <span class="hw-word">احترافية</span>
-          </div>
-        </div>
+        <span class="hw-label">الزي الطبي المغربي الأول</span>
+        <span class="hw-word light">راحة</span>
+        <span class="hw-word teal">أناقة</span>
+        <span class="hw-word">احترافية</span>
       </h1>
       <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
       <div class="hero-btns">
@@ -318,24 +284,10 @@ footer a:hover { color: #fff; }
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
-        <div class="hero-stat-divider"></div>
         <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
-        <div class="hero-stat-divider"></div>
         <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat"><strong>4XL</strong><span>أكبر مقاس</span></div>
+        <div class="hero-stat"><strong>4XL</strong><span>مقاس</span></div>
       </div>
-    </div>
-
-    <!-- الصورة + شارات طافية -->
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-visual-ring"></div>
-      <div class="hero-visual-ring2"></div>
-      <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d755171e9_vwep.webp" alt="بلوزة طبية Uniformedical" class="hero-scrub-img" loading="eager" fetchpriority="high">
-      <div class="hero-chip c1">✨ Bestretch</div>
-      <div class="hero-chip c2">📏 XS → 4XL</div>
-      <div class="hero-chip c3">🎨 10 ألوان</div>
-      <div class="hero-chip c4">⚡ 24h تصنيع</div>
     </div>
 
   </div>
