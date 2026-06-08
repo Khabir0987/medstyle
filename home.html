@@ -15,121 +15,482 @@
 }
 body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
 
-/* ANNOUNCE */
-.announce { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 600; padding: 9px 16px; }
+/* ─── ANNOUNCE ─── */
+.announce {
+  background: linear-gradient(90deg, #0d9488, #065f46);
+  color: #fff; text-align: center;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 16px; letter-spacing: .3px;
+}
 
-/* NAV */
+/* ─── NAV ─── */
 nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1px solid var(--border); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
-.nav-logo { font-size: 20px; font-weight: 900; color: var(--teal); text-decoration: none; }
-.nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+.nav-logo { font-size: 21px; font-weight: 900; color: var(--teal); text-decoration: none; letter-spacing: -.5px; }
+.nav-cta {
+  background: var(--teal); color: #fff;
+  border: none; border-radius: 50px;
+  padding: 10px 22px; font-family: 'Cairo', sans-serif;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  text-decoration: none; transition: background .2s;
+}
 .nav-cta:hover { background: var(--teal-dark); }
 
-/* GENDER TABS */
-.gender-tabs { display: flex; border-bottom: 2px solid var(--border); background: #fff; position: sticky; top: 57px; z-index: 100; }
-.gender-tab { flex: 1; padding: 14px; text-align: center; font-size: 15px; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
-.gender-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
-
-/* HERO */
-.hero { background: linear-gradient(150deg, #f0fdfa 0%, #fff 55%); min-height: 82vh; display: flex; align-items: center; overflow: hidden; padding: 44px 24px 0; position: relative; }
-.hero-content { position: relative; z-index: 2; max-width: 450px; padding-bottom: 44px; }
-.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1.5px solid var(--teal); color: var(--teal); border-radius: 50px; padding: 5px 14px; font-size: 12px; font-weight: 700; margin-bottom: 18px; }
-.hero h1 { font-size: clamp(32px, 9vw, 52px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(145deg, #f0fdfa 0%, #fff 60%);
+  min-height: 84vh; display: flex; align-items: center;
+  overflow: hidden; padding: 48px 24px 0; position: relative;
+}
+.hero-content { position: relative; z-index: 2; max-width: 460px; padding-bottom: 48px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff; border: 1.5px solid var(--teal);
+  color: var(--teal); border-radius: 50px;
+  padding: 5px 14px; font-size: 12px; font-weight: 700;
+  margin-bottom: 20px; box-shadow: 0 2px 8px rgba(13,148,136,.12);
+}
+.hero h1 { font-size: clamp(34px, 9vw, 54px); font-weight: 900; line-height: 1.12; margin-bottom: 16px; }
 .hero h1 span { color: var(--teal); }
-.hero p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 26px; }
+.hero p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-primary { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 14px 30px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
-.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-.btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); border-radius: 50px; padding: 12px 26px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s; }
+.btn-primary {
+  background: var(--teal); color: #fff; border: none;
+  border-radius: 50px; padding: 14px 32px;
+  font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: background .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(13,148,136,.3);
+}
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--teal);
+  border: 2px solid var(--teal); border-radius: 50px;
+  padding: 12px 26px; font-family: 'Cairo', sans-serif;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  display: inline-block; transition: all .2s;
+}
 .btn-outline:hover { background: var(--teal-light); }
-.hero-img { position: absolute; left: 0; bottom: 0; height: 86%; max-height: 530px; object-fit: contain; object-position: bottom; }
-.hero-stats { display: flex; gap: 22px; margin-top: 32px; }
-.hero-stat strong { display: block; font-size: 22px; font-weight: 900; color: var(--teal); }
+
+/* ── CSS زي طبي (SVG-like pure CSS) ── */
+.scrubs-illustration {
+  position: absolute; left: -10px; bottom: 0;
+  width: 280px; height: 380px;
+  display: flex; align-items: flex-end; justify-content: center;
+  z-index: 1;
+}
+.scrub-figure { position: relative; width: 180px; height: 360px; }
+
+/* الجسم */
+.scrub-body {
+  position: absolute; bottom: 80px; left: 20px;
+  width: 140px; height: 200px;
+  background: linear-gradient(160deg, #0d9488 0%, #0f766e 100%);
+  border-radius: 14px 14px 0 0;
+  box-shadow: 4px 6px 20px rgba(13,148,136,.35);
+}
+/* ياقة V */
+.scrub-collar {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-top: 44px solid #f0fdfa;
+}
+/* جيب صغير */
+.scrub-pocket-chest {
+  position: absolute; top: 48px; right: 14px;
+  width: 28px; height: 22px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-radius: 4px; background: rgba(255,255,255,.08);
+}
+/* الجيبان الكبيران */
+.scrub-pocket-l, .scrub-pocket-r {
+  position: absolute; bottom: 18px;
+  width: 44px; height: 36px;
+  border: 2px solid rgba(255,255,255,.35);
+  border-radius: 6px; background: rgba(255,255,255,.08);
+}
+.scrub-pocket-l { left: 10px; }
+.scrub-pocket-r { right: 10px; }
+/* الأكمام */
+.scrub-sleeve-l, .scrub-sleeve-r {
+  position: absolute; top: 10px;
+  width: 32px; height: 130px;
+  background: linear-gradient(160deg, #0d9488, #0f766e);
+  border-radius: 8px;
+  box-shadow: 3px 4px 12px rgba(0,0,0,.15);
+}
+.scrub-sleeve-l { right: -28px; transform: rotate(12deg); }
+.scrub-sleeve-r { left: -28px; transform: rotate(-12deg); }
+/* البنطلون */
+.scrub-pants {
+  position: absolute; bottom: 0; left: 10px;
+  width: 160px; height: 90px;
+  background: linear-gradient(180deg, #0f766e, #065f46);
+  border-radius: 0 0 10px 10px;
+}
+.scrub-pants-line {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 100%; background: rgba(0,0,0,.15);
+}
+/* الرأس */
+.scrub-head {
+  position: absolute; bottom: 278px; left: 50%; transform: translateX(-50%);
+  width: 52px; height: 56px;
+  background: #fcd5b4; border-radius: 50% 50% 46% 46%;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+}
+/* الحجاب */
+.scrub-hijab {
+  position: absolute; bottom: 272px; left: 50%; transform: translateX(-50%);
+  width: 68px; height: 64px;
+  background: #fff; border-radius: 50% 50% 35% 35%;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.scrub-hijab::after {
+  content: '';
+  position: absolute; bottom: -20px; left: -6px;
+  width: 80px; height: 30px;
+  background: #fff; border-radius: 0 0 20px 20px;
+}
+/* السماعة */
+.scrub-stethoscope {
+  position: absolute; bottom: 230px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 50px;
+  border: 3px solid #374151;
+  border-radius: 0 0 20px 20px;
+  border-top: none;
+}
+.scrub-stethoscope::before {
+  content: '';
+  position: absolute; top: -6px; left: -6px;
+  width: 10px; height: 10px;
+  background: #374151; border-radius: 50%;
+}
+.scrub-stethoscope::after {
+  content: '';
+  position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px;
+  background: #374151; border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(55,65,81,.2);
+}
+/* نص التسمية */
+.scrub-label {
+  position: absolute; top: 56px; left: 50%; transform: translateX(-50%);
+  background: rgba(255,255,255,.92); border-radius: 6px;
+  padding: 3px 8px; font-size: 9px; font-weight: 800;
+  color: var(--teal); white-space: nowrap; letter-spacing: .5px;
+  border: 1px solid rgba(13,148,136,.3);
+}
+/* ألوان شريط */
+.scrub-colors {
+  display: flex; gap: 6px; justify-content: center; margin-top: 12px;
+}
+.scrub-color-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.9);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+
+.hero-stats { display: flex; gap: 24px; margin-top: 32px; }
+.hero-stat strong { display: block; font-size: 24px; font-weight: 900; color: var(--teal); }
 .hero-stat span { font-size: 12px; color: var(--muted); }
 
-/* TRUST */
-.trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
+/* ─── TRUST BAR ─── */
+.trust {
+  background: #111827; color: #fff;
+  display: flex; justify-content: center;
+  gap: 28px; padding: 14px 20px;
+  flex-wrap: wrap; font-size: 13px; font-weight: 600;
+}
+.trust-item { display: flex; align-items: center; gap: 6px; }
 
-/* SECTION */
-.section { padding: 52px 20px; max-width: 960px; margin: 0 auto; }
-.s-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 6px; }
-.s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+/* ─── SECTION SHARED ─── */
+.section { padding: 56px 20px; max-width: 960px; margin: 0 auto; }
+.s-label {
+  display: inline-block; background: var(--teal-light);
+  color: var(--teal); border-radius: 50px;
+  padding: 4px 14px; font-size: 12px; font-weight: 700;
+  margin-bottom: 10px; border: 1px solid #99f6e4;
+}
+.s-title { font-size: clamp(22px,5vw,28px); font-weight: 900; margin-bottom: 6px; text-align: center; }
+.s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 34px; }
 
-/* GENDER SECTIONS */
+/* ─── GENDER TABS ─── */
+.gender-tabs {
+  display: flex; border-bottom: 2px solid var(--border);
+  background: #fff; position: sticky; top: 57px; z-index: 100;
+}
+.gender-tab {
+  flex: 1; padding: 14px; text-align: center;
+  font-size: 15px; font-weight: 700; color: var(--muted);
+  cursor: pointer; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; transition: all .2s;
+}
+.gender-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
 .gender-section { display: none; }
 .gender-section.active { display: block; }
 
-/* CATEGORY CARDS */
+/* ─── CATEGORY CARDS ─── */
 .categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cat-card { position: relative; border-radius: 20px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e5e7eb; transition: transform 0.2s, box-shadow 0.2s; }
-.cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
-.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cat-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%); padding: 20px 16px 16px; }
+.cat-card {
+  position: relative; border-radius: 22px; overflow: hidden;
+  text-decoration: none; color: #fff; display: block;
+  aspect-ratio: 3/4; background: #e5e7eb;
+  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.cat-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.18); }
+.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.cat-card:hover img { transform: scale(1.04); }
+.cat-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 100%);
+  padding: 24px 16px 18px;
+}
 .cat-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-.cat-sub { font-size: 12px; opacity: 0.85; }
-.cat-badge { position: absolute; top: 12px; right: 12px; background: var(--teal); color: #fff; border-radius: 50px; padding: 4px 10px; font-size: 11px; font-weight: 700; }
+.cat-sub { font-size: 12px; opacity: .85; }
+.cat-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--teal); color: #fff;
+  border-radius: 50px; padding: 4px 12px;
+  font-size: 11px; font-weight: 700;
+  box-shadow: 0 2px 8px rgba(13,148,136,.4);
+}
 
-/* MEN GRID — 2 cols */
 .categories-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
 /* COLOR STRIP */
 .color-strip { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
-.color-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border); cursor: pointer; transition: transform 0.15s; }
+.color-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border);
+  cursor: pointer; transition: transform .15s;
+}
 .color-dot:hover { transform: scale(1.2); }
 
-/* FEATURES */
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.feature-card { background: var(--teal-light); border-radius: 18px; padding: 22px; border: 1px solid #99f6e4; }
-.feature-icon { font-size: 30px; margin-bottom: 8px; }
-.feature-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 5px; }
-.feature-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+/* ─── WHY US ─── */
+.why-section {
+  background: linear-gradient(135deg, #111827 0%, #1a2e3b 100%);
+  padding: 72px 20px; position: relative; overflow: hidden;
+}
+.why-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(13,148,136,.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.why-section::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -40px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(13,148,136,.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.why-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+.why-label {
+  display: inline-block; background: rgba(13,148,136,.2);
+  color: #5eead4; border-radius: 50px;
+  padding: 5px 16px; font-size: 12px; font-weight: 700;
+  margin-bottom: 14px; border: 1px solid rgba(94,234,212,.3);
+  letter-spacing: .5px;
+}
+.why-title {
+  font-size: clamp(26px, 6vw, 38px); font-weight: 900;
+  color: #fff; margin-bottom: 10px; line-height: 1.2;
+}
+.why-title span { color: #5eead4; }
+.why-sub { color: #9ca3af; font-size: 15px; margin-bottom: 48px; line-height: 1.7; }
 
-/* REVIEWS */
-.reviews-grid { display: grid; gap: 12px; }
-.review-card { background: #fafafa; border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
-.review-stars { color: #f59e0b; font-size: 14px; margin-bottom: 7px; }
-.review-text { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.why-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px; padding: 28px 24px;
+  backdrop-filter: blur(6px);
+  transition: transform .25s, background .25s, border-color .25s;
+  position: relative; overflow: hidden;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  background: rgba(13,148,136,.12);
+  border-color: rgba(13,148,136,.4);
+}
+.why-card::before {
+  content: attr(data-num);
+  position: absolute; top: 16px; left: 18px;
+  font-size: 48px; font-weight: 900;
+  color: rgba(255,255,255,.04); line-height: 1;
+  font-family: 'Cairo', sans-serif;
+}
+.why-icon {
+  width: 50px; height: 50px;
+  background: linear-gradient(135deg, rgba(13,148,136,.4), rgba(13,148,136,.1));
+  border-radius: 14px; display: flex; align-items: center;
+  justify-content: center; font-size: 24px;
+  margin-bottom: 16px; border: 1px solid rgba(13,148,136,.3);
+}
+.why-card h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.why-card p { font-size: 13px; color: #9ca3af; line-height: 1.7; }
+.why-card .why-tag {
+  display: inline-block; margin-top: 12px;
+  background: rgba(13,148,136,.2); color: #5eead4;
+  border-radius: 50px; padding: 3px 12px;
+  font-size: 11px; font-weight: 700;
+  border: 1px solid rgba(94,234,212,.2);
+}
+
+/* ── STATS BAND ── */
+.stats-band {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--teal); color: #fff;
+  text-align: center; padding: 36px 20px; gap: 1px;
+}
+.stat-item { padding: 10px; position: relative; }
+.stat-item:not(:last-child)::after {
+  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+  width: 1px; background: rgba(255,255,255,.2);
+}
+.stat-item strong { display: block; font-size: clamp(26px,5vw,38px); font-weight: 900; line-height: 1; }
+.stat-item span { font-size: 12px; opacity: .88; margin-top: 4px; display: block; }
+
+/* ── FABRIC HIGHLIGHT ── */
+.fabric-section { background: var(--teal-light); padding: 52px 20px; }
+.fabric-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 32px; align-items: center; }
+.fabric-text { flex: 1; }
+.fabric-text h2 { font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+.fabric-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.fabric-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.fabric-pill {
+  background: #fff; border: 1.5px solid var(--teal);
+  color: var(--teal); border-radius: 50px;
+  padding: 5px 14px; font-size: 12px; font-weight: 700;
+}
+/* CSS scrub mini dans fabric */
+.fabric-scrub-mini {
+  width: 130px; flex-shrink: 0;
+  display: flex; justify-content: center; align-items: flex-end;
+  height: 160px;
+}
+.fsm-body {
+  width: 90px; height: 120px;
+  background: linear-gradient(160deg, var(--teal), var(--teal-dark));
+  border-radius: 12px 12px 0 0;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(13,148,136,.3);
+}
+.fsm-collar {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 28px solid var(--teal-light);
+}
+.fsm-pocket {
+  position: absolute; bottom: 14px; left: 8px;
+  width: 28px; height: 22px;
+  border: 1.5px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+}
+.fsm-stripes {
+  position: absolute; top: 34px; right: 10px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.fsm-stripe { width: 24px; height: 3px; background: rgba(255,255,255,.3); border-radius: 2px; }
+
+/* ── REVIEWS ── */
+.reviews-grid { display: grid; gap: 14px; }
+.review-card {
+  background: #fafafa; border: 1px solid var(--border);
+  border-radius: 18px; padding: 20px;
+  transition: box-shadow .2s;
+}
+.review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+.review-stars { color: #f59e0b; font-size: 14px; margin-bottom: 8px; }
+.review-text { font-size: 14px; line-height: 1.75; margin-bottom: 10px; }
 .review-author { font-size: 12px; font-weight: 700; color: var(--muted); }
+.review-badge {
+  display: inline-block; background: var(--teal-light);
+  color: var(--teal); border-radius: 50px;
+  padding: 2px 10px; font-size: 11px; font-weight: 700;
+  margin-top: 8px; border: 1px solid #99f6e4;
+}
 
-/* CTA BAND */
-.cta-band { background: linear-gradient(135deg, #0d9488, #065f46); color: #fff; text-align: center; padding: 60px 24px; }
-.cta-band h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; }
-.cta-band p { font-size: 15px; opacity: 0.88; margin-bottom: 26px; }
-.btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
+/* ── CTA BAND ── */
+.cta-band {
+  background: linear-gradient(135deg, #0d9488 0%, #065f46 100%);
+  color: #fff; text-align: center; padding: 72px 24px;
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,.05); border-radius: 50%;
+}
+.cta-band h2 { font-size: clamp(22px,5vw,32px); font-weight: 900; margin-bottom: 12px; }
+.cta-band p { font-size: 15px; opacity: .9; margin-bottom: 30px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.btn-white {
+  background: #fff; color: var(--teal);
+  border: none; border-radius: 50px;
+  padding: 16px 40px; font-family: 'Cairo', sans-serif;
+  font-size: 16px; font-weight: 800;
+  cursor: pointer; text-decoration: none;
+  display: inline-block; transition: transform .15s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
 .btn-white:hover { transform: translateY(-2px); }
 
-/* FOOTER */
-footer { background: #111827; color: #9ca3af; text-align: center; padding: 28px 20px; font-size: 13px; }
+/* ── FOOTER ── */
+footer {
+  background: #111827; color: #9ca3af;
+  text-align: center; padding: 32px 20px; font-size: 13px;
+}
 footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
 footer a:hover { color: #fff; }
-.footer-links { margin-bottom: 10px; }
+.footer-links { margin-bottom: 12px; }
 
-/* WA */
-.wa { position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
+/* ── WA ── */
+.wa {
+  position: fixed; bottom: 20px; left: 20px; z-index: 999;
+  width: 54px; height: 54px; background: #25d366;
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37,211,102,.5);
+  text-decoration: none; transition: transform .2s;
+}
 .wa:hover { transform: scale(1.1); }
 .wa svg { width: 28px; height: 28px; fill: #fff; }
 
-/* DIVIDER */
-.divider { height: 1px; background: var(--border); margin: 0; }
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--border); }
 
-/* MOBILE */
+/* ── MOBILE ── */
 @media (max-width: 600px) {
-  .hero { min-height: auto; padding: 34px 20px 240px; }
-  .hero-img { height: 220px; left: 50%; transform: translateX(-50%); opacity: 0.22; }
+  .hero { min-height: auto; padding: 34px 20px 270px; }
+  .scrubs-illustration { left: 50%; transform: translateX(-50%); width: 220px; height: 300px; opacity: .18; }
+  .scrub-figure { width: 150px; height: 300px; }
   .hero-content { max-width: 100%; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .features-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2)::after { display: none; }
   .trust { gap: 12px; font-size: 12px; }
-  .hero-stats { gap: 14px; }
+  .hero-stats { gap: 16px; }
   .gender-tabs { top: 53px; }
+  .fabric-inner { flex-direction: column; }
+  .fabric-scrub-mini { display: none; }
 }
 </style>
 </head>
 <body>
 
 <!-- ANNOUNCE -->
-<div class="announce">🚚 توصيل مجاني فوق 500 درهم &nbsp;|&nbsp; الدفع عند الاستلام في جميع أنحاء المغرب</div>
+<div class="announce">🚚 توصيل مجاني فوق 500 درهم &nbsp;|&nbsp; الدفع عند الاستلام &nbsp;|&nbsp; ⚡ تصنيع في 24-48 ساعة</div>
 
 <!-- NAV -->
 <nav>
@@ -142,7 +503,7 @@ footer a:hover { color: #fff; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">⭐ 4.9/5 | +1000 عميل راضٍ</div>
+    <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
     <h1>راحة.<br><span>أناقة.</span><br>احترافية.</h1>
     <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
     <div class="hero-btns">
@@ -153,23 +514,66 @@ footer a:hover { color: #fff; }
       <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
       <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
       <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
+      <div class="hero-stat"><strong>4XL</strong><span>أكبر مقاس</span></div>
     </div>
   </div>
-  <img src="pkwp.webp" alt="Uniformedical بلوزة طبية" class="hero-img" loading="eager">
+
+  <!-- CSS Scrubs Illustration -->
+  <div class="scrubs-illustration" aria-hidden="true">
+    <div class="scrub-figure">
+      <!-- الرأس + الحجاب -->
+      <div class="scrub-head"></div>
+      <div class="scrub-hijab"></div>
+      <!-- السماعة -->
+      <div class="scrub-stethoscope"></div>
+      <!-- الجسم -->
+      <div class="scrub-body">
+        <div class="scrub-collar"></div>
+        <div class="scrub-label">Uniformedical</div>
+        <div class="scrub-pocket-chest"></div>
+        <div class="scrub-pocket-l"></div>
+        <div class="scrub-pocket-r"></div>
+        <div class="scrub-sleeve-l"></div>
+        <div class="scrub-sleeve-r"></div>
+      </div>
+      <!-- البنطلون -->
+      <div class="scrub-pants">
+        <div class="scrub-pants-line"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- TRUST -->
 <div class="trust">
-  <div>🚚 توصيل 24-48h</div>
-  <div>💳 الدفع عند الاستلام</div>
-  <div>✅ جودة مضمونة 100%</div>
-  <div>📦 تغليف احترافي</div>
+  <div class="trust-item">🚚 توصيل 24-48h</div>
+  <div class="trust-item">💳 الدفع عند الاستلام</div>
+  <div class="trust-item">✅ جودة مضمونة 100%</div>
+  <div class="trust-item">📦 تغليف احترافي</div>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item">
+    <strong>+1000</strong>
+    <span>عميل راضٍ</span>
+  </div>
+  <div class="stat-item">
+    <strong>3</strong>
+    <span>موديلات حصرية</span>
+  </div>
+  <div class="stat-item">
+    <strong>10</strong>
+    <span>ألوان متوفرة</span>
+  </div>
+  <div class="stat-item">
+    <strong>4.9★</strong>
+    <span>تقييم العملاء</span>
+  </div>
 </div>
 
 <!-- COLLECTIONS -->
 <div id="collections" style="background:#f9fafb;">
-
-  <!-- GENDER TABS -->
   <div class="gender-tabs">
     <div class="gender-tab active" onclick="switchGender('women', this)">👩 نساء</div>
     <div class="gender-tab" onclick="switchGender('men', this)">👨 رجال</div>
@@ -178,11 +582,10 @@ footer a:hover { color: #fff; }
   <!-- WOMEN -->
   <div class="gender-section active" id="section-women">
     <div class="section">
-      <div class="s-title">كولكشن النساء</div>
-      <div class="s-sub">بلوزات طبية أنيقة بـ 3 موديلات مختلفة — كلها متوفرة بـ 10 ألوان</div>
+      <div style="text-align:center;"><span class="s-label">كولكشن 2026</span></div>
+      <div class="s-title">اختاري موديلك</div>
+      <div class="s-sub">3 موديلات مختلفة — كلها بـ 10 ألوان راقية وقماش Bestretch الحصري</div>
       <div class="categories-grid">
-
-        <!-- موديل V95 -->
         <a href="v95.html" class="cat-card">
           <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="موديل V95" loading="lazy">
           <div class="cat-overlay">
@@ -191,8 +594,6 @@ footer a:hover { color: #fff; }
           </div>
           <div class="cat-badge">الأكثر طلباً</div>
         </a>
-
-        <!-- موديل أميرة -->
         <a href="amira.html" class="cat-card">
           <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="موديل أميرة" loading="lazy">
           <div class="cat-overlay">
@@ -200,8 +601,6 @@ footer a:hover { color: #fff; }
             <div class="cat-sub">تصميم أنثوي أنيق · قصة مميزة</div>
           </div>
         </a>
-
-        <!-- موديل كول أفيسي -->
         <a href="col-avici.html" class="cat-card">
           <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="موديل كول أفيسي" loading="lazy">
           <div class="cat-overlay">
@@ -210,22 +609,20 @@ footer a:hover { color: #fff; }
           </div>
           <div class="cat-badge">جديد</div>
         </a>
-
       </div>
-      <!-- COLOR STRIP -->
-      <div style="text-align:center; margin-top:28px;">
-        <p style="font-size:13px; color:var(--muted); margin-bottom:12px; font-weight:600;">متوفر بـ 10 ألوان</p>
+      <div style="text-align:center; margin-top:30px;">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:600;">متوفر بـ 10 ألوان</p>
         <div class="color-strip">
           <div class="color-dot" style="background:#87CEEB;" title="أزرق سماوي"></div>
-          <div class="color-dot" style="background:#1a3a5c;" title="أزرق مارين"></div>
+          <div class="color-dot" style="background:#1B3A6B;" title="أزرق مارين"></div>
           <div class="color-dot" style="background:#6B2B3C;" title="بوردو"></div>
           <div class="color-dot" style="background:#b8bcc0;" title="رمادي فاتح"></div>
-          <div class="color-dot" style="background:#5c3a1e;" title="بني شوكولا"></div>
-          <div class="color-dot" style="background:#4b5320;" title="عسكري"></div>
-          <div class="color-dot" style="background:#6b4f7c;" title="أوبيرجين"></div>
-          <div class="color-dot" style="background:#f4a7b9;" title="وردي فاتح"></div>
-          <div class="color-dot" style="background:#c8b4d8;" title="باستيل"></div>
-          <div class="color-dot" style="background:#f5f5f5; border-color:#ccc;" title="أبيض"></div>
+          <div class="color-dot" style="background:#7B4926;" title="بني كراميل"></div>
+          <div class="color-dot" style="background:#1a1a1a;" title="أسود"></div>
+          <div class="color-dot" style="background:#C4A0D4;" title="موف فاتح"></div>
+          <div class="color-dot" style="background:#F4C2C2;" title="روز بيبي"></div>
+          <div class="color-dot" style="background:#3A9E7E;" title="أخضر طبي"></div>
+          <div class="color-dot" style="background:#8FD5B2;" title="أخضر باستيل"></div>
         </div>
       </div>
     </div>
@@ -234,64 +631,108 @@ footer a:hover { color: #fff; }
   <!-- MEN -->
   <div class="gender-section" id="section-men">
     <div class="section">
+      <div style="text-align:center;"><span class="s-label">رجال 2026</span></div>
       <div class="s-title">كولكشن الرجال</div>
       <div class="s-sub">بلوزات طبية رجالية بقصة احترافية — مريحة طوال يوم العمل</div>
       <div class="categories-grid-2">
-
-        <!-- موديل V95 رجال -->
-        <a href="col-avici.html" class="cat-card">
-          <img src="bleu_marin.webp" alt="موديل V95 رجال" loading="lazy">
+        <a href="v95.html" class="cat-card">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e4fa01c0b_bleumarinFonce.webp" alt="موديل V95 رجال" loading="lazy">
           <div class="cat-overlay">
             <div class="cat-name">موديل V95</div>
             <div class="cat-sub">ياقة V · مريح ومتنفس طوال اليوم</div>
           </div>
           <div class="cat-badge">الأكثر طلباً</div>
         </a>
-
-        <!-- موديل كول أفيسي رجال -->
         <a href="col-avici.html" class="cat-card">
-          <img src="militaire.webp" alt="موديل كول أفيسي رجال" loading="lazy">
+          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="موديل كول أفيسي رجال" loading="lazy">
           <div class="cat-overlay">
             <div class="cat-name">موديل كول أفيسي</div>
             <div class="cat-sub">ياقة Col Officier · أناقة احترافية</div>
           </div>
           <div class="cat-badge">جديد</div>
         </a>
-
-      </div>
-      <!-- COLOR STRIP -->
-      <div style="text-align:center; margin-top:28px;">
-        <p style="font-size:13px; color:var(--muted); margin-bottom:12px; font-weight:600;">متوفر بـ 10 ألوان</p>
-        <div class="color-strip">
-          <div class="color-dot" style="background:#87CEEB;"></div>
-          <div class="color-dot" style="background:#1a3a5c;"></div>
-          <div class="color-dot" style="background:#6B2B3C;"></div>
-          <div class="color-dot" style="background:#b8bcc0;"></div>
-          <div class="color-dot" style="background:#5c3a1e;"></div>
-          <div class="color-dot" style="background:#4b5320;"></div>
-          <div class="color-dot" style="background:#6b4f7c;"></div>
-          <div class="color-dot" style="background:#f4a7b9;"></div>
-          <div class="color-dot" style="background:#c8b4d8;"></div>
-          <div class="color-dot" style="background:#f5f5f5; border-color:#ccc;"></div>
-        </div>
       </div>
     </div>
   </div>
-
-</div><!-- end collections -->
+</div>
 
 <div class="divider"></div>
 
-<!-- FEATURES -->
-<div style="padding: 52px 20px; background:#fff;">
-  <div style="max-width:960px; margin:0 auto;">
-    <div class="s-title">لماذا Uniformedical؟</div>
-    <div class="s-sub">تفاصيل مصممة للمختصين الصحيين</div>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">🧵</div><h3>قماش Bestretch المرن</h3><p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p></div>
-      <div class="feature-card"><div class="feature-icon">📏</div><h3>مقاسات XS إلى 4XL</h3><p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية.</p></div>
-      <div class="feature-card"><div class="feature-icon">⚡</div><h3>تصنيع في 24-48 ساعة</h3><p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p></div>
-      <div class="feature-card"><div class="feature-icon">🪡</div><h3>تطريز الاسم +45 درهم</h3><p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p></div>
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-inner">
+    <div style="text-align:center;">
+      <div class="why-label">⭐ لماذا نحن</div>
+      <h2 class="why-title">لأنك تستحق <span>الأفضل</span></h2>
+      <p class="why-sub">ليست مجرد بلوزة — هي شريك يومك في بيئة العمل الطبي. كل تفصيل مدروس لراحتك وثقتك.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-num="01">
+        <div class="why-icon">🧵</div>
+        <h3>قماش Bestretch الحصري</h3>
+        <p>مرن في كل الاتجاهات، متنفس في الوردية الطويلة، متين أمام الغسيل المتكرر. مصمم خصيصاً للوسط الطبي المغربي.</p>
+        <span class="why-tag">مرونة 360°</span>
+      </div>
+      <div class="why-card" data-num="02">
+        <div class="why-icon">🎨</div>
+        <h3>10 ألوان راقية متوفرة دائماً</h3>
+        <p>من الأزرق المارين إلى الروز بيبي — مخزون دائم من جميع الألوان لضمان توصيلك في أقرب وقت.</p>
+        <span class="why-tag">ألوان ثابتة لا تبهت</span>
+      </div>
+      <div class="why-card" data-num="03">
+        <div class="why-icon">⚡</div>
+        <h3>تصنيع وشحن في 24-48 ساعة</h3>
+        <p>طلبيتك تُصنع وتُجهز بسرعة — التوصيل من 1 إلى 3 أيام لجميع مدن المغرب مع التتبع.</p>
+        <span class="why-tag">أسرع توصيل في المغرب</span>
+      </div>
+      <div class="why-card" data-num="04">
+        <div class="why-icon">📏</div>
+        <h3>مقاسات XS حتى 4XL</h3>
+        <p>تشكيلة شاملة تناسب جميع أشكال الجسم — قصة احترافية مريحة بغض النظر عن مقاسك.</p>
+        <span class="why-tag">شامل للجميع</span>
+      </div>
+      <div class="why-card" data-num="05">
+        <div class="why-icon">🪡</div>
+        <h3>تطريز اسمك +45 درهم فقط</h3>
+        <p>لمسة شخصية تجعلك مميزاً — اسمك أو تخصصك مطرّز باحتراف على البلوزة مباشرة.</p>
+        <span class="why-tag">هوية احترافية</span>
+      </div>
+      <div class="why-card" data-num="06">
+        <div class="why-icon">💳</div>
+        <h3>الدفع عند الاستلام — صفر مخاطرة</h3>
+        <p>لا دفع مسبق، لا قلق — تدفع فقط عندما تصل طلبيتك إلى باب منزلك. ثقة كاملة ومتبادلة.</p>
+        <span class="why-tag">أمان 100%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FABRIC HIGHLIGHT -->
+<div class="fabric-section">
+  <div class="fabric-inner">
+    <div class="fabric-scrub-mini" aria-hidden="true">
+      <div class="fsm-body">
+        <div class="fsm-collar"></div>
+        <div class="fsm-pocket"></div>
+        <div class="fsm-stripes">
+          <div class="fsm-stripe"></div>
+          <div class="fsm-stripe" style="width:18px;"></div>
+          <div class="fsm-stripe" style="width:22px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fabric-text">
+      <div><span class="s-label">قماشنا الحصري</span></div>
+      <h2>لماذا Bestretch؟</h2>
+      <p>اخترنا قماش Bestretch لأنه يجمع بين الراحة والأناقة والمتانة في آنٍ واحد. مرن في كل الاتجاهات، سهل العناية، ويحافظ على شكله بعد مئات الغسلات.</p>
+      <div class="fabric-pills">
+        <span class="fabric-pill">مرونة 4 اتجاهات</span>
+        <span class="fabric-pill">متنفس ومريح</span>
+        <span class="fabric-pill">سهل الغسل</span>
+        <span class="fabric-pill">لون ثابت</span>
+        <span class="fabric-pill">خفيف الوزن</span>
+        <span class="fabric-pill">مقاوم للتجاعيد</span>
+      </div>
     </div>
   </div>
 </div>
@@ -300,19 +741,35 @@ footer a:hover { color: #fff; }
 
 <!-- REVIEWS -->
 <div class="section">
+  <div style="text-align:center;"><span class="s-label">آراء العملاء</span></div>
   <div class="s-title">ماذا يقول عملاؤنا</div>
   <div class="s-sub">آراء حقيقية من مهنيين صحيين في المغرب</div>
   <div class="reviews-grid">
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">جودة ممتازة! القماش مريح جداً ويتحمل الغسيل المتكرر. الألوان واضحة ونظيفة. سأطلب مجموعة ثانية قريباً.</div><div class="review-author">— سارة م. · ممرضة، الدار البيضاء</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">التوصيل كان سريعاً جداً، والمقاس كان مضبوطاً. البلوزة أنيقة ومريحة — بالضبط ما كنت أبحث عنه.</div><div class="review-author">— يوسف ب. · طبيب، الرباط</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">أفضل بلوزة طبية اشتريتها. القماش خفيف ومتنفس حتى في الوردية الطويلة. شكراً Uniformedical!</div><div class="review-author">— فاطمة ر. · صيدلانية، مراكش</div></div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"جودة ممتازة! القماش مريح جداً ويتحمل الغسيل المتكرر. الألوان واضحة ونظيفة. سأطلب مجموعة ثانية قريباً."</div>
+      <div class="review-author">— سارة م. · ممرضة، الدار البيضاء</div>
+      <span class="review-badge">موديل V95</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"التوصيل كان سريعاً جداً، والمقاس كان مضبوطاً. البلوزة أنيقة ومريحة — بالضبط ما كنت أبحث عنه."</div>
+      <div class="review-author">— يوسف ب. · طبيب، الرباط</div>
+      <span class="review-badge">موديل كول أفيسي</span>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"أفضل بلوزة طبية اشتريتها. القماش خفيف ومتنفس حتى في الوردية الطويلة. شكراً Uniformedical!"</div>
+      <div class="review-author">— فاطمة ر. · صيدلانية، مراكش</div>
+      <span class="review-badge">موديل أميرة</span>
+    </div>
   </div>
 </div>
 
-<!-- CTA -->
+<!-- CTA BAND -->
 <div class="cta-band">
   <h2>جاهز لترقية زيّك الطبي؟</h2>
-  <p>اطلب الآن وادفع عند الاستلام — توصيل لجميع أنحاء المغرب</p>
+  <p>اطلب الآن وادفع عند الاستلام — توصيل لجميع أنحاء المغرب في 1 إلى 3 أيام</p>
   <a href="index.html" class="btn-white">🛍 اطلب الآن</a>
 </div>
 
@@ -323,7 +780,7 @@ footer a:hover { color: #fff; }
     <a href="index.html">اطلب الآن</a>
     <a href="mailto:contact@uniformedical.com">contact@uniformedical.com</a>
   </div>
-  <div>© 2026 Uniformedical. جميع الحقوق محفوظة.</div>
+  <div>© 2026 Uniformedical · جميع الحقوق محفوظة</div>
 </footer>
 
 <!-- WhatsApp -->
@@ -333,10 +790,8 @@ footer a:hover { color: #fff; }
 
 <script>
 function switchGender(gender, tab) {
-  // Tabs
   document.querySelectorAll('.gender-tab').forEach(t => t.classList.remove('active'));
   tab.classList.add('active');
-  // Sections
   document.querySelectorAll('.gender-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-' + gender).classList.add('active');
 }
