@@ -32,126 +32,137 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 
 /* ── HERO ── */
 .hero {
-  background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 50%, #fff 100%);
+  background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 60%, #fff 100%);
   overflow: hidden; padding: 0; position: relative;
 }
+/* الـ inner: صف أفقي — الرسم يسار، الكلمات يمين */
 .hero-inner {
-  display: flex; flex-direction: column; align-items: center;
-  width: 100%; max-width: 500px; margin: 0 auto;
-  padding: 32px 24px 40px; gap: 0;
-  text-align: center;
+  display: flex; flex-direction: row;
+  align-items: center; justify-content: center;
+  width: 100%; max-width: 480px; margin: 0 auto;
+  padding: 36px 16px 28px; gap: 8px;
 }
 
-/* ── الصورة المتحركة (الكتلة العلوية) ── */
+/* ── الصورة يسار ── */
 .hero-visual {
-  width: 300px; height: 300px;
+  width: 190px; height: 190px; flex-shrink: 0;
   position: relative;
   display: flex; align-items: center; justify-content: center;
-  margin-left: -40px; /* تحريك الدائرة نحو اليسار */
-  margin-bottom: 8px;
 }
 .hero-visual-ring {
   position: absolute; inset: 0; border-radius: 50%;
-  border: 2px dashed rgba(13,148,136,.28);
+  border: 2px dashed rgba(13,148,136,.3);
   animation: spin-slow 20s linear infinite;
 }
 .hero-visual-ring2 {
-  position: absolute; inset: 22px; border-radius: 50%;
+  position: absolute; inset: 16px; border-radius: 50%;
   border: 1.5px dashed rgba(13,148,136,.15);
-  animation: spin-slow 30s linear infinite reverse;
+  animation: spin-slow 28s linear infinite reverse;
 }
 .hero-scrub-img {
-  width: 200px; height: 200px;
+  width: 130px; height: 130px;
   object-fit: contain; position: relative; z-index: 2;
   mix-blend-mode: multiply;
-  filter: drop-shadow(0 6px 20px rgba(13,148,136,.2));
+  filter: drop-shadow(0 4px 14px rgba(13,148,136,.2));
   animation: float 4s ease-in-out infinite;
 }
 .hero-chip {
   position: absolute; background: #fff;
-  border-radius: 50px; padding: 6px 13px;
-  font-size: 12px; font-weight: 700; color: var(--text);
-  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  border-radius: 50px; padding: 5px 10px;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  box-shadow: 0 3px 10px rgba(0,0,0,.1);
   white-space: nowrap; z-index: 3;
   border: 1px solid var(--border);
   animation: float 4s ease-in-out infinite;
 }
-.hero-chip.c1 { top: 20px; left: 50%; transform: translateX(10px); animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-.hero-chip.c2 { bottom: 28px; left: 50%; transform: translateX(20px); animation-delay: 1s; }
-.hero-chip.c3 { bottom: 52px; right: 50%; transform: translateX(10px); animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-.hero-chip.c4 { top: 44px; right: 50%; transform: translateX(10px); animation-delay: 1.5s; }
+/* c1 = Bestretch — أعلى يمين */
+.hero-chip.c1 { top: 12px; right: -28px; animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+/* c2 = XS→4XL — أسفل يمين */
+.hero-chip.c2 { bottom: 16px; right: -32px; animation-delay: 1s; }
+/* c3 = 10 ألوان — أسفل يسار */
+.hero-chip.c3 { bottom: 26px; left: -22px; animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+/* c4 = 24h — أعلى يسار */
+.hero-chip.c4 { top: 18px; left: -20px; animation-delay: 1.5s; }
 
-/* ── الـ badge ── */
+/* ── النص يمين ── */
+.hero-content {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: flex-end; text-align: right;
+  padding-right: 4px;
+}
 .hero-badge {
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 6px;
   background: #fff; border: 1.5px solid var(--teal);
   color: var(--teal); border-radius: 50px;
-  padding: 7px 18px; font-size: 13px; font-weight: 700;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 12px rgba(13,148,136,.15);
+  padding: 6px 14px; font-size: 12px; font-weight: 700;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(13,148,136,.15);
 }
-
-/* ── الـ headline ── */
-.hero h1 { margin: 0 0 16px; text-align: center; }
+.hero h1 { margin: 0 0 12px; text-align: right; }
 .hw-label {
-  display: block;
-  font-size: 11px; font-weight: 700;
-  color: var(--teal); letter-spacing: 3px;
-  text-transform: uppercase; opacity: .7;
-  margin-bottom: 8px;
+  display: block; font-size: 10px; font-weight: 700;
+  color: var(--teal); letter-spacing: 2px;
+  text-transform: uppercase; opacity: .65;
+  margin-bottom: 6px;
 }
 .hw-word {
   display: block; font-weight: 900;
-  line-height: 1.05; letter-spacing: -1.5px;
-  font-size: clamp(42px, 11vw, 62px);
+  line-height: 1.0; letter-spacing: -1px;
+  font-size: clamp(40px, 12vw, 58px);
   color: var(--text);
 }
 .hw-word.teal {
-  color: var(--teal); position: relative; width: fit-content; margin: 0 auto;
+  color: var(--teal); position: relative; width: fit-content;
 }
 .hw-word.teal::after {
   content: ''; position: absolute;
-  bottom: 4px; right: 0; left: 0; height: 5px;
+  bottom: 3px; right: 0; left: 0; height: 4px;
   background: linear-gradient(90deg, var(--teal), #5eead4);
   border-radius: 3px; opacity: .35;
 }
-.hw-word.light { color: #94a3b8; font-size: clamp(30px,8vw,44px); font-weight: 700; letter-spacing: -1px; }
+.hw-word.light { color: #94a3b8; font-size: clamp(30px,9vw,44px); font-weight: 700; }
 
-.hero p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 26px; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+/* ── الجزء السفلي: p + btns + stats (بعد الصف) ── */
+.hero-bottom {
+  width: 100%; max-width: 480px; margin: 0 auto;
+  padding: 0 16px 36px; text-align: center;
+}
+.hero p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 22px; }
+.hero-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 0; }
 .btn-primary {
   background: var(--teal); color: #fff; border: none;
-  border-radius: 50px; padding: 15px 34px;
+  border-radius: 50px; padding: 14px 30px;
   font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
   cursor: pointer; text-decoration: none; display: inline-block;
   transition: background .2s, transform .15s;
-  box-shadow: 0 6px 20px rgba(13,148,136,.35);
+  box-shadow: 0 6px 18px rgba(13,148,136,.35);
+  flex: 1; min-width: 130px;
 }
 .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
 .btn-outline {
   background: transparent; color: var(--teal);
   border: 2px solid var(--teal); border-radius: 50px;
-  padding: 13px 28px; font-family: 'Cairo', sans-serif;
+  padding: 12px 24px; font-family: 'Cairo', sans-serif;
   font-size: 15px; font-weight: 700; text-decoration: none;
   display: inline-block; transition: all .2s;
+  flex: 1; min-width: 130px; text-align: center;
 }
 .btn-outline:hover { background: var(--teal-light); }
 
 .hero-stats {
-  display: flex; gap: 0; margin-top: 32px;
-  background: #fff; border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(0,0,0,.07);
+  display: flex; gap: 0; margin-top: 20px;
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(0,0,0,.07);
   border: 1px solid var(--border); overflow: hidden;
-  width: 100%;
 }
-.hero-stat { flex: 1; padding: 14px 8px; text-align: center; }
+.hero-stat { flex: 1; padding: 13px 6px; text-align: center; }
 .hero-stat:not(:last-child) { border-left: 1px solid var(--border); }
-.hero-stat strong { display: block; font-size: 20px; font-weight: 900; color: var(--teal); line-height: 1; }
-.hero-stat span { font-size: 11px; color: var(--muted); margin-top: 3px; display: block; }
+.hero-stat strong { display: block; font-size: 18px; font-weight: 900; color: var(--teal); line-height: 1; }
+.hero-stat span { font-size: 10px; color: var(--muted); margin-top: 3px; display: block; }
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-7px); }
 }
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
@@ -225,11 +236,17 @@ footer a:hover { color: #fff; }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .hero-visual { width: 260px; height: 260px; margin-left: -30px; }
-  .hero-scrub-img { width: 175px; height: 175px; }
-  .hero-chip { font-size: 11px; padding: 5px 11px; }
-  .hw-word { font-size: clamp(36px, 10vw, 50px); }
-  .hw-word.light { font-size: clamp(26px, 7.5vw, 36px); }
+  .hero-inner { gap: 4px; padding: 28px 12px 20px; }
+  .hero-visual { width: 160px; height: 160px; }
+  .hero-scrub-img { width: 110px; height: 110px; }
+  .hero-chip { font-size: 10px; padding: 4px 9px; }
+  .hero-chip.c1 { right: -24px; top: 8px; }
+  .hero-chip.c2 { right: -28px; bottom: 10px; }
+  .hero-chip.c3 { left: -18px; bottom: 18px; }
+  .hero-chip.c4 { left: -16px; top: 12px; }
+  .hw-word { font-size: clamp(34px, 11vw, 46px); }
+  .hw-word.light { font-size: clamp(24px, 8.5vw, 34px); }
+  .hero-bottom { padding: 0 16px 28px; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: 1fr; }
@@ -254,9 +271,11 @@ footer a:hover { color: #fff; }
 
 <!-- HERO -->
 <section class="hero">
+
+  <!-- الصف الأفقي: الرسم يسار + الكلمات يمين -->
   <div class="hero-inner">
 
-    <!-- الصورة المتحركة فوق -->
+    <!-- الرسم يسار -->
     <div class="hero-visual">
       <div class="hero-visual-ring"></div>
       <div class="hero-visual-ring2"></div>
@@ -268,8 +287,8 @@ footer a:hover { color: #fff; }
       <div class="hero-chip c4">⚡ 24h تصنيع</div>
     </div>
 
-    <!-- badge + headline + أزرار تحت الصورة -->
-    <div class="hero-content" style="width:100%;">
+    <!-- الكلمات يمين -->
+    <div class="hero-content">
       <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
       <h1>
         <span class="hw-label">الزي الطبي المغربي الأول</span>
@@ -277,20 +296,25 @@ footer a:hover { color: #fff; }
         <span class="hw-word teal">أناقة</span>
         <span class="hw-word">احترافية</span>
       </h1>
-      <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
-      <div class="hero-btns">
-        <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
-        <a href="#collections" class="btn-outline">استعرض الكولكشن</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
-        <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
-        <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
-        <div class="hero-stat"><strong>4XL</strong><span>مقاس</span></div>
-      </div>
     </div>
 
   </div>
+
+  <!-- الجزء السفلي: الوصف + الأزرار + الإحصائيات -->
+  <div class="hero-bottom">
+    <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
+    <div class="hero-btns">
+      <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
+      <a href="#collections" class="btn-outline">استعرض الكولكشن</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
+      <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
+      <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
+      <div class="hero-stat"><strong>4XL</strong><span>مقاس</span></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- TRUST -->
