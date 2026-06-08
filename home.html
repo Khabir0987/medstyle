@@ -72,335 +72,6 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 }
 .btn-outline:hover { background: var(--teal-light); }
 
-/* ── CSS زي طبي (SVG-like pure CSS) ── */
-.scrubs-illustration {
-  position: absolute; left: -10px; bottom: 0;
-  width: 280px; height: 380px;
-  display: flex; align-items: flex-end; justify-content: center;
-  z-index: 1;
-}
-.scrub-figure { position: relative; width: 180px; height: 360px; }
-
-/* الجسم */
-.scrub-body {
-  position: absolute; bottom: 80px; left: 20px;
-  width: 140px; height: 200px;
-  background: linear-gradient(160deg, #0d9488 0%, #0f766e 100%);
-  border-radius: 14px 14px 0 0;
-  box-shadow: 4px 6px 20px rgba(13,148,136,.35);
-}
-/* ياقة V */
-.scrub-collar {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 0; height: 0;
-  border-left: 28px solid transparent;
-  border-right: 28px solid transparent;
-  border-top: 44px solid #f0fdfa;
-}
-/* جيب صغير */
-.scrub-pocket-chest {
-  position: absolute; top: 48px; right: 14px;
-  width: 28px; height: 22px;
-  border: 2px solid rgba(255,255,255,.4);
-  border-radius: 4px; background: rgba(255,255,255,.08);
-}
-/* الجيبان الكبيران */
-.scrub-pocket-l, .scrub-pocket-r {
-  position: absolute; bottom: 18px;
-  width: 44px; height: 36px;
-  border: 2px solid rgba(255,255,255,.35);
-  border-radius: 6px; background: rgba(255,255,255,.08);
-}
-.scrub-pocket-l { left: 10px; }
-.scrub-pocket-r { right: 10px; }
-/* الأكمام */
-.scrub-sleeve-l, .scrub-sleeve-r {
-  position: absolute; top: 10px;
-  width: 32px; height: 130px;
-  background: linear-gradient(160deg, #0d9488, #0f766e);
-  border-radius: 8px;
-  box-shadow: 3px 4px 12px rgba(0,0,0,.15);
-}
-.scrub-sleeve-l { right: -28px; transform: rotate(12deg); }
-.scrub-sleeve-r { left: -28px; transform: rotate(-12deg); }
-/* البنطلون */
-.scrub-pants {
-  position: absolute; bottom: 0; left: 10px;
-  width: 160px; height: 90px;
-  background: linear-gradient(180deg, #0f766e, #065f46);
-  border-radius: 0 0 10px 10px;
-}
-.scrub-pants-line {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 3px; height: 100%; background: rgba(0,0,0,.15);
-}
-/* الرأس */
-.scrub-head {
-  position: absolute; bottom: 278px; left: 50%; transform: translateX(-50%);
-  width: 52px; height: 56px;
-  background: #fcd5b4; border-radius: 50% 50% 46% 46%;
-  box-shadow: 0 4px 10px rgba(0,0,0,.12);
-}
-/* الحجاب */
-.scrub-hijab {
-  position: absolute; bottom: 272px; left: 50%; transform: translateX(-50%);
-  width: 68px; height: 64px;
-  background: #fff; border-radius: 50% 50% 35% 35%;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-}
-.scrub-hijab::after {
-  content: '';
-  position: absolute; bottom: -20px; left: -6px;
-  width: 80px; height: 30px;
-  background: #fff; border-radius: 0 0 20px 20px;
-}
-/* السماعة */
-.scrub-stethoscope {
-  position: absolute; bottom: 230px; left: 50%; transform: translateX(-50%);
-  width: 40px; height: 50px;
-  border: 3px solid #374151;
-  border-radius: 0 0 20px 20px;
-  border-top: none;
-}
-.scrub-stethoscope::before {
-  content: '';
-  position: absolute; top: -6px; left: -6px;
-  width: 10px; height: 10px;
-  background: #374151; border-radius: 50%;
-}
-.scrub-stethoscope::after {
-  content: '';
-  position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
-  width: 14px; height: 14px;
-  background: #374151; border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(55,65,81,.2);
-}
-/* نص التسمية */
-.scrub-label {
-  position: absolute; top: 56px; left: 50%; transform: translateX(-50%);
-  background: rgba(255,255,255,.92); border-radius: 6px;
-  padding: 3px 8px; font-size: 9px; font-weight: 800;
-  color: var(--teal); white-space: nowrap; letter-spacing: .5px;
-  border: 1px solid rgba(13,148,136,.3);
-}
-/* ألوان شريط */
-.scrub-colors {
-  display: flex; gap: 6px; justify-content: center; margin-top: 12px;
-}
-.scrub-color-dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.9);
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
-}
-
-.hero-stats { display: flex; gap: 24px; margin-top: 32px; }
-.hero-stat strong { display: block; font-size: 24px; font-weight: 900; color: var(--teal); }
-.hero-stat span { font-size: 12px; color: var(--muted); }
-
-/* ─── TRUST BAR ─── */
-.trust {
-  background: #111827; color: #fff;
-  display: flex; justify-content: center;
-  gap: 28px; padding: 14px 20px;
-  flex-wrap: wrap; font-size: 13px; font-weight: 600;
-}
-.trust-item { display: flex; align-items: center; gap: 6px; }
-
-/* ─── SECTION SHARED ─── */
-.section { padding: 56px 20px; max-width: 960px; margin: 0 auto; }
-.s-label {
-  display: inline-block; background: var(--teal-light);
-  color: var(--teal); border-radius: 50px;
-  padding: 4px 14px; font-size: 12px; font-weight: 700;
-  margin-bottom: 10px; border: 1px solid #99f6e4;
-}
-.s-title { font-size: clamp(22px,5vw,28px); font-weight: 900; margin-bottom: 6px; text-align: center; }
-.s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 34px; }
-
-/* ─── GENDER TABS ─── */
-.gender-tabs {
-  display: flex; border-bottom: 2px solid var(--border);
-  background: #fff; position: sticky; top: 57px; z-index: 100;
-}
-.gender-tab {
-  flex: 1; padding: 14px; text-align: center;
-  font-size: 15px; font-weight: 700; color: var(--muted);
-  cursor: pointer; border-bottom: 3px solid transparent;
-  margin-bottom: -2px; transition: all .2s;
-}
-.gender-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
-.gender-section { display: none; }
-.gender-section.active { display: block; }
-
-/* ─── CATEGORY CARDS ─── */
-.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cat-card {
-  position: relative; border-radius: 22px; overflow: hidden;
-  text-decoration: none; color: #fff; display: block;
-  aspect-ratio: 3/4; background: #e5e7eb;
-  transition: transform .25s, box-shadow .25s;
-  box-shadow: 0 2px 12px rgba(0,0,0,.08);
-}
-.cat-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.18); }
-.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-.cat-card:hover img { transform: scale(1.04); }
-.cat-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, transparent 100%);
-  padding: 24px 16px 18px;
-}
-.cat-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-.cat-sub { font-size: 12px; opacity: .85; }
-.cat-badge {
-  position: absolute; top: 12px; right: 12px;
-  background: var(--teal); color: #fff;
-  border-radius: 50px; padding: 4px 12px;
-  font-size: 11px; font-weight: 700;
-  box-shadow: 0 2px 8px rgba(13,148,136,.4);
-}
-
-.categories-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-
-/* COLOR STRIP */
-.color-strip { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
-.color-dot {
-  width: 28px; height: 28px; border-radius: 50%;
-  border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border);
-  cursor: pointer; transition: transform .15s;
-}
-.color-dot:hover { transform: scale(1.2); }
-
-/* ─── WHY US ─── */
-.why-section {
-  background: linear-gradient(135deg, #111827 0%, #1a2e3b 100%);
-  padding: 72px 20px; position: relative; overflow: hidden;
-}
-.why-section::before {
-  content: '';
-  position: absolute; top: -60px; right: -60px;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(13,148,136,.25) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.why-section::after {
-  content: '';
-  position: absolute; bottom: -80px; left: -40px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(13,148,136,.15) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.why-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-.why-label {
-  display: inline-block; background: rgba(13,148,136,.2);
-  color: #5eead4; border-radius: 50px;
-  padding: 5px 16px; font-size: 12px; font-weight: 700;
-  margin-bottom: 14px; border: 1px solid rgba(94,234,212,.3);
-  letter-spacing: .5px;
-}
-.why-title {
-  font-size: clamp(26px, 6vw, 38px); font-weight: 900;
-  color: #fff; margin-bottom: 10px; line-height: 1.2;
-}
-.why-title span { color: #5eead4; }
-.why-sub { color: #9ca3af; font-size: 15px; margin-bottom: 48px; line-height: 1.7; }
-
-.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.why-card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 20px; padding: 28px 24px;
-  backdrop-filter: blur(6px);
-  transition: transform .25s, background .25s, border-color .25s;
-  position: relative; overflow: hidden;
-}
-.why-card:hover {
-  transform: translateY(-4px);
-  background: rgba(13,148,136,.12);
-  border-color: rgba(13,148,136,.4);
-}
-.why-card::before {
-  content: attr(data-num);
-  position: absolute; top: 16px; left: 18px;
-  font-size: 48px; font-weight: 900;
-  color: rgba(255,255,255,.04); line-height: 1;
-  font-family: 'Cairo', sans-serif;
-}
-.why-icon {
-  width: 50px; height: 50px;
-  background: linear-gradient(135deg, rgba(13,148,136,.4), rgba(13,148,136,.1));
-  border-radius: 14px; display: flex; align-items: center;
-  justify-content: center; font-size: 24px;
-  margin-bottom: 16px; border: 1px solid rgba(13,148,136,.3);
-}
-.why-card h3 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-.why-card p { font-size: 13px; color: #9ca3af; line-height: 1.7; }
-.why-card .why-tag {
-  display: inline-block; margin-top: 12px;
-  background: rgba(13,148,136,.2); color: #5eead4;
-  border-radius: 50px; padding: 3px 12px;
-  font-size: 11px; font-weight: 700;
-  border: 1px solid rgba(94,234,212,.2);
-}
-
-/* ── STATS BAND ── */
-.stats-band {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  background: var(--teal); color: #fff;
-  text-align: center; padding: 36px 20px; gap: 1px;
-}
-.stat-item { padding: 10px; position: relative; }
-.stat-item:not(:last-child)::after {
-  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-  width: 1px; background: rgba(255,255,255,.2);
-}
-.stat-item strong { display: block; font-size: clamp(26px,5vw,38px); font-weight: 900; line-height: 1; }
-.stat-item span { font-size: 12px; opacity: .88; margin-top: 4px; display: block; }
-
-/* ── FABRIC HIGHLIGHT ── */
-.fabric-section { background: var(--teal-light); padding: 52px 20px; }
-.fabric-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 32px; align-items: center; }
-.fabric-text { flex: 1; }
-.fabric-text h2 { font-size: 24px; font-weight: 900; margin-bottom: 12px; }
-.fabric-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
-.fabric-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.fabric-pill {
-  background: #fff; border: 1.5px solid var(--teal);
-  color: var(--teal); border-radius: 50px;
-  padding: 5px 14px; font-size: 12px; font-weight: 700;
-}
-/* CSS scrub mini dans fabric */
-.fabric-scrub-mini {
-  width: 130px; flex-shrink: 0;
-  display: flex; justify-content: center; align-items: flex-end;
-  height: 160px;
-}
-.fsm-body {
-  width: 90px; height: 120px;
-  background: linear-gradient(160deg, var(--teal), var(--teal-dark));
-  border-radius: 12px 12px 0 0;
-  position: relative;
-  box-shadow: 0 6px 20px rgba(13,148,136,.3);
-}
-.fsm-collar {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 0; height: 0;
-  border-left: 18px solid transparent;
-  border-right: 18px solid transparent;
-  border-top: 28px solid var(--teal-light);
-}
-.fsm-pocket {
-  position: absolute; bottom: 14px; left: 8px;
-  width: 28px; height: 22px;
-  border: 1.5px solid rgba(255,255,255,.4);
-  border-radius: 4px;
-}
-.fsm-stripes {
-  position: absolute; top: 34px; right: 10px;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.fsm-stripe { width: 24px; height: 3px; background: rgba(255,255,255,.3); border-radius: 2px; }
-
 /* ── REVIEWS ── */
 .reviews-grid { display: grid; gap: 14px; }
 .review-card {
@@ -471,8 +142,8 @@ footer a:hover { color: #fff; }
 /* ── MOBILE ── */
 @media (max-width: 600px) {
   .hero { min-height: auto; padding: 34px 20px 270px; }
-  .scrubs-illustration { left: 50%; transform: translateX(-50%); width: 220px; height: 300px; opacity: .18; }
-  .scrub-figure { width: 150px; height: 300px; }
+  
+  
   .hero-content { max-width: 100%; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -483,7 +154,7 @@ footer a:hover { color: #fff; }
   .hero-stats { gap: 16px; }
   .gender-tabs { top: 53px; }
   .fabric-inner { flex-direction: column; }
-  .fabric-scrub-mini { display: none; }
+  
 }
 </style>
 </head>
@@ -517,40 +188,8 @@ footer a:hover { color: #fff; }
       <div class="hero-stat"><strong>4XL</strong><span>أكبر مقاس</span></div>
     </div>
   </div>
-
-  <!-- CSS Scrubs Illustration -->
-  <div class="scrubs-illustration" aria-hidden="true">
-    <div class="scrub-figure">
-      <!-- الرأس + الحجاب -->
-      <div class="scrub-head"></div>
-      <div class="scrub-hijab"></div>
-      <!-- السماعة -->
-      <div class="scrub-stethoscope"></div>
-      <!-- الجسم -->
-      <div class="scrub-body">
-        <div class="scrub-collar"></div>
-        <div class="scrub-label">Uniformedical</div>
-        <div class="scrub-pocket-chest"></div>
-        <div class="scrub-pocket-l"></div>
-        <div class="scrub-pocket-r"></div>
-        <div class="scrub-sleeve-l"></div>
-        <div class="scrub-sleeve-r"></div>
-      </div>
-      <!-- البنطلون -->
-      <div class="scrub-pants">
-        <div class="scrub-pants-line"></div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- TRUST -->
-<div class="trust">
-  <div class="trust-item">🚚 توصيل 24-48h</div>
-  <div class="trust-item">💳 الدفع عند الاستلام</div>
-  <div class="trust-item">✅ جودة مضمونة 100%</div>
-  <div class="trust-item">📦 تغليف احترافي</div>
-</div>
 
 <!-- STATS BAND -->
 <div class="stats-band">
@@ -710,10 +349,7 @@ footer a:hover { color: #fff; }
 <!-- FABRIC HIGHLIGHT -->
 <div class="fabric-section">
   <div class="fabric-inner">
-    <div class="fabric-scrub-mini" aria-hidden="true">
-      <div class="fsm-body">
-        <div class="fsm-collar"></div>
-        <div class="fsm-pocket"></div>
+    <div class="fsm-pocket"></div>
         <div class="fsm-stripes">
           <div class="fsm-stripe"></div>
           <div class="fsm-stripe" style="width:18px;"></div>
