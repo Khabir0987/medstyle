@@ -204,32 +204,100 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 /* TRUST */
 .trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
 
-/* SECTION */
-.section { padding: 52px 20px; max-width: 960px; margin: 0 auto; }
-.s-title { text-align: center; font-size: 24px; font-weight: 900; margin-bottom: 6px; }
-.s-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+/* ── COLLECTIONS ── */
+.coll-wrap {
+  background: #f8fafc;
+  padding: 0 0 52px;
+}
+.coll-header {
+  text-align: center;
+  padding: 44px 20px 28px;
+}
+.coll-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--teal);
+  opacity: .8; margin-bottom: 10px;
+}
+.coll-title {
+  font-size: clamp(22px, 5vw, 30px); font-weight: 900;
+  color: #0f172a; margin-bottom: 8px; line-height: 1.2;
+}
+.coll-sub {
+  font-size: 13px; color: var(--muted); line-height: 1.7;
+}
 
 /* GENDER SECTIONS */
 .gender-section { display: none; }
 .gender-section.active { display: block; }
 
-/* CATEGORY CARDS */
-.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cat-card { position: relative; border-radius: 20px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e5e7eb; transition: transform 0.2s, box-shadow 0.2s; }
-.cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
-.cat-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cat-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%); padding: 20px 16px 16px; }
-.cat-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-.cat-sub { font-size: 12px; opacity: 0.85; }
-.cat-badge { position: absolute; top: 12px; right: 12px; background: var(--teal); color: #fff; border-radius: 50px; padding: 4px 10px; font-size: 11px; font-weight: 700; }
+/* بطاقات الموديلات */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 0 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.models-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 0 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.model-card {
+  position: relative; border-radius: 22px; overflow: hidden;
+  text-decoration: none; color: #fff; display: block;
+  aspect-ratio: 3/4; background: #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.model-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
+.model-card img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.model-card:hover img { transform: scale(1.04); }
 
-/* MEN GRID — 2 cols */
-.categories-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+/* gradient overlay من الأسفل */
+.model-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,20,30,.82) 0%, rgba(10,20,30,.3) 55%, transparent 100%);
+  padding: 24px 14px 16px;
+}
+.model-name {
+  font-size: 15px; font-weight: 900;
+  letter-spacing: .2px; margin-bottom: 3px;
+}
+.model-sub {
+  font-size: 11px; opacity: .8; line-height: 1.4;
+}
+/* badge أعلى البطاقة */
+.model-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--teal);
+  color: #fff; border-radius: 50px;
+  padding: 4px 11px; font-size: 10px; font-weight: 800;
+  box-shadow: 0 3px 10px rgba(13,148,136,.4);
+  letter-spacing: .3px;
+}
+.model-badge.new {
+  background: #7c3aed;
+  box-shadow: 0 3px 10px rgba(124,58,237,.4);
+}
 
-/* COLOR STRIP */
-.color-strip { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
-.color-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border); cursor: pointer; transition: transform 0.15s; }
-.color-dot:hover { transform: scale(1.2); }
+/* SECTION + OLD helpers (kept for compat) */
+.section { padding: 0; max-width: 960px; margin: 0 auto; }
+.s-title { display:none; }
+.s-sub { display:none; }
+.categories-grid { display:none; }
+.categories-grid-2 { display:none; }
+.cat-card { display:none; }
+.color-strip { display:none; }
+.color-dot { display:none; }
 
 /* ── WHY SECTION ── */
 .why-section {
@@ -341,8 +409,10 @@ footer a:hover { color: #fff; }
   .hw-word { font-size: clamp(34px, 11vw, 46px); }
   .hw-word.light { font-size: clamp(24px, 8.5vw, 34px); }
   .hero-bottom { padding: 0 16px 28px; }
-  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .models-grid { grid-template-columns: repeat(3,1fr); gap: 10px; padding: 0 12px; }
+  .models-grid-2 { gap: 10px; padding: 0 12px; }
+  .model-name { font-size: 13px; }
+  .model-sub { font-size: 10px; }
   .why-grid { gap: 12px; }
   .why-icon-wrap { width: 42px; height: 42px; font-size: 20px; border-radius: 12px; }
   .trust { gap: 12px; font-size: 12px; }
@@ -415,7 +485,7 @@ footer a:hover { color: #fff; }
 <!-- TRUST -->
 
 <!-- COLLECTIONS -->
-<div id="collections" style="background:#f9fafb;">
+<div id="collections" class="coll-wrap">
 
   <!-- GENDER TABS -->
   <div class="gender-tabs">
@@ -425,75 +495,72 @@ footer a:hover { color: #fff; }
     </div>
   </div>
 
+  <!-- عنوان القسم -->
+  <div class="coll-header">
+    <div class="coll-eyebrow">اختر موديلك المفضل</div>
+    <h2 class="coll-title">الكولكشن الطبية</h2>
+    <p class="coll-sub">3 موديلات أنيقة — كلها بقماش Bestretch و10 ألوان راقية</p>
+  </div>
+
   <!-- WOMEN -->
   <div class="gender-section active" id="section-women">
-    <div class="section">
-      <div class="s-title">كولكشن النساء</div>
-      <div class="s-sub">بلوزات طبية أنيقة بـ 3 موديلات مختلفة — كلها متوفرة بـ 10 ألوان</div>
-      <div class="categories-grid">
+    <div class="models-grid">
 
-        <!-- موديل V95 -->
-        <a href="v95.html" class="cat-card">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="موديل V95" loading="lazy">
-          <div class="cat-overlay">
-            <div class="cat-name">موديل V95</div>
-            <div class="cat-sub">ياقة V كلاسيكية · مريح ومتنفس</div>
-          </div>
-          <div class="cat-badge">الأكثر طلباً</div>
-        </a>
+      <!-- موديل V95 -->
+      <a href="v95.html" class="model-card">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="موديل V95" loading="lazy">
+        <div class="model-overlay">
+          <div class="model-name">V95</div>
+          <div class="model-sub">ياقة V كلاسيكية</div>
+        </div>
+        <div class="model-badge">الأكثر طلباً</div>
+      </a>
 
-        <!-- موديل أميرة -->
-        <a href="amira.html" class="cat-card">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="موديل أميرة" loading="lazy">
-          <div class="cat-overlay">
-            <div class="cat-name">موديل أميرة</div>
-            <div class="cat-sub">تصميم أنثوي أنيق · قصة مميزة</div>
-          </div>
-        </a>
+      <!-- موديل أميرة -->
+      <a href="amira.html" class="model-card">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="موديل أميرة" loading="lazy">
+        <div class="model-overlay">
+          <div class="model-name">أميرة</div>
+          <div class="model-sub">تصميم أنثوي أنيق</div>
+        </div>
+      </a>
 
-        <!-- موديل كول أفيسي -->
-        <a href="col-avici.html" class="cat-card">
-          <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="موديل كول أفيسي" loading="lazy">
-          <div class="cat-overlay">
-            <div class="cat-name">موديل كول أفيسي</div>
-            <div class="cat-sub">ياقة Col Officier · احترافي بامتياز</div>
-          </div>
-          <div class="cat-badge">جديد</div>
-        </a>
-
-      </div>
+      <!-- موديل كول أفيسي -->
+      <a href="col-avici.html" class="model-card">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="كول أفيسي" loading="lazy">
+        <div class="model-overlay">
+          <div class="model-name">Col Avici</div>
+          <div class="model-sub">ياقة ضابط · احترافي</div>
+        </div>
+        <div class="model-badge new">جديد</div>
+      </a>
 
     </div>
   </div>
 
   <!-- MEN -->
   <div class="gender-section" id="section-men">
-    <div class="section">
-      <div class="s-title">كولكشن الرجال</div>
-      <div class="s-sub">بلوزات طبية رجالية بقصة احترافية — مريحة طوال يوم العمل</div>
-      <div class="categories-grid-2">
+    <div class="models-grid-2">
 
-        <!-- موديل V95 رجال -->
-        <a href="col-avici.html" class="cat-card">
-          <img src="bleu_marin.webp" alt="موديل V95 رجال" loading="lazy">
-          <div class="cat-overlay">
-            <div class="cat-name">موديل V95</div>
-            <div class="cat-sub">ياقة V · مريح ومتنفس طوال اليوم</div>
-          </div>
-          <div class="cat-badge">الأكثر طلباً</div>
-        </a>
+      <!-- موديل V95 رجال -->
+      <a href="v95.html" class="model-card">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp" alt="موديل V95 رجال" loading="lazy">
+        <div class="model-overlay">
+          <div class="model-name">V95</div>
+          <div class="model-sub">ياقة V · مريح ومتنفس</div>
+        </div>
+        <div class="model-badge">الأكثر طلباً</div>
+      </a>
 
-        <!-- موديل كول أفيسي رجال -->
-        <a href="col-avici.html" class="cat-card">
-          <img src="militaire.webp" alt="موديل كول أفيسي رجال" loading="lazy">
-          <div class="cat-overlay">
-            <div class="cat-name">موديل كول أفيسي</div>
-            <div class="cat-sub">ياقة Col Officier · أناقة احترافية</div>
-          </div>
-          <div class="cat-badge">جديد</div>
-        </a>
-
-      </div>
+      <!-- موديل كول أفيسي رجال -->
+      <a href="col-avici.html" class="model-card">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="كول أفيسي رجال" loading="lazy">
+        <div class="model-overlay">
+          <div class="model-name">Col Avici</div>
+          <div class="model-sub">ياقة ضابط · أناقة احترافية</div>
+        </div>
+        <div class="model-badge new">جديد</div>
+      </a>
 
     </div>
   </div>
