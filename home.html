@@ -51,10 +51,62 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
   box-shadow: 0 2px 12px rgba(13,148,136,.15);
 }
 .hero h1 {
-  font-size: clamp(36px, 8vw, 58px); font-weight: 900;
-  line-height: 1.1; margin-bottom: 18px; letter-spacing: -1px;
+  font-size: clamp(34px, 7.5vw, 56px); font-weight: 900;
+  line-height: 1.15; margin-bottom: 22px; letter-spacing: -0.5px;
 }
-.hero h1 span { color: var(--teal); }
+.hero-word {
+  display: block;
+  position: relative;
+  width: fit-content;
+}
+.hero-word-1 {
+  color: var(--text);
+  font-size: clamp(30px, 6.5vw, 48px);
+  font-weight: 700;
+  opacity: .55;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: clamp(13px,3vw,16px);
+  margin-bottom: 4px;
+}
+.hero-word-2 {
+  display: block;
+  color: var(--teal);
+  font-size: clamp(42px, 10vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  position: relative;
+}
+.hero-word-2::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; right: 0; left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal), #5eead4);
+  border-radius: 3px;
+  opacity: .35;
+}
+.hero-word-3 {
+  display: block;
+  color: var(--text);
+  font-size: clamp(42px, 10vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.hero-word-4 {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--teal) 0%, #0f766e 100%);
+  color: #fff;
+  font-size: clamp(16px, 3.5vw, 22px);
+  font-weight: 700;
+  padding: 4px 18px;
+  border-radius: 50px;
+  letter-spacing: .5px;
+  margin-top: 10px;
+  box-shadow: 0 4px 14px rgba(13,148,136,.3);
+}
 .hero p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 30px; max-width: 400px; }
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-primary {
@@ -233,7 +285,12 @@ footer a:hover { color: #fff; }
     <!-- النص -->
     <div class="hero-content">
       <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
-      <h1>راحة.<br><span>أناقة.</span><br>احترافية.</h1>
+      <h1>
+        <span class="hero-word-1">الزي الطبي المغربي الأول</span>
+        <span class="hero-word-3">راحة</span>
+        <span class="hero-word-2">أناقة</span>
+        <span class="hero-word-3">احترافية<span class="hero-word-4">✦ Uniformedical</span></span>
+      </h1>
       <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
       <div class="hero-btns">
         <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
