@@ -25,10 +25,40 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 .nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
 .nav-cta:hover { background: var(--teal-dark); }
 
-/* GENDER TABS */
-.gender-tabs { display: flex; border-bottom: 2px solid var(--border); background: #fff; position: sticky; top: 57px; z-index: 100; }
-.gender-tab { flex: 1; padding: 14px; text-align: center; font-size: 15px; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
-.gender-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+/* ── GENDER TABS ── */
+.gender-tabs {
+  display: flex; justify-content: center;
+  background: #fff;
+  padding: 14px 20px;
+  position: sticky; top: 57px; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.gender-tabs-inner {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 50px;
+  padding: 4px;
+  gap: 4px;
+}
+.gender-tab {
+  flex: 1; min-width: 120px;
+  padding: 10px 28px;
+  text-align: center;
+  font-size: 14px; font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.22s ease;
+  letter-spacing: .3px;
+  user-select: none;
+  white-space: nowrap;
+}
+.gender-tab.active {
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(13,148,136,.35);
+}
 
 /* ── HERO ── */
 .hero {
@@ -317,7 +347,8 @@ footer a:hover { color: #fff; }
   .why-icon-wrap { width: 42px; height: 42px; font-size: 20px; border-radius: 12px; }
   .trust { gap: 12px; font-size: 12px; }
   .hero-stats { gap: 14px; }
-  .gender-tabs { top: 53px; }
+  .gender-tabs { top: 53px; padding: 10px 16px; }
+  .gender-tab { min-width: 100px; padding: 9px 22px; font-size: 13px; }
 }
 </style>
 </head>
@@ -388,8 +419,10 @@ footer a:hover { color: #fff; }
 
   <!-- GENDER TABS -->
   <div class="gender-tabs">
-    <div class="gender-tab active" onclick="switchGender('women', this)">👩 نساء</div>
-    <div class="gender-tab" onclick="switchGender('men', this)">👨 رجال</div>
+    <div class="gender-tabs-inner">
+      <div class="gender-tab active" onclick="switchGender('women', this)">نساء</div>
+      <div class="gender-tab" onclick="switchGender('men', this)">رجال</div>
+    </div>
   </div>
 
   <!-- WOMEN -->
