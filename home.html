@@ -201,12 +201,74 @@ nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1
 .color-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px var(--border); cursor: pointer; transition: transform 0.15s; }
 .color-dot:hover { transform: scale(1.2); }
 
-/* FEATURES */
-.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.feature-card { background: var(--teal-light); border-radius: 18px; padding: 22px; border: 1px solid #99f6e4; }
-.feature-icon { font-size: 30px; margin-bottom: 8px; }
-.feature-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 5px; }
-.feature-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+/* ── WHY SECTION ── */
+.why-section {
+  background: #0f172a;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.why-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(13,148,136,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.why-inner { max-width: 480px; margin: 0 auto; position: relative; z-index: 1; }
+.why-eyebrow {
+  text-align: center;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 10px; opacity: .85;
+}
+.why-title {
+  text-align: center;
+  font-size: clamp(24px, 6vw, 34px); font-weight: 900;
+  color: #fff; margin-bottom: 6px; line-height: 1.2;
+}
+.why-title span { color: var(--teal); }
+.why-sub {
+  text-align: center;
+  font-size: 13px; color: #94a3b8; margin-bottom: 36px; line-height: 1.7;
+}
+/* البطاقات */
+.why-grid {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.why-card {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 20px 18px;
+  transition: background .2s, border-color .2s;
+  position: relative; overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(13,148,136,.12) 0%, transparent 60%);
+  opacity: 0; transition: opacity .2s;
+}
+.why-card:hover::before { opacity: 1; }
+.why-card:hover { border-color: rgba(13,148,136,.35); }
+.why-icon-wrap {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--teal) 0%, #0f766e 100%);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(13,148,136,.35);
+}
+.why-card-body {}
+.why-card h3 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+.why-card p { font-size: 13px; color: #94a3b8; line-height: 1.65; margin: 0; }
+.why-number {
+  position: absolute; top: 14px; left: 16px;
+  font-size: 11px; font-weight: 900; color: rgba(255,255,255,.08);
+  letter-spacing: 1px; font-family: 'Inter', monospace;
+}
 
 /* REVIEWS */
 .reviews-grid { display: grid; gap: 12px; }
@@ -251,7 +313,8 @@ footer a:hover { color: #fff; }
   .hero-bottom { padding: 0 16px 28px; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .categories-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .features-grid { grid-template-columns: 1fr; }
+  .why-grid { gap: 12px; }
+  .why-icon-wrap { width: 42px; height: 42px; font-size: 20px; border-radius: 12px; }
   .trust { gap: 12px; font-size: 12px; }
   .hero-stats { gap: 14px; }
   .gender-tabs { top: 53px; }
@@ -436,16 +499,52 @@ footer a:hover { color: #fff; }
 
 <div class="divider"></div>
 
-<!-- FEATURES -->
-<div style="padding: 52px 20px; background:#fff;">
-  <div style="max-width:960px; margin:0 auto;">
-    <div class="s-title">لماذا Uniformedical؟</div>
-    <div class="s-sub">تفاصيل مصممة للمختصين الصحيين</div>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">🧵</div><h3>قماش Bestretch المرن</h3><p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p></div>
-      <div class="feature-card"><div class="feature-icon">📏</div><h3>مقاسات XS إلى 4XL</h3><p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية.</p></div>
-      <div class="feature-card"><div class="feature-icon">⚡</div><h3>تصنيع في 24-48 ساعة</h3><p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p></div>
-      <div class="feature-card"><div class="feature-icon">🪡</div><h3>تطريز الاسم +45 درهم</h3><p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p></div>
+<!-- WHY UNIFORMEDICAL -->
+<div class="why-section">
+  <div class="why-inner">
+
+    <div class="why-eyebrow">الفرق يبدأ من التفاصيل</div>
+    <h2 class="why-title">لماذا <span>Uniformedical</span>؟</h2>
+    <p class="why-sub">تفاصيل مصممة خصيصاً للمختصين الصحيين المغاربة</p>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-number">01</div>
+        <div class="why-icon-wrap">🧵</div>
+        <div class="why-card-body">
+          <h3>قماش Bestretch المرن</h3>
+          <p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-number">02</div>
+        <div class="why-icon-wrap">📏</div>
+        <div class="why-card-body">
+          <h3>مقاسات XS إلى 4XL</h3>
+          <p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية ومريحة.</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-number">03</div>
+        <div class="why-icon-wrap">⚡</div>
+        <div class="why-card-body">
+          <h3>تصنيع في 24-48 ساعة</h3>
+          <p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-number">04</div>
+        <div class="why-icon-wrap">🪡</div>
+        <div class="why-card-body">
+          <h3>تطريز الاسم +45 درهم</h3>
+          <p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
