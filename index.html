@@ -1,669 +1,2135 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uniformedical – بلوزات طبية احترافية في المغرب</title>
-<meta name="description" content="Uniformedical – البلوزات الطبية الأكثر جودة في المغرب. تسليم سريع، دفع عند الاستلام.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --teal: #0d9488; --teal-dark: #0f766e; --teal-light: #f0fdfa;
-  --text: #111827; --muted: #6b7280; --border: #e5e7eb;
-}
-body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
+    <meta charset="UTF-8">
+    <link rel="preload" as="image" href="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/6af83f642_beiclaire.webp" fetchpriority="high" type="image/webp">
+    <meta name="theme-color" content="#0d9488">
 
-/* ANNOUNCE */
-.announce { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 600; padding: 9px 16px; }
-
-/* NAV */
-nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1px solid var(--border); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
-.nav-logo { font-size: 20px; font-weight: 900; color: var(--teal); text-decoration: none; }
-.nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--teal-dark); }
-
-/* ── GENDER TABS ── */
-.gender-tabs {
-  display: flex; justify-content: center;
-  background: #fff;
-  padding: 14px 20px;
-  position: sticky; top: 57px; z-index: 100;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-}
-.gender-tabs-inner {
-  display: flex;
-  background: #f1f5f9;
-  border-radius: 50px;
-  padding: 4px;
-  gap: 4px;
-}
-.gender-tab {
-  flex: 1; min-width: 120px;
-  padding: 10px 28px;
-  text-align: center;
-  font-size: 14px; font-weight: 700;
-  color: #64748b;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.22s ease;
-  letter-spacing: .3px;
-  user-select: none;
-  white-space: nowrap;
-}
-.gender-tab.active {
-  background: var(--teal);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(13,148,136,.35);
-}
-
-/* ── HERO ── */
-.hero {
-  background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 60%, #fff 100%);
-  overflow: hidden; padding: 0; position: relative;
-}
-/* الـ inner: صف أفقي — الرسم يسار، الكلمات يمين */
-.hero-inner {
-  display: flex; flex-direction: row;
-  align-items: center; justify-content: center;
-  width: 100%; max-width: 480px; margin: 0 auto;
-  padding: 36px 16px 28px; gap: 8px;
-}
-
-/* ── الصورة يسار ── */
-.hero-visual {
-  width: 190px; height: 190px; flex-shrink: 0;
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  margin-left: -18px;
-}
-.hero-visual-ring {
-  position: absolute; inset: 0; border-radius: 50%;
-  border: 2px dashed rgba(13,148,136,.3);
-  animation: spin-slow 20s linear infinite;
-}
-.hero-visual-ring2 {
-  position: absolute; inset: 16px; border-radius: 50%;
-  border: 1.5px dashed rgba(13,148,136,.15);
-  animation: spin-slow 28s linear infinite reverse;
-}
-.hero-scrub-img {
-  width: 130px; height: 130px;
-  object-fit: contain; position: relative; z-index: 2;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 4px 14px rgba(13,148,136,.2));
-  animation: float 4s ease-in-out infinite;
-}
-.hero-chip {
-  position: absolute; background: #fff;
-  border-radius: 50px; padding: 5px 10px;
-  font-size: 11px; font-weight: 700; color: var(--text);
-  box-shadow: 0 3px 10px rgba(0,0,0,.1);
-  white-space: nowrap; z-index: 3;
-  border: 1px solid var(--border);
-  animation: float 4s ease-in-out infinite;
-}
-/* c1 = Bestretch — أعلى يمين */
-.hero-chip.c1 { top: 12px; right: -28px; animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-/* c2 = XS→4XL — أسفل يمين */
-.hero-chip.c2 { bottom: 16px; right: -32px; animation-delay: 1s; }
-/* c3 = 10 ألوان — أسفل يسار */
-.hero-chip.c3 { bottom: 26px; left: -22px; animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-/* c4 = 24h — أعلى يسار */
-.hero-chip.c4 { top: 18px; left: -20px; animation-delay: 1.5s; }
-
-/* ── النص يمين ── */
-.hero-content {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: flex-end; text-align: right;
-  padding-right: 4px;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: #fff; border: 1.5px solid var(--teal);
-  color: var(--teal); border-radius: 50px;
-  padding: 6px 14px; font-size: 12px; font-weight: 700;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 10px rgba(13,148,136,.15);
-}
-.hero h1 { margin: 0 0 12px; text-align: right; }
-.hw-label {
-  display: block; font-size: 10px; font-weight: 700;
-  color: var(--teal); letter-spacing: 2px;
-  text-transform: uppercase; opacity: .65;
-  margin-bottom: 6px;
-}
-.hw-word {
-  display: block; font-weight: 900;
-  line-height: 1.1; letter-spacing: -1px;
-  font-size: clamp(36px, 10.5vw, 54px);
-  color: var(--text);
-  margin-bottom: 2px;
-}
-.hw-word.teal {
-  color: var(--teal); position: relative; width: fit-content;
-}
-.hw-word.teal::after {
-  content: ''; position: absolute;
-  bottom: 3px; right: 0; left: 0; height: 4px;
-  background: linear-gradient(90deg, var(--teal), #5eead4);
-  border-radius: 3px; opacity: .35;
-}
-.hw-word.light { color: #94a3b8; font-size: clamp(26px,8vw,38px); font-weight: 700; margin-bottom: 2px; }
-
-/* ── الجزء السفلي: p + btns + stats (بعد الصف) ── */
-.hero-bottom {
-  width: 100%; max-width: 480px; margin: 0 auto;
-  padding: 0 16px 36px; text-align: center;
-}
-.hero p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 22px; }
-.hero-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 0; }
-.btn-primary {
-  background: var(--teal); color: #fff; border: none;
-  border-radius: 50px; padding: 11px 22px;
-  font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700;
-  cursor: pointer; text-decoration: none; display: inline-block;
-  transition: background .2s, transform .15s;
-  box-shadow: 0 4px 14px rgba(13,148,136,.3);
-  flex: 1; min-width: 110px;
-}
-.btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
-.btn-outline {
-  background: transparent; color: var(--teal);
-  border: 2px solid var(--teal); border-radius: 50px;
-  padding: 11px 22px; font-family: 'Cairo', sans-serif;
-  font-size: 13px; font-weight: 700; text-decoration: none;
-  display: inline-block; transition: all .2s;
-  flex: 1; min-width: 110px; text-align: center;
-}
-.btn-outline:hover { background: var(--teal-light); }
-
-.hero-stats {
-  display: flex; gap: 0; margin-top: 20px;
-  background: #fff; border-radius: 16px;
-  box-shadow: 0 2px 14px rgba(0,0,0,.07);
-  border: 1px solid var(--border); overflow: hidden;
-}
-.hero-stat { flex: 1; padding: 13px 6px; text-align: center; }
-.hero-stat:not(:last-child) { border-left: 1px solid var(--border); }
-.hero-stat strong { display: block; font-size: 18px; font-weight: 900; color: var(--teal); line-height: 1; }
-.hero-stat span { font-size: 10px; color: var(--muted); margin-top: 3px; display: block; }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-}
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* TRUST */
-.trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
-
-/* ── COLLECTIONS ── */
-.coll-wrap {
-  background: #f8fafc;
-  padding: 0 0 52px;
-}
-.coll-header {
-  text-align: center;
-  padding: 44px 20px 28px;
-}
-.coll-eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--teal);
-  opacity: .8; margin-bottom: 10px;
-}
-.coll-title {
-  font-size: clamp(22px, 5vw, 30px); font-weight: 900;
-  color: #0f172a; margin-bottom: 8px; line-height: 1.2;
-}
-.coll-sub {
-  font-size: 13px; color: var(--muted); line-height: 1.7;
-}
-
-/* GENDER SECTIONS */
-.gender-section { display: none; }
-.gender-section.active { display: block; }
-
-/* بطاقات الموديلات */
-.models-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  padding: 0 16px;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.models-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  padding: 0 16px;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.model-card {
-  position: relative; border-radius: 22px; overflow: hidden;
-  text-decoration: none; color: #fff; display: block;
-  aspect-ratio: 3/4; background: #e2e8f0;
-  box-shadow: 0 4px 20px rgba(0,0,0,.1);
-  transition: transform 0.22s, box-shadow 0.22s;
-}
-.model-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
-.model-card img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  transition: transform 0.4s ease;
-}
-.model-card:hover img { transform: scale(1.04); }
-
-/* gradient overlay من الأسفل */
-.model-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(10,20,30,.82) 0%, rgba(10,20,30,.3) 55%, transparent 100%);
-  padding: 24px 14px 16px;
-}
-.model-name {
-  font-size: 15px; font-weight: 900;
-  letter-spacing: .2px; margin-bottom: 3px;
-}
-.model-sub {
-  font-size: 11px; opacity: .8; line-height: 1.4;
-}
-/* badge أعلى البطاقة */
-.model-badge {
-  position: absolute; top: 12px; right: 12px;
-  background: var(--teal);
-  color: #fff; border-radius: 50px;
-  padding: 4px 11px; font-size: 10px; font-weight: 800;
-  box-shadow: 0 3px 10px rgba(13,148,136,.4);
-  letter-spacing: .3px;
-}
-.model-badge.new {
-  background: #7c3aed;
-  box-shadow: 0 3px 10px rgba(124,58,237,.4);
-}
-
-/* SECTION + OLD helpers (kept for compat) */
-.section { padding: 0; max-width: 960px; margin: 0 auto; }
-.s-title { display:none; }
-.s-sub { display:none; }
-.categories-grid { display:none; }
-.categories-grid-2 { display:none; }
-.cat-card { display:none; }
-.color-strip { display:none; }
-.color-dot { display:none; }
-
-/* ── WHY SECTION ── */
-.why-section {
-  background: #0f172a;
-  padding: 60px 20px;
-  position: relative;
-  overflow: hidden;
-}
-.why-section::before {
-  content: '';
-  position: absolute;
-  top: -80px; left: 50%; transform: translateX(-50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(13,148,136,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.why-inner { max-width: 480px; margin: 0 auto; position: relative; z-index: 1; }
-.why-eyebrow {
-  text-align: center;
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--teal);
-  margin-bottom: 10px; opacity: .85;
-}
-.why-title {
-  text-align: center;
-  font-size: clamp(24px, 6vw, 34px); font-weight: 900;
-  color: #fff; margin-bottom: 6px; line-height: 1.2;
-}
-.why-title span { color: var(--teal); }
-.why-sub {
-  text-align: center;
-  font-size: 13px; color: #94a3b8; margin-bottom: 36px; line-height: 1.7;
-}
-/* البطاقات */
-.why-grid {
-  display: flex; flex-direction: column; gap: 14px;
-}
-.why-card {
-  display: flex; align-items: flex-start; gap: 16px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20px; padding: 20px 18px;
-  transition: background .2s, border-color .2s;
-  position: relative; overflow: hidden;
-}
-.why-card::before {
-  content: '';
-  position: absolute; inset: 0; border-radius: 20px;
-  background: linear-gradient(135deg, rgba(13,148,136,.12) 0%, transparent 60%);
-  opacity: 0; transition: opacity .2s;
-}
-.why-card:hover::before { opacity: 1; }
-.why-card:hover { border-color: rgba(13,148,136,.35); }
-.why-icon-wrap {
-  width: 48px; height: 48px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--teal) 0%, #0f766e 100%);
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 4px 16px rgba(13,148,136,.35);
-}
-.why-card-body {}
-.why-card h3 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-.why-card p { font-size: 13px; color: #94a3b8; line-height: 1.65; margin: 0; }
-.why-number {
-  position: absolute; top: 14px; left: 16px;
-  font-size: 11px; font-weight: 900; color: rgba(255,255,255,.08);
-  letter-spacing: 1px; font-family: 'Inter', monospace;
-}
-
-/* REVIEWS */
-.reviews-grid { display: grid; gap: 12px; }
-.review-card { background: #fafafa; border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
-.review-stars { color: #f59e0b; font-size: 14px; margin-bottom: 7px; }
-.review-text { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
-.review-author { font-size: 12px; font-weight: 700; color: var(--muted); }
-
-/* CTA BAND */
-.cta-band { background: linear-gradient(135deg, #0d9488, #065f46); color: #fff; text-align: center; padding: 60px 24px; }
-.cta-band h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; }
-.cta-band p { font-size: 15px; opacity: 0.88; margin-bottom: 26px; }
-.btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
-.btn-white:hover { transform: translateY(-2px); }
-
-/* FOOTER */
-footer { background: #111827; color: #9ca3af; text-align: center; padding: 28px 20px; font-size: 13px; }
-footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
-footer a:hover { color: #fff; }
-.footer-links { margin-bottom: 10px; }
-
-/* WA */
-.wa { position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
-.wa:hover { transform: scale(1.1); }
-.wa svg { width: 28px; height: 28px; fill: #fff; }
-
-/* DIVIDER */
-.divider { height: 1px; background: var(--border); margin: 0; }
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .hero-inner { gap: 4px; padding: 28px 12px 20px; }
-  .hero-visual { width: 160px; height: 160px; }
-  .hero-scrub-img { width: 110px; height: 110px; }
-  .hero-chip { font-size: 10px; padding: 4px 9px; }
-  .hero-chip.c1 { right: -24px; top: 8px; }
-  .hero-chip.c2 { right: -28px; bottom: 10px; }
-  .hero-chip.c3 { left: -18px; bottom: 18px; }
-  .hero-chip.c4 { left: -16px; top: 12px; }
-  .hw-word { font-size: clamp(34px, 11vw, 46px); }
-  .hw-word.light { font-size: clamp(24px, 8.5vw, 34px); }
-  .hero-bottom { padding: 0 16px 28px; }
-  .models-grid { grid-template-columns: repeat(3,1fr); gap: 10px; padding: 0 12px; }
-  .models-grid-2 { gap: 10px; padding: 0 12px; }
-  .model-name { font-size: 13px; }
-  .model-sub { font-size: 10px; }
-  .why-grid { gap: 12px; }
-  .why-icon-wrap { width: 42px; height: 42px; font-size: 20px; border-radius: 12px; }
-  .trust { gap: 12px; font-size: 12px; }
-  .hero-stats { gap: 14px; }
-  .gender-tabs { top: 53px; padding: 10px 16px; }
-  .gender-tab { min-width: 100px; padding: 9px 22px; font-size: 13px; }
-}
-</style>
-</head>
-<body>
-
-<!-- ANNOUNCE -->
-<div class="announce">🚚 توصيل مجاني فوق 500 درهم &nbsp;|&nbsp; الدفع عند الاستلام في جميع أنحاء المغرب</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="home.html" class="nav-logo">Uniformedical</a>
-    <a href="index.html" class="nav-cta">🛍 اطلب الآن</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-
-  <!-- الصف الأفقي: الرسم يسار + الكلمات يمين -->
-  <div class="hero-inner">
-
-    <!-- الرسم يسار -->
-    <div class="hero-visual">
-      <div class="hero-visual-ring"></div>
-      <div class="hero-visual-ring2"></div>
-      <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d755171e9_vwep.webp"
-           alt="بلوزة طبية Uniformedical" class="hero-scrub-img" loading="eager" fetchpriority="high">
-      <div class="hero-chip c1">✨ Bestretch</div>
-      <div class="hero-chip c2">📏 XS → 4XL</div>
-      <div class="hero-chip c3">🎨 10 ألوان</div>
-      <div class="hero-chip c4">⚡ 24h تصنيع</div>
-    </div>
-
-    <!-- الكلمات يمين -->
-    <div class="hero-content">
-      <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
-      <h1>
-        <span class="hw-label">الزي الطبي المغربي الأول</span>
-        <span class="hw-word light">راحة</span>
-        <span class="hw-word teal">أناقة</span>
-        <span class="hw-word">احترافية</span>
-      </h1>
-    </div>
-
-  </div>
-
-  <!-- الجزء السفلي: الوصف + الأزرار + الإحصائيات -->
-  <div class="hero-bottom">
-    <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
-    <div class="hero-btns">
-      <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
-      <a href="#collections" class="btn-outline">استعرض الكولكشن</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
-      <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
-      <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
-    </div>
-  </div>
-
-</section>
-
-<!-- TRUST -->
-
-<!-- COLLECTIONS -->
-<div id="collections" class="coll-wrap">
-
-  <!-- GENDER TABS -->
-  <div class="gender-tabs">
-    <div class="gender-tabs-inner">
-      <div class="gender-tab active" onclick="switchGender('women', this)">نساء</div>
-      <div class="gender-tab" onclick="switchGender('men', this)">رجال</div>
-    </div>
-  </div>
-
-  <!-- عنوان القسم -->
-  <div class="coll-header">
-    <div class="coll-eyebrow">اختر موديلك المفضل</div>
-    <h2 class="coll-title">الكولكشن الطبية</h2>
-    <p class="coll-sub">3 موديلات أنيقة — كلها بقماش Bestretch و10 ألوان راقية</p>
-  </div>
-
-  <!-- WOMEN -->
-  <div class="gender-section active" id="section-women">
-    <div class="models-grid">
-
-      <!-- موديل V95 -->
-      <a href="v95.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="موديل V95" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">V95</div>
-          <div class="model-sub">ياقة V كلاسيكية</div>
-        </div>
-        <div class="model-badge">الأكثر طلباً</div>
-      </a>
-
-      <!-- موديل أميرة -->
-      <a href="amira.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="موديل أميرة" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">أميرة</div>
-          <div class="model-sub">تصميم أنثوي أنيق</div>
-        </div>
-      </a>
-
-      <!-- موديل كول أفيسي -->
-      <a href="col-avici.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="كول أفيسي" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Col Avici</div>
-          <div class="model-sub">ياقة ضابط · احترافي</div>
-        </div>
-        <div class="model-badge new">جديد</div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- MEN -->
-  <div class="gender-section" id="section-men">
-    <div class="models-grid-2">
-
-      <!-- موديل V95 رجال -->
-      <a href="v95.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp" alt="موديل V95 رجال" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">V95</div>
-          <div class="model-sub">ياقة V · مريح ومتنفس</div>
-        </div>
-        <div class="model-badge">الأكثر طلباً</div>
-      </a>
-
-      <!-- موديل كول أفيسي رجال -->
-      <a href="col-avici.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="كول أفيسي رجال" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Col Avici</div>
-          <div class="model-sub">ياقة ضابط · أناقة احترافية</div>
-        </div>
-        <div class="model-badge new">جديد</div>
-      </a>
-
-    </div>
-  </div>
-
-</div><!-- end collections -->
-
-<div class="divider"></div>
-
-<!-- WHY UNIFORMEDICAL -->
-<div class="why-section">
-  <div class="why-inner">
-
-    <div class="why-eyebrow">الفرق يبدأ من التفاصيل</div>
-    <h2 class="why-title">لماذا <span>Uniformedical</span>؟</h2>
-    <p class="why-sub">تفاصيل مصممة خصيصاً للمختصين الصحيين المغاربة</p>
-
-    <div class="why-grid">
-
-      <div class="why-card">
-        <div class="why-number">01</div>
-        <div class="why-icon-wrap">🧵</div>
-        <div class="why-card-body">
-          <h3>قماش Bestretch المرن</h3>
-          <p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-number">02</div>
-        <div class="why-icon-wrap">📏</div>
-        <div class="why-card-body">
-          <h3>مقاسات XS إلى 4XL</h3>
-          <p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية ومريحة.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-number">03</div>
-        <div class="why-icon-wrap">⚡</div>
-        <div class="why-card-body">
-          <h3>تصنيع في 24-48 ساعة</h3>
-          <p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-number">04</div>
-        <div class="why-icon-wrap">🪡</div>
-        <div class="why-card-body">
-          <h3>تطريز الاسم +45 درهم</h3>
-          <p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- REVIEWS -->
-<div class="section">
-  <div class="s-title">ماذا يقول عملاؤنا</div>
-  <div class="s-sub">آراء حقيقية من مهنيين صحيين في المغرب</div>
-  <div class="reviews-grid">
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">جودة ممتازة! القماش مريح جداً ويتحمل الغسيل المتكرر. الألوان واضحة ونظيفة. سأطلب مجموعة ثانية قريباً.</div><div class="review-author">— سارة م. · ممرضة، الدار البيضاء</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">التوصيل كان سريعاً جداً، والمقاس كان مضبوطاً. البلوزة أنيقة ومريحة — بالضبط ما كنت أبحث عنه.</div><div class="review-author">— يوسف ب. · طبيب، الرباط</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">أفضل بلوزة طبية اشتريتها. القماش خفيف ومتنفس حتى في الوردية الطويلة. شكراً Uniformedical!</div><div class="review-author">— فاطمة ر. · صيدلانية، مراكش</div></div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div class="cta-band">
-  <h2>جاهز لترقية زيّك الطبي؟</h2>
-  <p>اطلب الآن وادفع عند الاستلام — توصيل لجميع أنحاء المغرب</p>
-  <a href="index.html" class="btn-white">🛍 اطلب الآن</a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-links">
-    <a href="home.html">الرئيسية</a>
-    <a href="index.html">اطلب الآن</a>
-    <a href="mailto:contact@uniformedical.com">contact@uniformedical.com</a>
-  </div>
-  <div>© 2026 Uniformedical. جميع الحقوق محفوظة.</div>
-</footer>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/212600000000" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="UNIFORMEDICAL — الزي الطبي المغربي الاحترافي. بلوزات طبية عالية الجودة، 10 ألوان، توصيل لجميع مدن المغرب، دفع عند الاستلام.">
+    <title>UNIFORMEDICAL - الزي الطبي المغربي الاحترافي</title>
+    
 <script>
-function switchGender(gender, tab) {
-  // Tabs
-  document.querySelectorAll('.gender-tab').forEach(t => t.classList.remove('active'));
-  tab.classList.add('active');
-  // Sections
-  document.querySelectorAll('.gender-section').forEach(s => s.classList.remove('active'));
-  document.getElementById('section-' + gender).classList.add('active');
+// ── FAQ accordion ─────────────────────────────────────────
+function toggleFaq(idx) {
+    const totalFaqs = 10;
+    for (let j = 0; j < totalFaqs; j++) {
+        const ans  = document.getElementById('faq-ans-' + j);
+        const icon = document.getElementById('faq-icon-' + j);
+        if (!ans) continue;
+        if (j === idx) {
+            const isOpen = ans.style.display !== 'none' && ans.style.display !== '';
+            ans.style.display = isOpen ? 'none' : 'block';
+            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        } else {
+            ans.style.display = 'none';
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+    }
 }
 </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript></noscript>
+    <style>
 
+/* Minimal reset (replaces Tailwind preflight) */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+html{line-height:1.5;-webkit-text-size-adjust:100%}
+body{margin:0;line-height:inherit}
+h1,h2,h3,h4{font-size:inherit;font-weight:inherit;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:inherit}
+button{font-family:inherit;font-size:100%;line-height:inherit;cursor:pointer;background:transparent;border:0;padding:0}
+img,video{max-width:100%;height:auto}
+ul,ol{list-style:none;margin:0;padding:0}
+select{font-family:inherit}
+
+
+
+/* === PURGED TAILWIND === */
+.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.flex-wrap{flex-wrap:wrap}
+.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.font-mono{font-family:ui-monospace,monospace}
+.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}
+.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.h-1{height:.25rem}.h-4{height:1rem}.h-8{height:2rem}.h-16{height:4rem}
+.inset-0{inset:0}
+.items-baseline{align-items:baseline}.items-center{align-items:center}.items-start{align-items:flex-start}
+.justify-between{justify-content:space-between}.justify-center{justify-content:center}
+.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}
+.line-through{text-decoration:line-through}
+.max-w-sm{max-width:24rem}.max-w-xs{max-width:20rem}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}
+.ml-1{margin-left:.25rem}.mr-3{margin-right:.75rem}
+.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+.outline-none{outline:2px solid transparent;outline-offset:2px}
+.overflow-hidden{overflow:hidden}
+.p-1\.5{padding:.375rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}
+.pb-2{padding-bottom:.5rem}.pb-28{padding-bottom:7rem}
+.pr-3{padding-right:.75rem}.pt-1\.5{padding-top:.375rem}.pt-4{padding-top:1rem}
+.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}
+.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}
+.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}
+.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}
+.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+.right-3{right:.75rem}
+.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}
+.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}
+.shadow-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}
+.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+.shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.shadow-green-100{--tw-shadow-color:#dcfce7;box-shadow:0 10px 15px -3px var(--tw-shadow-color)}
+.space-y-0\.5>:not([hidden])~:not([hidden]){margin-top:.125rem}
+.space-y-1>:not([hidden])~:not([hidden]){margin-top:.25rem}
+.space-y-1\.5>:not([hidden])~:not([hidden]){margin-top:.375rem}
+.space-y-2>:not([hidden])~:not([hidden]){margin-top:.5rem}
+.space-y-3>:not([hidden])~:not([hidden]){margin-top:.75rem}
+.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}
+.space-y-5>:not([hidden])~:not([hidden]){margin-top:1.25rem}
+.text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}
+.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-center{text-align:center}.text-right{text-align:right}
+.text-white{color:#fff}
+.text-gray-400{color:#9ca3af}.text-gray-500{color:#6b7280}.text-gray-600{color:#4b5563}.text-gray-700{color:#374151}.text-gray-800{color:#1f2937}.text-gray-900{color:#111827}
+.text-teal-300{color:#5eead4}.text-teal-500{color:#14b8a6}.text-teal-600{color:#0d9488}.text-teal-700{color:#0f766e}.text-teal-800{color:#115e59}
+.text-amber-600{color:#d97706}
+.text-emerald-600{color:#059669}.text-emerald-800{color:#065f46}
+.text-green-600{color:#16a34a}.text-green-700{color:#15803d}
+.text-rose-500{color:#f43f5e}.text-rose-600{color:#e11d48}
+.text-purple-600{color:#9333ea}
+.top-0{top:0}
+.tracking-wide{letter-spacing:.025em}.tracking-widest{letter-spacing:.1em}
+.transition-all{transition:all .15s cubic-bezier(.4,0,.2,1)}
+.translate-y-40{transform:translateY(10rem)}
+.w-4{width:1rem}.w-8{width:2rem}.w-10{width:2.5rem}.w-16{width:4rem}.w-full{width:100%}
+.z-40{z-index:40}.z-50{z-index:50}
+.bottom-24{bottom:6rem}
+.cursor-pointer{cursor:pointer}
+.duration-500{transition-duration:.5s}
+.bg-white{background:#fff}
+.bg-gray-50{background:#f9fafb}.bg-gray-100{background:#f3f4f6}.bg-gray-200{background:#e5e7eb}.bg-gray-800{background:#1f2937}.bg-gray-900{background:#111827}
+.bg-teal-50{background:#f0fdfa}.bg-teal-100{background:#ccfbf1}.bg-teal-600{background:#0d9488}.bg-teal-900{background:#134e4a}
+.bg-emerald-100{background:#d1fae5}
+.bg-green-100{background:#dcfce7}.bg-green-500{background:#22c55e}
+.bg-rose-100{background:#ffe4e6}.bg-rose-500{background:#f43f5e}
+.border-t{border-top:1px solid}
+.border-gray-100{border-color:#f3f4f6}
+.border-teal-100{border-color:#ccfbf1}.border-teal-200{border-color:#99f6e4}
+.border-amber-300{border-color:#fcd34d}
+/* Display utilities */
+.hidden{display:none!important}
+.block{display:block}
+.inline-block{display:inline-block}
+.inline{display:inline}
+.flex{display:flex}
+.grid{display:grid}
+.relative{position:relative}
+.absolute{position:absolute}
+.fixed{position:fixed}
+.sticky{position:sticky}
+
+
+        body { font-family: 'Cairo', 'Inter', sans-serif; background: #f8f8f8; }
+        /* gallery uses slider now */
+
+        /* ── Full-width gallery ── */
+        .gallery-container { touch-action: pan-y; user-select: none; }
+        .gallery-track { will-change: transform; display:flex; }
+        .gallery-slide img { display: block; }
+        .dot { width:7px; height:7px; border-radius:50%; background:#d1d5db; transition:all 0.2s; cursor:pointer; }
+        .dot.active { background:#111827; width:20px; border-radius:4px; }
+
+        /* ── Zoom modal ── */
+        #zoom-modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); flex-direction:column; align-items:center; justify-content:center; }
+        #zoom-modal.open { display:flex; }
+        #zoom-modal img { max-width:100%; max-height:90vh; object-fit:contain; border-radius:8px; }
+        #zoom-close { position:absolute; top:16px; right:16px; w:36px; h:36px; background:rgba(255,255,255,0.15); border:none; color:white; font-size:20px; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+
+        .c-swatch { width:30px; height:30px; border-radius:50%; border:3px solid transparent; outline:2px solid transparent; cursor:pointer; transition:all 0.18s; flex-shrink:0; }
+        .c-swatch.active { border-color:white; outline-color:#0d9488; box-shadow:0 0 0 2px #0d9488; }
+        .c-swatch:hover { transform:scale(1.12); }
+        .size-btn { min-width:40px; padding:5px 8px; border:2px solid #e5e7eb; border-radius:8px; font-size:12px; font-weight:700; color:#374151; cursor:pointer; transition:all 0.15s; background:white; font-family:'Cairo',sans-serif; }
+        .size-btn.active { border-color:#0d9488; background:#f0fdfa; color:#0d9488; }
+        .offer-card { border:2px solid #e5e7eb; border-radius:18px; background:white; transition:all 0.2s; }
+        .offer-card.selected { border-color:#0d9488; }
+
+        /* Modal */
+        #order-modal { display:none; position:fixed; inset:0; z-index:100; }
+        #order-modal.open { display:flex; }
+        .modal-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.5); backdrop-filter:blur(2px); }
+        .modal-box {
+            position:relative; z-index:1; background:white;
+            border-radius:24px 24px 0 0; width:100%; max-height:92vh;
+            overflow-y:auto; padding:20px 16px 100px;
+            margin-top:auto;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
+
+        .form-input {
+            width:100%; padding:12px 40px 12px 12px;
+            border:1.5px solid #e5e7eb; border-radius:12px;
+            font-family:'Cairo',sans-serif; font-size:14px;
+            outline:none; text-align:right; background:white;
+            transition:border-color 0.2s;
+        }
+        .form-input:focus { border-color:#0d9488; }
+        select.form-input { -webkit-appearance:none; appearance:none; }
+        .input-icon { position:absolute; right:12px; top:50%; transform:translateY(-50%); color:#9ca3af; pointer-events:none; }
+
+        .cta-btn { width:100%; padding:15px; background:#111827; color:white; font-weight:800; font-size:15px; border-radius:14px; border:none; display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; font-family:'Cairo',sans-serif; }
+        .cta-btn:active { background:#374151; }
+
+        .broderie-btn { width:100%; padding:14px; border:2px dashed #c4b5fd; border-radius:14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:all 0.2s; background:#f5f3ff; font-family:'Cairo',sans-serif; }
+        .broderie-btn.active { border-color:#7c3aed; background:#ede9fe; }
+
+        .sticky-bottom { position:fixed; bottom:0; left:0; right:0; background:white; padding:12px 16px; box-shadow:0 -4px 20px rgba(0,0,0,0.10); z-index:50; display:flex; gap:10px; }
+        .modal-sticky { position:sticky; bottom:0; left:0; right:0; background:white; padding:12px 16px 16px; border-top:1px solid #f3f4f6; margin:0 -16px; }
+
+        .star { color:#f59e0b; }
+
+        /* Item selector inside bundle */
+        .item-selector { background:#f9fafb; border-radius:14px; padding:14px; margin-top:10px; }
+        .item-selector .c-swatch { width:26px; height:26px; }
+
+
+        /* ── Compact item chip ── */
+        .item-chip {
+            display:flex; align-items:center; justify-content:space-between;
+            background:#f9fafb; border:1.5px solid #e5e7eb; border-radius:12px;
+            padding:10px 12px; cursor:pointer; transition:all 0.18s;
+        }
+        .item-chip:hover { border-color:#0d9488; background:#f0fdfa; }
+        .item-chip .chip-dot { width:18px; height:18px; border-radius:50%; border:2px solid rgba(0,0,0,0.12); flex-shrink:0; }
+        .item-chip .chip-info { flex:1; margin:0 10px; }
+        .item-chip .chip-info p { font-size:12px; font-weight:700; color:#374151; }
+        .item-chip .chip-info span { font-size:11px; color:#9ca3af; }
+        .chip-edit { font-size:11px; color:#0d9488; font-weight:700; white-space:nowrap; }
+
+        /* ── Accordion panel ── */
+        .chip-panel {
+            overflow:hidden; max-height:0; transition:max-height 0.35s ease, padding 0.2s;
+            background:#f9fafb; border-radius:0 0 12px 12px;
+            padding:0 12px;
+        }
+        .chip-panel.open { max-height:300px; padding:12px; }
+        .chip-panel .c-swatch { width:26px; height:26px; }
+
+        /* ══ Bundle & Save Rows ══ */
+        .bundle-row {
+            background: white; border: 2px solid #e5e7eb;
+            border-radius: 16px; padding: 14px 14px 14px;
+            cursor: pointer; transition: all 0.2s; position: relative;
+            overflow: hidden;
+        }
+        .bundle-row.active { border-color: #0d9488; background: #fafffe; }
+        .bundle-row-featured { border-color: #0d9488; background: #fafffe; }
+
+        .bundle-badge-top {
+            position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            background: #ef4444; color: white; font-size: 10px; font-weight: 800;
+            padding: 3px 12px; border-radius: 0 0 10px 10px; white-space: nowrap;
+        }
+
+        .bundle-row-header {
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .bundle-radio {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 2px solid #d1d5db; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0; transition: all 0.2s;
+        }
+        .bundle-row.active .bundle-radio,
+        .bundle-row-featured .bundle-radio { border-color: #0d9488; }
+        .bundle-radio-dot {
+            width: 10px; height: 10px; border-radius: 50%; background: #0d9488;
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .bundle-row.active .bundle-radio-dot,
+        .bundle-row-featured .bundle-radio-dot { opacity: 1; }
+
+        .bundle-thumb {
+            width: 44px; height: 44px; border-radius: 8px;
+            object-fit: cover; flex-shrink: 0; border: 1px solid #f3f4f6;
+        }
+        .bundle-title-wrap { flex: 1; }
+        .bundle-title { font-size: 14px; font-weight: 800; color: #111827; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .bundle-subtitle { font-size: 11px; color: #6b7280; margin-top: 1px; }
+
+        .bundle-badge-green  { background:#dcfce7; color:#166534; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+        .bundle-badge-grey   { background:#f3f4f6; color:#6b7280;  font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+        .bundle-badge-yellow { background:#fef9c3; color:#854d0e; font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; }
+
+        .bundle-price-wrap { text-align: left; flex-shrink: 0; }
+        .bundle-price { font-size: 15px; font-weight: 800; color: #111827; }
+        .bundle-price-old { font-size: 11px; color: #9ca3af; text-decoration: line-through; }
+
+        /* Item rows inside bundle */
+        .bundle-items-wrap { margin-top: 12px; border-top: 1px solid #f3f4f6; padding-top: 12px; space-y: 8px; }
+        .bundle-item-row {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 8px;
+        }
+        .bundle-item-row:last-child { margin-bottom: 0; }
+        .bundle-item-num {
+            width: 20px; height: 20px; border-radius: 50%;
+            background: #0d9488; color: white; font-size: 11px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .bundle-item-thumb {
+            width: 36px; height: 36px; border-radius: 7px;
+            object-fit: cover; flex-shrink: 0; border: 1px solid #e5e7eb;
+            transition: opacity 0.2s;
+        }
+        .bundle-select {
+            flex: 1; padding: 6px 8px; border: 1.5px solid #e5e7eb;
+            border-radius: 8px; font-family: 'Cairo', sans-serif;
+            font-size: 12px; font-weight: 600; color: #374151;
+            background: white; outline: none; cursor: pointer;
+            -webkit-appearance: none; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239ca3af'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: left 8px center;
+        }
+        .bundle-select:focus { border-color: #0d9488; }
+
+        .bundle-cta {
+            width: 100%; margin-top: 12px; padding: 13px;
+            background: #111827; color: white; font-weight: 800;
+            font-size: 14px; border-radius: 12px; border: none;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            cursor: pointer; font-family: 'Cairo', sans-serif;
+            transition: opacity 0.2s;
+        }
+        .bundle-cta:active { opacity: 0.85; }
+
+
+        /* ── FAQ Accordion ── */
+        .faq-item { transition: all 0.2s; }
+        .faq-item:hover { border-color: #99f6e4 !important; }
+        .faq-item button { transition: background 0.2s; }
+        .faq-item button:hover { background: #f0fdfa !important; }
+        .faq-ans-open { animation: fadeDown 0.25s ease; }
+        @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
+        .pulse { animation:pulseCta 2s infinite; }
+    
+        /* Shake animation for invalid fields */
+        @keyframes shake {
+            0%,100%{transform:translateX(0)}
+            20%{transform:translateX(-6px)}
+            40%{transform:translateX(6px)}
+            60%{transform:translateX(-4px)}
+            80%{transform:translateX(4px)}
+        }
+        .shake { animation:shake 0.5s ease-in-out; }
+
+        /* Sticky CTA bar at bottom on mobile */
+        #sticky-cta {
+            position:fixed;bottom:0;left:0;right:0;z-index:49;
+            background:linear-gradient(135deg,#0d9488,#0f766e);
+            padding:12px 16px;
+            display:flex;align-items:center;justify-content:space-between;
+            box-shadow:0 -4px 20px rgba(0,0,0,0.15);
+            border-top:2px solid #14b8a6;
+        }
+        #sticky-cta .scta-price { color:#fff;font-size:18px;font-weight:900;line-height:1.1; }
+        #sticky-cta .scta-label { color:#99f6e4;font-size:11px;font-weight:600; }
+        #sticky-cta button {
+            background:#f43f5e;color:#fff;border:none;
+            padding:12px 22px;border-radius:12px;
+            font-family:Cairo,sans-serif;font-size:14px;font-weight:800;
+            cursor:pointer;white-space:nowrap;
+            box-shadow:0 4px 12px rgba(244,63,94,.4);
+            transition:transform 0.15s,background 0.15s;
+        }
+        #sticky-cta button:active { transform:scale(0.97); }
+
+        /* Pulse on CTA */
+        @keyframes ctaPulse {
+            0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}
+            50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}
+        }
+        #sticky-cta button { animation:ctaPulse 2s ease-in-out infinite; }
+
+        /* Modal smooth open */
+        #order-modal .modal-box {
+            animation:slideUp 0.32s cubic-bezier(.4,0,.2,1);
+        }
+        @keyframes slideUp {
+            from{transform:translateY(100%);opacity:0;}
+            to{transform:translateY(0);opacity:1;}
+        }
+
+        /* ════════════════════════════════
+           HERO GALLERY — beez.ma style
+        ════════════════════════════════ */
+        .hero-gallery-wrap {
+            background: #fff;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        /* Stars bar */
+        .gallery-stars-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 7px 16px;
+            background: #f9fafb;
+            border-bottom: 1px solid #f1f5f9;
+            font-family: Cairo, sans-serif;
+        }
+        .stars-text  { color: #f59e0b; font-size: 15px; letter-spacing: 1px; }
+        .stars-score { font-size: 13px; font-weight: 800; color: #111; }
+        .stars-sep   { color: #d1d5db; }
+        .stars-count { font-size: 12px; font-weight: 600; color: #6b7280; }
+
+        /* Slider container */
+        .gallery-slider-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #f8f9fa;
+            /* Rounded bottom corners — the "حواف مائلة" effect */
+            border-radius: 0 0 28px 28px;
+            margin: 0 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        /* Track */
+        .gallery-track {
+            display: flex;
+            will-change: transform;
+            transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* Each slide */
+        .gslide {
+            flex-shrink: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            min-height: 420px;
+            max-height: 520px;
+            overflow: hidden;
+        }
+        .gslide img {
+            width: 100%;
+            height: 480px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        @media (max-width: 480px) {
+            .gslide { min-height: 340px; max-height: 420px; }
+            .gslide img { height: 380px; }
+        }
+
+        /* Arrows (show on desktop only) */
+        .garrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.92);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13px;
+            color: #374151;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+            transition: background 0.15s, transform 0.15s;
+            z-index: 5;
+        }
+        .garrow:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
+        .garrow-prev  { right: 10px; }
+        .garrow-next  { left:  10px; }
+        @media (max-width: 768px) { .garrow { display: none; } }
+
+        /* Zoom button */
+        .gzoom-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 32px; height: 32px;
+            background: rgba(255,255,255,0.88);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13px;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        /* Dot pagination */
+        /* gallery dots */
+    .gdot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      display: inline-block;
+      transition: all .25s ease;
+      cursor: pointer;
+    }
+    .gdot.active {
+      width: 22px;
+      border-radius: 4px;
+      background: #0d9488;
+    }
+        /* gdot removed */
+
+        
+        /* ── Urgency bar ── */
+        #urgency-bar{background:linear-gradient(90deg,#f43f5e,#e11d48);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;font-family:Cairo,sans-serif;}
+        /* ── Guarantee strip ── */
+        .guarantee-strip{display:flex;overflow-x:auto;gap:10px;padding:12px 14px;scrollbar-width:none;border-bottom:1px solid #f1f5f9;}
+        .guarantee-strip::-webkit-scrollbar{display:none;}
+        .g-badge{flex-shrink:0;display:flex;align-items:center;gap:7px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:40px;padding:7px 13px;white-space:nowrap;}
+        .g-badge i{color:#0d9488;font-size:13px;}
+        .g-badge span{font-size:11px;font-weight:700;color:#374151;}
+        /* ── Section title ── */
+        .section-title{font-size:17px;font-weight:900;color:#111827;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+        .section-title::before{content:'';display:inline-block;width:4px;height:20px;background:#0d9488;border-radius:4px;flex-shrink:0;}
+        /* ── Rating bars ── */
+        .rbar-bg{flex:1;height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;}
+        .rbar-fill{height:100%;border-radius:99px;}
+        /* ── Review cards ── */
+        .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+        .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
+        .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
+        /* ── Steps ── */
+        .step-c{width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
+        .step-l{width:2px;height:24px;background:#d1fae5;margin:3px auto;}
+        /* ── Shake ── */
+        @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+        .shake{animation:shake .5s ease;}
+        /* ── Sticky CTA ── */
+        #sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:49;background:linear-gradient(135deg,#0d9488,#0f766e);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.15);border-top:2px solid #14b8a6;}
+        #sticky-cta .sp{color:#fff;font-size:18px;font-weight:900;line-height:1.1;}
+        #sticky-cta .sl{color:#99f6e4;font-size:11px;font-weight:600;}
+        #sticky-cta button{background:#f43f5e;color:#fff;border:none;padding:12px 20px;border-radius:12px;font-family:Cairo,sans-serif;font-size:14px;font-weight:800;cursor:pointer;animation:ctaPulse 2s ease-in-out infinite;}
+        @keyframes ctaPulse{0%,100%{box-shadow:0 4px 12px rgba(244,63,94,.4);}50%{box-shadow:0 4px 24px rgba(244,63,94,.8);}}
+        /* Gallery rounded corners */
+        .gallery-slider-wrap{border-radius:0 0 26px 26px;margin:0 10px;box-shadow:0 6px 28px rgba(0,0,0,.08);}
+
+        </style>
+</head>
+<body class="pb-28">
+
+<!-- Header -->
+<header class="bg-white sticky top-0 z-40 shadow-sm">
+    <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center gap-2">
+            <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/70301fefc_logokhdarwep.webp" alt="UNIFORMEDICAL Logo" style="width:38px;height:38px;object-fit:cover;border-radius:8px;">
+            <span class="text-base font-extrabold tracking-wide text-teal-800">UNIFORME<span class="text-rose-500">DICAL</span></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;background:#f0fdfa;border:1.5px solid #0d9488;border-radius:999px;padding:3px 4px;">
+            <button class="lang-btn" data-lang="ar" onclick="switchLang('ar')" style="background:#0d9488;color:#fff;border:none;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;cursor:pointer;font-family:Cairo,sans-serif;transition:all .2s;">ع</button>
+            <button class="lang-btn" data-lang="fr" onclick="switchLang('fr')" style="background:transparent;color:#0d9488;border:none;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;">FR</button>
+        </div>
+        <a href="https://wa.me/212645066834" target="_blank" class="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs font-bold">
+            <span aria-hidden="true">💬</span> <span data-i18n="whatsapp-btn">واتساب</span>
+        </a>
+    </div>
+    <div class="bg-teal-600 text-white text-center py-1.5 px-4 text-xs font-semibold flex justify-center items-center gap-2">
+        <span aria-hidden="true">🚚</span>
+        <span data-i18n="promo-bar">توصيل مجاني للطلبات فوق 500 درهم — الدفع عند الاستلام</span>
+    </div>
+</header>
+
+<main id="main-content">
+
+<!-- ══════════════════════════════════
+     PRODUCT HERO
+══════════════════════════════════ -->
+<div class="hero-gallery-wrap">
+
+  <!-- Stars bar -->
+  <div class="gallery-stars-bar">
+    <span class="stars-text">★★★★<span style="opacity:.45">★</span></span>
+    <span class="stars-score">4.8/5</span>
+    <span class="stars-sep">|</span>
+    <span class="stars-count" data-i18n="stars-count">+2,500 زبون راضي</span>
+  </div>
+
+  <!-- Guarantee badges -->
+  <div class="guarantee-strip">
+    <div class="g-badge"><span aria-hidden="true">🚚</span><span data-i18n="gbadge-delivery">توصيل 4-5 أيام</span></div>
+    <div class="g-badge"><span aria-hidden="true">✂️</span><span data-i18n="gbadge-custom">تصنيع حسب الطلب</span></div>
+    <div class="g-badge"><span aria-hidden="true">✒️</span><span data-i18n="gbadge-embroidery">تطريز متاح</span></div>
+  </div>
+
+  <!-- Single product image display -->
+  <div id="gallery-container" style="position:relative;margin:0 10px;background:#f8f9fa;border-radius:20px;overflow:hidden;">
+    <img id="main-product-img"
+         src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/6af83f642_beiclaire.webp"
+         alt="Bleu Ciel"
+         style="width:100%;aspect-ratio:1/1;object-fit:contain;object-position:center;display:block;transition:opacity .25s ease;border-radius:20px;"
+         loading="eager">
+    <!-- Color label -->
+    <div id="gallery-color-label" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Inter,sans-serif;backdrop-filter:blur(4px);">Beige Clair</div>
+    <!-- Zoom btn -->
+    <button class="gzoom-btn" onclick="openZoom(0)" aria-label="zoom"><span aria-hidden="true">🔍</span></button>
+  </div>
+
+  <!-- Gallery dots -->
+  <div id="gallery-dots" style="display:flex;justify-content:center;align-items:center;gap:6px;padding:10px 0 4px;">
+    <span class="gdot active" data-idx="0"></span>
+    <span class="gdot" data-idx="1"></span>
+    <span class="gdot" data-idx="2"></span>
+    <span class="gdot" data-idx="3"></span>
+    <span class="gdot" data-idx="4"></span>
+    <span class="gdot" data-idx="5"></span>
+    <span class="gdot" data-idx="6"></span>
+    <span class="gdot" data-idx="7"></span>
+    <span class="gdot" data-idx="8"></span>
+    <span class="gdot" data-idx="9"></span>
+  </div>
+
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════
+     PRODUCT INFO — title, price, colors, sizes, embroidery
+══════════════════════════════════ -->
+<div class="px-4 pt-4 pb-2 bg-white space-y-4">
+
+    <!-- Title + badges -->
+    <div>
+        <div class="flex flex-wrap gap-2 mb-2">
+            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                <span class="ml-1" aria-hidden="true">🩺</span>أزياء طبية
+            </span>
+            <span class="bg-rose-100 text-rose-600 text-xs font-bold px-2.5 py-1 rounded-full">
+                <span class="ml-1" aria-hidden="true">🌿</span>Premium Quality
+            </span>
+        </div>
+        <h1 class="text-2xl font-extrabold text-gray-900 leading-snug" data-i18n="hero-title">زي طبي فاخر — Tenu Médical Stretch Premium</h1>
+        <p class="text-sm text-gray-500 mt-1" data-i18n="hero-subtitle">مُصنَّع خصيصاً لك من ثوب BESTRECHE — مريح، مضاد للتعرق، مثالي للعمل الطويل</p>
+    </div>
+
+    <!-- Price -->
+    <div class="flex items-baseline gap-3">
+        <span class="text-3xl font-extrabold text-teal-700" id="hero-price">269 Dh</span>
+        <span class="text-base text-gray-400 line-through">349 Dh</span>
+        <span class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">-33%</span>
+    </div>
+
+    <!-- Color selector -->
+    <div>
+        <p class="text-sm font-bold text-gray-700 mb-2">
+            اللون: <span class="text-teal-700 font-extrabold" id="hero-color-name">Beige Clair</span>
+        </p>
+    <div class="flex flex-wrap gap-2" id="hero-swatches">
+            <button onclick="pickColor('beige_clair',this)" class="cswatch swatch-active" style="width:28px;height:28px;border-radius:50%;background:#D4C5A9;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Beige Clair"></button>
+            <button onclick="pickColor('bleu_ciel',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#7EC8E3;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Ciel"></button>
+            <button onclick="pickColor('bleu_jean',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#5B7FA6;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Jean"></button>
+            <button onclick="pickColor('bleu_marine',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#1B3A6B;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bleu Marine"></button>
+            <button onclick="pickColor('bordeaux',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#6D1A36;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Bordeaux"></button>
+            <button onclick="pickColor('mauve_clair',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#B8A0CC;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Mauve Clair"></button>
+            <button onclick="pickColor('noir',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#1C1C1C;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Noir"></button>
+            <button onclick="pickColor('gris_clair',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#B0B0B0;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Gris Clair"></button>
+            <button onclick="pickColor('marron',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#5C3317;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Marron Chocolat"></button>
+            <button onclick="pickColor('aubergine',this)" class="cswatch " style="width:28px;height:28px;border-radius:50%;background:#4B1A4E;border:2px solid rgba(255,255,255,.8);box-shadow:0 1px 5px rgba(0,0,0,.25);cursor:pointer;transition:transform .18s,outline .18s;flex-shrink:0;" title="Aubergine"></button>
+        </div>
+    </div>
+
+    <!-- Size selector -->
+    <div>
+        <div class="flex justify-between items-center mb-2">
+            <p class="text-sm font-bold text-gray-700">المقاس: <span class="text-teal-700 font-extrabold" id="hero-size-name">M</span></p>
+            <button onclick="toggleSizeGuide()" class="text-xs text-teal-600 underline font-semibold">دليل المقاسات ▾</button>
+        </div>
+        <div class="flex flex-wrap gap-2" id="hero-sizes">
+            <button onclick="pickSize('XS',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XS</button>
+            <button onclick="pickSize('S',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">S</button>
+            <button onclick="pickSize('M',this)"  class="size-btn size-active" style="min-width:44px;padding:6px 10px;border:2px solid #0d9488;border-radius:8px;background:#f0fdf4;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">M</button>
+            <button onclick="pickSize('L',this)"  class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">L</button>
+            <button onclick="pickSize('XL',this)" class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XL</button>
+            <button onclick="pickSize('XXL',this)"class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XXL</button>
+            <button onclick="pickSize('XXXL',this)"class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">XXXL</button>
+            <button onclick="pickSize('4XL',this)"class="size-btn" style="min-width:44px;padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;background:#fff;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.15s;">4XL</button>
+        </div>
+        <!-- Size guide (hidden by default) -->
+        <div id="size-guide" class="hidden mt-3 bg-gray-50 rounded-xl p-3 text-xs text-gray-600 border border-gray-100">
+            <table class="w-full text-center">
+                <thead><tr class="font-bold text-gray-800"><th>المقاس</th><th>الصدر (cm)</th><th>الخصر (cm)</th><th>الطول (cm)</th></tr></thead>
+                <tbody>
+                    <tr><td>XS</td><td>80–84</td><td>64–68</td><td>150–158</td></tr>
+                    <tr class="bg-white"><td>S</td><td>84–88</td><td>68–72</td><td>158–162</td></tr>
+                    <tr><td>M</td><td>88–92</td><td>72–76</td><td>162–166</td></tr>
+                    <tr class="bg-white"><td>L</td><td>92–96</td><td>76–80</td><td>166–170</td></tr>
+                    <tr><td>XL</td><td>96–102</td><td>80–86</td><td>170–174</td></tr>
+                    <tr class="bg-white"><td>XXL</td><td>102–110</td><td>86–94</td><td>174–180</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Embroidery option -->
+    <div class="rounded-xl p-3" style="background:#f5f3ff; border:2px dashed #c4b5fd;">
+        <div class="flex items-start gap-3">
+            <input type="checkbox" id="embroidery-check" onchange="toggleEmbroidery(this)"
+                   class="mt-1 w-4 h-4 cursor-pointer" style="accent-color:#7c3aed;">
+            <div>
+                <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
+                    <span class="text-amber-600 ml-1" aria-hidden="true">✒️</span>
+                    إضافة تطريز الاسم أو الشعار (Broderie) — <span class="text-teal-700">+45 Dh</span>
+                </label>
+                <p class="text-xs text-gray-500 mt-0.5">سنتواصل معك لتحديد النص واللون والموضع المناسب</p>
+                <!-- Embroidery fields (shown when checked) -->
+                <div id="embroidery-fields" class="hidden mt-2 space-y-2">
+                    <input type="text" id="emb-text" placeholder="مثال: Dr. Ahmed / صيدلية النور"
+                           class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-amber-400 text-right"
+                           style="font-family:Cairo,sans-serif;">
+                    <select id="emb-color" class="w-full border border-amber-300 rounded-lg px-3 py-1.5 text-sm outline-none bg-white text-right">
+                        <option value="">لون التطريز (اختياري — سنحدده معك)</option>
+                        <option value="blanc">أبيض</option>
+                        <option value="noir">أسود</option>
+                        <option value="or">ذهبي</option>
+                        <option value="argent">فضي</option>
+                        <option value="rouge">أحمر</option>
+                        <option value="bleu">أزرق</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<div id="bundles-anchor"></div>
+<!-- ══════════════════════════════════
+     OFFERS SECTION — bundle & save style
+══════════════════════════════════ -->
+<div id="bundles-section" class="px-4 mt-4 space-y-3">
+
+    <div class="text-center">
+        <h2 class="text-xl font-extrabold text-gray-900"> إختر عرضك المناسب مع التخفيضات</h2>
+        <p class="text-xs text-gray-500 mt-1" data-i18n="bundles-sub">كلما زادت القطع، زاد التوفير — توصيل مجاني من قطعتين</p>
+    </div>
+
+    <!-- ───────────── SOLO ───────────── -->
+    <div class="bundle-row active" id="row-solo" onclick="selectBundle('solo')">
+        <div class="bundle-row-header">
+            <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
+            <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-solo" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">قطعة واحدة <span class="bundle-badge-grey">السعر العادي</span></p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">269 Dh</p>
+                <p class="bundle-price-old">349 Dh</p>
+            </div>
+        </div>
+        <div class="bundle-items-wrap hidden" id="items-solo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-solo-1" alt="">
+                <select class="bundle-select" id="color-solo-1" onchange="syncFromBundle('solo',1,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-solo-1">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('solo')" class="bundle-cta hidden" id="cta-solo">
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 269 Dh
+        </button>
+    </div>
+
+    <!-- ───────────── DUO ───────────── -->
+    <div class="bundle-row" id="row-duo" onclick="selectBundle('duo')">
+        <span class="bundle-badge-top">الأكثر طلباً 🔥</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
+            <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-duo" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">قطعتين معاً <span class="bundle-badge-green">وفر 22%</span></p>
+                <p class="bundle-subtitle">499 Dh — توصيل مجاني </p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">499 Dh</p>
+                <p class="bundle-price-old">590 Dh</p>
+            </div>
+        </div>
+        <div class="bundle-items-wrap" id="items-duo">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-duo-1" alt="">
+                <select class="bundle-select" id="color-duo-1" onchange="syncFromBundle('duo',1,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-duo-1">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-duo-2" alt="">
+                <select class="bundle-select" id="color-duo-2" onchange="syncFromBundle('duo',2,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-duo-2">
+                    <option>XS</option><option>S</option><option selected>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('duo')" class="bundle-cta" id="cta-duo" style="background:#0d9488;">
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 499 Dh
+        </button>
+    </div>
+
+    <!-- ───────────── TRIO ───────────── -->
+    <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
+        <span class="bundle-badge-top" style="background:#f59e0b;">أفضل قيمة ⭐</span>
+        <div class="bundle-row-header mt-1">
+            <div class="bundle-radio" id="radio-trio"><div class="bundle-radio-dot"></div></div>
+            <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-trio" alt="">
+            <div class="bundle-title-wrap">
+                <p class="bundle-title">ثلاث قطع <span class="bundle-badge-yellow">وفر 31%</span></p>
+                <p class="bundle-subtitle">720 Dh — توصيل مجاني </p>
+            </div>
+            <div class="bundle-price-wrap">
+                <p class="bundle-price">720 Dh</p>
+                <p class="bundle-price-old">870 Dh</p>
+            </div>
+        </div>
+        <div class="bundle-items-wrap hidden" id="items-trio">
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">1</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-trio-1" alt="">
+                <select class="bundle-select" id="color-trio-1" onchange="syncFromBundle('trio',1,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-1">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">2</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-trio-2" alt="">
+                <select class="bundle-select" id="color-trio-2" onchange="syncFromBundle('trio',2,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-2">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+            <div class="bundle-item-row">
+                <div class="bundle-item-num">3</div>
+                <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-item-thumb" id="thumb-trio-3" alt="">
+                <select class="bundle-select" id="color-trio-3" onchange="syncFromBundle('trio',3,this)">
+                        <option value="beige_clair">Beige Clair</option>
+                        <option value="bleu_ciel">Bleu Ciel</option>
+                        <option value="bleu_jean">Bleu Jean</option>
+                        <option value="bleu_marine">Bleu Marine</option>
+                        <option value="bordeaux">Bordeaux</option>
+                        <option value="mauve_clair">Mauve Clair</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris_clair">Gris Clair</option>
+                        <option value="marron">Marron Chocolat</option>
+                        <option value="aubergine">Aubergine</option>
+                    </select>
+                <select class="bundle-select" id="size-trio-3">
+                    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option><option>4XL</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="event.stopPropagation();openModal('trio')" class="bundle-cta hidden" id="cta-trio" style="background:#7c3aed;">
+            <span aria-hidden="true">🛍️</span> اطلب الآن — 720 Dh
+        </button>
+    </div>
+
+    <!-- ══════════════════════════════════
+         CONVERSION BOOSTER SECTIONS
+    ══════════════════════════════════ -->
+
+    <!-- Stats -->
+    <div style="background:linear-gradient(135deg,#0d9488,#0f766e);border-radius:20px;padding:16px;margin-bottom:12px;">
+        <div class="grid grid-cols-3 gap-2 text-center text-white">
+            <div><p style="font-size:22px;font-weight:900;">+2500</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">زبون سعيد</p></div>
+            <div style="border-right:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2);">
+                <p style="font-size:22px;font-weight:900;">4.8★</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">تقييم الزبناء</p>
+            </div>
+            <div><p style="font-size:22px;font-weight:900;">48h</p><p style="font-size:11px;color:#99f6e4;margin-top:2px;">توصيل سريع</p></div>
+        </div>
+    </div>
+
+    <!-- Benefits -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;direction:rtl;">
+
+      <!-- Title -->
+      <div style="text-align:center;margin-bottom:16px;">
+        <p style="font-size:11px;color:#6b7280;margin-bottom:4px;">جودة احترافية ضممت لتناسب احتياجاتك اليومية في القطاع الصحي</p>
+        <h2 style="font-size:18px;font-weight:900;color:#111;margin:0;" data-i18n="why-title">لماذا يختار المهنيون <span style="color:#0d9488;">UNIFORMEDICAL</span>؟</h2>
+      </div>
+
+      <!-- Comparison Table -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+
+        <!-- UNIFORMEDICAL Column -->
+        <div style="background:#f0fdf4;border-radius:14px;padding:12px;border:2px solid #0d9488;">
+          <div style="text-align:center;margin-bottom:10px;">
+            <p style="font-size:10px;font-weight:800;color:#0d9488;margin:0;">UM UNIFORMEDICAL</p>
+            <p style="font-size:9px;color:#065f46;margin:2px 0 0;">الجودة التي تستحقها</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">قماش ستريش فاخر</p><p style="font-size:10px;color:#6b7280;margin:0;">مرونة عالية وراحة طوال اليوم</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">راحة أثناء الحركة</p><p style="font-size:10px;color:#6b7280;margin:0;">حرية حركة كاملة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">موديلات للمحجبات</p><p style="font-size:10px;color:#6b7280;margin:0;">تصاميم أنيقة وعملية</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">جيوب متعددة وعميقة</p><p style="font-size:10px;color:#6b7280;margin:0;">لحفظ الأدوات</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">متانة خياطة عالية</p><p style="font-size:10px;color:#6b7280;margin:0;">لا تنقطع بسرعة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">ألوان عصرية متنوعة</p><p style="font-size:10px;color:#6b7280;margin:0;">10 ألوان طبية</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">مقاوم للتجعد والانكماش</p><p style="font-size:10px;color:#6b7280;margin:0;">يحافظ على شكله بعد الغسيل</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">إمكانية التطريز</p><p style="font-size:10px;color:#6b7280;margin:0;">أضف شعارك باحترافية</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">مقاسات كاملة XS→XXL</p><p style="font-size:10px;color:#6b7280;margin:0;">تناسب الجميع</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#16a34a;font-size:14px;flex-shrink:0;">✅</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">خدمة ما بعد البيع</p><p style="font-size:10px;color:#6b7280;margin:0;">دعم سريع واستجابة فورية</p></div></div>
+          </div>
+        </div>
+
+        <!-- Traditional Column -->
+        <div style="background:#fef2f2;border-radius:14px;padding:12px;border:2px solid #fca5a5;">
+          <div style="text-align:center;margin-bottom:10px;">
+            <p style="font-size:10px;font-weight:800;color:#dc2626;margin:0;">المنتجات التقليدية</p>
+            <p style="font-size:9px;color:#991b1b;margin:2px 0 0;">جودة أقل ومميزات محدودة</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">قماش عادي</p><p style="font-size:10px;color:#6b7280;margin:0;">غير مريح وأقل جودة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">راحة محدودة</p><p style="font-size:10px;color:#6b7280;margin:0;">يعيق الحركة ويسبب التعب</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">خيارات محدودة للمحجبات</p><p style="font-size:10px;color:#6b7280;margin:0;">تصاميم قليلة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">جيوب محدودة</p><p style="font-size:10px;color:#6b7280;margin:0;">غير عملية وصغيرة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">خياطة ضعيفة</p><p style="font-size:10px;color:#6b7280;margin:0;">تنقطع بسرعة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">ألوان قليلة وغير عصرية</p><p style="font-size:10px;color:#6b7280;margin:0;">خيارات بسيطة</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">يتجعد وينكمش بسرعة</p><p style="font-size:10px;color:#6b7280;margin:0;">يفقد شكله بعد الغسيل</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">لا يوجد تطريز</p><p style="font-size:10px;color:#6b7280;margin:0;">لا إمكانية للتخصيص</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">مقاسات محدودة</p><p style="font-size:10px;color:#6b7280;margin:0;">لا تناسب الجميع</p></div></div>
+            <div style="display:flex;align-items:center;gap:6px;"><span style="color:#dc2626;font-size:14px;flex-shrink:0;">❌</span><div><p style="font-size:11px;font-weight:800;color:#111;margin:0;">خدمة ضعيفة</p><p style="font-size:10px;color:#6b7280;margin:0;">دعم غير متوفر أو بطيء</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom trust bar -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:#f0fdf4;border-radius:12px;padding:10px;text-align:center;">
+          <p style="font-size:18px;margin:0;">🚚</p>
+          <p style="font-size:11px;font-weight:800;color:#065f46;margin:2px 0 0;" data-i18n="trust-delivery-title">توصيل سريع</p>
+          <p style="font-size:10px;color:#6b7280;margin:0;">جميع أنحاء المغرب خلال 24-48h</p>
+        </div>
+        <div style="background:#f0fdf4;border-radius:12px;padding:10px;text-align:center;">
+          <p style="font-size:18px;margin:0;">💵</p>
+          <p style="font-size:11px;font-weight:800;color:#065f46;margin:2px 0 0;">الدفع عند الاستلام</p>
+          <p style="font-size:10px;color:#6b7280;margin:0;" data-i18n="trust-delivery-sub">ادفع عند استلام طلبك بكل أمان</p>
+        </div>
+        <div style="background:#f0fdf4;border-radius:12px;padding:10px;text-align:center;">
+          <p style="font-size:18px;margin:0;">🛡️</p>
+          <p style="font-size:11px;font-weight:800;color:#065f46;margin:2px 0 0;" data-i18n="trust-quality-title">ضمان الجودة</p>
+          <p style="font-size:10px;color:#6b7280;margin:0;" data-i18n="trust-quality-sub">ضمان استبدال أو إرجاع</p>
+        </div>
+        <div style="background:#f0fdf4;border-radius:12px;padding:10px;text-align:center;">
+          <p style="font-size:18px;margin:0;">🎧</p>
+          <p style="font-size:11px;font-weight:800;color:#065f46;margin:2px 0 0;">خدمة العملاء 7/7</p>
+          <p style="font-size:10px;color:#6b7280;margin:0;">نحن هنا لخدمتك في أي وقت</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- How it works -->
+    <div style="background:#f0fdf4;border-radius:20px;padding:16px;margin-bottom:12px;border:1px solid #d1fae5;">
+        <h2 class="section-title" data-i18n="how-title">كيف تطلب؟</h2>
+        <div>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">1</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;" data-i18n="step1-title">اختر عرضك + الألوان + المقاسات</p><p style="font-size:12px;color:#6b7280;margin-top:1px;" data-i18n="step1-sub">Solo أو Duo أو Super Pack</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">2</div><div class="step-l"></div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;" data-i18n="step2-title">أدخل الاسم والهاتف والمدينة</p><p style="font-size:12px;color:#6b7280;margin-top:1px;" data-i18n="step2-sub">30 ثانية فقط</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
+                <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;" data-i18n="step3-title">استقبل طلبك وادفع عند الاستلام 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;" data-i18n="step3-sub">خلال 24-48h — تعاين قبل ما تدفع</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title" data-i18n="reviews-title">آراء الزبناء</h2>
+        <!-- Rating summary -->
+        <div style="display:flex;align-items:center;gap:14px;padding:12px;background:#f9fafb;border-radius:14px;margin-bottom:14px;">
+            <div style="text-align:center;flex-shrink:0;">
+                <p style="font-size:40px;font-weight:900;color:#111;line-height:1;">4.8</p>
+                <div style="color:#f59e0b;font-size:13px;">★★★★★</div>
+                <p style="font-size:10px;color:#9ca3af;margin-top:2px;">+2,500 تقييم</p>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"><div class="rbar-fill" style="width:82%;background:#f59e0b;"></div></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"><div class="rbar-fill" style="width:12%;background:#a3e635;"></div></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"><div class="rbar-fill" style="width:4%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"><div class="rbar-fill" style="width:2%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
+            </div>
+        </div>
+        <!-- Review cards -->
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#0d9488;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">ك</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">كوثر أ. — ممرضة</p><p style="font-size:10px;color:#9ca3af;">الرباط</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"خديت الباك دبل، تبارك الله! الثوب رطب ومكيعرقش ولا يتكمش. التوصيل جا فالوقت. غادي نطلب زيد."</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 3 أيام ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#f43f5e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">أ</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">د. أمين ش. — طبيب</p><p style="font-size:10px;color:#9ca3af;">الدار البيضاء</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"السترة الرمادية خفيفة ودافية بزاف. المقاس جا هو هداك بالضبط. خدمة من الأحسن!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ أسبوع ✓</p>
+        </div>
+        <div class="rev-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="width:34px;height:34px;background:#7c3aed;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;">س</div>
+                    <div><p style="font-size:12px;font-weight:800;color:#111;">سلمى ب. — صيدلانية</p><p style="font-size:10px;color:#9ca3af;">مراكش</p></div>
+                </div>
+                <div><div class="rev-stars">★★★★★</div><span class="verified mt-1"><span aria-hidden="true">✔️</span> موثق</span></div>
+            </div>
+            <p style="font-size:12px;color:#374151;line-height:1.7;">"طلبت الباك سوبر فيه تلاتة قطع. التطريز زوين بزاف وجا سريع. شكرا Uniformedical!"</p>
+            <p style="font-size:10px;color:#9ca3af;margin-top:5px;">منذ 5 أيام ✓</p>
+        </div>
+    </div>
+
+<!-- ══════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════ -->
+    <div class="px-4 mb-4">
+    <div class="bg-white rounded-2xl p-5">
+        <div class="text-center mb-5">
+            <p class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-1" data-i18n="faq-title">الأسئلة الشائعة</p>
+            <h2 class="text-lg font-extrabold text-gray-900">كل ما تحتاج معرفته</h2>
+        </div>
+
+        <div class="space-y-2" id="faq-list">
+
+            <!-- Q0 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">ما نوع القماش المستعمل؟</span>
+                    <i id="faq-icon-0" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-0" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">نستعمل قماش <span class="font-bold text-teal-700">Bestretch</span> عالي الجودة، يتميز بالمرونة والراحة أثناء العمل لساعات طويلة، كما أنه خفيف، عملي، وسهل العناية والغسيل.</p>
+                </div>
+            </div>
+
+            <!-- Q1 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">كم تستغرق مدة تجهيز وإرسال الطلب؟</span>
+                    <i id="faq-icon-1" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-1" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">بعد تأكيد الطلب:</p>
+                    <ul class="text-sm text-gray-600 space-y-1 pr-3">
+                        <li>• يتم <span class="font-bold text-teal-700">تجهيز الطلب خلال 24 إلى 48 ساعة</span></li>
+                        <li>• مدة التوصيل بين <span class="font-bold text-teal-700">1 إلى 3 أيام عمل</span> حسب المدينة وشركة التوصيل</li>
+                        <li>• رسوم التوصيل <span class="font-bold text-teal-700">18 درهم</span> — مجاني مع عروض <span class="font-bold text-teal-700">الثنائي والثلاثي</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني إضافة تطريز (Logo أو اسم)؟</span>
+                    <i id="faq-icon-2" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-2" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر خدمة التطريز للشعارات والأسماء بـ <span class="font-bold text-purple-600">45 درهم</span> لكل قطعة. كما نقدم عروضاً خاصة للمصحات، المختبرات، العيادات والفرق الطبية — تواصل معنا للحصول على عرض.</p>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">ما هي سياسة الاستبدال؟</span>
+                    <i id="faq-icon-3" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-3" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">نقوم بالاستبدال فقط في حالة وجود عيب في التصنيع مثل:</p>
+                    <ul class="text-sm text-gray-600 space-y-1 pr-3">
+                        <li>• خياطة غير سليمة</li>
+                        <li>• مقاس مختلف عن المطلوب</li>
+                        <li>• لون أو منتج مختلف عن الطلب</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-2">⚠️ لا يتم الاستبدال إذا تغيّر رأيك في اللون أو المقاس بعد تأكيد الطلب، لأن كل قطعة تُصنَّع خصيصاً لك.</p>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">كيف أختار المقاس المناسب؟</span>
+                    <i id="faq-icon-4" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-4" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">اعتمد على دليل المقاسات الموجود في صفحة المنتج. إذا كنت مترددًا بين مقاسين، ننصح باختيار <span class="font-bold text-teal-700">المقاس الأكبر</span> لمزيد من الراحة.</p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(5)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل يمكنني طلب كميات بالجملة؟</span>
+                    <i id="faq-icon-5" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-5" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم! نوفر أسعاراً خاصة للطلبات بالجملة للمستشفيات، المصحات، المختبرات والعيادات الطبية. تواصل معنا عبر واتساب للحصول على عرض مخصص.</p>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(6)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل القماش شفاف؟ وهل يتحمل الغسيل المتكرر؟</span>
+                    <i id="faq-icon-6" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-6" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">لا، القماش <span class="font-bold text-teal-700">غير شفاف</span> ويوفر تغطية مريحة لبيئة العمل الطبية. كما أنه يتحمل <span class="font-bold text-teal-700">الغسيل المتكرر</span> مع الحفاظ على لونه وشكله وجودته.</p>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(7)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">هل تتوفر موديلات خاصة بالمحجبات؟</span>
+                    <i id="faq-icon-7" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-7" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">نعم، نوفر موديلات مناسبة للمحجبات بتصميم عملي ومريح مع تغطية أفضل أثناء العمل.</p>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(8)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">كيف يمكنني تتبع طلبي؟</span>
+                    <i id="faq-icon-8" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-8" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">بعد شحن الطلب، سيتم تزويدك برقم التتبع لمتابعة حالة الشحنة حتى وصولها إليك.</p>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(9)" class="w-full flex items-center justify-between p-4 text-right bg-white">
+                    <span class="text-sm font-bold text-gray-900">ماذا لو واجهت مشكلة في طلبي؟</span>
+                    <i id="faq-icon-9" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 mr-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                </button>
+                <div id="faq-ans-9" style="display:none;padding:0 16px 16px;">
+                    <p class="text-sm text-gray-600 leading-relaxed">فريق خدمة العملاء جاهز لمساعدتك في أي وقت. تواصل معنا عبر واتساب وسنعمل على حل مشكلتك في أسرع وقت ممكن.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Contact CTA -->
+        <div class="mt-4 bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+            <p class="text-sm font-bold text-gray-700 mb-1">سؤالك لم تجد جوابه؟</p>
+            <p class="text-xs text-gray-500 mb-3">فريقنا متاح 7/7 للرد على جميع استفساراتك</p>
+            <div class="flex gap-2 justify-center">
+                <a href="https://wa.me/212645066834" target="_blank"
+                   class="flex items-center gap-1.5 bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+                    <span class="text-sm" aria-hidden="true">💬</span> واتساب
+                </a>
+                <a href="mailto:contact@uniformedical.com"
+                   class="flex items-center gap-1.5 bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">
+                    <span class="text-sm" aria-hidden="true">✉️</span> contact@uniformedical.com
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!-- Live toast -->
+<div id="toast" class="fixed bottom-24 right-3 bg-white shadow-xl border border-gray-100 p-3 rounded-xl flex items-center gap-2 max-w-xs transition-all duration-500 translate-y-40 z-40">
+    <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-xs flex-shrink-0"><span aria-hidden="true">🛍️</span></div>
+    <div>
+        <p class="text-xs text-gray-400" id="toast-time">منذ 3 دقائق</p>
+        <p class="text-xs font-bold text-gray-900" id="toast-text">عميل من الرباط اشترى باك دبل</p>
+    </div>
+</div>
+
+
+<!-- Zoom Modal -->
+<div id="zoom-modal">
+    <button id="zoom-close" onclick="closeZoom()"><span aria-hidden="true">✕</span></button>
+    <img loading="lazy" id="zoom-img" src="" alt="zoom">
+</div>
+
+</main>
+
+<!-- Sticky bottom -->
+<div class="sticky-bottom">
+    <button onclick="scrollToBundles()" class="flex-1 bg-gray-900 text-white font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 pulse">
+        <span aria-hidden="true">🛍️</span> اطلب الآن
+    </button>
+    <a href="https://wa.me/212645066834" target="_blank" class="bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center text-sm">
+        <span class="text-lg" aria-hidden="true">💬</span>
+    </a>
+</div>
+
+<!-- ══════════════════════════════════
+     ORDER MODAL (popup)
+══════════════════════════════════ -->
+<div id="order-modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-box">
+        <!-- Handle bar -->
+        <div class="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4"></div>
+
+        <!-- Modal header -->
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="text-lg font-extrabold text-gray-900">معلومات التوصيل</h2>
+            <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
+                <span aria-hidden="true">✕</span>
+            </button>
+        </div>
+
+        <!-- Order summary inside modal -->
+        <div class="bg-teal-50 border border-teal-100 rounded-xl p-3 mb-5 space-y-1.5">
+            <p class="text-xs font-bold text-teal-800">ملخص الطلب:</p>
+            <div class="flex justify-between text-sm">
+                <span id="modal-offer-name" class="text-gray-600">باك دبل (2 قطع)</span>
+                <span id="modal-offer-price" class="font-extrabold text-gray-900">499 Dh</span>
+            </div>
+            <div id="modal-items-detail" class="text-xs text-gray-500 space-y-0.5"></div>
+            <div id="modal-broderie-row" class="hidden flex justify-between text-xs text-purple-600">
+                <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
+            </div>
+            <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
+                <span>التوصيل</span><span id="modal-delivery-text" class="font-bold">مجاني </span>
+            </div>
+            <div class="flex justify-between text-sm font-extrabold text-gray-900 border-t border-teal-200 pt-1.5">
+                <span>المجموع:</span><span id="modal-total">499 Dh</span>
+            </div>
+        </div>
+
+        <form id="order-form" onsubmit="handleSubmit(event)" class="space-y-3">
+            <!-- Name -->
+            <div class="relative">
+                <span class="input-icon"><span class="text-sm" aria-hidden="true">👤</span></span>
+                <input type="text" id="f-name" required placeholder="الاسم الكامل *" class="form-input">
+            </div>
+            <!-- Phone -->
+            <div class="relative">
+                <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"><span class="text-sm" aria-hidden="true">📞</span></span>
+                <input type="tel" id="f-phone" required placeholder="0612345678 *" class="form-input" dir="ltr" style="text-align:left;padding-right:12px;padding-left:40px;">
+            </div>
+            <!-- City -->
+            <div class="relative">
+                <span class="input-icon"><span class="text-sm" aria-hidden="true">📍</span></span>
+                <input type="text" id="f-city" required placeholder="المدينة *" class="form-input">
+            </div>
+            <!-- Address -->
+            <div class="relative">
+                <span style="position:absolute;right:12px;top:14px;color:#9ca3af;pointer-events:none;"><span class="text-sm" aria-hidden="true">🏠</span></span>
+                <textarea id="f-address" required rows="2" placeholder="عنوان التوصيل بالتفصيل *" class="form-input" style="padding-top:12px;padding-bottom:12px;resize:none;"></textarea>
+            </div>
+
+            <!-- Sticky submit inside modal -->
+            <div class="modal-sticky">
+                <button type="submit" id="submit-btn" class="cta-btn">
+                    <span aria-hidden="true">🚚</span>
+                    <span>تأكيد الطلب — الدفع عند الاستلام</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Success Screen -->
+<div id="success-screen" class="hidden fixed inset-0 z-50 flex items-end justify-center" style="background:rgba(15,23,42,0.55);backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:28px 28px 0 0;width:100%;max-width:480px;padding:32px 24px 36px;text-align:center;direction:rtl;animation:slideUp .35s cubic-bezier(.16,1,.3,1) both;">
+
+    <!-- Icon -->
+    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#14b8a6);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 8px 24px rgba(13,148,136,0.3);">✅</div>
+
+    <!-- Title -->
+    <h2 style="font-size:22px;font-weight:800;color:#0d9488;margin:0 0 6px;">تم تسجيل طلبكم!</h2>
+    <p style="font-size:14px;color:#64748b;margin:0 0 4px;">شكراً لثقتكم في <strong style="color:#0f172a;">Uniformedical</strong></p>
+    <p style="font-size:12px;color:#ef4444;font-weight:700;margin:0 0 22px;">سنتصل بكم خلال ساعتين لتأكيد الطلب 📞</p>
+
+    <!-- Order Summary -->
+    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px;text-align:right;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">رقم الطلب</span>
+        <span id="s-orderid" style="font-size:13px;font-weight:700;color:#0f172a;font-family:monospace;letter-spacing:0.5px;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الاسم</span>
+        <span id="s-name" style="font-size:13px;font-weight:700;color:#0f172a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الباقة</span>
+        <span id="s-bundle" style="font-size:13px;font-weight:700;color:#0f172a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">التفاصيل</span>
+        <span id="s-items" style="font-size:12px;font-weight:600;color:#334155;max-width:180px;text-align:left;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px dashed #e2e8f0;">
+        <span style="font-size:12px;color:#94a3b8;">الشحن</span>
+        <span id="s-shipping" style="font-size:13px;font-weight:700;color:#16a34a;"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0 2px;">
+        <span style="font-size:13px;color:#0f172a;font-weight:700;">المجموع</span>
+        <span id="s-price" style="font-size:18px;font-weight:800;color:#0d9488;"></span>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a id="s-wa-link" target="_blank" href="#"
+       style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:15px;font-weight:700;border-radius:14px;text-decoration:none;box-shadow:0 4px 16px rgba(34,197,94,0.35);">
+      <span style="font-size:20px;">💬</span> متابعة عبر WhatsApp
+    </a>
+
+  </div>
+</div>
+
+<style>
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+</style>
+
+<footer class="bg-teal-900 text-teal-300 py-5 text-center">
+    <p class="text-sm font-semibold">Uniformedical.ma © 2026</p>
+    <p class="text-xs text-teal-500 mt-1">ملابس مهنية طبية — الدفع عند الاستلام</p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// Uniformedical.ma — JavaScript (clean full rewrite)
+// ═══════════════════════════════════════════════════════
+
+// ── Data ─────────────────────────────────────────────────
+const allImgs = ['https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/6af83f642_beiclaire.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/89674ecb3_bleuciel.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/3a5d66c80_bleujenn.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/17a892b42_col1.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4eef18c97_col2.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/532f8d30d_grisclaire3.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/1793f27c2_maron.webp','https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/566265144_moveeuberjen.webp'];
+
+const colorKeys  = ['beige_clair','bleu_ciel','bleu_jean','bleu_marine','bordeaux','mauve_clair','noir','gris_clair','marron','aubergine'];
+const colorNames = {beige_clair:'Beige Clair',bleu_ciel:'Bleu Ciel',bleu_jean:'Bleu Jean',bleu_marine:'Bleu Marine',bordeaux:'Bordeaux',mauve_clair:'Mauve Clair',noir:'Noir',gris_clair:'Gris Clair',marron:'Marron Chocolat',aubergine:'Aubergine'};
+const imgMap     = {beige_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/6af83f642_beiclaire.webp',bleu_ciel:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/89674ecb3_bleuciel.webp',bleu_jean:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/3a5d66c80_bleujenn.webp',bleu_marine:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp',bordeaux:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp',mauve_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/17a892b42_col1.webp',noir:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4eef18c97_col2.webp',gris_clair:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/532f8d30d_grisclaire3.webp',marron:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/1793f27c2_maron.webp',aubergine:'https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/566265144_moveeuberjen.webp'};
+
+const bundlePricing = {
+    solo:  { name:'قطعة واحدة',  price:269, count:1, old:349, delivery:18 },
+    duo:   { name:'باك دبل',     price:499, count:2, old:590, delivery:0 },
+    trio:  { name:'باك سوبر',    price:720, count:3, old:870, delivery:0 }
+};
+
+// ── State ─────────────────────────────────────────────────
+let gIdx         = 0;
+let gW           = 0;
+let activeBundle = 'solo';
+let heroSize_    = 'M';
+let embPrice     = 0;
+
+// ══════════════════════════════════════════════════════════
+// GALLERY
+// ══════════════════════════════════════════════════════════
+function initGallery() {
+    // Touch/swipe on main image
+    const cont = document.getElementById('gallery-container');
+    if (!cont) return;
+    let tx0 = 0;
+    cont.addEventListener('touchstart', e => { tx0 = e.touches[0].clientX; }, {passive:true});
+    cont.addEventListener('touchend',   e => {
+        const dx = tx0 - e.changedTouches[0].clientX;
+        if (Math.abs(dx) > 40) gSel(gIdx + (dx > 0 ? 1 : -1));
+    }, {passive:true});
+}
+
+
+
+function updateDots(activeIdx) {
+    document.querySelectorAll('.gdot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIdx);
+    });
+}
+
+// Dots click
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.gdot').forEach(dot => {
+        dot.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-idx'));
+            gSel(idx);
+        });
+    });
+});
+
+function gSel(idx) {
+    if (idx < 0) idx = colorKeys.length - 1;
+    if (idx >= colorKeys.length) idx = 0;
+    gIdx = idx;
+    const key = colorKeys[idx];
+    if (key) pickColor(key, document.querySelectorAll('.cswatch')[idx]);
+}
+
+function pickColor(key, el) {
+    // Swap main image
+    const img = document.getElementById('main-product-img');
+    const lbl = document.getElementById('gallery-color-label');
+    if (img && imgMap[key]) {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = imgMap[key];
+            img.alt = colorNames[key] || key;
+            img.onload = () => { img.style.opacity = '1'; };
+            // fallback in case onload doesn't fire
+            setTimeout(() => { img.style.opacity = '1'; }, 400);
+        }, 180);
+    }
+    if (lbl) lbl.innerText = colorNames[key] || key;
+    // Sync color name in product info
+    const cn = document.getElementById('hero-color-name');
+    if (cn) cn.innerText = colorNames[key] || key;
+    // Update swatch highlight
+    document.querySelectorAll('.cswatch').forEach(s => {
+        s.style.outline = 'none';
+        s.style.outlineOffset = '0';
+        s.style.transform = 'scale(1)';
+    });
+    if(el) {
+        el.style.outline = '2.5px solid #0d9488';
+        el.style.outlineOffset = '3px';
+        el.style.transform = 'scale(1.25)';
+    }
+    // Sync bundle dropdown
+    const idx = colorKeys.indexOf(key);
+    if (idx !== -1) _syncAllItem1(key);
+    gIdx = idx;
+    // Update dots
+    updateDots(idx);
+}
+
+function _syncAllItem1(key) {
+    ['solo','duo','trio'].forEach(b => {
+        const sel = document.getElementById('color-'+b+'-1');
+        if (sel) { sel.value = key; _refreshThumb(b,1); }
+    });
+}
+
+function _refreshThumb(bkey, n) {
+    const csel = document.getElementById('color-'+bkey+'-'+n);
+    const th   = document.getElementById('thumb-'+bkey+'-'+n);
+    const mth  = document.getElementById('main-thumb-'+bkey);
+    if (csel && imgMap[csel.value]) {
+        const url = imgMap[csel.value];
+        if (th)              th.src  = url;
+        if (n===1 && mth)  mth.src = url;
+    }
+}
+
+function syncFromBundle(bkey, n, sel) {
+    _refreshThumb(bkey, n);
+    if (n===1) {
+        const idx = colorKeys.indexOf(sel.value);
+        if (idx !== -1) _moveTo(idx);
+    }
+}
+
+// Touch swipe
+let _tx=0,_ty=0;
+function _initSwipe() {
+    const gc = document.getElementById('gallery-container');
+    if (!gc) return;
+    gc.addEventListener('touchstart', e => { _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; },{passive:true});
+    gc.addEventListener('touchend',   e => {
+        const dx = e.changedTouches[0].clientX - _tx;
+        const dy = e.changedTouches[0].clientY - _ty;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) gSel(gIdx + (dx<0?1:-1));
+    });
+}
+
+// Zoom
+function openZoom(idx) {
+    const zi = document.getElementById('zoom-img');
+    const zm = document.getElementById('zoom-modal');
+    if (zi) zi.src = allImgs[idx ?? gIdx];
+    if (zm) zm.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeZoom() {
+    const zm = document.getElementById('zoom-modal');
+    if (zm) zm.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// ══════════════════════════════════════════════════════════
+// BUNDLE SELECTION
+// ══════════════════════════════════════════════════════════
+function selectBundle(bkey) {
+    activeBundle = bkey;
+
+    ['solo','duo','trio'].forEach(k => {
+        const row   = document.getElementById('row-'+k);
+        const items = document.getElementById('items-'+k);
+        const cta   = document.getElementById('cta-'+k);
+        const radio = document.getElementById('radio-'+k);
+        const dot   = radio ? radio.querySelector('.bundle-radio-dot') : null;
+        const active = (k === bkey);
+
+        if (row) {
+            row.style.borderColor = active ? '#0d9488' : '#e5e7eb';
+            row.style.background  = active ? '#f0fdf4' : '#fff';
+        }
+        if (items) { items.classList.toggle('hidden', !active); }
+        if (cta)   { cta.classList.toggle('hidden', !active); }
+        if (dot)   { dot.style.background = active ? '#0d9488' : '#d1d5db'; }
+    });
+
+    // Init thumbs for this bundle
+    const cnt = bundlePricing[bkey].count;
+    for (let i=1; i<=cnt; i++) _refreshThumb(bkey, i);
+    // Update sticky CTA price
+    const sp = document.getElementById('sticky-price');
+    const sl = document.getElementById('sticky-label') || document.querySelector('.scta-label') || document.querySelector('.sl');
+    if (sp) sp.innerText = bundlePricing[bkey].price + ' Dh';
+    if (sl) {
+        const del = bundlePricing[bkey].delivery;
+        sl.innerText = del > 0 ? 'الدفع عند الاستلام — توصيل ' + del + ' Dh' : 'الدفع عند الاستلام — توصيل مجاني ';
+    }
+}
+
+// ══════════════════════════════════════════════════════════
+// MODAL (order form popup)
+// ══════════════════════════════════════════════════════════
+function openModal(bkey) {
+    if (bkey) { activeBundle = bkey; selectBundle(bkey); }
+
+    const bp  = bundlePricing[activeBundle];
+    const cnt = bp.count;
+
+    // Populate modal summary
+    const nameEl  = document.getElementById('modal-offer-name');
+    const priceEl = document.getElementById('modal-offer-price');
+    const totalEl = document.getElementById('modal-total');
+    const detEl   = document.getElementById('modal-items-detail');
+
+    if (nameEl)  nameEl.innerText  = bp.name;
+    if (priceEl) priceEl.innerText = bp.price + ' Dh';
+    if (totalEl) totalEl.innerText = (bp.price + embPrice + bp.delivery) + ' Dh';
+    // Update delivery row
+    const deliveryEl = document.getElementById('modal-delivery-text');
+    if (deliveryEl) {
+        if (bp.delivery > 0) {
+            deliveryEl.textContent = bp.delivery + ' Dh';
+            deliveryEl.className = 'font-bold text-gray-700';
+        } else {
+            deliveryEl.textContent = 'مجاني ✓';
+            deliveryEl.className = 'font-bold text-green-600';
+        }
+    }
+
+    // Build items detail in summary
+    if (detEl) {
+        let html = '';
+        for (let i=1; i<=cnt; i++) {
+            const csel = document.getElementById('color-'+activeBundle+'-'+i);
+            const ssel = document.getElementById('size-' +activeBundle+'-'+i);
+            const cname = csel ? (colorNames[csel.value]||csel.value) : '';
+            const sname = ssel ? ssel.value : '';
+            html += '<div class="flex justify-between"><span>قطعة '+i+':</span><span class="font-semibold text-gray-700">'+cname+' — '+sname+'</span></div>';
+        }
+        detEl.innerHTML = html;
+    }
+
+    // Show broderie row if active
+    const brod = document.getElementById('modal-broderie-row');
+    if (brod) brod.classList.toggle('hidden', embPrice===0);
+
+    // Open modal
+    const modal = document.getElementById('order-modal');
+    if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // Scroll to top of modal box
+        const box = modal.querySelector('.modal-box');
+        if (box) box.scrollTop = 0;
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('order-modal');
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Close modal on backdrop click
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('modal-overlay')) closeModal();
+});
+
+// ══════════════════════════════════════════════════════════
+// SIZE SELECTOR
+// ══════════════════════════════════════════════════════════
+function pickSize(siz, btn) {
+    heroSize_ = siz;
+    const nameEl = document.getElementById('hero-size-name');
+    if (nameEl) nameEl.innerText = siz;
+    document.querySelectorAll('.size-btn').forEach(b => {
+        b.style.border     = '2px solid #e5e7eb';
+        b.style.background = '#fff';
+        b.style.color      = '#374151';
+    });
+    btn.style.border     = '2px solid #0d9488';
+    btn.style.background = '#f0fdf4';
+    btn.style.color      = '#065f46';
+    // Sync size-1 in all bundles
+    ['solo','duo','trio'].forEach(b => {
+        const s = document.getElementById('size-'+b+'-1');
+        if (s) s.value = siz;
+    });
+}
+
+function toggleSizeGuide() {
+    const g = document.getElementById('size-guide');
+    if (g) g.classList.toggle('hidden');
+}
+
+// ══════════════════════════════════════════════════════════
+// EMBROIDERY
+// ══════════════════════════════════════════════════════════
+function toggleEmbroidery(cb) {
+    const fields = document.getElementById('embroidery-fields');
+    if (fields) fields.classList.toggle('hidden', !cb.checked);
+    embPrice = cb.checked ? 45 : 0;
+    // Update modal total if open
+    const totalEl = document.getElementById('modal-total');
+    const bp = bundlePricing[activeBundle];
+    if (totalEl) totalEl.innerText = (bp.price + embPrice + bp.delivery) + ' Dh';
+    // Show/hide broderie row
+    const brod = document.getElementById('modal-broderie-row');
+    if (brod) brod.classList.toggle('hidden', !cb.checked);
+}
+
+// ══════════════════════════════════════════════════════════
+// FORM SUBMIT
+// ══════════════════════════════════════════════════════════
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const name    = (document.getElementById('f-name')?.value    || '').trim();
+    const phone   = (document.getElementById('f-phone')?.value   || '').trim();
+    const city    = (document.getElementById('f-city')?.value    || '').trim();
+    const address = (document.getElementById('f-address')?.value || '').trim();
+
+    if (!name || !phone || !city || !address) {
+        // Shake invalid fields
+        [['f-name',name],['f-phone',phone],['f-city',city],['f-address',address]].forEach(([id,val]) => {
+            if (!val) {
+                const el = document.getElementById(id);
+                if (el) { el.style.borderColor='#f43f5e'; el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),600); }
+            }
+        });
+        return;
+    }
+
+    const bp    = bundlePricing[activeBundle];
+    const cnt   = bp.count;
+    const oid   = 'MED-' + Math.floor(10000 + Math.random() * 90000);
+    const total = bp.price + embPrice + bp.delivery;
+
+    // Collect items
+    let lines = [];
+    for (let i=1; i<=cnt; i++) {
+        const csel  = document.getElementById('color-'+activeBundle+'-'+i);
+        const ssel  = document.getElementById('size-' +activeBundle+'-'+i);
+        const cname = csel ? (colorNames[csel.value]||csel.value) : '';
+        const sname = ssel ? ssel.value : '';
+        lines.push('• قطعة '+i+': '+cname+' / مقاس '+sname);
+    }
+
+    // Embroidery info
+    let embLine = '';
+    if (embPrice > 0) {
+        const embTxt = (document.getElementById('emb-text')?.value || '').trim();
+        const embClr = (document.getElementById('emb-color')?.value || '');
+        embLine = '\n✍️ *تطريز:* ' + (embTxt||'سيُحدد لاحقاً') + (embClr ? ' / '+embClr : '') + ' (+'+embPrice+' Dh)';
+    }
+
+    const msg = encodeURIComponent(
+        'السلام عليكم UNIFORMEDICAL 🇲🇦\n' +
+        'طلب جديد:\n\n' +
+        '🏷️ *العرض:* ' + bp.name + ' — ' + total + ' Dh\n' +
+        '📋 *التفاصيل:*\n' + lines.join('\n') + embLine + '\n\n' +
+        '👤 *الاسم:* ' + name + '\n' +
+        '📞 *الهاتف:* ' + phone + '\n' +
+        '📍 *المدينة:* ' + city + '\n' +
+        '🏠 *العنوان:* ' + address + '\n' +
+        '🚚 التوصيل: ' + (bp.delivery > 0 ? bp.delivery + ' Dh' : 'مجاني') + ' — دفع عند الاستلام\n' +
+        '🔖 #' + oid
+    );
+
+    // Populate success screen
+    const oidEl = document.getElementById('s-orderid');
+    const snEl  = document.getElementById('s-name');
+    const sbEl  = document.getElementById('s-bundle');
+    const spEl  = document.getElementById('s-price');
+    const siEl  = document.getElementById('s-items');
+    const waEl  = document.getElementById('s-wa-link');
+    if (oidEl) oidEl.innerText = '#'+oid;
+    if (snEl)  snEl.innerText  = name;
+    if (sbEl)  sbEl.innerText  = bp.name;
+    if (spEl)  spEl.innerText  = total + ' Dh';
+    if (siEl)  siEl.innerText  = lines.join(' | ');
+    if (waEl)  waEl.href       = 'https://wa.me/212645066834?text='+msg;
+    // Update shipping display in success screen
+    const sShipEl = document.getElementById('s-shipping');
+    if (sShipEl) {
+        if (bp.delivery > 0) {
+            sShipEl.textContent = bp.delivery + ' Dh';
+            sShipEl.className = 'font-bold text-gray-700';
+        } else {
+            sShipEl.textContent = 'مجاني ✓';
+            sShipEl.className = 'font-bold text-green-600';
+        }
+    }
+
+    // Send to Google Sheet via Google Forms (no CORS)
+    var formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfwyZKjMVQD4jAxS6f801cU85tvjEhT8mRUDXBy0jgwSJKjdQ/formResponse';
+    var formData = new URLSearchParams();
+    formData.append('entry.1974094258', oid);
+    formData.append('entry.1521175253', name);
+    formData.append('entry.536799142', phone);
+    formData.append('entry.193900618', city);
+    formData.append('entry.1836498247', address);
+    formData.append('entry.225541929', bp.name);
+    formData.append('entry.1014667188', String(total));
+    formData.append('entry.588498797', lines.join(' | '));
+    fetch(formUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
+    }).catch(function(){});
+
+    // Close modal, show success
+    closeModal();
+    const mainEl = document.getElementById('main-content');
+    const succEl = document.getElementById('success-screen');
+    if (mainEl) mainEl.classList.add('hidden');
+    if (succEl) {
+        succEl.classList.remove('hidden');
+        succEl.style.display = 'flex';
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ══════════════════════════════════════════════════════════
+// TOAST (social proof)
+// ══════════════════════════════════════════════════════════
+const _tc = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','تطوان','القنيطرة','مكناس'];
+const _tb = ['باك دبل','باك سوبر','قطعة واحدة'];
+function showToast() {
+    const city   = _tc[Math.floor(Math.random()*_tc.length)];
+    const bundle = _tb[Math.floor(Math.random()*_tb.length)];
+    const mins   = Math.floor(Math.random()*12)+1;
+    const el  = document.getElementById('toast');
+    const tt  = document.getElementById('toast-text');
+    const tim = document.getElementById('toast-time');
+    if (!el) return;
+    if (tt)  tt.innerText  = 'عميل من '+city+' اشترى '+bundle;
+    if (tim) tim.innerText = 'منذ '+mins+' دقيقة';
+    el.classList.remove('translate-y-40');
+    el.classList.add('translate-y-0');
+    setTimeout(() => { el.classList.remove('translate-y-0'); el.classList.add('translate-y-40'); }, 5000);
+}
+
+// ══════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+    initGallery();
+    _initSwipe();
+    selectBundle('solo');
+    setTimeout(showToast, 3000);
+    setInterval(showToast, 18000);
+});
+</script>
+
+<!-- Sticky CTA -->
+<div id="sticky-cta">
+    <div>
+        <div class="scta-price" id="sticky-price">269 Dh</div>
+        <div class="scta-label" data-i18n="sticky-label">الدفع عند الاستلام — توصيل 18 Dh</div>
+    </div>
+    <button onclick="scrollToBundles()"><span aria-hidden="true">🛍️</span> <span data-i18n="sticky-btn-text">اطلب الآن</span></button>
+    <a href="https://wa.me/212645066834" target="_blank" style="background:#22c55e;color:#fff;font-weight:700;padding:14px 16px;border-radius:12px;display:flex;align-items:center;font-size:14px;text-decoration:none;">
+        <span aria-hidden="true">💬</span>
+    </a>
+</div>
+
+
+
+<script>
+function scrollToBundles() {
+  var el = document.getElementById('bundles-section');
+  if (!el) return;
+  el.scrollIntoView();
+}
+</script>
+<script>
+// ══════════════════════════════════════════════════════════
+// LANGUAGE SWITCHER — AR / FR
+// ══════════════════════════════════════════════════════════
+const _LANG = {
+  ar: {
+    dir: 'rtl', lang: 'ar',
+    // Header
+    'whatsapp-btn': 'واتساب',
+    'promo-bar': 'توصيل مجاني للطلبات فوق 500 درهم — الدفع عند الاستلام',
+    // Hero badges
+    'badge-medical': 'أزياء طبية',
+    'badge-premium': 'Premium Quality',
+    'hero-title': 'زي طبي فاخر — Tenu Médical Stretch Premium',
+    'hero-subtitle': 'مُصنَّع خصيصاً لك من ثوب BESTRECHE — مريح، مضاد للتعرق، مثالي للعمل الطويل',
+    // Stars
+    'stars-count': '+2,500 زبون راضي',
+    // Guarantee badges
+    'gbadge-delivery': 'توصيل 4-5 أيام',
+    'gbadge-custom': 'تصنيع حسب الطلب',
+    'gbadge-embroidery': 'تطريز متاح',
+    // Color/Size
+    'label-color': 'اللون:',
+    'label-size': 'المقاس:',
+    'size-guide-btn': 'دليل المقاسات ▾',
+    'size-guide-title': 'دليل المقاسات',
+    'size-th-size': 'المقاس',
+    'size-th-chest': 'الصدر (cm)',
+    'size-th-waist': 'الخصر (cm)',
+    'size-th-length': 'الطول (cm)',
+    // Embroidery
+    'embroidery-label': 'إضافة تطريز الاسم أو الشعار (Broderie) — +45 Dh',
+    'embroidery-sub': 'سنتواصل معك لتحديد النص واللون والموضع المناسب',
+    'embroidery-color-placeholder': 'لون التطريز (اختياري — سنحدده معك)',
+    // Bundles
+    'bundles-title': 'اختر عرضك',
+    'bundles-sub': 'كلما زادت القطع، زاد التوفير — توصيل مجاني من قطعتين',
+    'bundle-solo-title': 'قطعة واحدة',
+    'bundle-solo-badge': 'السعر العادي',
+    'bundle-duo-title': 'قطعتان',
+    'bundle-duo-badge': 'الأكثر طلباً',
+    'bundle-duo-save': 'وفّر 39 Dh',
+    'bundle-trio-title': 'ثلاث قطع',
+    'bundle-trio-badge': 'أفضل قيمة',
+    'bundle-trio-save': 'وفّر 87 Dh',
+    'bundle-cta-solo': '🛍️ اطلب الآن — 269 Dh',
+    'bundle-cta-duo': '🛍️ اطلب الآن — 499 Dh',
+    'bundle-cta-trio': '🛍️ اطلب الآن — 720 Dh',
+    // Stats
+    'stat-delivery': 'توصيل سريع',
+    'stat-colors': 'لون متاح',
+    'stat-satisfaction': 'رضا العملاء',
+    // Why section
+    'why-title': 'لماذا Uniformedical؟',
+    'why-fabric-title': 'قماش ستريش فاخر',
+    'why-fabric-sub': 'مرونة عالية وراحة طوال اليوم',
+    'why-colors-title': 'ألوان عصرية متنوعة',
+    'why-colors-sub': '10 ألوان طبية',
+    'why-embr-title': 'إمكانية التطريز',
+    'why-embr-sub': 'أضف شعارك باحترافية',
+    'others-label': 'المنافسون',
+    'others-fabric-title': 'قماش عادي',
+    'others-fabric-sub': 'غير مريح وأقل جودة',
+    'others-colors-title': 'ألوان قليلة وغير عصرية',
+    'others-colors-sub': 'خيارات بسيطة',
+    'others-embr-title': 'لا يوجد تطريز',
+    'others-embr-sub': 'لا إمكانية للتخصيص',
+    // Trust
+    'trust-delivery-title': 'توصيل سريع',
+    'trust-delivery-sub': 'ادفع عند استلام طلبك بكل أمان',
+    'trust-quality-title': 'ضمان الجودة',
+    'trust-quality-sub': 'ضمان استبدال أو إرجاع',
+    // How to order
+    'how-title': 'كيف تطلب؟',
+    'step1-title': 'اختر عرضك + الألوان + المقاسات',
+    'step1-sub': 'Solo أو Duo أو Super Pack',
+    'step2-title': 'أدخل الاسم والهاتف والمدينة',
+    'step2-sub': '30 ثانية فقط',
+    'step3-title': 'استقبل طلبك وادفع عند الاستلام 🎉',
+    'step3-sub': 'خلال 24-48h — تعاين قبل ما تدفع',
+    // Reviews
+    'reviews-title': 'آراء العملاء',
+    // FAQ
+    'faq-title': 'الأسئلة الشائعة',
+    'faq-q0': 'ما نوع القماش المستعمل؟',
+    'faq-a0': 'نستعمل قماش <span class="font-bold text-teal-700">Bestretch</span> عالي الجودة، يتميز بالمرونة والراحة أثناء العمل لساعات طويلة، كما أنه خفيف، عملي، وسهل العناية والغسيل.',
+    'faq-q1': 'كم تستغرق مدة تجهيز وإرسال الطلب؟',
+    'faq-a1': 'بعد تأكيد الطلب:<br>• يتم <span class="font-bold text-teal-700">تجهيز الطلب خلال 24 إلى 48 ساعة</span><br>• مدة التوصيل بين <span class="font-bold text-teal-700">1 إلى 3 أيام عمل</span> حسب المدينة<br>• رسوم التوصيل <span class="font-bold text-teal-700">18 درهم</span> — مجاني مع عروض <span class="font-bold text-teal-700">الثنائي والثلاثي</span>',
+    'faq-q2': 'هل يمكنني إضافة تطريز (Logo أو اسم)؟',
+    'faq-a2': 'نعم! نوفر خدمة التطريز للشعارات والأسماء بـ <span class="font-bold text-purple-600">45 درهم</span> لكل قطعة. كما نقدم عروضاً خاصة للمصحات، المختبرات، العيادات والفرق الطبية.',
+    'faq-q3': 'ما هي سياسة الاستبدال؟',
+    'faq-a3': 'نقوم بالاستبدال فقط في حالة وجود عيب في التصنيع مثل: خياطة معيبة، أو لون/منتج مختلف عن الطلب.<br>⚠️ لا يتم الاستبدال إذا تغيّر رأيك في اللون أو المقاس بعد تأكيد الطلب.',
+    'faq-q4': 'كيف أختار المقاس المناسب؟',
+    'faq-a4': 'اعتمد على دليل المقاسات الموجود في صفحة المنتج. إذا كنت مترددًا بين مقاسين، ننصح باختيار <span class="font-bold text-teal-700">المقاس الأكبر</span> لمزيد من الراحة.',
+    'faq-q5': 'هل يمكنني طلب كميات بالجملة؟',
+    'faq-a5': 'نعم! نوفر عروضاً خاصة للكميات الكبيرة. تواصل معنا عبر الواتساب للحصول على عرض مخصص.',
+    // Modal
+    'modal-title': 'أكمل طلبك',
+    'modal-name-placeholder': 'الاسم الكامل',
+    'modal-phone-placeholder': 'رقم الهاتف',
+    'modal-city-placeholder': 'المدينة',
+    'modal-address-placeholder': 'العنوان التفصيلي (اختياري)',
+    'modal-confirm-btn': 'تأكيد الطلب',
+    // Sticky CTA
+    'sticky-label': 'الدفع عند الاستلام — توصيل 18 Dh',
+    'sticky-btn': '🛍️ اطلب الآن',
+    // Toast
+    'toast-prefix': 'عميل من',
+    'toast-bought': 'اشترى',
+    'toast-ago': 'منذ',
+    'toast-min': 'دقيقة',
+    // Success
+    'success-title': 'تم استلام طلبك!',
+    'success-sub': 'سنتواصل معك قريباً لتأكيد الطلب',
+    'success-shipping-free': 'مجاني ✓',
+  },
+  fr: {
+    dir: 'ltr', lang: 'fr',
+    // Header
+    'whatsapp-btn': 'WhatsApp',
+    'promo-bar': 'Livraison gratuite dès 500 Dh — Paiement à la livraison',
+    // Hero badges
+    'badge-medical': 'Tenue médicale',
+    'badge-premium': 'Premium Quality',
+    'hero-title': 'Tenue Médicale Premium — Stretch Bestretch',
+    'hero-subtitle': 'Fabriquée sur mesure en tissu BESTRETCH — confortable, anti-transpiration, idéale pour de longues heures de travail',
+    // Stars
+    'stars-count': '+2 500 clients satisfaits',
+    // Guarantee badges
+    'gbadge-delivery': 'Livraison 4-5 jours',
+    'gbadge-custom': 'Fabrication sur mesure',
+    'gbadge-embroidery': 'Broderie disponible',
+    // Color/Size
+    'label-color': 'Couleur :',
+    'label-size': 'Taille :',
+    'size-guide-btn': 'Guide des tailles ▾',
+    'size-guide-title': 'Guide des tailles',
+    'size-th-size': 'Taille',
+    'size-th-chest': 'Poitrine (cm)',
+    'size-th-waist': 'Taille (cm)',
+    'size-th-length': 'Longueur (cm)',
+    // Embroidery
+    'embroidery-label': 'Ajouter une broderie (nom ou logo) — +45 Dh',
+    'embroidery-sub': 'Nous vous contacterons pour définir le texte, la couleur et la position',
+    'embroidery-color-placeholder': 'Couleur broderie (optionnel — à définir ensemble)',
+    // Bundles
+    'bundles-title': 'Choisissez votre offre',
+    'bundles-sub': 'Plus vous commandez, plus vous économisez — livraison gratuite dès 2 pièces',
+    'bundle-solo-title': '1 pièce',
+    'bundle-solo-badge': 'Prix standard',
+    'bundle-duo-title': '2 pièces',
+    'bundle-duo-badge': 'Le plus commandé',
+    'bundle-duo-save': 'Économisez 39 Dh',
+    'bundle-trio-title': '3 pièces',
+    'bundle-trio-badge': 'Meilleure valeur',
+    'bundle-trio-save': 'Économisez 87 Dh',
+    'bundle-cta-solo': '🛍️ Commander — 269 Dh',
+    'bundle-cta-duo': '🛍️ Commander — 499 Dh',
+    'bundle-cta-trio': '🛍️ Commander — 720 Dh',
+    // Stats
+    'stat-delivery': 'Livraison rapide',
+    'stat-colors': 'couleurs disponibles',
+    'stat-satisfaction': 'satisfaction client',
+    // Why section
+    'why-title': 'Pourquoi Uniformedical ?',
+    'why-fabric-title': 'Tissu stretch premium',
+    'why-fabric-sub': 'Très flexible, confort toute la journée',
+    'why-colors-title': 'Couleurs modernes variées',
+    'why-colors-sub': '10 coloris médicaux',
+    'why-embr-title': 'Broderie personnalisée',
+    'why-embr-sub': 'Ajoutez votre logo professionnellement',
+    'others-label': 'Concurrents',
+    'others-fabric-title': 'Tissu ordinaire',
+    'others-fabric-sub': 'Inconfortable et de moindre qualité',
+    'others-colors-title': 'Peu de couleurs',
+    'others-colors-sub': 'Choix limité',
+    'others-embr-title': 'Pas de broderie',
+    'others-embr-sub': 'Aucune personnalisation',
+    // Trust
+    'trust-delivery-title': 'Livraison rapide',
+    'trust-delivery-sub': 'Payez à la réception de votre commande en toute sécurité',
+    'trust-quality-title': 'Garantie qualité',
+    'trust-quality-sub': 'Échange ou remboursement garanti',
+    // How to order
+    'how-title': 'Comment commander ?',
+    'step1-title': 'Choisissez votre offre + couleurs + tailles',
+    'step1-sub': 'Solo, Duo ou Super Pack',
+    'step2-title': 'Entrez votre nom, téléphone et ville',
+    'step2-sub': '30 secondes seulement',
+    'step3-title': 'Recevez votre commande et payez à la livraison 🎉',
+    'step3-sub': 'En 24-48h — vérifiez avant de payer',
+    // Reviews
+    'reviews-title': 'Avis clients',
+    // FAQ
+    'faq-title': 'Questions fréquentes',
+    'faq-q0': 'Quel tissu est utilisé ?',
+    'faq-a0': 'Nous utilisons le tissu <span class="font-bold text-teal-700">Bestretch</span> de haute qualité, reconnu pour sa flexibilité et son confort lors de longues heures de travail. Il est léger, pratique et facile d\'entretien.',
+    'faq-q1': 'Quel est le délai de préparation et d\'envoi ?',
+    'faq-a1': 'Après confirmation de la commande :<br>• <span class="font-bold text-teal-700">Préparation en 24 à 48 heures</span><br>• Livraison en <span class="font-bold text-teal-700">1 à 3 jours ouvrables</span> selon la ville<br>• Frais de livraison <span class="font-bold text-teal-700">18 Dh</span> — gratuit pour le Duo et le Trio',
+    'faq-q2': 'Puis-je ajouter une broderie (logo ou nom) ?',
+    'faq-a2': 'Oui ! Nous proposons la broderie pour logos et noms à <span class="font-bold text-purple-600">45 Dh</span> par pièce. Des offres spéciales sont disponibles pour les cliniques, laboratoires et équipes médicales.',
+    'faq-q3': 'Quelle est la politique d\'échange ?',
+    'faq-a3': 'L\'échange est possible uniquement en cas de défaut de fabrication : couture défectueuse, couleur ou produit différent de la commande.<br>⚠️ Aucun échange si vous changez d\'avis sur la couleur ou la taille après confirmation.',
+    'faq-q4': 'Comment choisir la bonne taille ?',
+    'faq-a4': 'Référez-vous au guide des tailles sur la page produit. En cas d\'hésitation entre deux tailles, nous recommandons de choisir <span class="font-bold text-teal-700">la taille supérieure</span> pour plus de confort.',
+    'faq-q5': 'Puis-je commander en gros ?',
+    'faq-a5': 'Oui ! Nous proposons des offres spéciales pour les grandes quantités. Contactez-nous via WhatsApp pour un devis personnalisé.',
+    // Modal
+    'modal-title': 'Finaliser votre commande',
+    'modal-name-placeholder': 'Nom complet',
+    'modal-phone-placeholder': 'Numéro de téléphone',
+    'modal-city-placeholder': 'Ville',
+    'modal-address-placeholder': 'Adresse détaillée (optionnel)',
+    'modal-confirm-btn': 'Confirmer la commande',
+    // Sticky CTA
+    'sticky-label': 'Paiement à la livraison — Livraison 18 Dh',
+    'sticky-btn': '🛍️ Commander',
+    // Toast
+    'toast-prefix': 'Un client de',
+    'toast-bought': 'a commandé',
+    'toast-ago': 'il y a',
+    'toast-min': 'minute(s)',
+    // Success
+    'success-title': 'Commande reçue !',
+    'success-sub': 'Nous vous contacterons bientôt pour confirmer',
+    'success-shipping-free': 'Gratuit ✓',
+  }
+};
+
+let _currentLang = 'ar';
+
+function switchLang(lang) {
+  if (lang === _currentLang) return;
+  _currentLang = lang;
+  const t = _LANG[lang];
+  
+  // Update html dir/lang
+  document.documentElement.setAttribute('dir', t.dir);
+  document.documentElement.setAttribute('lang', t.lang);
+
+  // Update all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Update toggle button style
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isActive = btn.getAttribute('data-lang') === lang;
+    btn.style.background = isActive ? '#0d9488' : 'transparent';
+    btn.style.color = isActive ? '#fff' : '#0d9488';
+  });
+
+  // Update toast cities & bundles for French
+  if (lang === 'fr') {
+    window._tc = ['Casablanca','Rabat','Marrakech','Fès','Tanger','Agadir','Salé','Tétouan','Kénitra','Meknès'];
+    window._tb = ['Pack Duo','Pack Super','1 pièce'];
+  } else {
+    window._tc = ['الدار البيضاء','الرباط','مراكش','فاس','طنجة','أكادير','سلا','تطوان','القنيطرة','مكناس'];
+    window._tb = ['باك دبل','باك سوبر','قطعة واحدة'];
+  }
+}
+
+</script>
 </body>
 </html>
