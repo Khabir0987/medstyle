@@ -1,411 +1,143 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uniformedical – بلوزات طبية احترافية في المغرب</title>
-<meta name="description" content="Uniformedical – البلوزات الطبية الأكثر جودة في المغرب. تسليم سريع، دفع عند الاستلام.">
+<title>Uniformedical – Blouses Médicales Professionnelles au Maroc</title>
+<meta name="description" content="Uniformedical – Les meilleures blouses médicales au Maroc. Livraison rapide, paiement à la livraison.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --teal: #0d9488; --teal-dark: #0f766e; --teal-light: #f0fdfa;
   --text: #111827; --muted: #6b7280; --border: #e5e7eb;
 }
-body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); overflow-x: hidden; }
 
-/* ANNOUNCE */
 .announce { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 600; padding: 9px 16px; }
 
-/* NAV */
 nav { position: sticky; top: 0; z-index: 200; background: #fff; border-bottom: 1px solid var(--border); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
 .nav-logo { font-size: 20px; font-weight: 900; color: var(--teal); text-decoration: none; }
-.nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+.nav-cta { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
 .nav-cta:hover { background: var(--teal-dark); }
 
-/* ── GENDER TABS ── */
-.gender-tabs {
-  display: flex; justify-content: center;
-  background: #fff;
-  padding: 14px 20px;
-  position: sticky; top: 57px; z-index: 100;
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-}
-.gender-tabs-inner {
-  display: flex;
-  background: #f1f5f9;
-  border-radius: 50px;
-  padding: 4px;
-  gap: 4px;
-}
-.gender-tab {
-  flex: 1; min-width: 120px;
-  padding: 10px 28px;
-  text-align: center;
-  font-size: 14px; font-weight: 700;
-  color: #64748b;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.22s ease;
-  letter-spacing: .3px;
-  user-select: none;
-  white-space: nowrap;
-}
-.gender-tab.active {
-  background: var(--teal);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(13,148,136,.35);
-}
+.gender-tabs { display: flex; justify-content: center; background: #fff; padding: 14px 20px; position: sticky; top: 57px; z-index: 100; border-bottom: 1px solid var(--border); box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.gender-tabs-inner { display: flex; background: #f1f5f9; border-radius: 50px; padding: 4px; gap: 4px; }
+.gender-tab { flex: 1; min-width: 120px; padding: 10px 28px; text-align: center; font-size: 14px; font-weight: 700; color: #64748b; cursor: pointer; border-radius: 50px; transition: all 0.22s ease; letter-spacing: .3px; user-select: none; white-space: nowrap; }
+.gender-tab.active { background: var(--teal); color: #fff; box-shadow: 0 4px 14px rgba(13,148,136,.35); }
 
-/* ── HERO ── */
-.hero {
-  background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 60%, #fff 100%);
-  overflow: hidden; padding: 0; position: relative;
-}
-/* الـ inner: صف أفقي — الرسم يسار، الكلمات يمين */
-.hero-inner {
-  display: flex; flex-direction: row;
-  align-items: center; justify-content: center;
-  width: 100%; max-width: 480px; margin: 0 auto;
-  padding: 36px 16px 28px; gap: 8px;
-}
-
-/* ── الصورة يسار ── */
-.hero-visual {
-  width: 190px; height: 190px; flex-shrink: 0;
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  margin-left: -18px;
-}
-.hero-visual-ring {
-  position: absolute; inset: 0; border-radius: 50%;
-  border: 2px dashed rgba(13,148,136,.3);
-  animation: spin-slow 20s linear infinite;
-}
-.hero-visual-ring2 {
-  position: absolute; inset: 16px; border-radius: 50%;
-  border: 1.5px dashed rgba(13,148,136,.15);
-  animation: spin-slow 28s linear infinite reverse;
-}
-.hero-scrub-img {
-  width: 130px; height: 130px;
-  object-fit: contain; position: relative; z-index: 2;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 4px 14px rgba(13,148,136,.2));
-  animation: float 4s ease-in-out infinite;
-}
-.hero-chip {
-  position: absolute; background: #fff;
-  border-radius: 50px; padding: 5px 10px;
-  font-size: 11px; font-weight: 700; color: var(--text);
-  box-shadow: 0 3px 10px rgba(0,0,0,.1);
-  white-space: nowrap; z-index: 3;
-  border: 1px solid var(--border);
-  animation: float 4s ease-in-out infinite;
-}
-/* c1 = Bestretch — أعلى يمين */
-.hero-chip.c1 { top: 12px; right: -28px; animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-/* c2 = XS→4XL — أسفل يمين */
-.hero-chip.c2 { bottom: 16px; right: -32px; animation-delay: 1s; }
-/* c3 = 10 ألوان — أسفل يسار */
-.hero-chip.c3 { bottom: 26px; left: -22px; animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
-/* c4 = 24h — أعلى يسار */
-.hero-chip.c4 { top: 18px; left: -20px; animation-delay: 1.5s; }
-
-/* ── النص يمين ── */
-.hero-content {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: flex-end; text-align: right;
-  padding-right: 4px;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: #fff; border: 1.5px solid var(--teal);
-  color: var(--teal); border-radius: 50px;
-  padding: 6px 14px; font-size: 12px; font-weight: 700;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 10px rgba(13,148,136,.15);
-}
-.hero h1 { margin: 0 0 12px; text-align: right; }
-.hw-label {
-  display: block; font-size: 10px; font-weight: 700;
-  color: var(--teal); letter-spacing: 2px;
-  text-transform: uppercase; opacity: .65;
-  margin-bottom: 6px;
-}
-.hw-word {
-  display: block; font-weight: 900;
-  line-height: 1.1; letter-spacing: -1px;
-  font-size: clamp(36px, 10.5vw, 54px);
-  color: var(--text);
-  margin-bottom: 2px;
-}
-.hw-word.teal {
-  color: var(--teal); position: relative; width: fit-content;
-}
-.hw-word.teal::after {
-  content: ''; position: absolute;
-  bottom: 3px; right: 0; left: 0; height: 4px;
-  background: linear-gradient(90deg, var(--teal), #5eead4);
-  border-radius: 3px; opacity: .35;
-}
+.hero { background: linear-gradient(160deg, #f0fdfa 0%, #e8faf7 60%, #fff 100%); overflow: hidden; padding: 0; position: relative; }
+.hero-inner { display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%; max-width: 480px; margin: 0 auto; padding: 36px 16px 28px; gap: 8px; }
+.hero-visual { width: 190px; height: 190px; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; margin-right: -18px; }
+.hero-visual-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px dashed rgba(13,148,136,.3); animation: spin-slow 20s linear infinite; }
+.hero-visual-ring2 { position: absolute; inset: 16px; border-radius: 50%; border: 1.5px dashed rgba(13,148,136,.15); animation: spin-slow 28s linear infinite reverse; }
+.hero-scrub-img { width: 130px; height: 130px; object-fit: contain; position: relative; z-index: 2; mix-blend-mode: multiply; filter: drop-shadow(0 4px 14px rgba(13,148,136,.2)); animation: float 4s ease-in-out infinite; }
+.hero-chip { position: absolute; background: #fff; border-radius: 50px; padding: 5px 10px; font-size: 11px; font-weight: 700; color: var(--text); box-shadow: 0 3px 10px rgba(0,0,0,.1); white-space: nowrap; z-index: 3; border: 1px solid var(--border); animation: float 4s ease-in-out infinite; }
+.hero-chip.c1 { top: 12px; left: -28px; animation-delay: 0s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+.hero-chip.c2 { bottom: 16px; left: -32px; animation-delay: 1s; }
+.hero-chip.c3 { bottom: 26px; right: -22px; animation-delay: 2s; color: var(--teal); border-color: #99f6e4; background: #f0fdfa; }
+.hero-chip.c4 { top: 18px; right: -20px; animation-delay: 1.5s; }
+.hero-content { flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left; padding-left: 4px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1.5px solid var(--teal); color: var(--teal); border-radius: 50px; padding: 6px 14px; font-size: 12px; font-weight: 700; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(13,148,136,.15); }
+.hero h1 { margin: 0 0 12px; text-align: left; }
+.hw-label { display: block; font-size: 10px; font-weight: 700; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; opacity: .65; margin-bottom: 6px; }
+.hw-word { display: block; font-weight: 900; line-height: 1.1; letter-spacing: -1px; font-size: clamp(36px, 10.5vw, 54px); color: var(--text); margin-bottom: 2px; }
+.hw-word.teal { color: var(--teal); position: relative; width: fit-content; }
+.hw-word.teal::after { content: ''; position: absolute; bottom: 3px; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--teal), #5eead4); border-radius: 3px; opacity: .35; }
 .hw-word.light { color: #94a3b8; font-size: clamp(26px,8vw,38px); font-weight: 700; margin-bottom: 2px; }
-
-/* ── الجزء السفلي: p + btns + stats (بعد الصف) ── */
-.hero-bottom {
-  width: 100%; max-width: 480px; margin: 0 auto;
-  padding: 0 16px 36px; text-align: center;
-}
+.hero-bottom { width: 100%; max-width: 480px; margin: 0 auto; padding: 0 16px 36px; text-align: center; }
 .hero p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 22px; }
 .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 0; }
-.btn-primary {
-  background: var(--teal); color: #fff; border: none;
-  border-radius: 50px; padding: 11px 22px;
-  font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700;
-  cursor: pointer; text-decoration: none; display: inline-block;
-  transition: background .2s, transform .15s;
-  box-shadow: 0 4px 14px rgba(13,148,136,.3);
-  flex: 1; min-width: 110px;
-}
+.btn-primary { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 11px 22px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s, transform .15s; box-shadow: 0 4px 14px rgba(13,148,136,.3); flex: 1; min-width: 110px; }
 .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
-.btn-outline {
-  background: transparent; color: var(--teal);
-  border: 2px solid var(--teal); border-radius: 50px;
-  padding: 11px 22px; font-family: 'Cairo', sans-serif;
-  font-size: 13px; font-weight: 700; text-decoration: none;
-  display: inline-block; transition: all .2s;
-  flex: 1; min-width: 110px; text-align: center;
-}
+.btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); border-radius: 50px; padding: 11px 22px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-block; transition: all .2s; flex: 1; min-width: 110px; text-align: center; }
 .btn-outline:hover { background: var(--teal-light); }
-
-.hero-stats {
-  display: flex; gap: 0; margin-top: 20px;
-  background: #fff; border-radius: 16px;
-  box-shadow: 0 2px 14px rgba(0,0,0,.07);
-  border: 1px solid var(--border); overflow: hidden;
-}
+.hero-stats { display: flex; gap: 0; margin-top: 20px; background: #fff; border-radius: 16px; box-shadow: 0 2px 14px rgba(0,0,0,.07); border: 1px solid var(--border); overflow: hidden; }
 .hero-stat { flex: 1; padding: 13px 6px; text-align: center; }
-.hero-stat:not(:last-child) { border-left: 1px solid var(--border); }
+.hero-stat:not(:last-child) { border-right: 1px solid var(--border); }
 .hero-stat strong { display: block; font-size: 18px; font-weight: 900; color: var(--teal); line-height: 1; }
 .hero-stat span { font-size: 10px; color: var(--muted); margin-top: 3px; display: block; }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
-}
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* TRUST */
 .trust { background: #111827; color: #fff; display: flex; justify-content: center; gap: 24px; padding: 13px 20px; flex-wrap: wrap; font-size: 13px; font-weight: 600; }
 
-/* ── COLLECTIONS ── */
-.coll-wrap {
-  background: #f8fafc;
-  padding: 0 0 52px;
-}
-.coll-header {
-  text-align: center;
-  padding: 44px 20px 28px;
-}
-.coll-eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--teal);
-  opacity: .8; margin-bottom: 10px;
-}
-.coll-title {
-  font-size: clamp(22px, 5vw, 30px); font-weight: 900;
-  color: #0f172a; margin-bottom: 8px; line-height: 1.2;
-}
-.coll-sub {
-  font-size: 13px; color: var(--muted); line-height: 1.7;
-}
+.coll-wrap { background: #f8fafc; padding: 0 0 52px; }
+.coll-header { text-align: center; padding: 44px 20px 28px; }
+.coll-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); opacity: .8; margin-bottom: 10px; }
+.coll-title { font-size: clamp(22px, 5vw, 30px); font-weight: 900; color: #0f172a; margin-bottom: 8px; line-height: 1.2; }
+.coll-sub { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
-/* GENDER SECTIONS */
 .gender-section { display: none; }
 .gender-section.active { display: block; }
 
-/* بطاقات الموديلات */
-.models-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  padding: 0 16px;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.models-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  padding: 0 16px;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.model-card {
-  position: relative; border-radius: 22px; overflow: hidden;
-  text-decoration: none; color: #fff; display: block;
-  aspect-ratio: 3/4; background: #e2e8f0;
-  box-shadow: 0 4px 20px rgba(0,0,0,.1);
-  transition: transform 0.22s, box-shadow 0.22s;
-}
+.models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 0 16px; max-width: 480px; margin: 0 auto; }
+.models-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 16px; max-width: 480px; margin: 0 auto; }
+.model-card { position: relative; border-radius: 22px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,.1); transition: transform 0.22s, box-shadow 0.22s; }
 .model-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
-.model-card img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  transition: transform 0.4s ease;
-}
+.model-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
 .model-card:hover img { transform: scale(1.04); }
+.model-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10,20,30,.82) 0%, rgba(10,20,30,.3) 55%, transparent 100%); padding: 24px 14px 16px; }
+.model-name { font-size: 15px; font-weight: 900; letter-spacing: .2px; margin-bottom: 3px; }
+.model-sub { font-size: 11px; opacity: .8; line-height: 1.4; }
+.model-badge { position: absolute; top: 12px; right: 12px; background: var(--teal); color: #fff; border-radius: 50px; padding: 4px 11px; font-size: 10px; font-weight: 800; box-shadow: 0 3px 10px rgba(13,148,136,.4); letter-spacing: .3px; }
+.model-badge.new { background: #7c3aed; box-shadow: 0 3px 10px rgba(124,58,237,.4); }
 
-/* gradient overlay من الأسفل */
-.model-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(10,20,30,.82) 0%, rgba(10,20,30,.3) 55%, transparent 100%);
-  padding: 24px 14px 16px;
-}
-.model-name {
-  font-size: 15px; font-weight: 900;
-  letter-spacing: .2px; margin-bottom: 3px;
-}
-.model-sub {
-  font-size: 11px; opacity: .8; line-height: 1.4;
-}
-/* badge أعلى البطاقة */
-.model-badge {
-  position: absolute; top: 12px; right: 12px;
-  background: var(--teal);
-  color: #fff; border-radius: 50px;
-  padding: 4px 11px; font-size: 10px; font-weight: 800;
-  box-shadow: 0 3px 10px rgba(13,148,136,.4);
-  letter-spacing: .3px;
-}
-.model-badge.new {
-  background: #7c3aed;
-  box-shadow: 0 3px 10px rgba(124,58,237,.4);
-}
-
-/* SECTION + OLD helpers (kept for compat) */
 .section { padding: 0; max-width: 960px; margin: 0 auto; }
-.s-title { display:none; }
-.s-sub { display:none; }
-.categories-grid { display:none; }
-.categories-grid-2 { display:none; }
-.cat-card { display:none; }
-.color-strip { display:none; }
-.color-dot { display:none; }
+.s-title { display:none; } .s-sub { display:none; }
 
-/* ── WHY SECTION ── */
-.why-section {
-  background: #0f172a;
-  padding: 60px 20px;
-  position: relative;
-  overflow: hidden;
-}
-.why-section::before {
-  content: '';
-  position: absolute;
-  top: -80px; left: 50%; transform: translateX(-50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(13,148,136,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
+.why-section { background: #0f172a; padding: 60px 20px; position: relative; overflow: hidden; }
+.why-section::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(13,148,136,.18) 0%, transparent 70%); pointer-events: none; }
 .why-inner { max-width: 480px; margin: 0 auto; position: relative; z-index: 1; }
-.why-eyebrow {
-  text-align: center;
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--teal);
-  margin-bottom: 10px; opacity: .85;
-}
-.why-title {
-  text-align: center;
-  font-size: clamp(24px, 6vw, 34px); font-weight: 900;
-  color: #fff; margin-bottom: 6px; line-height: 1.2;
-}
+.why-eyebrow { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; opacity: .85; }
+.why-title { text-align: center; font-size: clamp(24px, 6vw, 34px); font-weight: 900; color: #fff; margin-bottom: 6px; line-height: 1.2; }
 .why-title span { color: var(--teal); }
-.why-sub {
-  text-align: center;
-  font-size: 13px; color: #94a3b8; margin-bottom: 36px; line-height: 1.7;
-}
-/* البطاقات */
-.why-grid {
-  display: flex; flex-direction: column; gap: 14px;
-}
-.why-card {
-  display: flex; align-items: flex-start; gap: 16px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20px; padding: 20px 18px;
-  transition: background .2s, border-color .2s;
-  position: relative; overflow: hidden;
-}
-.why-card::before {
-  content: '';
-  position: absolute; inset: 0; border-radius: 20px;
-  background: linear-gradient(135deg, rgba(13,148,136,.12) 0%, transparent 60%);
-  opacity: 0; transition: opacity .2s;
-}
+.why-sub { text-align: center; font-size: 13px; color: #94a3b8; margin-bottom: 36px; line-height: 1.7; }
+.why-grid { display: flex; flex-direction: column; gap: 14px; }
+.why-card { display: flex; align-items: flex-start; gap: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 20px 18px; transition: background .2s, border-color .2s; position: relative; overflow: hidden; }
+.why-card::before { content: ''; position: absolute; inset: 0; border-radius: 20px; background: linear-gradient(135deg, rgba(13,148,136,.12) 0%, transparent 60%); opacity: 0; transition: opacity .2s; }
 .why-card:hover::before { opacity: 1; }
 .why-card:hover { border-color: rgba(13,148,136,.35); }
-.why-icon-wrap {
-  width: 48px; height: 48px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--teal) 0%, #0f766e 100%);
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 4px 16px rgba(13,148,136,.35);
-}
-.why-card-body {}
+.why-icon-wrap { width: 48px; height: 48px; flex-shrink: 0; background: linear-gradient(135deg, var(--teal) 0%, #0f766e 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 16px rgba(13,148,136,.35); }
 .why-card h3 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 5px; }
 .why-card p { font-size: 13px; color: #94a3b8; line-height: 1.65; margin: 0; }
-.why-number {
-  position: absolute; top: 14px; left: 16px;
-  font-size: 11px; font-weight: 900; color: rgba(255,255,255,.08);
-  letter-spacing: 1px; font-family: 'Inter', monospace;
-}
+.why-number { position: absolute; top: 14px; right: 16px; font-size: 11px; font-weight: 900; color: rgba(255,255,255,.08); letter-spacing: 1px; font-family: 'Inter', monospace; }
 
-/* REVIEWS */
-.reviews-grid { display: grid; gap: 12px; }
+.reviews-grid { display: grid; gap: 12px; padding: 28px 20px; max-width: 480px; margin: 0 auto; }
 .review-card { background: #fafafa; border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
 .review-stars { color: #f59e0b; font-size: 14px; margin-bottom: 7px; }
 .review-text { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
 .review-author { font-size: 12px; font-weight: 700; color: var(--muted); }
 
-/* CTA BAND */
 .cta-band { background: linear-gradient(135deg, #0d9488, #065f46); color: #fff; text-align: center; padding: 60px 24px; }
 .cta-band h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; }
 .cta-band p { font-size: 15px; opacity: 0.88; margin-bottom: 26px; }
-.btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
+.btn-white { background: #fff; color: var(--teal); border: none; border-radius: 50px; padding: 14px 34px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
 .btn-white:hover { transform: translateY(-2px); }
 
-/* FOOTER */
 footer { background: #111827; color: #9ca3af; text-align: center; padding: 28px 20px; font-size: 13px; }
 footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
 footer a:hover { color: #fff; }
 .footer-links { margin-bottom: 10px; }
 
-/* WA */
-.wa { position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
+.wa { position: fixed; bottom: 20px; right: 20px; z-index: 999; width: 52px; height: 52px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.2s; }
 .wa:hover { transform: scale(1.1); }
 .wa svg { width: 28px; height: 28px; fill: #fff; }
 
-/* DIVIDER */
 .divider { height: 1px; background: var(--border); margin: 0; }
 
-/* MOBILE */
 @media (max-width: 600px) {
   .hero-inner { gap: 4px; padding: 28px 12px 20px; }
   .hero-visual { width: 160px; height: 160px; }
   .hero-scrub-img { width: 110px; height: 110px; }
   .hero-chip { font-size: 10px; padding: 4px 9px; }
-  .hero-chip.c1 { right: -24px; top: 8px; }
-  .hero-chip.c2 { right: -28px; bottom: 10px; }
-  .hero-chip.c3 { left: -18px; bottom: 18px; }
-  .hero-chip.c4 { left: -16px; top: 12px; }
+  .hero-chip.c1 { left: -24px; top: 8px; }
+  .hero-chip.c2 { left: -28px; bottom: 10px; }
+  .hero-chip.c3 { right: -18px; bottom: 18px; }
+  .hero-chip.c4 { right: -16px; top: 12px; }
   .hw-word { font-size: clamp(34px, 11vw, 46px); }
   .hw-word.light { font-size: clamp(24px, 8.5vw, 34px); }
   .hero-bottom { padding: 0 16px 28px; }
@@ -416,7 +148,6 @@ footer a:hover { color: #fff; }
   .why-grid { gap: 12px; }
   .why-icon-wrap { width: 42px; height: 42px; font-size: 20px; border-radius: 12px; }
   .trust { gap: 12px; font-size: 12px; }
-  .hero-stats { gap: 14px; }
   .gender-tabs { top: 53px; padding: 10px 16px; }
   .gender-tab { min-width: 100px; padding: 9px 22px; font-size: 13px; }
 }
@@ -425,196 +156,164 @@ footer a:hover { color: #fff; }
 <body>
 
 <!-- ANNOUNCE -->
-<div class="announce">🚚 توصيل مجاني فوق 500 درهم &nbsp;|&nbsp; الدفع عند الاستلام في جميع أنحاء المغرب</div>
+<div class="announce">Livraison gratuite dès 500 MAD &nbsp;|&nbsp; Paiement à la livraison partout au Maroc</div>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="home.html" class="nav-logo">Uniformedical</a>
-    <a href="index.html" class="nav-cta">🛍 اطلب الآن</a>
+    <a href="index.html" class="nav-logo">Uniformedical</a>
+    <a href="index.html" class="nav-cta">Commander</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- الصف الأفقي: الرسم يسار + الكلمات يمين -->
   <div class="hero-inner">
-
-    <!-- الرسم يسار -->
+    <div class="hero-content">
+      <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 clients satisfaits</div>
+      <h1>
+        <span class="hw-label">N°1 des tenues médicales au Maroc</span>
+        <span class="hw-word light">Confort</span>
+        <span class="hw-word teal">Élégance</span>
+        <span class="hw-word">Qualité</span>
+      </h1>
+    </div>
     <div class="hero-visual">
       <div class="hero-visual-ring"></div>
       <div class="hero-visual-ring2"></div>
       <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d755171e9_vwep.webp"
-           alt="بلوزة طبية Uniformedical" class="hero-scrub-img" loading="eager" fetchpriority="high">
+           alt="Blouse médicale Uniformedical" class="hero-scrub-img" loading="eager" fetchpriority="high">
       <div class="hero-chip c1">✨ Bestretch</div>
       <div class="hero-chip c2">📏 XS → 4XL</div>
-      <div class="hero-chip c3">🎨 10 ألوان</div>
-      <div class="hero-chip c4">⚡ 24h تصنيع</div>
+      <div class="hero-chip c3">10 couleurs</div>
+      <div class="hero-chip c4">⚡ 24h fab.</div>
     </div>
-
-    <!-- الكلمات يمين -->
-    <div class="hero-content">
-      <div class="hero-badge">⭐ 4.9/5 &nbsp;|&nbsp; +1000 عميل راضٍ</div>
-      <h1>
-        <span class="hw-label">الزي الطبي المغربي الأول</span>
-        <span class="hw-word light">راحة</span>
-        <span class="hw-word teal">أناقة</span>
-        <span class="hw-word">احترافية</span>
-      </h1>
-    </div>
-
   </div>
 
-  <!-- الجزء السفلي: الوصف + الأزرار + الإحصائيات -->
   <div class="hero-bottom">
-    <p>البلوزات الطبية الأكثر جودة في المغرب — قماش Bestretch المرن، 10 ألوان راقية، مقاسات حتى 4XL.</p>
+    <p>Les meilleures blouses médicales au Maroc — tissu Bestretch stretch, 10 couleurs élégantes, tailles jusqu'au 4XL.</p>
     <div class="hero-btns">
-      <a href="index.html" class="btn-primary">🛍 اطلب الآن</a>
-      <a href="#collections" class="btn-outline">استعرض الكولكشن</a>
+      <a href="v95.html" class="btn-primary">Voir la collection</a>
+      <a href="#collections" class="btn-outline">Nos modèles</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><strong>+1000</strong><span>عميل راضٍ</span></div>
-      <div class="hero-stat"><strong>10</strong><span>ألوان</span></div>
-      <div class="hero-stat"><strong>24h</strong><span>تصنيع</span></div>
+      <div class="hero-stat"><strong>+1000</strong><span>clients</span></div>
+      <div class="hero-stat"><strong>10</strong><span>couleurs</span></div>
+      <div class="hero-stat"><strong>24h</strong><span>fabrication</span></div>
     </div>
   </div>
-
 </section>
-
-<!-- TRUST -->
 
 <!-- COLLECTIONS -->
 <div id="collections" class="coll-wrap">
 
-  <!-- GENDER TABS -->
   <div class="gender-tabs">
     <div class="gender-tabs-inner">
-      <div class="gender-tab active" onclick="switchGender('women', this)">نساء</div>
-      <div class="gender-tab" onclick="switchGender('men', this)">رجال</div>
+      <div class="gender-tab active" onclick="switchGender('women', this)">Femmes</div>
+      <div class="gender-tab" onclick="switchGender('men', this)">Hommes</div>
     </div>
   </div>
 
-  <!-- عنوان القسم -->
   <div class="coll-header">
-    <div class="coll-eyebrow">اختر موديلك المفضل</div>
-    <h2 class="coll-title">الكولكشن الطبية</h2>
-    <p class="coll-sub">3 موديلات أنيقة — كلها بقماش Bestretch و10 ألوان راقية</p>
+    <div class="coll-eyebrow">Choisissez votre modèle</div>
+    <h2 class="coll-title">Notre Collection</h2>
+    <p class="coll-sub">3 modèles élégants — tissu Bestretch & 10 couleurs au choix</p>
   </div>
 
   <!-- WOMEN -->
   <div class="gender-section active" id="section-women">
     <div class="models-grid">
-
-      <!-- موديل V95 -->
       <a href="v95.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="موديل V95" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="Modèle V95" loading="lazy">
         <div class="model-overlay">
           <div class="model-name">V95</div>
-          <div class="model-sub">ياقة V كلاسيكية</div>
+          <div class="model-sub">Col V classique</div>
         </div>
-        <div class="model-badge">الأكثر طلباً</div>
+        <div class="model-badge">Best-seller</div>
       </a>
-
-      <!-- موديل أميرة -->
       <a href="amira.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="موديل أميرة" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Modèle Amira" loading="lazy">
         <div class="model-overlay">
-          <div class="model-name">أميرة</div>
-          <div class="model-sub">تصميم أنثوي أنيق</div>
+          <div class="model-name">Amira</div>
+          <div class="model-sub">Design féminin élégant</div>
         </div>
       </a>
-
-      <!-- موديل كول أفيسي -->
       <a href="col-avici.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="كول أفيسي" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="Col Avici" loading="lazy">
         <div class="model-overlay">
           <div class="model-name">Col Avici</div>
-          <div class="model-sub">ياقة ضابط · احترافي</div>
+          <div class="model-sub">Col officier · Pro</div>
         </div>
-        <div class="model-badge new">جديد</div>
+        <div class="model-badge new">Nouveau</div>
       </a>
-
     </div>
   </div>
 
   <!-- MEN -->
   <div class="gender-section" id="section-men">
     <div class="models-grid-2">
-
-      <!-- موديل V95 رجال -->
       <a href="v95.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp" alt="موديل V95 رجال" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp" alt="V95 Homme" loading="lazy">
         <div class="model-overlay">
           <div class="model-name">V95</div>
-          <div class="model-sub">ياقة V · مريح ومتنفس</div>
+          <div class="model-sub">Col V · Confort respirant</div>
         </div>
-        <div class="model-badge">الأكثر طلباً</div>
+        <div class="model-badge">Best-seller</div>
       </a>
-
-      <!-- موديل كول أفيسي رجال -->
       <a href="col-avici.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="كول أفيسي رجال" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="Col Avici Homme" loading="lazy">
         <div class="model-overlay">
           <div class="model-name">Col Avici</div>
-          <div class="model-sub">ياقة ضابط · أناقة احترافية</div>
+          <div class="model-sub">Col officier · Élégance pro</div>
         </div>
-        <div class="model-badge new">جديد</div>
+        <div class="model-badge new">Nouveau</div>
       </a>
-
     </div>
   </div>
 
-</div><!-- end collections -->
+</div>
 
 <div class="divider"></div>
 
 <!-- WHY UNIFORMEDICAL -->
 <div class="why-section">
   <div class="why-inner">
-
-    <div class="why-eyebrow">الفرق يبدأ من التفاصيل</div>
-    <h2 class="why-title">لماذا <span>Uniformedical</span>؟</h2>
-    <p class="why-sub">تفاصيل مصممة خصيصاً للمختصين الصحيين المغاربة</p>
-
+    <div class="why-eyebrow">La différence est dans les détails</div>
+    <h2 class="why-title">Pourquoi <span>Uniformedical</span> ?</h2>
+    <p class="why-sub">Conçu spécialement pour les professionnels de santé marocains</p>
     <div class="why-grid">
-
       <div class="why-card">
         <div class="why-number">01</div>
         <div class="why-icon-wrap">🧵</div>
         <div class="why-card-body">
-          <h3>قماش Bestretch المرن</h3>
-          <p>مريح طوال اليوم، متنفس ومتين — مصمم خصيصاً للوسط الطبي.</p>
+          <h3>Tissu Bestretch stretch</h3>
+          <p>Confortable toute la journée, respirant et résistant — conçu pour le milieu médical.</p>
         </div>
       </div>
-
       <div class="why-card">
         <div class="why-number">02</div>
         <div class="why-icon-wrap">📏</div>
         <div class="why-card-body">
-          <h3>مقاسات XS إلى 4XL</h3>
-          <p>تشكيلة شاملة تناسب جميع أشكال الجسم بقصة احترافية ومريحة.</p>
+          <h3>Tailles XS à 4XL</h3>
+          <p>Une gamme complète adaptée à toutes les morphologies avec une coupe professionnelle.</p>
         </div>
       </div>
-
       <div class="why-card">
         <div class="why-number">03</div>
         <div class="why-icon-wrap">⚡</div>
         <div class="why-card-body">
-          <h3>تصنيع في 24-48 ساعة</h3>
-          <p>طلبيتك تُصنع وتُشحن بسرعة — التوصيل خلال 1 إلى 3 أيام.</p>
+          <h3>Fabrication en 24-48h</h3>
+          <p>Votre commande est fabriquée et expédiée rapidement — livraison en 1 à 3 jours.</p>
         </div>
       </div>
-
       <div class="why-card">
         <div class="why-number">04</div>
         <div class="why-icon-wrap">🪡</div>
         <div class="why-card-body">
-          <h3>تطريز الاسم +45 درهم</h3>
-          <p>أضف اسمك أو تخصصك — لمسة شخصية تميزك عن الجميع.</p>
+          <h3>Broderie nom +45 MAD</h3>
+          <p>Ajoutez votre nom ou spécialité — une touche personnelle qui vous distingue.</p>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -622,48 +321,41 @@ footer a:hover { color: #fff; }
 <div class="divider"></div>
 
 <!-- REVIEWS -->
-<div class="section">
-  <div class="s-title">ماذا يقول عملاؤنا</div>
-  <div class="s-sub">آراء حقيقية من مهنيين صحيين في المغرب</div>
-  <div class="reviews-grid">
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">جودة ممتازة! القماش مريح جداً ويتحمل الغسيل المتكرر. الألوان واضحة ونظيفة. سأطلب مجموعة ثانية قريباً.</div><div class="review-author">— سارة م. · ممرضة، الدار البيضاء</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">التوصيل كان سريعاً جداً، والمقاس كان مضبوطاً. البلوزة أنيقة ومريحة — بالضبط ما كنت أبحث عنه.</div><div class="review-author">— يوسف ب. · طبيب، الرباط</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">أفضل بلوزة طبية اشتريتها. القماش خفيف ومتنفس حتى في الوردية الطويلة. شكراً Uniformedical!</div><div class="review-author">— فاطمة ر. · صيدلانية، مراكش</div></div>
-  </div>
+<div class="reviews-grid">
+  <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">Qualité excellente ! Le tissu est très confortable et résiste aux lavages fréquents. Les couleurs sont nettes et belles. Je vais commander un deuxième set très bientôt.</div><div class="review-author">— Sara M. · Infirmière, Casablanca</div></div>
+  <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">Livraison très rapide et la taille était parfaite. La blouse est élégante et confortable — exactement ce que je cherchais.</div><div class="review-author">— Youssef B. · Médecin, Rabat</div></div>
+  <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">La meilleure blouse médicale que j'ai achetée. Le tissu est léger et respirant même pendant les longues gardes. Merci Uniformedical !</div><div class="review-author">— Fatima R. · Pharmacienne, Marrakech</div></div>
 </div>
 
 <!-- CTA -->
 <div class="cta-band">
-  <h2>جاهز لترقية زيّك الطبي؟</h2>
-  <p>اطلب الآن وادفع عند الاستلام — توصيل لجميع أنحاء المغرب</p>
-  <a href="index.html" class="btn-white">🛍 اطلب الآن</a>
+  <h2>Prêt à upgrader votre tenue médicale ?</h2>
+  <p>Commandez maintenant — paiement à la livraison partout au Maroc</p>
+  <a href="v95.html" class="btn-white">Commander maintenant</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-links">
-    <a href="home.html">الرئيسية</a>
-    <a href="index.html">اطلب الآن</a>
+    <a href="index.html">Accueil</a>
+    <a href="v95.html">Commander</a>
     <a href="mailto:contact@uniformedical.com">contact@uniformedical.com</a>
   </div>
-  <div>© 2026 Uniformedical. جميع الحقوق محفوظة.</div>
+  <div>© 2026 Uniformedical. Tous droits réservés.</div>
 </footer>
 
 <!-- WhatsApp -->
 <a href="https://wa.me/212600000000" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 <script>
 function switchGender(gender, tab) {
-  // Tabs
   document.querySelectorAll('.gender-tab').forEach(t => t.classList.remove('active'));
-  tab.classList.add('active');
-  // Sections
   document.querySelectorAll('.gender-section').forEach(s => s.classList.remove('active'));
+  tab.classList.add('active');
   document.getElementById('section-' + gender).classList.add('active');
 }
 </script>
-
 </body>
 </html>
