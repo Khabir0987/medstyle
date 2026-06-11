@@ -37,6 +37,19 @@
   <link rel="alternate" hreflang="ar-MA" href="https://uniformedical.com/amira.html">
   <link rel="alternate" hreflang="x-default" href="https://uniformedical.com/amira.html">
     <title>UNIFORMEDICAL — Modèle Amira</title>
+  <!-- Facebook Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '635699965101040');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=635699965101040&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel -->
     
 <script>
 // ── FAQ accordion ─────────────────────────────────────────
@@ -1826,6 +1839,8 @@ function selectBundle(bkey) {
 // MODAL (order form popup)
 // ══════════════════════════════════════════════════════════
 function openModal(bkey) {
+  fbq('track', 'InitiateCheckout');
+
     if (bkey) { activeBundle = bkey; selectBundle(bkey); }
 
     const bp  = bundlePricing[activeBundle];
@@ -2034,6 +2049,17 @@ function handleSubmit(e) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData.toString()
     }).catch(function(){});
+    // Facebook Pixel — Purchase
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', {
+        value: total,
+        currency: 'MAD',
+        content_name: bp.name,
+        content_type: 'product',
+        num_items: bp.qty || 1
+      });
+    }
+
 
     // Close modal, show success
     closeModal();
