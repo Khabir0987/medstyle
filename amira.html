@@ -595,19 +595,6 @@ select{font-family:inherit}
         .cd-sep { color: #b45309; font-weight: 900; font-size: 13px; }
 
         /* ══ SCARCITY BADGE ══ */
-        .scarcity-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #dc2626;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 3px 9px;
-            border-radius: 20px;
-            animation: pulse-red 2s infinite;
-        }
         @keyframes pulse-red {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
@@ -959,7 +946,6 @@ select{font-family:inherit}
 
 </div>
 
-<div id="bundles-anchor"></div>
 <!-- ══════════════════════════════════
      OFFERS SECTION — bundle & save style
 ══════════════════════════════════ -->
@@ -968,12 +954,6 @@ select{font-family:inherit}
     <div class="text-center">
         <h2 class="text-xl font-extrabold text-gray-900"> Choisissez votre offre avec les réductions</h2>
         <p class="text-xs text-gray-500 mt-1">Plus vous commandez, plus vous économisez — livraison offerte dès 2 pièces</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-        <span class="scarcity-badge">🔴 Rose Clair : 4 pièces restantes</span>
-        <span class="scarcity-badge">🔴 Bleu Marine : 6 pièces restantes</span>
-        <span class="scarcity-badge">🔴 Bordeaux : 3 pièces restantes</span>
-    </div>
-
     <!-- ── COUNTDOWN TIMER ── -->
     <div class="countdown-bar" id="countdown-wrap">
         <div class="countdown-label">🔥 Offre valable encore :</div>
@@ -990,8 +970,7 @@ select{font-family:inherit}
     <div class="shipping-progress-wrap" id="shipping-progress-wrap">
         <div class="shipping-progress-label">🚚 <span id="shipping-msg">Ajoutez 1 pièce de plus pour la livraison gratuite !</span></div>
         <div class="shipping-progress-bar">
-            <div class="shipping-progress-fill" id="shipping-fill" style="width:33%"></div>
-        </div>
+            </div>
     </div>
 
     </div>
@@ -999,7 +978,7 @@ select{font-family:inherit}
     <!-- ───────────── SOLO ───────────── -->
     <div class="bundle-row active" id="row-solo" onclick="selectBundle('solo')">
         <div class="bundle-row-header">
-            <div class="bundle-radio" id="radio-solo"><div class="bundle-radio-dot"></div></div>
+            <div class="bundle-radio" id="radio-solo"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-solo" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Une pièce <span class="bundle-badge-grey">Prix normal</span></p>
@@ -1040,7 +1019,7 @@ select{font-family:inherit}
     <div class="bundle-row" id="row-duo" onclick="selectBundle('duo')">
         <span class="bundle-badge-top">Le plus demandé 🔥</span>
         <div class="bundle-row-header mt-1">
-            <div class="bundle-radio" id="radio-duo"><div class="bundle-radio-dot"></div></div>
+            <div class="bundle-radio" id="radio-duo"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-duo" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Deux pièces ensemble <span class="bundle-badge-green">Économisez 22%</span></p>
@@ -1102,7 +1081,7 @@ select{font-family:inherit}
     <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
         <span class="bundle-badge-top" style="background:#f59e0b;">Meilleur rapport qualité/prix ⭐</span>
         <div class="bundle-row-header mt-1">
-            <div class="bundle-radio" id="radio-trio"><div class="bundle-radio-dot"></div></div>
+            <div class="bundle-radio" id="radio-trio"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp" class="bundle-thumb" id="main-thumb-trio" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Trois pièces <span class="bundle-badge-yellow">Économisez 31%</span></p>
@@ -1276,11 +1255,11 @@ select{font-family:inherit}
         <h2 class="section-title">Comment commander ?</h2>
         <div>
             <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
-                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">1</div><div class="step-l"></div></div>
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">1</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Choisissez votre offre + couleurs + tailles</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">Solo, Duo ou Super Pack</p></div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:4px;">
-                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">2</div><div class="step-l"></div></div>
+                <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">2</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Entrez votre nom, téléphone et ville</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">30 secondes seulement</p></div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:12px;">
@@ -1301,10 +1280,10 @@ select{font-family:inherit}
                 <p style="font-size:10px;color:#9ca3af;margin-top:2px;">+2,500 Avis</p>
             </div>
             <div style="flex:1;display:flex;flex-direction:column;gap:5px;">
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"><div class="rbar-fill" style="width:82%;background:#f59e0b;"></div></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"><div class="rbar-fill" style="width:12%;background:#a3e635;"></div></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"><div class="rbar-fill" style="width:4%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"><div class="rbar-fill" style="width:2%;background:#fb923c;"></div></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
             </div>
         </div>
         <!-- Review cards -->
@@ -1530,11 +1509,8 @@ select{font-family:inherit}
      ORDER MODAL (popup)
 ══════════════════════════════════ -->
 <div id="order-modal">
-    <div class="modal-overlay" onclick="closeModal()"></div>
     <div class="modal-box">
         <!-- Handle bar -->
-        <div class="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4"></div>
-
         <!-- Modal header -->
         <div class="flex items-center justify-between mb-5">
             <h2 class="text-lg font-extrabold text-gray-900">Informations de livraison</h2>
@@ -1550,7 +1526,6 @@ select{font-family:inherit}
                 <span id="modal-offer-name" class="text-gray-600">Pack Duo (2 pièces)</span>
                 <span id="modal-offer-price" class="font-extrabold text-gray-900">499 Dh</span>
             </div>
-            <div id="modal-items-detail" class="text-xs text-gray-500 space-y-0.5"></div>
             <div id="modal-broderie-row" class="hidden flex justify-between text-xs text-purple-600">
                 <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
             </div>
@@ -1601,8 +1576,6 @@ select{font-family:inherit}
 
     <!-- ── HERO CONFIRMATION ── -->
     <div style="background:linear-gradient(135deg,#0d9488,#0f766e);padding:36px 24px 32px;text-align:center;position:relative;overflow:hidden;">
-      <div style="position:absolute;inset:0;opacity:0.08;background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 8px);"></div>
-      
       <!-- Checkmark animé -->
       <div style="width:80px;height:80px;background:rgba(255,255,255,0.2);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:38px;animation:bounceIn .6s cubic-bezier(.68,-.55,.27,1.55) both;">✅</div>
       
@@ -2235,7 +2208,6 @@ function scrollToBundles() {
 <!-- ══ SIZE GUIDE MODAL ══ -->
 <div class="size-modal-overlay" id="sizeModal" onclick="if(event.target===this)closeSizeModal()">
     <div class="size-modal-box">
-        <div class="size-modal-handle"></div>
         <h3 style="font-size:16px;font-weight:900;color:#111827;margin-bottom:14px;text-align:center;">📏 Guide des Tailles</h3>
         <table class="size-table">
             <thead>
