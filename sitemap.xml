@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://uniformedical.com/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://uniformedical.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://uniformedical.com/"/>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp</image:loc>
+      <image:title>Uniformedical — Blouses Médicales Professionnelles au Maroc</image:title>
+      <image:caption>Blouses médicales, tenues médicales professionnelles, livraison Maroc</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uniformedical.com/v95.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://uniformedical.com/v95.html"/>
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://uniformedical.com/v95.html"/>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp</image:loc>
+      <image:title>Blouse Médicale V95 Col V — Uniformedical</image:title>
+      <image:caption>Blouse médicale col V, 10 couleurs, tissu Bestretch, livraison Maroc</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp</image:loc>
+      <image:title>Blouse V95 Bleu Marine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fc6ec61c4_Rosebebe.webp</image:loc>
+      <image:title>Blouse V95 Rose Bébé</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uniformedical.com/amira.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://uniformedical.com/amira.html"/>
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://uniformedical.com/amira.html"/>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp</image:loc>
+      <image:title>Blouse Médicale Amira Femme — Uniformedical</image:title>
+      <image:caption>Blouse médicale féminine Amira, design élégant, 10 couleurs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4f7dcfb32_bleucielwep.webp</image:loc>
+      <image:title>Blouse Amira Bleu Ciel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://uniformedical.com/col-avici.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr-MA" href="https://uniformedical.com/col-avici.html"/>
+    <xhtml:link rel="alternate" hreflang="ar-MA" href="https://uniformedical.com/col-avici.html"/>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp</image:loc>
+      <image:title>Blouse Médicale Col Avici — Uniformedical</image:title>
+      <image:caption>Blouse médicale col officier, design professionnel, 10 couleurs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp</image:loc>
+      <image:title>Col Avici Bleu Marine</image:title>
+    </image:image>
+  </url>
+
+</urlset>
