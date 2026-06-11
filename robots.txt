@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /incoming_files/
+Disallow: /*.json$
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://uniformedical.com/sitemap.xml
