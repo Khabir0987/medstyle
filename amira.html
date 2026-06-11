@@ -970,6 +970,32 @@ select{font-family:inherit}
     <div class="text-center">
         <h2 class="text-xl font-extrabold text-gray-900"> Choisissez votre offre avec les réductions</h2>
         <p class="text-xs text-gray-500 mt-1">Plus vous commandez, plus vous économisez — livraison offerte dès 2 pièces</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <span class="scarcity-badge">🔴 Rose Clair : 4 pièces restantes</span>
+        <span class="scarcity-badge">🔴 Bleu Marine : 6 pièces restantes</span>
+        <span class="scarcity-badge">🔴 Bordeaux : 3 pièces restantes</span>
+    </div>
+
+    <!-- ── COUNTDOWN TIMER ── -->
+    <div class="countdown-bar" id="countdown-wrap">
+        <div class="countdown-label">🔥 Offre valable encore :</div>
+        <div class="countdown-digits">
+            <div class="cd-unit" id="cd-h">02</div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit" id="cd-m">47</div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit" id="cd-s">00</div>
+        </div>
+    </div>
+
+    <!-- ── SHIPPING PROGRESS ── -->
+    <div class="shipping-progress-wrap" id="shipping-progress-wrap">
+        <div class="shipping-progress-label">🚚 <span id="shipping-msg">Ajoutez 1 pièce de plus pour la livraison gratuite !</span></div>
+        <div class="shipping-progress-bar">
+            <div class="shipping-progress-fill" id="shipping-fill" style="width:33%"></div>
+        </div>
+    </div>
+
     </div>
 
     <!-- ───────────── SOLO ───────────── -->
@@ -2125,5 +2151,31 @@ function scrollToBundles() {
   el.scrollIntoView();
 }
 </script>
+
+<!-- ══ SIZE GUIDE MODAL ══ -->
+<div class="size-modal-overlay" id="sizeModal" onclick="if(event.target===this)closeSizeModal()">
+    <div class="size-modal-box">
+        <div class="size-modal-handle"></div>
+        <h3 style="font-size:16px;font-weight:900;color:#111827;margin-bottom:14px;text-align:center;">📏 Guide des Tailles</h3>
+        <table class="size-table">
+            <thead>
+                <tr><th>Taille</th><th>Tour poitrine</th><th>Tour taille</th><th>Longueur</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><b>XS</b></td><td>80–84 cm</td><td>62–66 cm</td><td>68 cm</td></tr>
+                <tr><td><b>S</b></td><td>84–88 cm</td><td>66–70 cm</td><td>70 cm</td></tr>
+                <tr><td><b>M</b></td><td>88–92 cm</td><td>70–74 cm</td><td>72 cm</td></tr>
+                <tr><td><b>L</b></td><td>92–96 cm</td><td>74–78 cm</td><td>74 cm</td></tr>
+                <tr><td><b>XL</b></td><td>96–102 cm</td><td>78–84 cm</td><td>76 cm</td></tr>
+                <tr><td><b>2XL</b></td><td>102–108 cm</td><td>84–90 cm</td><td>78 cm</td></tr>
+                <tr><td><b>3XL</b></td><td>108–114 cm</td><td>90–96 cm</td><td>80 cm</td></tr>
+                <tr><td><b>4XL</b></td><td>114–120 cm</td><td>96–102 cm</td><td>82 cm</td></tr>
+            </tbody>
+        </table>
+        <div class="size-guide-tip">💡 En cas de doute entre deux tailles, choisissez la taille supérieure.</div>
+        <button onclick="closeSizeModal()" style="width:100%;margin-top:14px;background:#0d9488;color:#fff;font-weight:800;font-size:14px;padding:13px;border:none;border-radius:12px;cursor:pointer;">Fermer</button>
+    </div>
+</div>
+
 </body>
 </html>
