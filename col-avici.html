@@ -2034,6 +2034,7 @@ function handleSubmit(e) {
     const msg = encodeURIComponent(
         'Bonjour UNIFORMEDICAL 🇲🇦\n' +
         'Nouvelle commande :\n\n' +
+        '📦 *Modèle : Col Avici\n' +
         '🏷️ *Offre : ' + bp.name + ' — ' + total + ' Dh\n' +
         '📋 *Détails:*\n' + lines.join('\n') + embLine + '\n\n' +
         '👤 *Nom :* ' + name + '\n' +
@@ -2053,7 +2054,7 @@ function handleSubmit(e) {
     const waEl  = document.getElementById('s-wa-link');
     if (oidEl) oidEl.innerText = '#'+oid;
     if (snEl)  snEl.innerText  = name;
-    if (sbEl)  sbEl.innerText  = bp.name;
+    if (sbEl)  sbEl.innerText  = 'Col Avici — ' + bp.name;
     if (spEl)  spEl.innerText  = total + ' Dh';
     if (siEl)  siEl.innerText  = lines.join(' | ');
     if (waEl)  waEl.href       = 'https://wa.me/212770662956?text='+msg;
@@ -2079,7 +2080,14 @@ function handleSubmit(e) {
     formData.append('entry.1836498247', address);
     formData.append('entry.225541929', bp.name);
     formData.append('entry.1014667188', String(total));
-    formData.append('entry.588498797', lines.join(' | '));
+    // Add model name + embroidery to sheet
+    var embDetails = '';
+    if (embPrice > 0) {
+        var embTxt = (document.getElementById('emb-text')?.value || '').trim();
+        var embClr = (document.getElementById('emb-color')?.value || '');
+        embDetails = ' | ✍️ Broderie: ' + (embTxt || 'À définir') + (embClr ? ' / ' + embClr : '') + ' (+' + embPrice + ' Dh)';
+    }
+    formData.append('entry.588498797', '[Col Avici] ' + lines.join(' | ') + embDetails);
     fetch(formUrl, {
         method: 'POST',
         mode: 'no-cors',
