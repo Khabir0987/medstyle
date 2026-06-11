@@ -556,19 +556,7 @@ select{font-family:inherit}
         .gallery-slider-wrap{border-radius:0 0 26px 26px;margin:0 10px;box-shadow:0 6px 28px rgba(0,0,0,.08);}
 
     
-        /* ══ COUNTDOWN TIMER ══ */
-        .cd-unit {
-            background: #b45309;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 900;
-            padding: 4px 7px;
-            border-radius: 7px;
-            min-width: 28px;
-            text-align: center;
-            font-variant-numeric: tabular-nums;
-        }
-        .cd-sep { color: #b45309; font-weight: 900; font-size: 13px; }
+        
 
         /* ══ SCARCITY BADGE ══ */
         @keyframes pulse-red {
@@ -902,13 +890,7 @@ select{font-family:inherit}
 
     <div class="text-center">
         <h2 class="text-xl font-extrabold text-gray-900"> Choisissez votre offre avec les réductions</h2>
-        <p class="text-xs text-gray-500 mt-1">Plus vous commandez, plus vous économisez — livraison offerte dès 2 pièces</p>
-    
-            <span class="cd-sep">:</span>
-            <div class="cd-unit" id="cd-m">47</div>
-            <span class="cd-sep">:</span>
-            <div class="cd-unit" id="cd-s">00</div>
-        </div>
+        <p class="text-xs text-gray-500 mt-1">Plus vous commandez, plus vous économisez — livraison offerte dès 2 pièces</p></div>
     </div>
 
     <!-- ── SHIPPING PROGRESS ── -->
@@ -918,7 +900,6 @@ select{font-family:inherit}
     <!-- ───────────── SOLO ───────────── -->
     <div class="bundle-row active" id="row-solo" onclick="selectBundle('solo')">
         <div class="bundle-row-header">
-            <div class="bundle-radio" id="radio-solo"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" class="bundle-thumb" id="main-thumb-solo" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Une pièce <span class="bundle-badge-grey">Prix normal</span></p>
@@ -960,7 +941,6 @@ select{font-family:inherit}
     <div class="bundle-row" id="row-duo" onclick="selectBundle('duo')">
         <span class="bundle-badge-top">Le plus demandé 🔥</span>
         <div class="bundle-row-header mt-1">
-            <div class="bundle-radio" id="radio-duo"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" class="bundle-thumb" id="main-thumb-duo" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Deux pièces ensemble <span class="bundle-badge-green">Économisez 22%</span></p>
@@ -1022,7 +1002,6 @@ select{font-family:inherit}
     <div class="bundle-row" id="row-trio" onclick="selectBundle('trio')">
         <span class="bundle-badge-top" style="background:#f59e0b;">Meilleur rapport qualité/prix ⭐</span>
         <div class="bundle-row-header mt-1">
-            <div class="bundle-radio" id="radio-trio"></div>
             <img loading="lazy" src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" class="bundle-thumb" id="main-thumb-trio" alt="">
             <div class="bundle-title-wrap">
                 <p class="bundle-title">Trois pièces <span class="bundle-badge-yellow">Économisez 31%</span></p>
@@ -1221,10 +1200,10 @@ select{font-family:inherit}
                 <p style="font-size:10px;color:#9ca3af;margin-top:2px;">+2,500 Avis</p>
             </div>
             <div style="flex:1;display:flex;flex-direction:column;gap:5px;">
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">82%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">12%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">4%</span></div>
-                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><div class="rbar-bg"></div><span style="font-size:10px;color:#6b7280;">2%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">5</span><span style="font-size:10px;color:#6b7280;">82%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">4</span><span style="font-size:10px;color:#6b7280;">12%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">3</span><span style="font-size:10px;color:#6b7280;">4%</span></div>
+                <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:#6b7280;width:10px;">2</span><span style="font-size:10px;color:#6b7280;">2%</span></div>
             </div>
         </div>
         <!-- Review cards -->
