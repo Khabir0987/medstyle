@@ -46,6 +46,13 @@
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '635699965101040');
   fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Col Avici',
+    content_ids: ['UNI-COLAVICI'],
+    content_type: 'product',
+    currency: 'MAD',
+    value: 269
+  });
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=635699965101040&ev=PageView&noscript=1"/></noscript>
@@ -1804,6 +1811,22 @@ function closeZoom() {
 // BUNDLE SELECTION
 // ══════════════════════════════════════════════════════════
 function selectBundle(bkey) {
+  window._activeBundleKey = bkey;
+  // Pixel — AddToCart when user selects a bundle
+  (function() {
+    var prices = {solo:269, duo:499, trio:720};
+    var qtys   = {solo:1,   duo:2,   trio:3};
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'AddToCart', {
+        content_name: 'Col Avici',
+        content_ids: ['UNI-COLAVICI'],
+        content_type: 'product',
+        currency: 'MAD',
+        value: prices[bkey] || 269,
+        num_items: qtys[bkey] || 1
+      });
+    }
+  })();
     activeBundle = bkey;
 
     ['solo','duo','trio'].forEach(k => {
@@ -1840,7 +1863,20 @@ function selectBundle(bkey) {
 // MODAL (order form popup)
 // ══════════════════════════════════════════════════════════
 function openModal(bkey) {
-  fbq('track', 'InitiateCheckout');
+  // Pixel — InitiateCheckout with bundle data
+  (function() {
+    var bkey = window._activeBundleKey || 'solo';
+    var prices = {solo:269, duo:499, trio:720};
+    var qtys   = {solo:1,   duo:2,   trio:3};
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'Col Avici',
+      content_ids: ['UNI-COLAVICI'],
+      content_type: 'product',
+      currency: 'MAD',
+      value: prices[bkey] || 269,
+      num_items: qtys[bkey] || 1
+    });
+  })();
 
     if (bkey) { activeBundle = bkey; selectBundle(bkey); }
 
@@ -2056,8 +2092,15 @@ function handleSubmit(e) {
         value: total,
         currency: 'MAD',
         content_name: bp.name,
+        content_ids: ['UNI-COLAVICI'],
         content_type: 'product',
         num_items: bp.qty || 1
+      });
+      // CompleteRegistration = confirmation page viewed
+      fbq('track', 'CompleteRegistration', {
+        value: total,
+        currency: 'MAD',
+        status: 'confirmed'
       });
     }
 
