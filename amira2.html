@@ -359,10 +359,26 @@ select{font-family:inherit}
 
 
         /* ── FAQ Accordion ── */
-        .faq-item { transition: all 0.2s; }
+        .faq-item { transition: border-color 0.2s; }
         .faq-item:hover { border-color: #99f6e4 !important; }
-        .faq-item button { transition: background 0.2s; }
+        .faq-item button {
+            cursor: pointer;
+            transition: background 0.2s;
+            user-select: none;
+        }
         .faq-item button:hover { background: #f0fdfa !important; }
+        .faq-item button:hover .faq-chevron { color: #0d9488; }
+        .faq-chevron {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: #f0fdfa;
+            color: #0d9488;
+            flex-shrink: 0;
+            margin-left: 10px;
+            transition: transform 0.3s ease, background 0.2s;
+        }
+        .faq-item button:hover .faq-chevron { background: #ccfbf1; }
         .faq-ans-open { animation: fadeDown 0.25s ease; }
         @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
         @keyframes pulseCta { 0%,100%{opacity:1} 50%{opacity:.88} }
@@ -1298,7 +1314,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Quel type de tissu est utilisé ?</span>
-                    <i id="faq-icon-0" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-0"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-0" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Nous utilisons le tissu <span class="font-bold text-teal-700">Bestretch</span> haute qualité, qui se distingue par sa flexibilité et son confort pendant de longues heures de travail. Il est léger, pratique et facile à entretenir.</p>
@@ -1309,7 +1325,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Quel est le délai de préparation et d'envoi ?</span>
-                    <i id="faq-icon-1" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-1"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-1" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed mb-2">Après confirmation de la commande :</p>
@@ -1325,7 +1341,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Puis-je ajouter une broderie (logo ou nom) ?</span>
-                    <i id="faq-icon-2" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-2"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-2" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Oui ! Nous proposons la broderie noms et logos à <span class="font-bold text-purple-600">45 MAD</span> par pièce. Nous offrons aussi des tarifs spéciaux pour cliniques, labos et équipes médicales — contactez-nous.</p>
@@ -1336,7 +1352,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Quelle est la politique d'échange ?</span>
-                    <i id="faq-icon-3" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-3"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-3" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed mb-2">L'échange est possible uniquement en cas de défaut de fabrication, comme :</p>
@@ -1353,7 +1369,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Comment choisir la bonne taille ?</span>
-                    <i id="faq-icon-4" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-4"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-4" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Référez-vous au guide des tailles dans la page produit. En cas de doute entre deux tailles, nous recommandons de choisir <span class="font-bold text-teal-700">la taille supérieure</span> pour plus de confort.</p>
@@ -1364,7 +1380,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(5)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Puis-je commander en gros ?</span>
-                    <i id="faq-icon-5" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-5"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-5" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Oui ! Nous proposons des tarifs spéciaux pour les hôpitaux, cliniques, laboratoires et cabinets médicaux. Contactez-nous via WhatsApp pour un devis personnalisé.</p>
@@ -1375,7 +1391,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(6)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Le tissu est-il transparent ? Résiste-t-il aux lavages fréquents ?</span>
-                    <i id="faq-icon-6" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-6"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-6" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Non, le tissu est <span class="font-bold text-teal-700">non transparent</span> et offre une couverture confortable pour le milieu médical. Il résiste également aux <span class="font-bold text-teal-700">lavages fréquents</span> tout en conservant sa couleur, sa forme et sa qualité.</p>
@@ -1386,7 +1402,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(7)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Avez-vous des modèles pour les femmes voilées ?</span>
-                    <i id="faq-icon-7" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-7"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-7" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Oui, nous proposons des modèles adaptés aux femmes voilées avec un design pratique, confortable et une meilleure couverture pendant le travail.</p>
@@ -1397,7 +1413,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(8)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Comment suivre ma commande ?</span>
-                    <i id="faq-icon-8" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-8"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-8" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Après l'expédition, vous recevrez un numéro de suivi pour suivre votre colis jusqu'à la livraison.</p>
@@ -1408,7 +1424,7 @@ select{font-family:inherit}
             <div class="faq-item border border-gray-100 rounded-xl overflow-hidden">
                 <button onclick="toggleFaq(9)" class="w-full flex items-center justify-between p-4 text-left bg-white">
                     <span class="text-sm font-bold text-gray-900">Que faire en cas de problème avec ma commande ?</span>
-                    <i id="faq-icon-9" class="fa-solid fa-chevron-down text-teal-600 text-xs flex-shrink-0 ml-3" style="transition:transform .3s;flex-shrink:0;"></i>
+                    <span class="faq-chevron" id="faq-icon-9"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-9" style="display:none;padding:0 16px 16px;">
                     <p class="text-sm text-gray-600 leading-relaxed">Notre équipe est disponible à tout moment. Contactez-nous via WhatsApp et nous résoudrons votre problème le plus rapidement possible.</p>
