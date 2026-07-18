@@ -55,6 +55,13 @@
     currency: 'MAD',
     value: 269
   });
+  if (typeof ttq !== 'undefined') {
+    ttq.track('ViewContent', {
+      content_type: 'product',
+      currency: 'MAD',
+      value: 269
+    });
+  }
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=635699965101040&ev=PageView&noscript=1"/></noscript>
@@ -1851,6 +1858,16 @@ function selectBundle(bkey) {
         value: prices[bkey] || 269,
         num_items: qtys[bkey] || 1
       });
+      if (typeof ttq !== 'undefined') {
+        ttq.track('AddToCart', {
+          content_name: 'Tenue Élégance Pro Demi Manche',
+          content_id: 'UNI-ELEGANCE-PRO',
+          content_type: 'product',
+          currency: 'MAD',
+          value: prices[bkey] || 269,
+          quantity: qtys[bkey] || 1
+        });
+      }
     }
   })();
     activeBundle = bkey;
@@ -1900,8 +1917,18 @@ function openModal(bkey) {
       content_type: 'product',
       currency: 'MAD',
       value: prices[bkey] || 269,
-      num_items: qtys[bkey] || 1
+      num_items: qtqs[bkey] || 1
     });
+    if (typeof ttq !== 'undefined') {
+      ttq.track('InitiateCheckout', {
+        content_name: 'Tenue Élégance Pro Demi Manche',
+        content_id: 'UNI-ELEGANCE-PRO',
+        content_type: 'product',
+        currency: 'MAD',
+        value: prices[bkey] || 269,
+        quantity: qtqs[bkey] || 1
+      });
+    }
   })();
 
     if (bkey) { activeBundle = bkey; selectBundle(bkey); }
@@ -2137,6 +2164,21 @@ function handleSubmit(e) {
         status: 'confirmed'
       });
     }
+      if (typeof ttq !== 'undefined') {
+        ttq.track('PlaceAnOrder', {
+          content_name: bp.name,
+          content_id: 'UNI-ELEGANCE-PRO',
+          content_type: 'product',
+          currency: 'MAD',
+          value: total,
+          quantity: bp.qty || 1
+        });
+        ttq.track('CompletePayment', {
+          value: total,
+          currency: 'MAD',
+          content_name: 'Tenue Élégance Pro Demi Manche'
+        });
+      }
 
 
     // Close modal, show success
