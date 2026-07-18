@@ -556,6 +556,14 @@ if (vid) {
               value: 269
             });
           }
+          if (typeof ttq !== 'undefined') {
+            ttq.track('ViewContent', {
+              content_name: map[dest],
+              content_type: 'product',
+              currency: 'MAD',
+              value: 269
+            });
+          }
         });
       }
     });
