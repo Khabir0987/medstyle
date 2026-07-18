@@ -272,6 +272,15 @@ footer a:hover { color: #fff; }
   .trust { gap: 14px; }
 }
 </style>
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    ttq.load('D54RUGBC77U9VM579JC0');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
 </head>
 <body>
 
@@ -333,7 +342,7 @@ footer a:hover { color: #fff; }
   </div>
   <div class="trust-item">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    Fabrication 48–72h
+    Fabrication 24-48h
   </div>
 </div>
 
@@ -365,9 +374,9 @@ footer a:hover { color: #fff; }
         <div class="model-badge">Best-seller</div>
       </a>
       <a href="amira.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Modèle Amira" loading="lazy">
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Modèle Élégance Pro Demi Manche" loading="lazy">
         <div class="model-overlay">
-          <div class="model-name">Amira</div>
+          <div class="model-name">Élégance Pro Demi Manche</div>
           <div class="model-sub">Design féminin élégant</div>
         </div>
       </a>
@@ -439,7 +448,7 @@ footer a:hover { color: #fff; }
       <div class="why-card">
         <div class="why-icon-wrap">⚡</div>
         <div>
-          <h3>Fabrication en 48–72h</h3>
+          <h3>Fabrication en 24-48h</h3>
           <p>Expédition rapide — livraison en 1 à 3 jours partout au Maroc.</p>
         </div>
       </div>
@@ -531,7 +540,7 @@ if (vid) {
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href$=".html"]').forEach(function(link) {
       var map = {
-        'amira.html': 'Blouse Amira',
+        'amira.html': 'Blouse Élégance Pro Demi Manche',
         'amira2.html': 'Blouse Amira 2',
         'v95.html': 'Blouse V95',
         'col-avici.html': 'Col Officier'
@@ -542,7 +551,6 @@ if (vid) {
           if (typeof fbq !== 'undefined') {
             fbq('track', 'ViewContent', {
               content_name: map[dest],
-              content_ids: [dest],
               content_type: 'product',
               currency: 'MAD',
               value: 269
