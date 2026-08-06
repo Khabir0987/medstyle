@@ -1918,7 +1918,7 @@ function openModal(bkey) {
       content_type: 'product',
       currency: 'MAD',
       value: prices[bkey] || 269,
-      num_items: qtqs[bkey] || 1
+      num_items: qtys[bkey] || 1
     });
     if (typeof ttq !== 'undefined') {
       ttq.track('InitiateCheckout', {
@@ -1927,7 +1927,7 @@ function openModal(bkey) {
         content_type: 'product',
         currency: 'MAD',
         value: prices[bkey] || 269,
-        quantity: qtqs[bkey] || 1
+        quantity: qtys[bkey] || 1
       });
     }
   })();
