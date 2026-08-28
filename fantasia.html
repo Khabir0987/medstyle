@@ -584,6 +584,8 @@ select{font-family:inherit}
         .rbar-fill{height:100%;border-radius:99px;}
         /* ── Review cards ── */
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+        .no-scrollbar::-webkit-scrollbar{display:none;}
+        .no-scrollbar{scrollbar-width:none;}
         .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
         .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
         /* ── Steps ── */
@@ -1218,6 +1220,45 @@ select{font-family:inherit}
             <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Recevez votre commande et payez à la livraison 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">En 24-48h — vérifiez avant de payer</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Reviews (UGC) -->
+    <div style="background:#fff;border-radius:20px;padding:16px 0 16px 16px;margin-bottom:12px;">
+        <h2 class="section-title" style="padding-right:16px;">Nos clientes en Fantasia 📸</h2>
+        <div style="display:flex;gap:12px;overflow-x:auto;padding:2px 16px 6px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;" class="no-scrollbar">
+            <div style="flex:0 0 148px;scroll-snap-align:start;">
+                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/c840f5f57_10fddfac6_h2.webp" alt="Cliente Uniformedical — Sanae B." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Sanae B. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Rabat</span></p>
+                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
+                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Le tissu est doux et respirant, et l'imprimé ourson bleu est adorable — mes collègues me demandent toujours où je l'ai acheté !"</p>
+            </div>
+            <div style="flex:0 0 148px;scroll-snap-align:start;">
+                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/9162fe1c4_7a0ccce16_h3.webp" alt="Cliente Uniformedical — Nawal K." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Nawal K. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Casablanca</span></p>
+                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
+                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Coupe parfaite et le coloris vert menthe est encore plus beau en vrai. Je la porte tous les jours au bloc, très confortable."</p>
+            </div>
+            <div style="flex:0 0 148px;scroll-snap-align:start;">
+                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4b962e4bb_c8b9d7cf2_h.webp" alt="Cliente Uniformedical — Imane R." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Imane R. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Marrakech</span></p>
+                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
+                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"J'adore le motif fleurs beige, discret et élégant. Livraison reçue en 2 jours à Marrakech, service très professionnel."</p>
+            </div>
+            <div style="flex:0 0 148px;scroll-snap-align:start;">
+                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
+                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/03feda9bc_e48f40987_h4.webp" alt="Cliente Uniformedical — Ghita El Amrani" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Ghita El Amrani <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Fès</span></p>
+                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
+                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Le motif floral fuchsia est magnifique et le tissu stretch reste agréable même après 12h de garde. Je recommande à 100% !"</p>
             </div>
         </div>
     </div>
