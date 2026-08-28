@@ -206,18 +206,17 @@ nav.scrolled .nav-cta { background: var(--teal); color: #fff; }
 .gender-section { display: none; }
 .gender-section.active { display: block; }
 
-.models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 0 16px; max-width: 480px; margin: 0 auto; }
-.models-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 16px; max-width: 480px; margin: 0 auto; }
+.models-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; max-width: 520px; margin: 0 auto; }
 
-.model-card { position: relative; border-radius: 22px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,.1); transition: transform 0.22s, box-shadow 0.22s; }
-.model-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
-.model-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-.model-card:hover img { transform: scale(1.04); }
-.model-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10,20,30,.82) 0%, rgba(10,20,30,.3) 55%, transparent 100%); padding: 24px 14px 16px; }
-.model-name { font-size: 15px; font-weight: 900; letter-spacing: .2px; margin-bottom: 3px; }
-.model-sub { font-size: 11px; opacity: .8; line-height: 1.4; }
-.model-badge { position: absolute; top: 12px; right: 12px; background: var(--teal); color: #fff; border-radius: 50px; padding: 4px 11px; font-size: 10px; font-weight: 800; box-shadow: 0 3px 10px rgba(13,148,136,.4); }
-.model-badge.new { background: #7c3aed; box-shadow: 0 3px 10px rgba(124,58,237,.4); }
+.model-card { position: relative; border-radius: 18px; overflow: hidden; text-decoration: none; color: #fff; display: block; aspect-ratio: 3/4; background: #e2e8f0; box-shadow: 0 2px 12px rgba(0,0,0,.08); transition: transform 0.25s, box-shadow 0.25s; }
+.model-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+.model-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.model-card:hover img { transform: scale(1.05); }
+
+.model-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,.15) 60%, transparent 100%); padding: 18px 14px 14px; display: flex; align-items: flex-end; }
+.model-name { font-size: 15px; font-weight: 800; letter-spacing: .3px; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
+
+.model-badge { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,.92); color: #0f172a; border-radius: 50px; padding: 4px 10px; font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
 
 /* ── WHY SECTION ── */
 .why-section { background: #0f172a; padding: 60px 20px; position: relative; overflow: hidden; }
@@ -353,7 +352,7 @@ footer a:hover { color: #fff; }
   <div class="coll-header">
     <div class="coll-eyebrow">Nos modèles</div>
     <h2 class="coll-title">La Collection</h2>
-    <p class="coll-sub">Tissu Bestretch · 10 couleurs · Tailles XS → 4XL</p>
+    <p class="coll-sub">Tissu Bestretch · Tailles XS → 4XL</p>
   </div>
 
   <div class="gender-tabs">
@@ -368,87 +367,50 @@ footer a:hover { color: #fff; }
     <div class="models-grid">
       <a href="v95.html" class="model-card">
         <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e91a69548_vertpastel.webp" alt="Modèle V95" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">V95</div>
-          <div class="model-sub">Col V classique</div>
-        </div>
-        <div class="model-badge">Best-seller</div>
+        <div class="model-overlay"><div class="model-name">V95</div></div>
       </a>
       <a href="amira.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Modèle Élégance Pro Demi Manche" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Élégance Pro Demi Manche</div>
-          <div class="model-sub">Design féminin élégant</div>
-        </div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/080d16e19_Roseclairwep.webp" alt="Élégance Pro Demi Manche" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Élégance Pro</div></div>
       </a>
       <a href="amira2.html" class="model-card">
         <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/0f66082d7_27.webp" alt="Modèle Amira 2" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Amira 2</div>
-          <div class="model-sub">Design féminin élégant</div>
-        </div>
+        <div class="model-overlay"><div class="model-name">Amira Hijab</div></div>
       </a>
       <a href="col-avici.html" class="model-card">
         <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/fb83ab934_bordo.webp" alt="Col Officier" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Col Officier</div>
-          <div class="model-sub">Col officier · Pro</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <div class="model-overlay"><div class="model-name">Col Officier</div></div>
       </a>
       <a href="bloc-mao.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/dfbfdadc4_banani.webp" alt="Bloc Mao Stretch Femme" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Bloc Mao Stretch</div>
-          <div class="model-sub">Col Mao · Tissu Stretch</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/dfbfdadc4_banani.webp" alt="Bloc Mao Stretch" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Bloc Mao</div></div>
       </a>
       <a href="wide-leg.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/c1e741abd_bc5e24d8c_bleuciel.webp" alt="Bloc Stretch Wide Leg" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Stretch Wide Leg</div>
-          <div class="model-sub">Coupe Wide Leg · Tissu Stretch</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/c1e741abd_bc5e24d8c_bleuciel.webp" alt="Stretch Wide Leg" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Wide Leg</div></div>
       </a>
       <a href="elegance-fit.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e061a12bb_af89fe3c7_beigsable.webp" alt="Tenue Médicale Élégance Fit" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Élégance Fit</div>
-          <div class="model-sub">Taille cintrée · Tissu Stretch</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e061a12bb_af89fe3c7_beigsable.webp" alt="Élégance Fit" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Élégance Fit</div></div>
       </a>
       <a href="fantasia.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f523bfa20_d94acdb57_1.webp" alt="Tenue Médicale Modèle Fantasia" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Modèle Fantasia</div>
-          <div class="model-sub">Imprimés fantaisie · Tissu Stretch</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/f523bfa20_d94acdb57_1.webp" alt="Modèle Fantasia" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Fantasia</div></div>
+        <div class="model-badge">Nouveau</div>
       </a>
     </div>
   </div>
 
   <!-- MEN -->
   <div class="gender-section" id="section-men">
-    <div class="models-grid-2">
+    <div class="models-grid">
       <a href="v95.html" class="model-card">
         <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/87b23f17e_bleumarin3.webp" alt="V95 Homme" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">V95</div>
-          <div class="model-sub">Col V · Confort respirant</div>
-        </div>
-        <div class="model-badge">Best-seller</div>
+        <div class="model-overlay"><div class="model-name">V95</div></div>
       </a>
       <a href="col-avici.html" class="model-card">
-        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="Col Officier" loading="lazy">
-        <div class="model-overlay">
-          <div class="model-name">Col Officier</div>
-          <div class="model-sub">Col officier · Élégance pro</div>
-        </div>
-        <div class="model-badge new">Nouveau</div>
+        <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d95f2aaad_vertmedical.webp" alt="Col Officier Homme" loading="lazy">
+        <div class="model-overlay"><div class="model-name">Col Officier</div></div>
       </a>
     </div>
   </div>
