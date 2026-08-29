@@ -584,6 +584,17 @@ select{font-family:inherit}
         .rbar-fill{height:100%;border-radius:99px;}
         /* ── Review cards ── */
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+
+        .ugc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+        .ugc-card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);}
+        .ugc-card img{width:100%;object-fit:cover;display:block;background:#f3f4f6;}
+        .ugc-body{padding:10px 11px 12px;}
+        .ugc-name-row{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:#111;}
+        .ugc-date{font-size:10.5px;color:#9ca3af;margin:2px 0 5px;}
+        .ugc-stars{color:#f5a623;font-size:12px;letter-spacing:1px;margin-bottom:5px;}
+        .ugc-text{font-size:12px;color:#374151;line-height:1.5;margin-bottom:6px;}
+        .ugc-variant{font-size:10.5px;color:#9ca3af;line-height:1.4;}
+
         .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
         .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
         /* ── Steps ── */
@@ -1239,6 +1250,73 @@ select{font-family:inherit}
             <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Recevez votre commande et payez à la livraison 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">En 24-48h — vérifiez avant de payer</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Reviews (UGC masonry) -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">Nos clientes en Bloc Mao 📸</h2>
+        <div class="ugc-grid">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/6ac024070_14b357d82_0.webp" alt="Avis client Uniformedical — Salma E." loading="lazy" style="height:240px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Salma E. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">03/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Très satisfaite ! La coupe du col Mao est originale et professionnelle à la fois. Le tissu stretch est vraiment confortable pour les longues gardes, je recommande vivement.</p>
+                    <p class="ugc-variant">Type d'article :<br>Blanc / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/a8367fab9_5c8546165_8.webp" alt="Avis client Uniformedical — Hind B." loading="lazy" style="height:200px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Hind B. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">12/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Parfaite ! 👌</p>
+                    <p class="ugc-variant">Type d'article :<br>Bleu Ciel / S</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/e77aa8fd7_2bdd8143e_9.webp" alt="Avis client Uniformedical — Khadija R." loading="lazy" style="height:220px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Khadija R. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">18/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">J'adore la couleur rose, le tissu est doux et ne se froisse pas. Parfait pour le travail à l'hôpital.</p>
+                    <p class="ugc-variant">Type d'article :<br>Rose / L</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/b827a69d6_e52c3543b_5.webp" alt="Avis client Uniformedical — Yasmine T." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Yasmine T. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">25/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Commande reçue en 48h à Casablanca. La blouse est exactement comme sur les photos. Le col Mao donne un look très élégant, mes collègues veulent toutes la commander maintenant 😍 Merci Uniformedical !</p>
+                    <p class="ugc-variant">Type d'article :<br>Noir / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/689383c2f_51653ab70_7.webp" alt="Avis client Uniformedical — Nadia El F." loading="lazy" style="height:210px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Nadia El F. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">01/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Bonne qualité, taille bien, livraison rapide.</p>
+                    <p class="ugc-variant">Type d'article :<br>Marron Caramel / XL</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/acce9870b_4189421a2_4.webp" alt="Avis client Uniformedical — Asmaa M." loading="lazy" style="height:230px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Asmaa M. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">14/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Superbe blouse en pétrole, la couleur est magnifique en vrai. Le tissu stretch permet de bouger facilement, idéal pour le bloc opératoire. Je vais commander une deuxième en duo !</p>
+                    <p class="ugc-variant">Type d'article :<br>Pétrole / S</p>
+                </div>
             </div>
         </div>
     </div>
