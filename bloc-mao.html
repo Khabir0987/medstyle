@@ -585,8 +585,8 @@ select{font-family:inherit}
         /* ── Review cards ── */
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
 
-        .ugc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start;}
-        .ugc-card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);}
+        .ugc-grid{column-count:2;column-gap:8px;}
+        .ugc-card{break-inside:avoid;margin-bottom:8px;background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);display:inline-block;width:100%;}
         .ugc-card img{width:100%;object-fit:cover;display:block;background:#f3f4f6;}
         .ugc-body{padding:10px 11px 12px;}
         .ugc-name-row{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:#111;}
