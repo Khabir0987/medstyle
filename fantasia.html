@@ -586,6 +586,17 @@ select{font-family:inherit}
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
         .no-scrollbar::-webkit-scrollbar{display:none;}
         .no-scrollbar{scrollbar-width:none;}
+
+        .ugc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+        .ugc-card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);}
+        .ugc-card img{width:100%;object-fit:cover;display:block;background:#f3f4f6;}
+        .ugc-body{padding:10px 11px 12px;}
+        .ugc-name-row{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:#111;}
+        .ugc-date{font-size:10.5px;color:#9ca3af;margin:2px 0 5px;}
+        .ugc-stars{color:#f5a623;font-size:12px;letter-spacing:1px;margin-bottom:5px;}
+        .ugc-text{font-size:12px;color:#374151;line-height:1.5;margin-bottom:6px;}
+        .ugc-variant{font-size:10.5px;color:#9ca3af;line-height:1.4;}
+
         .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
         .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
         /* ── Steps ── */
@@ -1224,41 +1235,49 @@ select{font-family:inherit}
         </div>
     </div>
 
-    <!-- Photo Reviews (UGC) -->
-    <div style="background:#fff;border-radius:20px;padding:16px 0 16px 16px;margin-bottom:12px;">
-        <h2 class="section-title" style="padding-right:16px;">Nos clientes en Fantasia 📸</h2>
-        <div style="display:flex;gap:12px;overflow-x:auto;padding:2px 16px 6px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;" class="no-scrollbar">
-            <div style="flex:0 0 148px;scroll-snap-align:start;">
-                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
-                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/c840f5f57_10fddfac6_h2.webp" alt="Cliente Uniformedical — Sanae B." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <!-- Photo Reviews (UGC masonry) -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">Nos clientes en Fantasia 📸</h2>
+        <div class="ugc-grid">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/c840f5f57_10fddfac6_h2.webp" alt="Avis client Uniformedical — Sanae B." loading="lazy" style="height:210px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Sanae B. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">02/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Le tissu est doux et respirant, j'adore l'imprimé 😍</p>
+                    <p class="ugc-variant">Type d'article :<br>Imprimé Ourson Bleu / M</p>
                 </div>
-                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Sanae B. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Rabat</span></p>
-                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
-                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Le tissu est doux et respirant, et l'imprimé ourson bleu est adorable — mes collègues me demandent toujours où je l'ai acheté !"</p>
             </div>
-            <div style="flex:0 0 148px;scroll-snap-align:start;">
-                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
-                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/9162fe1c4_7a0ccce16_h3.webp" alt="Cliente Uniformedical — Nawal K." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/9162fe1c4_7a0ccce16_h3.webp" alt="Avis client Uniformedical — Nawal K." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Nawal K. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">15/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Bonne qualité, coupe parfaite et très confortable</p>
+                    <p class="ugc-variant">Type d'article :<br>Vert Menthe / S</p>
                 </div>
-                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Nawal K. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Casablanca</span></p>
-                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
-                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Coupe parfaite et le coloris vert menthe est encore plus beau en vrai. Je la porte tous les jours au bloc, très confortable."</p>
             </div>
-            <div style="flex:0 0 148px;scroll-snap-align:start;">
-                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
-                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4b962e4bb_c8b9d7cf2_h.webp" alt="Cliente Uniformedical — Imane R." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/4b962e4bb_c8b9d7cf2_h.webp" alt="Avis client Uniformedical — Imane R." loading="lazy" style="height:230px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Imane R. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">09/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Livraison rapide, exactement comme sur les photos 👌</p>
+                    <p class="ugc-variant">Type d'article :<br>Fleurs Beige / L</p>
                 </div>
-                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Imane R. <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Marrakech</span></p>
-                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
-                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"J'adore le motif fleurs beige, discret et élégant. Livraison reçue en 2 jours à Marrakech, service très professionnel."</p>
             </div>
-            <div style="flex:0 0 148px;scroll-snap-align:start;">
-                <div style="width:148px;height:186px;border-radius:14px;overflow:hidden;background:#f3f4f6;">
-                    <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/03feda9bc_e48f40987_h4.webp" alt="Cliente Uniformedical — Ghita El Amrani" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/03feda9bc_e48f40987_h4.webp" alt="Avis client Uniformedical — Ghita El Amrani" loading="lazy" style="height:195px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Ghita El Amrani <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">29/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">J'adore ce modèle, magnifique 🥰</p>
+                    <p class="ugc-variant">Type d'article :<br>Fleurs Fuchsia / M</p>
                 </div>
-                <p style="font-size:13px;font-weight:800;color:#111;margin:8px 0 1px;">Ghita El Amrani <span style="font-weight:600;color:#9ca3af;font-size:11px;">· Fès</span></p>
-                <div style="color:#f59e0b;font-size:12px;margin-bottom:5px;">★★★★★</div>
-                <p style="font-size:11px;color:#6b7280;line-height:1.55;">"Le motif floral fuchsia est magnifique et le tissu stretch reste agréable même après 12h de garde. Je recommande à 100% !"</p>
             </div>
         </div>
     </div>
