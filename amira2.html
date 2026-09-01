@@ -584,6 +584,17 @@ select{font-family:inherit}
         .rbar-fill{height:100%;border-radius:99px;}
         /* ── Review cards ── */
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+
+        .ugc-grid{column-count:2;column-gap:8px;}
+        .ugc-card{break-inside:avoid;margin-bottom:8px;background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);display:inline-block;width:100%;}
+        .ugc-card img{width:100%;object-fit:cover;display:block;background:#f3f4f6;}
+        .ugc-body{padding:10px 11px 12px;}
+        .ugc-name-row{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:#111;}
+        .ugc-date{font-size:10.5px;color:#9ca3af;margin:2px 0 5px;}
+        .ugc-stars{color:#f5a623;font-size:12px;letter-spacing:1px;margin-bottom:5px;}
+        .ugc-text{font-size:12px;color:#374151;line-height:1.5;margin-bottom:6px;}
+        .ugc-variant{font-size:10.5px;color:#9ca3af;line-height:1.4;}
+
         .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
         .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
         /* ── Steps ── */
@@ -1260,6 +1271,93 @@ select{font-family:inherit}
             <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Recevez votre commande et payez à la livraison 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">En 24-48h — vérifiez avant de payer</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Reviews (UGC masonry) -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">Nos clientes en AMIRA HIJAB 📸</h2>
+        <div class="ugc-grid">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/03af7bb73_bdd5d1610_1.webp" alt="Avis client Uniformedical — Salma B." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Salma B. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">05/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Excellent ! Le tissu est très doux et respirant. La coupe avec hijab est parfaite, je me sens à l'aise toute la journée au bloc. Livraison rapide à Rabat, je recommande à 100% 😍</p>
+                    <p class="ugc-variant">Type d'article :<br>Mauve / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/20ed9a2d4_f5dacb0e1_2.webp" alt="Avis client Uniformedical — Khadija E." loading="lazy" style="height:220px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Khadija E. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">11/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Très belle couleur bordeaux, élégante et professionnelle 👌</p>
+                    <p class="ugc-variant">Type d'article :<br>Vert Militaire / L</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/94ad59585_f1f23cc28_3.webp" alt="Avis client Uniformedical — Nawal M." loading="lazy" style="height:240px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Nawal M. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">17/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Enfin une blouse adaptée au hijab ! La coupe est pensée pour ça, rien à ajuster. Le vert militaire est superbe en vrai, exactement comme la photo. Merci Uniformedical !</p>
+                    <p class="ugc-variant">Type d'article :<br>Vert Militaire / S</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/01fcc346f_ea8570bdd_4.webp" alt="Avis client Uniformedical — Imane R." loading="lazy" style="height:210px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Imane R. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">23/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Bonne qualité, taille bien. Parfaite pour le travail.</p>
+                    <p class="ugc-variant">Type d'article :<br>Bleu Marine Foncé / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/998df123c_4cf5c664c_5.webp" alt="Avis client Uniformedical — Houda F." loading="lazy" style="height:230px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Houda F. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">30/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">J'adore la couleur rose, douce et féminine sans être trop voyante. Le tissu stretch ne se froisse pas même après une longue garde. Mes collègues veulent toutes la commander maintenant !</p>
+                    <p class="ugc-variant">Type d'article :<br>Rose Bébé / L</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8fe25a49d_a7873c876_7.webp" alt="Avis client Uniformedical — Asmaa K." loading="lazy" style="height:200px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Asmaa K. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">03/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Magnifique ! 😍</p>
+                    <p class="ugc-variant">Type d'article :<br>Bleu Ciel / S</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8a30f78e1_b68da5482_51.webp" alt="Avis client Uniformedical — Fatima Z." loading="lazy" style="height:220px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Fatima Z. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">12/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Le vert menthe est très rafraîchissant. La blouse est confortable et le hijab reste bien en place. Commande reçue en 48h à Fès, service au top.</p>
+                    <p class="ugc-variant">Type d'article :<br>Vert Menthe / XL</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/2eafb568b_4f04fbeaa_52.webp" alt="Avis client Uniformedical — Ghita L." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Ghita L. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">20/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Je suis très exigeante niveau tissu et celle-ci m'a vraiment surprise. Le violet est profond et élégant, la finition est nickel. C'est ma deuxième commande chez Uniformedical et je ne suis pas déçue. Je recommande vivement à toutes mes collègues !</p>
+                    <p class="ugc-variant">Type d'article :<br>Violet / M</p>
+                </div>
             </div>
         </div>
     </div>
