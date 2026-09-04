@@ -583,6 +583,17 @@ select{font-family:inherit}
         .rbar-fill{height:100%;border-radius:99px;}
         /* ── Review cards ── */
         .rev-card{background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:10px;}
+
+        .ugc-grid{column-count:2;column-gap:8px;}
+        .ugc-card{break-inside:avoid;margin-bottom:8px;background:#fff;border:1px solid #f0f0f0;border-radius:12px;overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.05);display:inline-block;width:100%;}
+        .ugc-card img{width:100%;object-fit:cover;display:block;background:#f3f4f6;}
+        .ugc-body{padding:10px 11px 12px;}
+        .ugc-name-row{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:#111;}
+        .ugc-date{font-size:10.5px;color:#9ca3af;margin:2px 0 5px;}
+        .ugc-stars{color:#f5a623;font-size:12px;letter-spacing:1px;margin-bottom:5px;}
+        .ugc-text{font-size:12px;color:#374151;line-height:1.5;margin-bottom:6px;}
+        .ugc-variant{font-size:10.5px;color:#9ca3af;line-height:1.4;}
+
         .rev-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;}
         .verified{display:inline-flex;align-items:center;gap:3px;background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;}
         /* ── Steps ── */
@@ -1238,6 +1249,73 @@ select{font-family:inherit}
             <div style="display:flex;align-items:flex-start;gap:12px;">
                 <div style="display:flex;flex-direction:column;align-items:center;"><div class="step-c">3</div></div>
                 <div style="padding-top:5px;"><p style="font-size:13px;font-weight:800;color:#065f46;">Recevez votre commande et payez à la livraison 🎉</p><p style="font-size:12px;color:#6b7280;margin-top:1px;">En 24-48h — vérifiez avant de payer</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Reviews (UGC masonry) -->
+    <div style="background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+        <h2 class="section-title">Nos clientes en Wide Leg 📸</h2>
+        <div class="ugc-grid">
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/8633ff6b0_88199e2df_1.webp" alt="Avis client Uniformedical — Meryem A." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Meryem A. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">02/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Le pantalon wide leg est trop stylé ! La coupe est fluide et très confortable, on dirait presque un palazzo élégant. Le marron chocolat est magnifique en vrai. Mes collègues m'ont toutes demandé où je l'ai acheté 😍</p>
+                    <p class="ugc-variant">Type d'article :<br>Marron Chocolat / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/040c3d631_da4b548c6_2.webp" alt="Avis client Uniformedical — Sofia B." loading="lazy" style="height:220px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Sofia B. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">09/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Parfaite ! 👌</p>
+                    <p class="ugc-variant">Type d'article :<br>Noir / S</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/89f3356b3_998b4e0df_3.webp" alt="Avis client Uniformedical — Loubna T." loading="lazy" style="height:240px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Loubna T. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">16/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Le gris clair est très chic et le tissu ne se froisse pas du tout, même après 12h de garde. Le pantalon large laisse respirer, parfait pour l'été. Livraison rapide en 48h à Marrakech.</p>
+                    <p class="ugc-variant">Type d'article :<br>Gris Clair / L</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/27f4b97d1_ea8820659_4.webp" alt="Avis client Uniformedical — Chaimae D." loading="lazy" style="height:210px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Chaimae D. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">24/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Bonne qualité, taille bien. Parfaite pour le travail.</p>
+                    <p class="ugc-variant">Type d'article :<br>Rose Clair / M</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/d0273e717_c5d05fda7_5.webp" alt="Avis client Uniformedical — Ilham N." loading="lazy" style="height:230px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Ilham N. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">31/07/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">J'adore ! Le vert pastel est très doux et la coupe wide leg est vraiment confortable pour les longues journées à la maternité. C'est ma deuxième commande chez Uniformedical et toujours satisfaite !</p>
+                    <p class="ugc-variant">Type d'article :<br>Vert Pastel / XL</p>
+                </div>
+            </div>
+            <div class="ugc-card">
+                <img src="https://media.base44.com/images/public/6a1d9178135b8b3525ccd117/af45d0319_340d2df18_6.webp" alt="Avis client Uniformedical — Wiam S." loading="lazy" style="height:250px;">
+                <div class="ugc-body">
+                    <div class="ugc-name-row">Wiam S. <svg width="13" height="13" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#3b82f6" d="M12 1l2.4 2.1 3.1-.6 1 3 3 1-.6 3.1L23 12l-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4-.6-3.1 3-1 1-3 3.1.6z"/><path fill="#fff" d="M9.3 12.4l1.8 1.8 3.9-4.4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="ugc-date">12/08/2026</p>
+                    <div class="ugc-stars">★★★★★</div>
+                    <p class="ugc-text">Superbe ensemble noir, élégant et professionnel en même temps. Le pantalon tombe parfaitement et la blouse est très bien coupée. Je recommande vivement Uniformedical, qualité au top et service client réactif sur WhatsApp !</p>
+                    <p class="ugc-variant">Type d'article :<br>Noir / L</p>
+                </div>
             </div>
         </div>
     </div>
