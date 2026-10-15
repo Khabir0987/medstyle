@@ -909,7 +909,7 @@ select{font-family:inherit}
             <div>
                 <label for="embroidery-check" class="text-sm font-bold text-gray-800 cursor-pointer">
                     <span class="text-amber-600 ml-1" aria-hidden="true">✒️</span>
-                    Ajouter broderie nom ou logo (Broderie) — <span class="text-teal-700">+45 Dh</span>
+                    Ajouter broderie nom ou logo (Broderie) — <span class="text-teal-700">+64 Dh</span>
                 </label>
                 <p class="text-xs text-gray-500 mt-0.5">Nous vous contacterons pour définir le texte, couleur et emplacement</p>
                 <!-- Embroidery fields (shown when checked) -->
@@ -1343,7 +1343,7 @@ select{font-family:inherit}
                     <span class="faq-chevron" id="faq-icon-2"><i class="fa-solid fa-chevron-down" style="font-size:11px;transition:transform .3s;pointer-events:none;"></i></span>
                 </button>
                 <div id="faq-ans-2" style="display:none;padding:0 16px 16px;">
-                    <p class="text-sm text-gray-600 leading-relaxed">Oui ! Nous proposons la broderie noms et logos à <span class="font-bold text-purple-600">45 MAD</span> par pièce. Nous offrons aussi des tarifs spéciaux pour cliniques, labos et équipes médicales — contactez-nous.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">Oui ! Nous proposons la broderie noms et logos à <span class="font-bold text-purple-600">64 MAD</span> par pièce. Nous offrons aussi des tarifs spéciaux pour cliniques, labos et équipes médicales — contactez-nous.</p>
                 </div>
             </div>
 
@@ -1502,7 +1502,7 @@ select{font-family:inherit}
                 <span id="modal-offer-price" class="font-extrabold text-gray-900">499 Dh</span>
             </div>
             <div id="modal-broderie-row" class="hidden flex justify-between text-xs text-purple-600">
-                <span>Broderie</span><span class="font-bold">+ 40 Dh</span>
+                <span>Broderie</span><span class="font-bold">+ 64 Dh</span>
             </div>
             <div class="flex justify-between text-xs text-gray-400 border-t border-teal-100 pt-1.5">
                 <span>Livraison</span><span id="modal-delivery-text" class="font-bold">Offerte </span>
@@ -2031,7 +2031,7 @@ function toggleSizeGuide() {
 function toggleEmbroidery(cb) {
     const fields = document.getElementById('embroidery-fields');
     if (fields) fields.classList.toggle('hidden', !cb.checked);
-    embPrice = cb.checked ? 45 : 0;
+    embPrice = cb.checked ? 64 : 0;
     // Update modal total if open
     const totalEl = document.getElementById('modal-total');
     const bp = bundlePricing[activeBundle];
