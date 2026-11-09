@@ -2161,7 +2161,7 @@ function handleSubmit(e) {
       if (_np[0]) _match.fn = _np[0];
       if (_np.length > 1) _match.ln = _np.slice(1).join(' ');
       if (city) _match.ct = city;
-      fbq('init', '635699965101040', _match);
+      // Pixel ANCIEN (635699965101040) : ne pas modifier - il fonctionne deja parfaitement
       fbq('init', '1729572514656972', _match);
       fbq('track', 'Purchase', {
         value: total,
