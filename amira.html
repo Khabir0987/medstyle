@@ -2045,6 +2045,8 @@ function toggleEmbroidery(cb) {
 // ══════════════════════════════════════════════════════════
 function handleSubmit(e) {
     e.preventDefault();
+    if (window.__uniOrderSent) { return; }   // anti double-submit (évite Purchase en double)
+
 
     const name    = (document.getElementById('f-name')?.value    || '').trim();
     const phone   = (document.getElementById('f-phone')?.value   || '').trim();
@@ -2150,6 +2152,15 @@ function handleSubmit(e) {
     }).catch(function(){});
     // Facebook Pixel — Purchase
     if (typeof fbq !== 'undefined') {
+      // Advanced Matching (améliore la qualité de suivi Purchase)
+      var _ph = phone.replace(/\D/g,''); if (_ph.indexOf('0')===0) _ph = '212' + _ph.slice(1);
+      var _np = name.trim().split(/\s+/);
+      var _match = { ph: _ph, country: 'ma' };
+      if (_np[0]) _match.fn = _np[0];
+      if (_np.length > 1) _match.ln = _np.slice(1).join(' ');
+      if (city) _match.ct = city;
+      fbq('init', '635699965101040', _match);
+      fbq('init', '1729572514656972', _match);
       fbq('track', 'Purchase', {
         value: total,
         currency: 'MAD',
@@ -2157,7 +2168,8 @@ function handleSubmit(e) {
         content_ids: ['UNI-ELEGANCE-PRO'],
         content_type: 'product',
         num_items: bp.qty || 1
-      });
+      }, { eventID: oid });
+      window.__uniOrderSent = true;
       // CompleteRegistration = confirmation page viewed
       fbq('track', 'CompleteRegistration', {
         value: total,
