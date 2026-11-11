@@ -2072,13 +2072,15 @@ function handleSubmit(e) {
     const total = bp.price + embPrice + bp.delivery;
 
     // Collect items
-    let lines = [];
+    let lines = [], ordColors = [], ordSizes = [];
     for (let i=1; i<=cnt; i++) {
         const csel  = document.getElementById('color-'+activeBundle+'-'+i);
         const ssel  = document.getElementById('size-' +activeBundle+'-'+i);
         const cname = csel ? (colorNames[csel.value]||csel.value) : '';
         const sname = ssel ? ssel.value : '';
         lines.push('• Pièce '+i+': '+cname+' / Taille '+sname);
+        if (cname) ordColors.push(cname);
+        if (sname) ordSizes.push(sname);
     }
 
     // Embroidery info
@@ -2177,6 +2179,30 @@ function handleSubmit(e) {
       if (city) _match.ct = city;
       // Pixel ANCIEN (635699965101040) : ne pas modifier - il fonctionne deja parfaitement
       fbq('init', '1729572514656972', _match);
+      // ── BACKUP: envoi direct au dashboard MedThreads (meme si Google echoue) ──
+      try {
+        fetch('https://base44.app/api/apps/6a1b01b3319926103d7e54d0/functions/importSiteOrders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify({ orders: [{
+            order_id: oid,
+            client_name: name,
+            phone: phone,
+            city: city,
+            address: address,
+            model: 'Blouse Médicale V95',
+            color: ordColors.join(' / '),
+            size: ordSizes.join(' / '),
+            quantity: cnt,
+            price: total,
+            notes: lines.join(' | ') + embDetails + ' | Livraison: ' + bp.delivery + ' Dh' + (embPrice>0 ? ' | Broderie +'+embPrice+' Dh' : ''),
+            source: 'Site',
+            status: 'nouvelle'
+          }] })
+        }).catch(function(){});
+      } catch (err) {}
+
       // Pixel ANCIEN : comportement inchange (Purchase au submit)
       fbq('trackSingle', '635699965101040', 'Purchase', {
         value: total,
