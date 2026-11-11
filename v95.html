@@ -2116,6 +2116,20 @@ function handleSubmit(e) {
     if (spEl)  spEl.innerText  = total + ' Dh';
     if (siEl)  siEl.innerText  = lines.join(' | ');
     if (waEl)  waEl.href       = 'https://wa.me/212770662956?text='+msg;
+    // Pixel NOUVEAU : Purchase uniquement quand le client clique pour envoyer la commande WhatsApp
+    if (waEl && !waEl.__pxBound) {
+      waEl.__pxBound = true;
+      waEl.addEventListener('click', function () {
+        if (window.__newPxPurchaseSent) return;
+        window.__newPxPurchaseSent = true;
+        if (typeof fbq !== 'undefined') {
+          fbq('trackSingle', '1729572514656972', 'Purchase', {
+            value: total, currency: 'MAD', content_name: bp.name,
+            content_ids: ['UNI-V95'], content_type: 'product', num_items: bp.qty || 1
+          }, { eventID: oid + '-WA' });
+        }
+      });
+    }
     // Update shipping display in success screen
     const sShipEl = document.getElementById('s-shipping');
     if (sShipEl) {
@@ -2163,7 +2177,8 @@ function handleSubmit(e) {
       if (city) _match.ct = city;
       // Pixel ANCIEN (635699965101040) : ne pas modifier - il fonctionne deja parfaitement
       fbq('init', '1729572514656972', _match);
-      fbq('track', 'Purchase', {
+      // Pixel ANCIEN : comportement inchange (Purchase au submit)
+      fbq('trackSingle', '635699965101040', 'Purchase', {
         value: total,
         currency: 'MAD',
         content_name: bp.name,
