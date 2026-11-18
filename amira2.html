@@ -47,7 +47,6 @@
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '635699965101040');
-  fbq('init', '1729572514656972');
   fbq('track', 'PageView');
   fbq('track', 'ViewContent', {
     content_name: 'Tenue Médicale Model AMIRA HIJAB',
@@ -2235,20 +2234,6 @@ function handleSubmit(e) {
     if (spEl)  spEl.innerText  = total + ' Dh';
     if (siEl)  siEl.innerText  = lines.join(' | ');
     if (waEl)  waEl.href       = 'https://wa.me/212770662956?text='+msg;
-    // Pixel NOUVEAU : Purchase uniquement quand le client clique pour envoyer la commande WhatsApp
-    if (waEl && !waEl.__pxBound) {
-      waEl.__pxBound = true;
-      waEl.addEventListener('click', function () {
-        if (window.__newPxPurchaseSent) return;
-        window.__newPxPurchaseSent = true;
-        if (typeof fbq !== 'undefined') {
-          fbq('trackSingle', '1729572514656972', 'Purchase', {
-            value: total, currency: 'MAD', content_name: bp.name,
-            content_ids: ['UNI-AMIRA2'], content_type: 'product', num_items: bp.qty || 1
-          }, { eventID: oid + '-WA' });
-        }
-      });
-    }
     // Update shipping display in success screen
     const sShipEl = document.getElementById('s-shipping');
     if (sShipEl) {
@@ -2294,8 +2279,6 @@ function handleSubmit(e) {
       if (_np[0]) _match.fn = _np[0];
       if (_np.length > 1) _match.ln = _np.slice(1).join(' ');
       if (city) _match.ct = city;
-      // Pixel ANCIEN (635699965101040) : ne pas modifier - il fonctionne deja parfaitement
-      fbq('init', '1729572514656972', _match);
       // ── BACKUP: envoi direct au dashboard MedThreads (meme si Google echoue) ──
       try {
         fetch('https://base44.app/api/apps/6a1b01b3319926103d7e54d0/functions/importSiteOrders', {
